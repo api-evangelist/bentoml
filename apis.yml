@@ -1,0 +1,122 @@
+aid: bentoml
+name: BentoML
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/apis.yml
+created: 2026-06-12
+modified: 2026-06-12
+specificationVersion: "0.19"
+description: >
+  BentoML is an open-source unified inference platform for building, packaging, and deploying
+  machine learning models as scalable REST API services. Developers define services using Python
+  class decorators that automatically expose model inference logic as HTTP endpoints. BentoCloud,
+  the managed cloud offering, provides autoscaling infrastructure, GPU instance provisioning,
+  scale-to-zero cost optimization, and a control-plane API for programmatic deployment lifecycle
+  management. The platform supports all major ML frameworks including PyTorch, TensorFlow,
+  Transformers, ONNX, XGBoost, and Scikit-Learn, and is licensed under Apache 2.0.
+tags:
+  - machine learning
+  - model serving
+  - inference
+  - AI
+  - REST API
+  - MLOps
+  - deployment
+  - GPU
+  - LLM
+  - BentoCloud
+apis:
+  - aid: bentoml:bentocloud-deployment-api
+    name: BentoCloud Deployment API
+    description: >
+      Python SDK and programmatic API for managing BentoCloud deployments. Provides operations
+      to create, retrieve, list, update, apply, terminate, and delete inference deployments
+      on BentoCloud infrastructure.
+    humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
+    baseURL: https://cloud.bentoml.com
+    tags:
+      - deployment
+      - BentoCloud
+      - management
+    properties:
+      - type: Documentation
+        url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
+
+  - aid: bentoml:bentoml-service-api
+    name: BentoML Service REST API
+    description: >
+      Auto-generated REST API endpoints produced when BentoML services are deployed. Each
+      decorated service method becomes an HTTP POST endpoint. Supports custom routes, path
+      prefixes, adaptive batching, async task queues, and context-aware request/response
+      handling for model inference workloads.
+    humanURL: https://docs.bentoml.com/en/latest/build-with-bentoml/services.html
+    baseURL: https://localhost:3000
+    tags:
+      - inference
+      - REST API
+      - model serving
+    properties:
+      - type: Documentation
+        url: https://docs.bentoml.com/en/latest/build-with-bentoml/services.html
+
+  - aid: bentoml:bentoml-sdk
+    name: BentoML Python SDK
+    description: >
+      Core Python SDK for packaging models as Bentos, managing the model store, building
+      container images, and interacting with BentoML services programmatically including
+      client-side API calls to deployed inference endpoints.
+    humanURL: https://docs.bentoml.com/en/latest/reference/bentoml/index.html
+    baseURL: https://pypi.org/project/bentoml/
+    tags:
+      - SDK
+      - Python
+      - model packaging
+    properties:
+      - type: Documentation
+        url: https://docs.bentoml.com/en/latest/reference/bentoml/index.html
+
+  - aid: bentoml:bentocloud-token-api
+    name: BentoCloud API Token Management
+    description: >
+      API for creating, listing, retrieving, and deleting API tokens used to authenticate
+      with BentoCloud services. Supports scoped tokens with granular permissions including
+      API access, organization read/write, and cluster read/write.
+    humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
+    baseURL: https://cloud.bentoml.com
+    tags:
+      - authentication
+      - tokens
+      - security
+    properties:
+      - type: Documentation
+        url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
+
+common:
+  - type: Website
+    url: https://www.bentoml.com/
+  - type: Documentation
+    url: https://docs.bentoml.com/
+  - type: GitHubOrganization
+    url: https://github.com/bentoml
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bentoml
+  - type: Blog
+    url: https://www.bentoml.com/blog
+  - type: Pricing
+    url: https://www.bentoml.com/pricing
+  - type: StatusPage
+    url: https://status.bentoml.com/
+  - type: X
+    url: https://x.com/bentomlai
+  - type: CLI
+    url: https://docs.bentoml.com/en/latest/reference/bentoml/cli.html
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/plans/bentoml-plans-pricing.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/rate-limits/bentoml-rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/finops/bentoml-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

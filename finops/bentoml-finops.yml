@@ -1,0 +1,104 @@
+name: BentoML FinOps
+description: >
+  Financial operations data for BentoCloud, the managed inference platform by BentoML.
+  BentoCloud uses a consumption-based billing model metered per second of active compute.
+  Deployments scaled to zero incur no charges, enabling significant cost savings during
+  idle periods. This document follows the FinOps Framework 1.0 FOCUS-aligned structure
+  for cloud cost visibility and optimization.
+specificationVersion: "1.0"
+url: https://www.bentoml.com/pricing
+focusVersion: "1.0"
+
+provider:
+  name: BentoML / BentoCloud
+  website: https://www.bentoml.com/
+  pricingPage: https://www.bentoml.com/pricing
+  billingContact: https://www.bentoml.com/pricing
+
+billingModel:
+  type: consumption
+  description: >
+    Pay-as-you-go model billed per second of active compute. No charges accrue when
+    a deployment is scaled to zero. Starter plan uses credit card billing; Scale and
+    Enterprise plans use invoice billing with negotiated terms.
+  meteringGranularity: per-second
+  billingCycle:
+    starter: monthly
+    scale: invoice (custom terms)
+    enterprise: invoice (custom terms)
+  freeCredits:
+    amount: 10
+    currency: USD
+    description: Free trial credits granted at signup for new BentoCloud accounts
+
+costCategories:
+  - name: Compute (CPU Instances)
+    description: Per-second compute cost for CPU-based inference replicas
+    unit: instance-second
+    instanceTypes:
+      - cpu.1
+      - cpu.2
+      - cpu.4
+      - cpu.8
+    notes: Pricing not publicly listed; contact BentoML or refer to BentoCloud dashboard
+
+  - name: Compute (GPU Instances)
+    description: Per-second compute cost for GPU-based inference replicas
+    unit: instance-second
+    instanceTypes:
+      - gpu.t4.1
+      - gpu.l4.1
+      - gpu.a100.1
+    notes: GPU instances command higher per-second rates than CPU; pricing varies by type
+
+  - name: Idle / Zero Replicas
+    description: No cost incurred when a deployment is scaled to zero (scale-to-zero enabled)
+    cost: 0
+    unit: N/A
+
+costOptimization:
+  strategies:
+    - name: Scale-to-Zero
+      description: >
+        Set minimum replicas to 0 to allow deployments to scale down completely during
+        idle periods. Eliminates compute costs during off-peak hours. Acceptable when
+        cold-start latency is tolerable for the use case.
+      reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+
+    - name: Concurrency Tuning
+      description: >
+        Optimize the per-replica concurrency setting to maximize GPU/CPU utilization
+        before triggering scale-out. Higher concurrency reduces replica count and cost
+        for throughput-tolerant workloads.
+      reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+
+    - name: Right-Sizing Instance Types
+      description: >
+        Select the smallest instance type that meets latency and throughput SLOs.
+        Use CPU instances for lighter models and GPU instances only where required.
+      reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/deployment/configure-deployments.html
+
+    - name: Autoscaler Stabilization Windows
+      description: >
+        Configure scale-down stabilization windows to prevent premature scale-up during
+        brief traffic spikes, avoiding unnecessary compute costs.
+      reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+
+    - name: BYOC (Enterprise)
+      description: >
+        Enterprise customers can deploy BentoCloud in their own cloud account (BYOC),
+        enabling use of existing reserved instance discounts, committed use discounts,
+        and cloud provider credits to reduce effective compute cost.
+      reference: https://www.bentoml.com/blog/byoc-to-bentocloud-privacy-flexibility-and-cost-efficiency-in-one-package
+
+observability:
+  description: >
+    BentoCloud provides a dashboard for monitoring deployment resource utilization,
+    replica counts, and request metrics to inform cost attribution and optimization.
+  tools:
+    - name: BentoCloud Dashboard
+      url: https://cloud.bentoml.com
+    - name: Metrics (Prometheus-compatible)
+      url: https://docs.bentoml.com/en/latest/build-with-bentoml/observability/metrics.html
+    - name: Tracing
+      url: https://docs.bentoml.com/en/latest/build-with-bentoml/observability/tracing.html

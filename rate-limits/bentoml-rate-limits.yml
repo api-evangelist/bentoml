@@ -1,0 +1,73 @@
+name: BentoML Rate Limits
+description: >
+  BentoCloud does not publish fixed platform-level API rate limits. Instead, concurrency
+  and throughput are governed by per-deployment configuration. Each BentoML service
+  deployment defines its own concurrency ceiling and scaling bounds. BentoCloud autoscales
+  replicas to meet demand within the configured min/max replica range. An optional external
+  request queue can buffer excess traffic to prevent overload. Specific platform quotas
+  (API management calls, organization-level limits) are not publicly documented and may
+  vary by plan tier; contact BentoML sales for enterprise quota details.
+specificationVersion: "0.1"
+url: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+limits:
+  - name: Service Concurrency
+    description: >
+      Maximum number of simultaneous requests each replica handles before the autoscaler
+      adds additional replicas. Configured per deployment via the `traffic.concurrency`
+      setting in the @bentoml.service decorator.
+    scope: per-replica
+    configurable: true
+    default: No hard default; recommended to set explicitly per workload
+    unit: concurrent requests per replica
+    reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+
+  - name: Minimum Replicas
+    description: >
+      Minimum number of running replicas for a deployment. Set to 0 to enable scale-to-zero.
+      Configured via `scaling_min` in deployment settings or `--scaling-min` CLI flag.
+    scope: per-deployment
+    configurable: true
+    default: 0 (scale-to-zero enabled by default)
+    unit: replicas
+    reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/deployment/configure-deployments.html
+
+  - name: Maximum Replicas
+    description: >
+      Maximum number of replicas the autoscaler can provision for a deployment. Acts as a
+      cost and resource ceiling. Configured via `scaling_max` in deployment settings or
+      `--scaling-max` CLI flag.
+    scope: per-deployment
+    configurable: true
+    default: Plan-dependent; contact BentoML for per-plan replica caps
+    unit: replicas
+    reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/deployment/configure-deployments.html
+
+  - name: Request Timeout
+    description: >
+      Per-request timeout for inference endpoints. Configured via `traffic.timeout` in
+      the @bentoml.service decorator.
+    scope: per-service
+    configurable: true
+    default: 10 seconds (example default; may vary)
+    unit: seconds
+    reference: https://docs.bentoml.com/en/latest/build-with-bentoml/services.html
+
+  - name: External Queue Buffering
+    description: >
+      Optional request queue that buffers excess traffic when concurrency is saturated,
+      preventing request rejection at the cost of increased latency. Enabled via
+      `traffic.external_queue: true`.
+    scope: per-deployment
+    configurable: true
+    default: disabled
+    reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html
+
+  - name: Autoscaler Stabilization Window
+    description: >
+      Configurable delay windows (0-3600 seconds) for scale-up and scale-down decisions,
+      preventing reactive scaling to brief traffic spikes.
+    scope: per-deployment
+    configurable: true
+    default: Platform default; configurable per deployment
+    unit: seconds (0-3600)
+    reference: https://docs.bentoml.com/en/latest/scale-with-bentocloud/scaling/autoscaling.html

@@ -1,0 +1,81 @@
+name: BentoML Plans and Pricing
+description: >
+  BentoCloud pricing tiers for the managed AI inference platform. The open-source BentoML
+  framework is free under Apache 2.0. BentoCloud is billed based on actual compute consumed,
+  metered per second with no charges for deployments scaled to zero.
+specificationVersion: "0.1"
+url: https://www.bentoml.com/pricing
+plans:
+  - name: Starter
+    description: >
+      For small teams of developers who want to focus on building AI applications without
+      managing infrastructure. Billed monthly based on total usage via credit card.
+    price: Pay-as-you-go
+    billingCycle: monthly
+    features:
+      - BentoCloud managed infrastructure
+      - Autoscaling with scale-to-zero
+      - GPU and CPU instance access
+      - BentoCloud Deployment API
+      - API token management
+      - $10 in free trial credits on signup
+      - Access to monitoring and observability
+    limits:
+      - type: billing
+        description: Credit card billing; pay for actual compute consumed, billed per second
+
+  - name: Scale
+    description: >
+      For teams requiring formal SLAs, cold-start guarantees, and uptime targets.
+      Includes all Starter plan features with enhanced support commitments.
+    price: Contact Sales
+    billingCycle: invoice
+    features:
+      - All Starter plan features
+      - Formal SLA with uptime targets
+      - Cold-start guarantees
+      - Priority support
+      - Invoice-based billing
+
+  - name: Enterprise
+    description: >
+      For teams that want to use BentoCloud in their own cloud or on-premises environment
+      (BYOC — Bring Your Own Cloud). Tailored for organizations requiring data privacy,
+      compliance, and full infrastructure control.
+    price: Contact Sales
+    billingCycle: invoice
+    features:
+      - All Scale plan features
+      - BYOC (Bring Your Own Cloud) deployment
+      - On-premises deployment option
+      - Custom SLAs
+      - Dedicated support
+      - Advanced security and compliance controls
+      - Invoice billing with custom terms
+
+computePricing:
+  description: >
+    BentoCloud meters compute by the second. You only pay for active compute; deployments
+    scaled to zero incur no cost. Instance types available include CPU and GPU variants.
+  instanceTypes:
+    - name: cpu.1
+      type: CPU
+      description: 1 vCPU CPU instance
+    - name: cpu.2
+      type: CPU
+      description: 2 vCPU CPU instance
+    - name: cpu.4
+      type: CPU
+      description: 4 vCPU CPU instance
+    - name: cpu.8
+      type: CPU
+      description: 8 vCPU CPU instance
+    - name: gpu.t4.1
+      type: GPU
+      description: 1x NVIDIA T4 GPU instance
+    - name: gpu.l4.1
+      type: GPU
+      description: 1x NVIDIA L4 GPU instance
+    - name: gpu.a100.1
+      type: GPU
+      description: 1x NVIDIA A100 GPU instance

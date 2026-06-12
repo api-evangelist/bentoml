@@ -1,0 +1,69 @@
+aid: bentoml
+name: BentoML Vocabulary
+description: Domain vocabulary for BentoML and BentoCloud API concepts
+url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/vocabulary/bentoml-vocabulary.yml
+terms:
+- term: Bento
+  definition: A packaged ML model artifact containing the model, dependencies, and
+    service code, analogous to a deployable container image for ML inference.
+- term: BentoCloud
+  definition: Managed cloud platform by BentoML for deploying, scaling, and operating
+    Bento inference services with GPU support and scale-to-zero.
+- term: Deployment
+  definition: A running instance of a Bento on BentoCloud infrastructure, with autoscaling,
+    resource allocation, and lifecycle management.
+- term: Service
+  definition: A BentoML Python class decorated with @bentoml.service that exposes
+    model inference logic as HTTP endpoints.
+- term: Runner
+  definition: A resource-isolated unit within a BentoML service that encapsulates
+    model loading and inference execution.
+- term: Model Store
+  definition: Local or cloud-managed registry for versioned ML model artifacts used
+    by BentoML services.
+- term: Yatai
+  definition: The internal BentoCloud API server (open-source component) that provides
+    the control-plane REST API for managing Bentos, models, and deployments.
+- term: Cluster
+  definition: A Kubernetes compute cluster registered with BentoCloud for running
+    inference deployments.
+- term: APIToken
+  definition: Authentication credential for accessing BentoCloud APIs, with configurable
+    scopes for organization and cluster access.
+- term: BentoRepository
+  definition: A versioned collection of Bento artifacts within BentoCloud, analogous
+    to a container image repository.
+- term: ModelRepository
+  definition: A versioned collection of ML model artifacts registered in BentoCloud.
+- term: DeploymentRevision
+  definition: An immutable snapshot of a deployment configuration, enabling rollback
+    and audit of changes over time.
+- term: Endpoint
+  definition: An HTTP route exposed by a deployed BentoML service, corresponding to
+    a decorated service method.
+- term: InstanceType
+  definition: A hardware profile (CPU, memory, GPU) available for running BentoCloud
+    deployments.
+- term: ScaleToZero
+  definition: BentoCloud feature that scales idle deployments down to zero replicas
+    to reduce cost, spinning up on demand.
+- term: Autoscaling
+  definition: Automatic horizontal scaling of deployment replicas based on request
+    traffic and configured thresholds.
+- term: Organization
+  definition: A BentoCloud tenant account that owns clusters, deployments, tokens,
+    and billing.
+- term: Secret
+  definition: An encrypted key-value credential stored in BentoCloud and injected
+    into deployments at runtime.
+- term: LimitGroup
+  definition: A policy object defining resource quota limits applied to an organization
+    or cluster.
+- term: GPUConfig
+  definition: Configuration specifying GPU type, memory, and count for a deployment
+    or instance type.
+- term: AdaptiveBatching
+  definition: BentoML feature that automatically groups concurrent inference requests
+    into batches for throughput optimization.
+- term: HostCluster
+  definition: The BentoCloud-managed Kubernetes cluster that hosts tenant deployments.

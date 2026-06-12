@@ -41,6 +41,8 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/openapi/bentoml-bentocloud-deployment-api-openapi.yml
 
   - aid: bentoml:bentoml-service-api
     name: BentoML Service REST API
@@ -116,6 +118,14 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/rate-limits/bentoml-rate-limits.yml
   - type: FinOps
     url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/finops/bentoml-finops.yml
+  - type: Vocabulary
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/vocabulary/bentoml-vocabulary.yml
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/json-schema/bentoml-schemas.json
+  - type: JSONLDContext
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/json-ld/bentoml-context.jsonld
+  - type: Examples
+    url: https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/examples/bentoml-api-examples.json
 
 maintainers:
   - FN: Kin Lane

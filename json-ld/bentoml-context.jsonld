@@ -1,0 +1,126 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "bentoml": "https://bentoml.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:date"
+    },
+    "Bento": {
+      "@id": "bentoml:Bento",
+      "@type": "@id",
+      "comment": "A packaged ML model artifact containing model, dependencies, and service code."
+    },
+    "BentoRepository": {
+      "@id": "bentoml:BentoRepository",
+      "@type": "@id",
+      "comment": "Versioned collection of Bento artifacts within BentoCloud."
+    },
+    "Deployment": {
+      "@id": "bentoml:Deployment",
+      "@type": "@id",
+      "comment": "A running instance of a Bento on BentoCloud infrastructure."
+    },
+    "DeploymentRevision": {
+      "@id": "bentoml:DeploymentRevision",
+      "@type": "@id",
+      "comment": "Immutable snapshot of a deployment configuration."
+    },
+    "Service": {
+      "@id": "bentoml:Service",
+      "@type": "@id",
+      "comment": "A BentoML Python class exposing model inference as HTTP endpoints."
+    },
+    "Cluster": {
+      "@id": "bentoml:Cluster",
+      "@type": "@id",
+      "comment": "A Kubernetes compute cluster registered with BentoCloud."
+    },
+    "HostCluster": {
+      "@id": "bentoml:HostCluster",
+      "@type": "@id",
+      "comment": "BentoCloud-managed Kubernetes cluster hosting tenant deployments."
+    },
+    "APIToken": {
+      "@id": "bentoml:APIToken",
+      "@type": "@id",
+      "comment": "Authentication credential for BentoCloud APIs with configurable scopes."
+    },
+    "ModelRepository": {
+      "@id": "bentoml:ModelRepository",
+      "@type": "@id",
+      "comment": "Versioned collection of ML model artifacts registered in BentoCloud."
+    },
+    "Organization": {
+      "@id": "bentoml:Organization",
+      "@type": "@id",
+      "comment": "A BentoCloud tenant account owning clusters, deployments, and billing."
+    },
+    "InstanceType": {
+      "@id": "bentoml:InstanceType",
+      "@type": "@id",
+      "comment": "A hardware profile (CPU, memory, GPU) for running BentoCloud deployments."
+    },
+    "GPUConfig": {
+      "@id": "bentoml:GPUConfig",
+      "@type": "@id",
+      "comment": "Configuration specifying GPU type, memory, and count."
+    },
+    "Secret": {
+      "@id": "bentoml:Secret",
+      "@type": "@id",
+      "comment": "Encrypted key-value credential injected into deployments at runtime."
+    },
+    "LimitGroup": {
+      "@id": "bentoml:LimitGroup",
+      "@type": "@id",
+      "comment": "Policy object defining resource quota limits for an organization or cluster."
+    },
+    "Endpoint": {
+      "@id": "bentoml:Endpoint",
+      "@type": "@id",
+      "comment": "An HTTP route exposed by a deployed BentoML service."
+    },
+    "Yatai": {
+      "@id": "bentoml:Yatai",
+      "@type": "@id",
+      "comment": "The internal BentoCloud API server providing the control-plane REST API."
+    },
+    "baseURL": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "humanURL": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "tags": "schema:keywords",
+    "scopes": {
+      "@id": "bentoml:scopes",
+      "@container": "@list"
+    },
+    "replicas": {
+      "@id": "bentoml:replicas",
+      "@type": "xsd:integer"
+    },
+    "status": "bentoml:status",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

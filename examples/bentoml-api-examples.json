@@ -1,0 +1,272 @@
+[
+  {
+    "operationId": "List deployments in admin panel",
+    "method": "GET",
+    "path": "/api/admin/v1/deployments",
+    "summary": "List deployments in admin panel",
+    "tags": [
+      "admin api v1"
+    ]
+  },
+  {
+    "operationId": "List deployment status records in admin panel",
+    "method": "GET",
+    "path": "/api/admin/v1/organizations/{orgName}/clusters/{clusterName}/namespaces/{namespace}/deployments/{deploymentName}/status_records",
+    "summary": "List deployment status records in admin panel",
+    "tags": [
+      "admin deployment resource"
+    ]
+  },
+  {
+    "operationId": "List models in an org in admin panel",
+    "method": "GET",
+    "path": "/api/admin/v1/orgs/{orgName}/models",
+    "summary": "List models in an org in admin panel",
+    "tags": [
+      "org resource for admin panel"
+    ]
+  },
+  {
+    "operationId": "List api tokens",
+    "method": "GET",
+    "path": "/api/v1/api_tokens",
+    "summary": "List api tokens",
+    "tags": [
+      "api tokens"
+    ]
+  },
+  {
+    "operationId": "Create api token",
+    "method": "POST",
+    "path": "/api/v1/api_tokens",
+    "summary": "Create api token",
+    "tags": [
+      "api tokens"
+    ]
+  },
+  {
+    "operationId": "Get a api token",
+    "method": "GET",
+    "path": "/api/v1/api_tokens/{apiTokenUid}",
+    "summary": "Get a api token",
+    "tags": [
+      "api token resource"
+    ]
+  },
+  {
+    "operationId": "List bentos",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos",
+    "summary": "List bentos",
+    "tags": [
+      "bentos"
+    ]
+  },
+  {
+    "operationId": "Create a bento",
+    "method": "POST",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos",
+    "summary": "Create a bento",
+    "tags": [
+      "bentos"
+    ]
+  },
+  {
+    "operationId": "Get a bento",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos/{version}",
+    "summary": "Get a bento",
+    "tags": [
+      "bento resource"
+    ]
+  },
+  {
+    "operationId": "List bento deployments",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos/{version}/deployments",
+    "summary": "List bento deployments",
+    "tags": [
+      "bento resource"
+    ]
+  },
+  {
+    "operationId": "List bento models",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos/{version}/models",
+    "summary": "List bento models",
+    "tags": [
+      "bento resource"
+    ]
+  },
+  {
+    "operationId": "Get bento recommendation configs",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/bentos/{version}/recommendation_configs",
+    "summary": "Get bento recommendation configs",
+    "tags": [
+      "bento resource"
+    ]
+  },
+  {
+    "operationId": "List bento repository deployments",
+    "method": "GET",
+    "path": "/api/v1/bento_repositories/{bentoRepositoryName}/deployments",
+    "summary": "List bento repository deployments",
+    "tags": [
+      "bento repository resource"
+    ]
+  },
+  {
+    "operationId": "List all bentos",
+    "method": "GET",
+    "path": "/api/v1/bentos",
+    "summary": "List all bentos",
+    "tags": [
+      "api v1"
+    ]
+  },
+  {
+    "operationId": "List cluster deployments",
+    "method": "GET",
+    "path": "/api/v1/clusters/{clusterName}/deployments",
+    "summary": "List cluster deployments",
+    "tags": [
+      "cluster deployments"
+    ]
+  },
+  {
+    "operationId": "Create deployment",
+    "method": "POST",
+    "path": "/api/v1/clusters/{clusterName}/deployments",
+    "summary": "Create deployment",
+    "tags": [
+      "cluster deployments"
+    ]
+  },
+  {
+    "operationId": "Get a deployment",
+    "method": "GET",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}",
+    "summary": "Get a deployment",
+    "tags": [
+      "deployment resource"
+    ]
+  },
+  {
+    "operationId": "List deployment revisions",
+    "method": "GET",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions",
+    "summary": "List deployment revisions",
+    "tags": [
+      "deployment revisions"
+    ]
+  },
+  {
+    "operationId": "Get a deployment revision",
+    "method": "GET",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions/{revisionUid}",
+    "summary": "Get a deployment revision",
+    "tags": [
+      "deployment revision resource"
+    ]
+  },
+  {
+    "operationId": "Sync a deployment status",
+    "method": "POST",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/sync_status",
+    "summary": "Sync a deployment status",
+    "tags": [
+      "deployment resource"
+    ]
+  },
+  {
+    "operationId": "List deployment terminal records",
+    "method": "GET",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminal_records",
+    "summary": "List deployment terminal records",
+    "tags": [
+      "deployment resource"
+    ]
+  },
+  {
+    "operationId": "Terminate a deployment",
+    "method": "POST",
+    "path": "/api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminate",
+    "summary": "Terminate a deployment",
+    "tags": [
+      "deployment resource"
+    ]
+  },
+  {
+    "operationId": "List organization deployments",
+    "method": "GET",
+    "path": "/api/v1/deployments",
+    "summary": "List organization deployments",
+    "tags": [
+      "api v1"
+    ]
+  },
+  {
+    "operationId": "List organization deployments without revisions",
+    "method": "GET",
+    "path": "/api/v1/deployments-wo-revisions",
+    "summary": "List organization deployments without revisions",
+    "tags": [
+      "api v1"
+    ]
+  },
+  {
+    "operationId": "List models",
+    "method": "GET",
+    "path": "/api/v1/model_repositories/{modelRepositoryName}/models",
+    "summary": "List models",
+    "tags": [
+      "models"
+    ]
+  },
+  {
+    "operationId": "Create a model",
+    "method": "POST",
+    "path": "/api/v1/model_repositories/{modelRepositoryName}/models",
+    "summary": "Create a model",
+    "tags": [
+      "models"
+    ]
+  },
+  {
+    "operationId": "Get a model",
+    "method": "GET",
+    "path": "/api/v1/model_repositories/{modelRepositoryName}/models/{version}",
+    "summary": "Get a model",
+    "tags": [
+      "model resource"
+    ]
+  },
+  {
+    "operationId": "List model bentos",
+    "method": "GET",
+    "path": "/api/v1/model_repositories/{modelRepositoryName}/models/{version}/bentos",
+    "summary": "List model bentos",
+    "tags": [
+      "model resource"
+    ]
+  },
+  {
+    "operationId": "List model deployments",
+    "method": "GET",
+    "path": "/api/v1/model_repositories/{modelRepositoryName}/models/{version}/deployments",
+    "summary": "List model deployments",
+    "tags": [
+      "model resource"
+    ]
+  },
+  {
+    "operationId": "List all models",
+    "method": "GET",
+    "path": "/api/v1/models",
+    "summary": "List all models",
+    "tags": [
+      "api v1"
+    ]
+  }
+]

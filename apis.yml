@@ -94,6 +94,8 @@ apis:
         url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/bentoml-agentic-access.yml
   - type: DomainSecurity
     url: security/bentoml-domain-security.yml
   - type: Authentication

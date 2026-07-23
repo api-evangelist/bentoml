@@ -1,0 +1,977 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 auth API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: auth
+  description: auth api
+paths:
+  /api/v1/auth/airtable_event:
+    post:
+      tags:
+      - auth
+      summary: Airtable event callback
+      operationId: Airtable event callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Airtable Event CallbackInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/v1/auth/code:
+    get:
+      tags:
+      - auth
+      summary: Get auth code
+      operationId: Get auth code
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1CodeSchema'
+  /api/v1/auth/current:
+    get:
+      tags:
+      - auth
+      summary: Get current user
+      operationId: Get current user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    put:
+      tags:
+      - auth
+      summary: Put infos for current user
+      operationId: Put infos for current user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Put Infos For Current UserInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/auth/firebase_info:
+    get:
+      tags:
+      - auth
+      summary: Firebase Info
+      operationId: Firebase Info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv1FirebaseInfoSchema'
+  /api/v1/auth/login:
+    post:
+      tags:
+      - auth
+      summary: Login an user
+      operationId: Login an user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login An UserInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/auth/oidc/callback:
+    get:
+      tags:
+      - auth
+      summary: Handle OIDC authentication callback
+      operationId: OIDC Callback
+      parameters:
+      - name: code
+        in: query
+        schema:
+          type: string
+      - name: error
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv1OIDCCallbackResponseSchema'
+  /api/v1/auth/oidc_info:
+    get:
+      tags:
+      - auth
+      summary: Get OIDC configuration for organization
+      operationId: OIDC Info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv1OIDCInfoSchema'
+  /api/v1/auth/register:
+    post:
+      tags:
+      - auth
+      summary: Register an user
+      operationId: Register an user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register An UserInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/auth/reset_password:
+    patch:
+      tags:
+      - auth
+      summary: Reset password
+      operationId: Reset password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reset PasswordInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/auth/sso:
+    post:
+      tags:
+      - auth
+      summary: Single sign on
+      operationId: Single sign on
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Single Sign OnInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/auth/token:
+    get:
+      tags:
+      - auth
+      summary: Get auth token by code
+      operationId: Get auth token by code
+      parameters:
+      - name: code
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  deployment_names:
+                    type: array
+                    items:
+                      type: string
+                  deployment_uids:
+                    type: array
+                    items:
+                      type: string
+                  description:
+                    type: string
+                  expired_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  is_access_token:
+                    type: boolean
+                  is_api_token:
+                    type: boolean
+                  is_expired:
+                    type: boolean
+                  is_global_access:
+                    type: boolean
+                  is_global_router_access:
+                    type: boolean
+                  is_monitoring_token:
+                    type: boolean
+                  is_organization_token:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_used_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  scopes:
+                    type: array
+                    items:
+                      type: string
+                  token:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  user:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+components:
+  schemas:
+    Put Infos For Current UserInput:
+      type: object
+      properties:
+        company:
+          type: string
+        company_size:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        linkedin_url:
+          type: string
+        model_category:
+          type: array
+          items:
+            type: string
+        model_type:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        product_usage:
+          type: string
+        role_in_company:
+          type: string
+        use_case:
+          type: string
+      required:
+      - organization_name
+    Schemasv1CodeSchema:
+      type: object
+      properties:
+        code:
+          type: string
+    ServicesAirtableItemSchema:
+      type: object
+      properties:
+        id:
+          type: string
+    Controllersv1OIDCCallbackResponseSchema:
+      type: object
+      properties:
+        debug_info:
+          $ref: '#/components/schemas/Controllersv1OIDCDebugInfo'
+        user:
+          type: object
+          properties:
+            application_status:
+              type: string
+            avatar_url:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            email:
+              type: string
+            first_name:
+              type: string
+            from_sso:
+              type: boolean
+            is_super_admin:
+              type: boolean
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            last_name:
+              type: string
+            name:
+              type: string
+            perm:
+              type: string
+            register_stage:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+    Controllersv1GroupMappingDebug:
+      type: object
+      properties:
+        error:
+          type: string
+        group:
+          type: string
+        role:
+          type: string
+        success:
+          type: boolean
+        target_org_name:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Reset PasswordInput:
+      type: object
+      properties:
+        current_password:
+          type: string
+        new_password:
+          type: string
+    Register An UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+      required:
+      - email
+      - name
+      - password
+    Login An UserInput:
+      type: object
+      properties:
+        name_or_email:
+          type: string
+        password:
+          type: string
+      required:
+      - name_or_email
+      - password
+    Controllersv1OIDCInfoSchema:
+      type: object
+      properties:
+        client_id:
+          type: string
+        enabled:
+          type: boolean
+        provider_url:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+    Airtable Event CallbackInput:
+      type: object
+      properties:
+        base:
+          $ref: '#/components/schemas/ServicesAirtableItemSchema'
+        timestamp:
+          type: string
+        webhook:
+          $ref: '#/components/schemas/ServicesAirtableItemSchema'
+    Controllersv1FirebaseInfoSchema:
+      type: object
+      properties:
+        api_key:
+          type: string
+        auth_domain:
+          type: string
+    Controllersv1OIDCDebugInfo:
+      type: object
+      properties:
+        current_org_id:
+          type: integer
+          format: int32
+        current_org_name:
+          type: string
+        processed_mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1GroupMappingDebug'
+        user_groups:
+          type: array
+          items:
+            type: string
+    Single Sign OnInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        idToken:
+          type: string
+        invitation_code:
+          type: string
+        last_name:
+          type: string
+      required:
+      - idToken
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

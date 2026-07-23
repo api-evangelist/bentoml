@@ -1,0 +1,1868 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 cluster resource for admin panel API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: cluster resource for admin panel
+  description: cluster resource for admin panel
+paths:
+  /api/admin/v1/orgs/{orgName}/clusters/{clusterName}:
+    get:
+      tags:
+      - cluster resource for admin panel
+      summary: Get a cluster in admin panel
+      operationId: Get a cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    delete:
+      tags:
+      - cluster resource for admin panel
+      summary: Delete a cluster in admin panel
+      operationId: Delete a cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    patch:
+      tags:
+      - cluster resource for admin panel
+      summary: Update a cluster in admin panel
+      operationId: Update a cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update A Cluster In Admin PanelInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members:
+    get:
+      tags:
+      - cluster resource for admin panel
+      summary: List cluster members in admin panel
+      operationId: List cluster members in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+    post:
+      tags:
+      - cluster resource for admin panel
+      summary: Create a cluster member in admin panel
+      operationId: Create a cluster member in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A Cluster Member In Admin PanelInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+    delete:
+      tags:
+      - cluster resource for admin panel
+      summary: Remove a cluster member in admin panel
+      operationId: Remove a cluster member in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+  /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/migrate_deployments:
+    post:
+      tags:
+      - cluster resource for admin panel
+      summary: Migrate deployments on cluster in admin panel
+      operationId: Migrate deployments on cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Migrate Deployments On Cluster In Admin PanelInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+  /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_kubeconfig:
+    put:
+      tags:
+      - cluster resource for admin panel
+      summary: Sync tenant kubeconfig in a cluster in admin panel
+      operationId: Sync tenant kubeconfig in a cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_resources:
+    put:
+      tags:
+      - cluster resource for admin panel
+      summary: Sync tenant resources in a cluster in admin panel
+      operationId: Sync tenant resources in a cluster in admin panel
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: orgName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Update A Cluster In Admin PanelInput:
+      type: object
+      properties:
+        config:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        host_cluster_id:
+          type: integer
+          format: int32
+          nullable: true
+        multi_tenancy:
+          type: boolean
+        name:
+          type: string
+          nullable: true
+    Schemasv1ClusterMemberSchema:
+      type: object
+      properties:
+        cluster:
+          type: object
+          properties:
+            created_at:
+              type: string
+              format: date-time
+            creator:
+              type: object
+              properties:
+                application_status:
+                  type: string
+                avatar_url:
+                  type: string
+                created_at:
+                  type: string
+                  format: date-time
+                deleted_at:
+                  type: string
+                  format: date-time
+                  nullable: true
+                email:
+                  type: string
+                first_name:
+                  type: string
+                from_sso:
+                  type: boolean
+                is_super_admin:
+                  type: boolean
+                labels:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                last_name:
+                  type: string
+                name:
+                  type: string
+                perm:
+                  type: string
+                register_stage:
+                  type: string
+                resource_type:
+                  type: string
+                  enum:
+                  - user
+                  - organization
+                  - cluster
+                  - host_cluster
+                  - bento_repository
+                  - bento
+                  - deployment
+                  - deployment_revision
+                  - model_repository
+                  - model
+                  - api_token
+                uid:
+                  type: string
+                updated_at:
+                  type: string
+                  format: date-time
+            default_deployment_kube_namespace:
+              type: string
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            description:
+              type: string
+            grafana_root_path:
+              type: string
+            host_cluster_display_name:
+              type: string
+            host_cluster_name:
+              type: string
+            is_first:
+              type: boolean
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            multi_tenancy:
+              type: boolean
+            name:
+              type: string
+            organization_name:
+              type: string
+            provider:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+        created_at:
+          type: string
+          format: date-time
+        creator:
+          type: object
+          properties:
+            application_status:
+              type: string
+            avatar_url:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            email:
+              type: string
+            first_name:
+              type: string
+            from_sso:
+              type: boolean
+            is_super_admin:
+              type: boolean
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            last_name:
+              type: string
+            name:
+              type: string
+            perm:
+              type: string
+            register_stage:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        role:
+          type: string
+        uid:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        user:
+          type: object
+          properties:
+            application_status:
+              type: string
+            avatar_url:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            email:
+              type: string
+            first_name:
+              type: string
+            from_sso:
+              type: boolean
+            is_super_admin:
+              type: boolean
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            last_name:
+              type: string
+            name:
+              type: string
+            perm:
+              type: string
+            register_stage:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+    Migrate Deployments On Cluster In Admin PanelInput:
+      type: object
+      properties:
+        targetClusterName:
+          type: string
+    Create A Cluster Member In Admin PanelInput:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

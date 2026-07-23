@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 websocket v2 API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: websocket v2
+  description: websocket v2
+paths:
+  /ws/v2/deployments/{deploymentName}/kube_events:
+    get:
+      tags:
+      - websocket v2
+      summary: Ws v2 Deployment kube events
+      operationId: Ws v2 Deployment kube events
+      parameters:
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cluster
+        in: query
+        schema:
+          type: string
+      - name: namespace
+        in: query
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v2/deployments/{deploymentName}/pods:
+    get:
+      tags:
+      - websocket v2
+      summary: Ws v2 deployment pods
+      operationId: Ws v2 deployment pods
+      parameters:
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cluster
+        in: query
+        schema:
+          type: string
+      - name: namespace
+        in: query
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v2/subscription/resource:
+    get:
+      tags:
+      - websocket v2
+      summary: Subscribe resource v2
+      operationId: Subscribe resource v2
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 gpu configs API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: gpu configs
+  description: gpu configs
+paths:
+  /api/admin/v1/gpu_configs:
+    get:
+      tags:
+      - gpu configs
+      summary: List gpu configs
+      operationId: List gpu configs
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+    post:
+      tags:
+      - gpu configs
+      summary: Create a gpu config
+      operationId: Create a gpu config
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A Gpu ConfigInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+components:
+  schemas:
+    Create A Gpu ConfigInput:
+      type: object
+      properties:
+        memory:
+          type: string
+        name:
+          type: string
+        vendor:
+          type: string
+    Schemasv1GPUConfigSchema:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        memory:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        vendor:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

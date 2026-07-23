@@ -1,0 +1,390 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 models API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: models
+  description: models
+paths:
+  /api/v1/model_repositories/{modelRepositoryName}/models:
+    get:
+      tags:
+      - models
+      summary: List models
+      operationId: List models
+      parameters:
+      - name: modelRepositoryName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1ModelListSchema'
+    post:
+      tags:
+      - models
+      summary: Create a model
+      operationId: Create a model
+      parameters:
+      - name: modelRepositoryName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A ModelInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  build_at:
+                    type: string
+                    format: date-time
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  image_build_status:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  manifest:
+                    $ref: '#/components/schemas/ModelschemasModelManifestSchema'
+                  model_uid:
+                    type: string
+                  name:
+                    type: string
+                  presigned_download_url:
+                    type: string
+                  presigned_upload_url:
+                    type: string
+                  presigned_urls_deprecated:
+                    type: boolean
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  transmission_strategy:
+                    type: string
+                    nullable: true
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  upload_finished_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  upload_finished_reason:
+                    type: string
+                  upload_id:
+                    type: string
+                  upload_started_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  upload_status:
+                    type: string
+                  version:
+                    type: string
+components:
+  schemas:
+    Create A ModelInput:
+      type: object
+      properties:
+        build_at:
+          type: string
+        description:
+          type: string
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        manifest:
+          $ref: '#/components/schemas/ModelschemasModelManifestSchema'
+        version:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasModelManifestSchema:
+      type: object
+      properties:
+        api_version:
+          type: string
+        bentoml_version:
+          type: string
+        context:
+          type: object
+          additionalProperties: {}
+        metadata:
+          type: object
+          additionalProperties: {}
+        module:
+          type: string
+        options:
+          type: object
+          additionalProperties: {}
+        size_bytes:
+          type: integer
+          format: int32
+    Schemasv1ModelListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              build_at:
+                type: string
+                format: date-time
+              created_at:
+                type: string
+                format: date-time
+              creator:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+              deleted_at:
+                type: string
+                format: date-time
+                nullable: true
+              description:
+                type: string
+              image_build_status:
+                type: string
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              manifest:
+                $ref: '#/components/schemas/ModelschemasModelManifestSchema'
+              model_uid:
+                type: string
+              name:
+                type: string
+              presigned_download_url:
+                type: string
+              presigned_upload_url:
+                type: string
+              presigned_urls_deprecated:
+                type: boolean
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              transmission_strategy:
+                type: string
+                nullable: true
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+              upload_finished_at:
+                type: string
+                format: date-time
+                nullable: true
+              upload_finished_reason:
+                type: string
+              upload_id:
+                type: string
+              upload_started_at:
+                type: string
+                format: date-time
+                nullable: true
+              upload_status:
+                type: string
+              version:
+                type: string
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

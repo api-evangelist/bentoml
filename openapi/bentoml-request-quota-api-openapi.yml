@@ -1,0 +1,69 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 request quota API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: request quota
+  description: request quota
+paths:
+  /api/v2/requestquota:
+    post:
+      tags:
+      - request quota
+      summary: Create a Request quota
+      operationId: Create a Request quota
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A Request QuotaInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv2CreateRequestQuotaSchema'
+components:
+  schemas:
+    Create A Request QuotaInput:
+      type: object
+      properties:
+        current_quota:
+          type: string
+        gpu_type:
+          type: string
+        reason:
+          type: string
+        requested_quota:
+          type: string
+        resource_type:
+          type: string
+      required:
+      - resource_type
+    Controllersv2CreateRequestQuotaSchema:
+      type: object
+      properties:
+        current_quota:
+          type: string
+        gpu_type:
+          type: string
+        reason:
+          type: string
+        requested_quota:
+          type: string
+        resource_type:
+          type: string
+      required:
+      - resource_type
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 users API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: users
+  description: users api
+paths:
+  /api/v1/users:
+    get:
+      tags:
+      - users
+      summary: List users
+      operationId: List users
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1UserListSchema'
+    post:
+      tags:
+      - users
+      summary: Create an user
+      operationId: Create an user
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create An UserInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application_status:
+                    type: string
+                  avatar_url:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  email:
+                    type: string
+                  first_name:
+                    type: string
+                  from_sso:
+                    type: boolean
+                  is_super_admin:
+                    type: boolean
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  last_name:
+                    type: string
+                  name:
+                    type: string
+                  perm:
+                    type: string
+                  register_stage:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/users/invite:
+    post:
+      tags:
+      - users
+      summary: Invite an user
+      operationId: Invite an user
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invite An UserInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1InviteUserResponseSchema'
+components:
+  schemas:
+    Invite An UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+      required:
+      - email
+      - first_name
+      - last_name
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Create An UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+      required:
+      - email
+      - name
+      - password
+    Schemasv1InviteUserResponseSchema:
+      type: object
+      properties:
+        invitation_code:
+          type: string
+        url:
+          type: string
+    Schemasv1UserListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              application_status:
+                type: string
+              avatar_url:
+                type: string
+              created_at:
+                type: string
+                format: date-time
+              deleted_at:
+                type: string
+                format: date-time
+                nullable: true
+              email:
+                type: string
+              first_name:
+                type: string
+              from_sso:
+                type: boolean
+              is_super_admin:
+                type: boolean
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              last_name:
+                type: string
+              name:
+                type: string
+              perm:
+                type: string
+              register_stage:
+                type: string
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

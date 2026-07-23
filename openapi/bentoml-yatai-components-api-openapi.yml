@@ -1,0 +1,205 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 yatai components API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: yatai components
+  description: yatai components
+paths:
+  /api/v1/clusters/{clusterName}/yatai_components:
+    get:
+      tags:
+      - yatai components
+      summary: List yatai components
+      operationId: List yatai components
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cluster:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        default:
+                          type: boolean
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        grafana_root_path:
+                          type: string
+                        kube_config:
+                          type: string
+                          nullable: true
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        name:
+                          type: string
+                        resource_instances:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              config:
+                                type: string
+                                nullable: true
+                              created_at:
+                                type: string
+                                format: date-time
+                              deleted_at:
+                                type: string
+                                format: date-time
+                                nullable: true
+                              description:
+                                type: string
+                              display_name:
+                                type: string
+                              labels:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                              lago_id:
+                                type: string
+                              name:
+                                type: string
+                              resource_type:
+                                type: string
+                                enum:
+                                - user
+                                - organization
+                                - cluster
+                                - host_cluster
+                                - bento_repository
+                                - bento
+                                - deployment
+                                - deployment_revision
+                                - model_repository
+                                - model
+                                - api_token
+                              uid:
+                                type: string
+                              updated_at:
+                                type: string
+                                format: date-time
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                    created_at:
+                      type: string
+                      format: date-time
+                    deleted_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    description:
+                      type: string
+                    kube_namespace:
+                      type: string
+                    labels:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                    latest_heartbeat_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    latest_installed_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    manifest:
+                      $ref: '#/components/schemas/ModelschemasYataiComponentManifestSchema'
+                    name:
+                      type: string
+                    resource_type:
+                      type: string
+                      enum:
+                      - user
+                      - organization
+                      - cluster
+                      - host_cluster
+                      - bento_repository
+                      - bento
+                      - deployment
+                      - deployment_revision
+                      - model_repository
+                      - model
+                      - api_token
+                    uid:
+                      type: string
+                    updated_at:
+                      type: string
+                      format: date-time
+                    version:
+                      type: string
+components:
+  schemas:
+    ModelschemasYataiComponentManifestSchema:
+      type: object
+      properties:
+        enable_envoy_gateway_ingress:
+          type: boolean
+        latest_crd_version:
+          type: string
+        selector_labels:
+          type: object
+          additionalProperties:
+            type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

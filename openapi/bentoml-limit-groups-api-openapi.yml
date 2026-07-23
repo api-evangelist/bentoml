@@ -1,0 +1,345 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 limit groups API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: limit groups
+  description: limit groups
+paths:
+  /api/admin/v1/limit_groups:
+    get:
+      tags:
+      - limit groups
+      summary: List limit groups
+      operationId: List limit groups
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LimitGroupListSchema'
+    post:
+      tags:
+      - limit groups
+      summary: Create a limit group
+      operationId: Create a limit group
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A Limit GroupInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  plan_code:
+                    type: string
+                  resource_instance_list:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  visible:
+                    type: boolean
+                    nullable: true
+components:
+  schemas:
+    Schemasv1LimitGroupListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              config:
+                type: string
+                nullable: true
+              created_at:
+                type: string
+                format: date-time
+              deleted_at:
+                type: string
+                format: date-time
+                nullable: true
+              description:
+                type: string
+              display_name:
+                type: string
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              name:
+                type: string
+              plan_code:
+                type: string
+              resource_instance_list:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+              visible:
+                type: boolean
+                nullable: true
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Schemasv1ResourceInstanceWithActiveSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        resource_instance:
+          type: object
+          properties:
+            config:
+              type: string
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            description:
+              type: string
+            display_name:
+              type: string
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            lago_id:
+              type: string
+            name:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+    Create A Limit GroupInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasLimitGroupConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+        plan_code:
+          type: string
+        visible:
+          type: boolean
+          nullable: true
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasLimitGroupDeploymentConfig:
+      type: object
+      properties:
+        access_authorization:
+          type: array
+          items:
+            type: boolean
+        deployment_strategy:
+          type: array
+          items:
+            type: string
+    ResourceQuantity:
+      type: object
+    ModelschemasLimitGroupConfigSchema:
+      type: object
+      properties:
+        allow_custom_resource:
+          type: boolean
+          nullable: true
+        allow_deployment_config:
+          $ref: '#/components/schemas/ModelschemasLimitGroupDeploymentConfig'
+        bento_count:
+          type: integer
+          format: int64
+          nullable: true
+        bento_size:
+          $ref: '#/components/schemas/ResourceQuantity'
+        deployment_count:
+          type: integer
+          format: int64
+          nullable: true
+        disable_grafana:
+          type: boolean
+          nullable: true
+        filter_down_resource_instance_names:
+          type: array
+          items:
+            type: string
+        has_kube_access:
+          type: boolean
+          nullable: true
+        image_builder_pod_resource_cpu_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        image_builder_pod_resource_gpu_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        image_builder_pod_resource_memory_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        internal:
+          type: boolean
+          nullable: true
+        member_count:
+          type: integer
+          format: int64
+          nullable: true
+        model_count:
+          type: integer
+          format: int64
+          nullable: true
+        model_size:
+          $ref: '#/components/schemas/ResourceQuantity'
+        must_scale_to_zero:
+          type: boolean
+          nullable: true
+        organization_lifespan:
+          type: integer
+          format: int64
+          nullable: true
+        plan_type:
+          type: string
+          nullable: true
+        resource_cpu_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        resource_gpu_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        resource_instance_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLimitGroupResourceInstanceSchema'
+        resource_memory_limit:
+          $ref: '#/components/schemas/ResourceQuantity'
+        roles:
+          type: array
+          items:
+            type: string
+    ModelschemasLimitGroupResourceInstanceSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

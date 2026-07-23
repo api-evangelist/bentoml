@@ -1,0 +1,1471 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 current organization resource API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: current organization resource
+  description: current organization resource
+paths:
+  /api/v1/current_org:
+    get:
+      tags:
+      - current organization resource
+      summary: Get current organization
+      operationId: Get current organization
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  disable_grafana:
+                    type: boolean
+                  disable_resources_graphs:
+                    type: boolean
+                  enable_endpoints:
+                    type: boolean
+                  enable_mixture_scaling:
+                    type: boolean
+                  enable_monitoring_endpoint:
+                    type: boolean
+                  expired_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  limit_group:
+                    type: string
+                    nullable: true
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  public:
+                    type: boolean
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  status:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    patch:
+      tags:
+      - current organization resource
+      summary: Update current organization
+      operationId: Update current organization
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update Current OrganizationInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  disable_grafana:
+                    type: boolean
+                  disable_resources_graphs:
+                    type: boolean
+                  enable_endpoints:
+                    type: boolean
+                  enable_mixture_scaling:
+                    type: boolean
+                  enable_monitoring_endpoint:
+                    type: boolean
+                  expired_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  limit_group:
+                    type: string
+                    nullable: true
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  public:
+                    type: boolean
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  status:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/current_org/current_credit:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization's current credit
+      operationId: Get an organization's current credit
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1CustomerCurrentCreditSchema'
+  /api/v1/current_org/current_price:
+    get:
+      tags:
+      - current organization resource
+      summary: Get current organization with current price
+      operationId: Get current organization with current price
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  disable_grafana:
+                    type: boolean
+                  disable_resources_graphs:
+                    type: boolean
+                  enable_endpoints:
+                    type: boolean
+                  enable_mixture_scaling:
+                    type: boolean
+                  enable_monitoring_endpoint:
+                    type: boolean
+                  expired_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  limit_group:
+                    type: string
+                    nullable: true
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  public:
+                    type: boolean
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  status:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/current_org/current_usage:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization's current usage
+      operationId: Get an organization's current usage
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv1CustomerCurrentUsageSchema'
+  /api/v1/current_org/customer_portal_url:
+    get:
+      tags:
+      - current organization resource
+      summary: Get customer portal URL
+      operationId: Get customer portal URL
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /api/v1/current_org/event_operation_names:
+    get:
+      tags:
+      - current organization resource
+      summary: List current organization event operation names
+      operationId: List current organization event operation names
+      parameters:
+      - name: resource_type
+        in: query
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/v1/current_org/events:
+    get:
+      tags:
+      - current organization resource
+      summary: List current organization events
+      operationId: List current organization events
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1EventListSchema'
+  /api/v1/current_org/major_cluster:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization major cluster
+      operationId: Get an organization major cluster
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  default_deployment_kube_namespace:
+                    type: string
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  host_cluster_display_name:
+                    type: string
+                  host_cluster_name:
+                    type: string
+                  is_first:
+                    type: boolean
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  organization:
+                    type: object
+                    properties:
+                      created_at:
+                        type: string
+                        format: date-time
+                      creator:
+                        type: object
+                        properties:
+                          application_status:
+                            type: string
+                          avatar_url:
+                            type: string
+                          created_at:
+                            type: string
+                            format: date-time
+                          deleted_at:
+                            type: string
+                            format: date-time
+                            nullable: true
+                          email:
+                            type: string
+                          first_name:
+                            type: string
+                          from_sso:
+                            type: boolean
+                          is_super_admin:
+                            type: boolean
+                          labels:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                          last_name:
+                            type: string
+                          name:
+                            type: string
+                          perm:
+                            type: string
+                          register_stage:
+                            type: string
+                          resource_type:
+                            type: string
+                            enum:
+                            - user
+                            - organization
+                            - cluster
+                            - host_cluster
+                            - bento_repository
+                            - bento
+                            - deployment
+                            - deployment_revision
+                            - model_repository
+                            - model
+                            - api_token
+                          uid:
+                            type: string
+                          updated_at:
+                            type: string
+                            format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      description:
+                        type: string
+                      disable_grafana:
+                        type: boolean
+                      disable_resources_graphs:
+                        type: boolean
+                      enable_endpoints:
+                        type: boolean
+                      enable_mixture_scaling:
+                        type: boolean
+                      enable_monitoring_endpoint:
+                        type: boolean
+                      expired_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      limit_group:
+                        type: string
+                        nullable: true
+                      multi_tenancy:
+                        type: boolean
+                      name:
+                        type: string
+                      public:
+                        type: boolean
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      status:
+                        type: string
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  organization_name:
+                    type: string
+                  provider:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/current_org/model_modules:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization model modules
+      operationId: Get an organization model modules
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/v1/current_org/payment:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization's payment
+      operationId: Get an organization's payment
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  billing_customer_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  customer:
+                    description: Value of any type, including null
+                    nullable: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  lago_customer:
+                    $ref: '#/components/schemas/Schemasv1LagoCustomer'
+                  lago_id:
+                    type: string
+                  name:
+                    type: string
+                  payment_portal_url:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  stripe_id:
+                    type: string
+                  subscription_id:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  wallet_id:
+                    type: string
+  /api/v1/current_org/plan:
+    put:
+      tags:
+      - current organization resource
+      summary: Update an organization's plan
+      operationId: Update an organization's plan
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update An Organization''S PlanInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  creator:
+                    type: object
+                    properties:
+                      application_status:
+                        type: string
+                      avatar_url:
+                        type: string
+                      created_at:
+                        type: string
+                        format: date-time
+                      deleted_at:
+                        type: string
+                        format: date-time
+                        nullable: true
+                      email:
+                        type: string
+                      first_name:
+                        type: string
+                      from_sso:
+                        type: boolean
+                      is_super_admin:
+                        type: boolean
+                      labels:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                      last_name:
+                        type: string
+                      name:
+                        type: string
+                      perm:
+                        type: string
+                      register_stage:
+                        type: string
+                      resource_type:
+                        type: string
+                        enum:
+                        - user
+                        - organization
+                        - cluster
+                        - host_cluster
+                        - bento_repository
+                        - bento
+                        - deployment
+                        - deployment_revision
+                        - model_repository
+                        - model
+                        - api_token
+                      uid:
+                        type: string
+                      updated_at:
+                        type: string
+                        format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  disable_grafana:
+                    type: boolean
+                  disable_resources_graphs:
+                    type: boolean
+                  enable_endpoints:
+                    type: boolean
+                  enable_mixture_scaling:
+                    type: boolean
+                  enable_monitoring_endpoint:
+                    type: boolean
+                  expired_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  limit_group:
+                    type: string
+                    nullable: true
+                  multi_tenancy:
+                    type: boolean
+                  name:
+                    type: string
+                  public:
+                    type: boolean
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  status:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+  /api/v1/current_org/usage_metrics:
+    get:
+      tags:
+      - current organization resource
+      summary: Get an organization's usage metrics by time granularity
+      operationId: Get an organization's usage metrics
+      parameters:
+      - name: debug
+        in: query
+        schema:
+          type: string
+      - name: granularity
+        in: query
+        schema:
+          type: string
+      - name: metrics
+        in: query
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllersv1MetricUsageSchema'
+  /api/v1/current_org/yatai_components:
+    get:
+      tags:
+      - current organization resource
+      summary: List current organization all yatai components
+      operationId: List current organization all yatai components
+      parameters:
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cluster:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        default:
+                          type: boolean
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        grafana_root_path:
+                          type: string
+                        kube_config:
+                          type: string
+                          nullable: true
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        name:
+                          type: string
+                        resource_instances:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              config:
+                                type: string
+                                nullable: true
+                              created_at:
+                                type: string
+                                format: date-time
+                              deleted_at:
+                                type: string
+                                format: date-time
+                                nullable: true
+                              description:
+                                type: string
+                              display_name:
+                                type: string
+                              labels:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                              lago_id:
+                                type: string
+                              name:
+                                type: string
+                              resource_type:
+                                type: string
+                                enum:
+                                - user
+                                - organization
+                                - cluster
+                                - host_cluster
+                                - bento_repository
+                                - bento
+                                - deployment
+                                - deployment_revision
+                                - model_repository
+                                - model
+                                - api_token
+                              uid:
+                                type: string
+                              updated_at:
+                                type: string
+                                format: date-time
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                    created_at:
+                      type: string
+                      format: date-time
+                    deleted_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    description:
+                      type: string
+                    kube_namespace:
+                      type: string
+                    labels:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                    latest_heartbeat_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    latest_installed_at:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    manifest:
+                      $ref: '#/components/schemas/ModelschemasYataiComponentManifestSchema'
+                    name:
+                      type: string
+                    resource_type:
+                      type: string
+                      enum:
+                      - user
+                      - organization
+                      - cluster
+                      - host_cluster
+                      - bento_repository
+                      - bento
+                      - deployment
+                      - deployment_revision
+                      - model_repository
+                      - model
+                      - api_token
+                    uid:
+                      type: string
+                    updated_at:
+                      type: string
+                      format: date-time
+                    version:
+                      type: string
+components:
+  schemas:
+    ModelschemasYataiComponentManifestSchema:
+      type: object
+      properties:
+        enable_envoy_gateway_ingress:
+          type: boolean
+        latest_crd_version:
+          type: string
+        selector_labels:
+          type: object
+          additionalProperties:
+            type: string
+    Update Current OrganizationInput:
+      type: object
+      properties:
+        config:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        limit_group_name:
+          type: string
+          nullable: true
+        multi_tenancy:
+          type: boolean
+          nullable: true
+        plan_type:
+          type: string
+          nullable: true
+    Schemasv1CustomerCurrentCreditSchema:
+      type: object
+      properties:
+        current_credit:
+          type: number
+          format: double
+        total_credit:
+          type: number
+          format: double
+        used_credit:
+          type: number
+          format: double
+    Controllersv1Usage:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        value:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Controllersv1CustomerCurrentUsage:
+      type: object
+      properties:
+        resourceInstanceName:
+          type: string
+        sumCost:
+          type: number
+          format: double
+        unitCost:
+          type: number
+          format: double
+        usage:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1Usage'
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+    Update An Organization'S PlanInput:
+      type: object
+      properties:
+        config:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        limit_group_name:
+          type: string
+          nullable: true
+        multi_tenancy:
+          type: boolean
+          nullable: true
+        plan_type:
+          type: string
+          nullable: true
+    Controllersv1MetricUsageSchema:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        debug:
+          type: boolean
+        debugInfo:
+          description: Value of any type, including null
+          nullable: true
+        endTime:
+          type: string
+        granularity:
+          type: string
+        rawLagoResponse:
+          description: Value of any type, including null
+          nullable: true
+        startTime:
+          type: string
+    Schemasv1EventSchema:
+      type: object
+      properties:
+        api_token_name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        creator:
+          type: object
+          properties:
+            application_status:
+              type: string
+            avatar_url:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            email:
+              type: string
+            first_name:
+              type: string
+            from_sso:
+              type: boolean
+            is_super_admin:
+              type: boolean
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            last_name:
+              type: string
+            name:
+              type: string
+            perm:
+              type: string
+            register_stage:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        name:
+          type: string
+        operation_name:
+          type: string
+        resource:
+          description: Value of any type, including null
+          nullable: true
+        resource_deleted:
+          type: boolean
+        status:
+          type: string
+        uid:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+    Controllersv1CustomerCurrentUsageSchema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1CustomerCurrentUsage'
+    Schemasv1EventListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1EventSchema'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

@@ -1,0 +1,115 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 lago billable metrics API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: lago billable metrics
+  description: lago billable metrics api
+paths:
+  /api/v1/lago/billable_metrics:
+    get:
+      tags:
+      - lago billable metrics
+      summary: List lago billable metrics
+      operationId: List lago billable metrics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LagoBillableMetricsListSchema'
+    post:
+      tags:
+      - lago billable metrics
+      summary: Create lago billable metric
+      operationId: Create lago billable metric
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create Lago Billable MetricInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1BillableMetrics'
+  /api/v1/lago/billable_metrics/{billableMetricCode}:
+    put:
+      tags:
+      - lago billable metrics
+      summary: Update lago billable metric
+      operationId: Update lago billable metric
+      parameters:
+      - name: billableMetricCode
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update Lago Billable MetricInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1BillableMetrics'
+components:
+  schemas:
+    Update Lago Billable MetricInput:
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        display_name:
+          type: string
+          nullable: true
+    Schemasv1BillableMetrics:
+      type: object
+      properties:
+        description:
+          type: string
+        display_name:
+          type: string
+        lago_id:
+          type: string
+        name:
+          type: string
+    Create Lago Billable MetricInput:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        display_name:
+          type: string
+    Schemasv1LagoBillableMetricsListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1BillableMetrics'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

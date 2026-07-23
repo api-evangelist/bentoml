@@ -1,0 +1,139 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 customers API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: customers
+  description: customers api
+paths:
+  /api/v1/customers:
+    get:
+      tags:
+      - customers
+      summary: List customers
+      operationId: List customers
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1CustomerListFullSchema'
+components:
+  schemas:
+    Schemasv1CustomerListFullSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              billing_customer_id:
+                type: string
+              created_at:
+                type: string
+                format: date-time
+              customer:
+                description: Value of any type, including null
+                nullable: true
+              deleted_at:
+                type: string
+                format: date-time
+                nullable: true
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              lago_customer:
+                $ref: '#/components/schemas/Schemasv1LagoCustomer'
+              lago_id:
+                type: string
+              name:
+                type: string
+              payment_portal_url:
+                type: string
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              stripe_id:
+                type: string
+              subscription_id:
+                type: string
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+              wallet_id:
+                type: string
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

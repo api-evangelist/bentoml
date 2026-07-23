@@ -1,0 +1,82 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 usage API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: usage
+  description: usage resource
+paths:
+  /api/v1/usage/{usageId}:
+    get:
+      tags:
+      - usage
+      summary: Get last usage send time
+      operationId: Get usage
+      parameters:
+      - name: usageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: host_cluster_name
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LastSendTimeSchema'
+    post:
+      tags:
+      - usage
+      summary: Collect usage
+      operationId: Collect usage
+      parameters:
+      - name: usageId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: host_cluster_name
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Collect UsageInput'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    Collect UsageInput:
+      type: object
+      properties:
+        billable_metric_code:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        record_value:
+          type: string
+    TimeTime:
+      type: object
+    Schemasv1LastSendTimeSchema:
+      type: object
+      properties:
+        last_send_time:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TimeTime'
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

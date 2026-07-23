@@ -1,0 +1,382 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 host cluster resource API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: host cluster resource
+  description: host cluster resource
+paths:
+  /api/admin/v1/host_clusters/{hostClusterName}:
+    get:
+      tags:
+      - host cluster resource
+      summary: Get a host cluster
+      operationId: Get a host cluster
+      parameters:
+      - name: hostClusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  default:
+                    type: boolean
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    delete:
+      tags:
+      - host cluster resource
+      summary: Delete a host cluster
+      operationId: Delete a host cluster
+      parameters:
+      - name: hostClusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  default:
+                    type: boolean
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+    patch:
+      tags:
+      - host cluster resource
+      summary: Update a host cluster
+      operationId: Update a host cluster
+      parameters:
+      - name: hostClusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update A Host ClusterInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  default:
+                    type: boolean
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  grafana_root_path:
+                    type: string
+                  kube_config:
+                    type: string
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  resource_instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        config:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        deleted_at:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                        display_name:
+                          type: string
+                        labels:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                        lago_id:
+                          type: string
+                        name:
+                          type: string
+                        resource_type:
+                          type: string
+                          enum:
+                          - user
+                          - organization
+                          - cluster
+                          - host_cluster
+                          - bento_repository
+                          - bento
+                          - deployment
+                          - deployment_revision
+                          - model_repository
+                          - model
+                          - api_token
+                        uid:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Update A Host ClusterInput:
+      type: object
+      properties:
+        config:
+          type: string
+          nullable: true
+        default:
+          type: boolean
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        display_name:
+          type: string
+          nullable: true
+        kube_config:
+          type: string
+          nullable: true
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

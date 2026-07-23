@@ -1,0 +1,199 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 customer resource API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: customer resource
+  description: customer resource
+paths:
+  /api/v1/customers/{customerName}:
+    get:
+      tags:
+      - customer resource
+      summary: Get a customer
+      operationId: Get a customer
+      parameters:
+      - name: customerName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  billing_customer_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  customer:
+                    description: Value of any type, including null
+                    nullable: true
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  lago_customer:
+                    $ref: '#/components/schemas/Schemasv1LagoCustomer'
+                  lago_id:
+                    type: string
+                  name:
+                    type: string
+                  payment_portal_url:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  stripe_id:
+                    type: string
+                  subscription_id:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  wallet_id:
+                    type: string
+    patch:
+      tags:
+      - customer resource
+      summary: Update a customer
+      operationId: Update a customer
+      parameters:
+      - name: customerName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update A CustomerInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  billing_customer_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  lago_id:
+                    type: string
+                  name:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  stripe_id:
+                    type: string
+                  subscription_id:
+                    type: string
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  wallet_id:
+                    type: string
+components:
+  schemas:
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Update A CustomerInput:
+      type: object
+      properties:
+        active:
+          type: boolean
+          nullable: true
+        billing_customer_id:
+          type: string
+          nullable: true
+        lago_id:
+          type: string
+          nullable: true
+        payment_ready:
+          type: boolean
+          nullable: true
+        stripe_id:
+          type: string
+          nullable: true
+        subscription_id:
+          type: string
+          nullable: true
+        wallet_id:
+          type: string
+          nullable: true
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

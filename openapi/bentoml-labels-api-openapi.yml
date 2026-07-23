@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 labels API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: labels
+  description: labels
+paths:
+  /api/v1/labels:
+    get:
+      tags:
+      - labels
+      summary: List Labels
+      operationId: List Labels
+      parameters:
+      - name: resource_type
+        in: query
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1LabelWithValuesSchema'
+components:
+  schemas:
+    Schemasv1LabelWithValuesSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

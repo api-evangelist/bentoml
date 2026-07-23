@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 lago customer API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: lago customer
+  description: lago customer api
+paths:
+  /api/v1/lago/customers:
+    get:
+      tags:
+      - lago customer
+      summary: List lago customers
+      operationId: List lago customers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LagoCustomerListSchema'
+    post:
+      tags:
+      - lago customer
+      summary: Create lago customer
+      operationId: Create lago customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create Lago CustomerInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LagoCustomer'
+  /api/v1/lago/customers/{customerId}:
+    put:
+      tags:
+      - lago customer
+      summary: Update lago customer
+      operationId: Update lago customer
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update Lago CustomerInput'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    Schemasv1LagoCustomerListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1LagoCustomer'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Create Lago CustomerInput:
+      type: object
+      properties:
+        Uid:
+          type: string
+        auto_create_stripe:
+          type: boolean
+        credit_amount:
+          type: string
+          nullable: true
+        email:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        plan_type:
+          type: string
+    Update Lago CustomerInput:
+      type: object
+      properties:
+        stripe_id:
+          type: string
+          nullable: true
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

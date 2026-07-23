@@ -1,0 +1,254 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 resource instances API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: resource instances
+  description: resource instances
+paths:
+  /api/admin/v1/resource_instances:
+    get:
+      tags:
+      - resource instances
+      summary: List resource instances
+      operationId: List resource instances
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: search
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: start
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1ResourceInstanceListSchema'
+    post:
+      tags:
+      - resource instances
+      summary: Create a resource instance
+      operationId: Create a resource instance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create A Resource InstanceInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  lago_id:
+                    type: string
+                  name:
+                    type: string
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    ModelschemasGPUConfig:
+      type: object
+      properties:
+        memory:
+          type: string
+        type:
+          type: string
+    Schemasv1ResourceInstanceListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              config:
+                type: string
+                nullable: true
+              created_at:
+                type: string
+                format: date-time
+              deleted_at:
+                type: string
+                format: date-time
+                nullable: true
+              description:
+                type: string
+              display_name:
+                type: string
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              lago_id:
+                type: string
+              name:
+                type: string
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Create A Resource InstanceInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+    V1Toleration:
+      type: object
+      properties:
+        effect:
+          type: string
+        key:
+          type: string
+        operator:
+          type: string
+        tolerationSeconds:
+          type: integer
+          format: int64
+          nullable: true
+        value:
+          type: string
+    ModelschemasDeploymentTargetResources:
+      type: object
+      properties:
+        limits:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+        requests:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+    ModelschemasTPUConfig:
+      type: object
+      properties:
+        type:
+          type: string
+    ModelschemasResourceInstanceConfigSchema:
+      type: object
+      properties:
+        gpu_config:
+          $ref: '#/components/schemas/ModelschemasGPUConfig'
+        group:
+          type: string
+        node_selectors:
+          type: object
+          additionalProperties:
+            type: string
+        price:
+          type: string
+        resources:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
+        tolerations:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1Toleration'
+        tpu_config:
+          $ref: '#/components/schemas/ModelschemasTPUConfig'
+    ModelschemasDeploymentTargetResourceItem:
+      type: object
+      properties:
+        cpu:
+          type: string
+        custom:
+          type: object
+          additionalProperties:
+            type: string
+        gpu:
+          type: string
+        memory:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

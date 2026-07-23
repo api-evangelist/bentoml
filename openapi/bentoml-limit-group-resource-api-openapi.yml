@@ -1,0 +1,299 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 limit group resource API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: limit group resource
+  description: limit group resource
+paths:
+  /api/admin/v1/limit_groups/{limitGroupName}:
+    get:
+      tags:
+      - limit group resource
+      summary: Get a limit group
+      operationId: Get a limit group
+      parameters:
+      - name: limitGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  plan_code:
+                    type: string
+                  resource_instance_list:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  visible:
+                    type: boolean
+                    nullable: true
+    delete:
+      tags:
+      - limit group resource
+      summary: Delete a limit group
+      operationId: Delete a limit group
+      parameters:
+      - name: limitGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  plan_code:
+                    type: string
+                  resource_instance_list:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  visible:
+                    type: boolean
+                    nullable: true
+    patch:
+      tags:
+      - limit group resource
+      summary: Update a limit group
+      operationId: Update a limit group
+      parameters:
+      - name: limitGroupName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update A Limit GroupInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  config:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: string
+                    format: date-time
+                  deleted_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  description:
+                    type: string
+                  display_name:
+                    type: string
+                  labels:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+                  name:
+                    type: string
+                  plan_code:
+                    type: string
+                  resource_instance_list:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+                  resource_type:
+                    type: string
+                    enum:
+                    - user
+                    - organization
+                    - cluster
+                    - host_cluster
+                    - bento_repository
+                    - bento
+                    - deployment
+                    - deployment_revision
+                    - model_repository
+                    - model
+                    - api_token
+                  uid:
+                    type: string
+                  updated_at:
+                    type: string
+                    format: date-time
+                  visible:
+                    type: boolean
+                    nullable: true
+components:
+  schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Schemasv1ResourceInstanceWithActiveSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        resource_instance:
+          type: object
+          properties:
+            config:
+              type: string
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type: string
+              format: date-time
+              nullable: true
+            description:
+              type: string
+            display_name:
+              type: string
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            lago_id:
+              type: string
+            name:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+    Update A Limit GroupInput:
+      type: object
+      properties:
+        config:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        display_name:
+          type: string
+          nullable: true
+        plan_code:
+          type: string
+          nullable: true
+        visible:
+          type: boolean
+          nullable: true
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

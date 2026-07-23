@@ -1,0 +1,216 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 websocket v1 API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: websocket v1
+  description: websocket v1
+paths:
+  /ws/v1/clusters/{clusterName}/kube_events:
+    get:
+      tags:
+      - websocket v1
+      summary: Cluster kube events
+      operationId: Cluster kube events
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/kube_events:
+    get:
+      tags:
+      - websocket v1
+      summary: Deployment kube events
+      operationId: Deployment kube events
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kubeNamespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/pods:
+    get:
+      tags:
+      - websocket v1
+      summary: Ws deployment pods
+      operationId: Ws deployment pods
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kubeNamespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/tail:
+    get:
+      tags:
+      - websocket v1
+      summary: Tail deployment pod log
+      operationId: Tail deployment pod log
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kubeNamespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminal:
+    get:
+      tags:
+      - websocket v1
+      summary: Deployment pod terminal
+      operationId: Deployment pod terminal
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploymentName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: kubeNamespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/pods:
+    get:
+      tags:
+      - websocket v1
+      summary: Ws cluster pods
+      operationId: Ws cluster pods
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/tail:
+    get:
+      tags:
+      - websocket v1
+      summary: Tail cluster pod log
+      operationId: Tail cluster pod log
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/clusters/{clusterName}/terminal:
+    get:
+      tags:
+      - websocket v1
+      summary: Cluster pod terminal
+      operationId: Cluster pod terminal
+      parameters:
+      - name: clusterName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: X-Yatai-Organization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /ws/v1/subscription/resource:
+    get:
+      tags:
+      - websocket v1
+      summary: Subscribe resource
+      operationId: Subscribe resource
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

@@ -1,0 +1,134 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 lago plan API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: lago plan
+  description: lago plan api
+paths:
+  /api/v1/lago/plans:
+    get:
+      tags:
+      - lago plan
+      summary: List lago plans
+      operationId: List lago plans
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1LagoPlanListSchema'
+    post:
+      tags:
+      - lago plan
+      summary: Create lago plan
+      operationId: Create lago plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Create Lago PlanInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1Plan'
+  /api/v1/lago/plans/{planName}:
+    put:
+      tags:
+      - lago plan
+      summary: Update lago plan
+      operationId: Update lago plan
+      parameters:
+      - name: planName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update Lago PlanInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1Plan'
+components:
+  schemas:
+    Create Lago PlanInput:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+    Update Lago PlanInput:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type: string
+          nullable: true
+        display_name:
+          type: string
+          nullable: true
+    Schemasv1LagoPlanListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Plan'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Schemasv1Plan:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type: string
+        display_name:
+          type: string
+        lago_id:
+          type: string
+        name:
+          type: string
+    Schemasv1Charge:
+      type: object
+      properties:
+        price:
+          type: string
+        resource_instance:
+          type: string
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

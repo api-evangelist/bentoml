@@ -1,0 +1,109 @@
+openapi: 3.0.1
+info:
+  title: yatai api server admin api v1 gpu config resource API
+  description: This is yatai api server.
+  version: 1.0.0
+tags:
+- name: gpu config resource
+  description: gpu config resource
+paths:
+  /api/admin/v1/gpu_configs/{gpuConfigName}:
+    get:
+      tags:
+      - gpu config resource
+      summary: Get a gpu config
+      operationId: Get a gpu config
+      parameters:
+      - name: gpuConfigName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+    delete:
+      tags:
+      - gpu config resource
+      summary: Delete a gpu config
+      operationId: Delete a gpu config
+      parameters:
+      - name: gpuConfigName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+    patch:
+      tags:
+      - gpu config resource
+      summary: Update a gpu config
+      operationId: Update a gpu config
+      parameters:
+      - name: gpuConfigName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Update A Gpu ConfigInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+components:
+  schemas:
+    Schemasv1GPUConfigSchema:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+        memory:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        vendor:
+          type: string
+    Update A Gpu ConfigInput:
+      type: object
+      properties:
+        memory:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        vendor:
+          type: string
+          nullable: true
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: X-YATAI-API-TOKEN

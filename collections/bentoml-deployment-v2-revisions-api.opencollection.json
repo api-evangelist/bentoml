@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 deployment v2 revisions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "deployment v2 revisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deployment v2 revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/revisions",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment v2 revisions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

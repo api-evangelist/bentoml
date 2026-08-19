@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 slim bento repositories API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "slim bento repositories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List slim bento repositories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/slim_bento_repositories",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List slim bento repositories"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

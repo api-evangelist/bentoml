@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "96260b3f-23dc-4702-912e-ac9cf46bf935",
+      "name": "bento repository resource",
+      "description": {
+        "content": "bento repository resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9bd2ce27-99b9-4218-96ad-80020cf41986",
+          "name": "Get a bento repository",
+          "request": {
+            "name": "Get a bento repository",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "bento_repositories",
+                ":bentoRepositoryName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bentoRepositoryName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f5c2df5-914b-499a-8e1d-0fc982a08585",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bento_repositories",
+                    ":bentoRepositoryName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bentoRepositoryName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1997-10-02T13:07:57.866Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"2000-10-05T17:46:08.881Z\",\n    \"deleted_at\": \"1949-04-10T12:40:09.592Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"model\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1996-02-20T21:11:46.180Z\"\n  },\n  \"deleted_at\": \"2019-04-07T07:17:55.383Z\",\n  \"description\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"latest_bento\": {\n    \"bento_repository_uid\": \"string\",\n    \"build_at\": \"1993-08-10T23:05:33.637Z\",\n    \"created_at\": \"1976-07-28T12:54:25.391Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1978-04-26T09:52:36.005Z\",\n      \"deleted_at\": \"2019-03-07T03:58:29.128Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"host_cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1983-12-21T10:30:25.434Z\"\n    },\n    \"deleted_at\": \"2012-07-24T19:10:47.566Z\",\n    \"description\": \"string\",\n    \"image_build_status\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"manifest\": {\n      \"apis\": {\n        \"key_0\": {\n          \"doc\": \"string\",\n          \"input\": \"string\",\n          \"output\": \"string\",\n          \"route\": \"string\"\n        }\n      },\n      \"bentoml_version\": \"string\",\n      \"dev\": false,\n      \"entry_service\": \"string\",\n      \"envs\": [\n        {\n          \"name\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"image\": {\n        \"base_image\": \"string\",\n        \"commands\": [\n          \"string\",\n          \"string\"\n        ],\n        \"python_requirements\": \"string\",\n        \"python_version\": \"string\"\n      },\n      \"models\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"runners\": [\n        {\n          \"models\": [\n            \"string\",\n            \"string\"\n          ],\n          \"name\": \"string\",\n          \"resource_config\": {\n            \"cpu\": 1238.1806044228595,\n            \"custom_resources\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"nvidia_gpu\": 1223.7090294852537\n          },\n          \"runnable_type\": \"string\"\n        },\n        {\n          \"models\": [\n            \"string\",\n            \"string\"\n          ],\n          \"name\": \"string\",\n          \"resource_config\": {\n            \"cpu\": 9650.195902011328,\n            \"custom_resources\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"nvidia_gpu\": 7234.211424546548\n          },\n          \"runnable_type\": \"string\"\n        }\n      ],\n      \"schema\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"service\": \"string\",\n      \"services\": [\n        {\n          \"config\": {\n            \"key_0\": {}\n          },\n          \"models\": [\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"service\": \"string\"\n        },\n        {\n          \"config\": {\n            \"key_0\": {}\n          },\n          \"models\": [\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"service\": \"string\"\n        }\n      ],\n      \"size_bytes\": 6499,\n      \"spec\": 2945\n    },\n    \"name\": \"string\",\n    \"presigned_download_url\": \"string\",\n    \"presigned_upload_url\": \"string\",\n    \"presigned_urls_deprecated\": true,\n    \"resource_type\": \"organization\",\n    \"transmission_strategy\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2016-04-20T20:34:36.378Z\",\n    \"upload_finished_at\": \"1973-04-11T02:02:45.190Z\",\n    \"upload_finished_reason\": \"string\",\n    \"upload_id\": \"string\",\n    \"upload_started_at\": \"2017-08-15T06:07:44.233Z\",\n    \"upload_status\": \"string\",\n    \"version\": \"string\"\n  },\n  \"latest_bentos\": [\n    {\n      \"bento_repository_uid\": \"string\",\n      \"build_at\": \"1965-09-03T22:39:54.399Z\",\n      \"created_at\": \"1954-01-25T18:51:36.755Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1955-02-16T04:36:26.878Z\",\n        \"deleted_at\": \"2009-02-20T07:20:42.946Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1986-04-11T10:38:51.250Z\"\n      },\n      \"deleted_at\": \"2017-08-08T17:58:54.636Z\",\n      \"description\": \"string\",\n      \"image_build_status\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"manifest\": {\n        \"apis\": {\n          \"key_0\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          }\n        },\n        \"bentoml_version\": \"string\",\n        \"dev\": true,\n        \"entry_service\": \"string\",\n        \"envs\": [\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"image\": {\n          \"base_image\": \"string\",\n          \"commands\": [\n            \"string\",\n            \"string\"\n          ],\n          \"python_requirements\": \"string\",\n          \"python_version\": \"string\"\n        },\n        \"models\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"runners\": [\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          },\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          }\n        ],\n        \"schema\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"service\": \"string\",\n        \"services\": [\n          {\n            \"config\": {\n              \"key_0\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          },\n          {\n            \"config\": {\n              \"key_0\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          }\n        ],\n        \"size_bytes\": 1676,\n        \"spec\": 967\n      },\n      \"name\": \"string\",\n      \"presigned_download_url\": \"string\",\n      \"presigned_upload_url\": \"string\",\n      \"presigned_urls_deprecated\": false,\n      \"resource_type\": \"user\",\n      \"transmission_strategy\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1983-01-17T05:30:40.244Z\",\n      \"upload_finished_at\": \"1982-08-28T14:20:12.291Z\",\n      \"upload_finished_reason\": \"string\",\n      \"upload_id\": \"string\",\n      \"upload_started_at\": \"2012-01-14T01:46:43.773Z\",\n      \"upload_status\": \"string\",\n      \"version\": \"string\"\n    },\n    {\n      \"bento_repository_uid\": \"string\",\n      \"build_at\": \"1962-07-10T12:22:01.812Z\",\n      \"created_at\": \"2026-08-04T03:49:30.101Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1985-08-13T11:30:49.647Z\",\n        \"deleted_at\": \"1967-09-26T12:18:36.659Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"user\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1957-10-25T03:09:48.360Z\"\n      },\n      \"deleted_at\": \"1972-09-25T18:12:52.820Z\",\n      \"description\": \"string\",\n      \"image_build_status\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"manifest\": {\n        \"apis\": {\n          \"key_0\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          },\n          \"key_1\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          },\n          \"key_2\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          }\n        },\n        \"bentoml_version\": \"string\",\n        \"dev\": true,\n        \"entry_service\": \"string\",\n        \"envs\": [\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"image\": {\n          \"base_image\": \"string\",\n          \"commands\": [\n            \"string\",\n            \"string\"\n          ],\n          \"python_requirements\": \"string\",\n          \"python_version\": \"string\"\n        },\n        \"models\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"runners\": [\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          },\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          }\n        ],\n        \"schema\": {\n          \"key_0\": {}\n        },\n        \"service\": \"string\",\n        \"services\": [\n          {\n            \"config\": {\n              \"key_0\": {},\n              \"key_1\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          },\n          {\n            \"config\": {\n              \"key_0\": {},\n              \"key_1\": {},\n              \"key_2\": {},\n              \"key_3\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          }\n        ],\n        \"size_bytes\": 8744,\n        \"spec\": 238\n      },\n      \"name\": \"string\",\n      \"presigned_download_url\": \"string\",\n      \"presigned_upload_url\": \"string\",\n      \"presigned_urls_deprecated\": true,\n      \"resource_type\": \"deployment_revision\",\n      \"transmission_strategy\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1964-10-15T00:17:09.202Z\",\n      \"upload_finished_at\": \"1974-03-07T15:12:12.225Z\",\n      \"upload_finished_reason\": \"string\",\n      \"upload_id\": \"string\",\n      \"upload_started_at\": \"1966-06-07T07:01:53.417Z\",\n      \"upload_status\": \"string\",\n      \"version\": \"string\"\n    }\n  ],\n  \"n_bentos\": 680,\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"2019-12-20T02:49:23.881Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2024-04-03T15:58:52.151Z\",\n      \"deleted_at\": \"1975-05-09T21:41:47.021Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1990-12-04T18:43:33.028Z\"\n    },\n    \"deleted_at\": \"1995-08-10T15:57:18.232Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": false,\n    \"disable_resources_graphs\": false,\n    \"enable_endpoints\": false,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": true,\n    \"expired_at\": \"1951-02-19T21:34:52.767Z\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": true,\n    \"name\": \"string\",\n    \"public\": true,\n    \"resource_type\": \"model\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1992-07-26T22:23:23.608Z\"\n  },\n  \"resource_type\": \"model_repository\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1959-04-21T21:30:43.476Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f20d1712-6b6a-4348-bb28-629dc5729c1d",
+          "name": "Update a bento repository",
+          "request": {
+            "name": "Update a bento repository",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "bento_repositories",
+                ":bentoRepositoryName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bentoRepositoryName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4736c2f7-9b06-486f-8545-df4ec66a7d67",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bento_repositories",
+                    ":bentoRepositoryName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bentoRepositoryName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2018-09-18T11:10:04.713Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1998-11-22T22:17:34.138Z\",\n    \"deleted_at\": \"1993-02-22T23:59:22.902Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"host_cluster\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1962-05-20T01:16:22.030Z\"\n  },\n  \"deleted_at\": \"2024-06-01T19:35:37.820Z\",\n  \"description\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"latest_bento\": {\n    \"bento_repository_uid\": \"string\",\n    \"build_at\": \"1974-08-17T13:30:13.908Z\",\n    \"created_at\": \"2023-02-24T12:50:00.076Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1953-08-14T02:18:58.214Z\",\n      \"deleted_at\": \"2001-05-09T04:17:33.642Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2016-06-06T08:54:14.285Z\"\n    },\n    \"deleted_at\": \"1994-07-09T18:58:15.639Z\",\n    \"description\": \"string\",\n    \"image_build_status\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"manifest\": {\n      \"apis\": {\n        \"key_0\": {\n          \"doc\": \"string\",\n          \"input\": \"string\",\n          \"output\": \"string\",\n          \"route\": \"string\"\n        }\n      },\n      \"bentoml_version\": \"string\",\n      \"dev\": false,\n      \"entry_service\": \"string\",\n      \"envs\": [\n        {\n          \"name\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"image\": {\n        \"base_image\": \"string\",\n        \"commands\": [\n          \"string\",\n          \"string\"\n        ],\n        \"python_requirements\": \"string\",\n        \"python_version\": \"string\"\n      },\n      \"models\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"runners\": [\n        {\n          \"models\": [\n            \"string\",\n            \"string\"\n          ],\n          \"name\": \"string\",\n          \"resource_config\": {\n            \"cpu\": 7670.189453696954,\n            \"custom_resources\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"nvidia_gpu\": 8029.718958571229\n          },\n          \"runnable_type\": \"string\"\n        },\n        {\n          \"models\": [\n            \"string\",\n            \"string\"\n          ],\n          \"name\": \"string\",\n          \"resource_config\": {\n            \"cpu\": 3132.150232493266,\n            \"custom_resources\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"nvidia_gpu\": 2593.7711700148757\n          },\n          \"runnable_type\": \"string\"\n        }\n      ],\n      \"schema\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"service\": \"string\",\n      \"services\": [\n        {\n          \"config\": {\n            \"key_0\": {}\n          },\n          \"models\": [\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"service\": \"string\"\n        },\n        {\n          \"config\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"models\": [\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"creation_time\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"module\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registry\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tag\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"string\",\n          \"service\": \"string\"\n        }\n      ],\n      \"size_bytes\": 1244,\n      \"spec\": 6367\n    },\n    \"name\": \"string\",\n    \"presigned_download_url\": \"string\",\n    \"presigned_upload_url\": \"string\",\n    \"presigned_urls_deprecated\": false,\n    \"resource_type\": \"model_repository\",\n    \"transmission_strategy\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2016-05-18T07:03:29.469Z\",\n    \"upload_finished_at\": \"1974-07-16T00:55:31.256Z\",\n    \"upload_finished_reason\": \"string\",\n    \"upload_id\": \"string\",\n    \"upload_started_at\": \"1992-07-03T08:30:30.902Z\",\n    \"upload_status\": \"string\",\n    \"version\": \"string\"\n  },\n  \"latest_bentos\": [\n    {\n      \"bento_repository_uid\": \"string\",\n      \"build_at\": \"1957-05-18T10:03:36.719Z\",\n      \"created_at\": \"2009-06-19T02:51:07.873Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1981-06-11T03:28:11.539Z\",\n        \"deleted_at\": \"2022-10-13T02:55:23.808Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment_revision\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2008-02-22T18:21:48.764Z\"\n      },\n      \"deleted_at\": \"2016-07-19T15:03:48.235Z\",\n      \"description\": \"string\",\n      \"image_build_status\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"manifest\": {\n        \"apis\": {\n          \"key_0\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          },\n          \"key_1\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          }\n        },\n        \"bentoml_version\": \"string\",\n        \"dev\": true,\n        \"entry_service\": \"string\",\n        \"envs\": [\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"image\": {\n          \"base_image\": \"string\",\n          \"commands\": [\n            \"string\",\n            \"string\"\n          ],\n          \"python_requirements\": \"string\",\n          \"python_version\": \"string\"\n        },\n        \"models\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"runners\": [\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          },\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          }\n        ],\n        \"schema\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"service\": \"string\",\n        \"services\": [\n          {\n            \"config\": {\n              \"key_0\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          },\n          {\n            \"config\": {\n              \"key_0\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          }\n        ],\n        \"size_bytes\": 4224,\n        \"spec\": 3765\n      },\n      \"name\": \"string\",\n      \"presigned_download_url\": \"string\",\n      \"presigned_upload_url\": \"string\",\n      \"presigned_urls_deprecated\": false,\n      \"resource_type\": \"bento\",\n      \"transmission_strategy\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2002-01-24T17:31:08.729Z\",\n      \"upload_finished_at\": \"1959-07-15T19:26:32.878Z\",\n      \"upload_finished_reason\": \"string\",\n      \"upload_id\": \"string\",\n      \"upload_started_at\": \"1952-11-17T14:43:25.850Z\",\n      \"upload_status\": \"string\",\n      \"version\": \"string\"\n    },\n    {\n      \"bento_repository_uid\": \"string\",\n      \"build_at\": \"1949-06-15T09:59:05.981Z\",\n      \"created_at\": \"1958-09-13T07:13:44.148Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1956-05-01T00:32:30.843Z\",\n        \"deleted_at\": \"1954-12-11T08:23:56.755Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1986-01-02T17:31:09.888Z\"\n      },\n      \"deleted_at\": \"2020-02-28T09:47:27.203Z\",\n      \"description\": \"string\",\n      \"image_build_status\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"manifest\": {\n        \"apis\": {\n          \"key_0\": {\n            \"doc\": \"string\",\n            \"input\": \"string\",\n            \"output\": \"string\",\n            \"route\": \"string\"\n          }\n        },\n        \"bentoml_version\": \"string\",\n        \"dev\": false,\n        \"entry_service\": \"string\",\n        \"envs\": [\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"image\": {\n          \"base_image\": \"string\",\n          \"commands\": [\n            \"string\",\n            \"string\"\n          ],\n          \"python_requirements\": \"string\",\n          \"python_version\": \"string\"\n        },\n        \"models\": [\n          \"string\",\n          \"string\"\n        ],\n        \"name\": \"string\",\n        \"runners\": [\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          },\n          {\n            \"models\": [\n              \"string\",\n              \"string\"\n            ],\n            \"name\": \"string\",\n            \"resource_config\": {\n              \"cpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"custom_resources\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"nvidia_gpu\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"runnable_type\": \"string\"\n          }\n        ],\n        \"schema\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"service\": \"string\",\n        \"services\": [\n          {\n            \"config\": {\n              \"key_0\": {},\n              \"key_1\": {},\n              \"key_2\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          },\n          {\n            \"config\": {\n              \"key_0\": {}\n            },\n            \"models\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"string\",\n            \"service\": \"string\"\n          }\n        ],\n        \"size_bytes\": 6450,\n        \"spec\": 2479\n      },\n      \"name\": \"string\",\n      \"presigned_download_url\": \"string\",\n      \"presigned_upload_url\": \"string\",\n      \"presigned_urls_deprecated\": false,\n      \"resource_type\": \"organization\",\n      \"transmission_strategy\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1978-02-17T04:54:11.492Z\",\n      \"upload_finished_at\": \"1971-10-04T15:52:29.274Z\",\n      \"upload_finished_reason\": \"string\",\n      \"upload_id\": \"string\",\n      \"upload_started_at\": \"1974-08-31T11:46:36.346Z\",\n      \"upload_status\": \"string\",\n      \"version\": \"string\"\n    }\n  ],\n  \"n_bentos\": 8078,\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"2016-12-19T18:44:54.160Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1979-10-20T19:16:41.020Z\",\n      \"deleted_at\": \"1991-10-10T14:15:23.923Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"model\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1964-03-08T16:51:10.091Z\"\n    },\n    \"deleted_at\": \"1977-10-19T18:22:09.618Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": true,\n    \"disable_resources_graphs\": true,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": true,\n    \"enable_monitoring_endpoint\": true,\n    \"expired_at\": \"1966-01-01T12:41:17.428Z\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": false,\n    \"name\": \"string\",\n    \"public\": false,\n    \"resource_type\": \"organization\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2006-09-23T16:39:54.118Z\"\n  },\n  \"resource_type\": \"model\",\n  \"uid\": \"string\",\n  \"updated_at\": \"2005-01-07T10:49:10.496Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f376111e-bf82-4bc8-ba70-ed88ab775131",
+          "name": "List bento repository deployments",
+          "request": {
+            "name": "List bento repository deployments",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "bento_repositories",
+                ":bentoRepositoryName",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bentoRepositoryName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95eaa63f-a218-41de-a012-0e92f44d85cf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bento_repositories",
+                    ":bentoRepositoryName",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bentoRepositoryName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3939,\n  \"items\": [\n    {\n      \"cluster\": {\n        \"created_at\": \"1959-12-07T13:57:24.641Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1999-12-27T01:51:20.563Z\",\n          \"deleted_at\": \"1963-12-07T11:10:10.009Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": false,\n          \"is_super_admin\": false,\n          \"labels\": [\n            {\n              \"key\": \"<string>\",\n              \"stage\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"key\": \"<string>\",\n              \"stage\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"model\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1997-02-16T17:50:21.343Z\"\n        },\n        \"default_deployment_kube_namespace\": \"string\",\n        \"deleted_at\": \"2016-01-12T14:48:15.719Z\",\n        \"description\": \"string\",\n        \"grafana_root_path\": \"string\",\n        \"host_cluster_display_name\": \"string\",\n        \"host_cluster_name\": \"string\",\n        \"is_first\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"multi_tenancy\": true,\n        \"name\": \"string\",\n        \"organization_name\": \"string\",\n        \"provider\": \"string\",\n        \"resource_type\": \"organization\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1953-06-25T15:27:56.056Z\"\n      },\n      \"created_at\": \"2021-02-02T10:52:47.211Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1976-10-19T23:05:45.622Z\",\n        \"deleted_at\": \"1997-04-18T16:39:38.156Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"model_repository\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2022-10-27T02:25:53.659Z\"\n      },\n      \"deleted_at\": \"2006-12-25T16:27:21.644Z\",\n      \"description\": \"string\",\n      \"distributed\": false,\n      \"kube_namespace\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"manifest\": {\n        \"dev\": true,\n        \"replicas\": {\n          \"key_0\": 1300,\n          \"key_1\": 5547,\n          \"key_2\": 9066,\n          \"key_3\": 7493,\n          \"key_4\": 8423\n        },\n        \"routing\": {\n          \"route_by\": \"string\",\n          \"route_type\": \"string\",\n          \"weights\": {\n            \"key_0\": 2857,\n            \"key_1\": 5087\n          }\n        },\n        \"super_admin\": true\n      },\n      \"mode\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"status\": \"deploying\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1988-12-16T12:36:54.380Z\",\n      \"updater\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1969-05-13T03:40:52.157Z\",\n        \"deleted_at\": \"2003-12-13T15:11:59.401Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1990-06-16T16:21:04.902Z\"\n      }\n    },\n    {\n      \"cluster\": {\n        \"created_at\": \"1976-02-19T23:46:43.417Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1995-11-25T19:09:31.450Z\",\n          \"deleted_at\": \"1983-12-11T20:44:25.302Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": true,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"<string>\",\n              \"stage\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"key\": \"<string>\",\n              \"stage\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"deployment_revision\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2004-11-01T00:49:42.052Z\"\n        },\n        \"default_deployment_kube_namespace\": \"string\",\n        \"deleted_at\": \"1949-04-08T21:30:56.482Z\",\n        \"description\": \"string\",\n        \"grafana_root_path\": \"string\",\n        \"host_cluster_display_name\": \"string\",\n        \"host_cluster_name\": \"string\",\n        \"is_first\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"multi_tenancy\": true,\n        \"name\": \"string\",\n        \"organization_name\": \"string\",\n        \"provider\": \"string\",\n        \"resource_type\": \"organization\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1994-09-18T19:50:12.329Z\"\n      },\n      \"created_at\": \"1969-05-09T08:07:43.410Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"2008-04-11T12:09:33.419Z\",\n        \"deleted_at\": \"1955-03-22T22:41:02.760Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"host_cluster\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2011-02-17T07:32:37.792Z\"\n      },\n      \"deleted_at\": \"1993-07-18T05:26:31.385Z\",\n      \"description\": \"string\",\n      \"distributed\": false,\n      \"kube_namespace\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"manifest\": {\n        \"dev\": true,\n        \"replicas\": {\n          \"key_0\": 876\n        },\n        \"routing\": {\n          \"route_by\": \"string\",\n          \"route_type\": \"string\",\n          \"weights\": {\n            \"key_0\": 6181,\n            \"key_1\": 6291,\n            \"key_2\": 8444\n          }\n        },\n        \"super_admin\": true\n      },\n      \"mode\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"status\": \"unhealthy\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1992-09-28T15:46:33.068Z\",\n      \"updater\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1986-02-20T18:29:14.831Z\",\n        \"deleted_at\": \"1996-10-05T21:12:55.090Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"stage\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"model_repository\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2010-07-21T13:05:36.818Z\"\n      }\n    }\n  ],\n  \"start\": 4081,\n  \"total\": 8610\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f137b156-b7c5-40ee-a89f-9a473bd38c78",
+    "name": "yatai api server admin api v1 bento repository resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "88023fbe-f430-41d8-b87d-e61931485b1d",
+      "name": "host_clusters",
+      "description": {
+        "content": "host_clusters",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e75afc57-5af4-46a4-9cff-85498cfa030e",
+          "name": "List host clusters",
+          "request": {
+            "name": "List host clusters",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "host_clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b16a3ec4-4af0-4cb3-ba23-1c08a5946976",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "host_clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7577,\n  \"items\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2012-04-26T20:02:54.091Z\",\n      \"default\": true,\n      \"deleted_at\": \"2009-08-09T03:46:17.336Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_type\": \"deployment\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1981-12-31T10:08:17.701Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2010-04-01T15:20:43.467Z\",\n      \"default\": false,\n      \"deleted_at\": \"1963-01-08T08:36:20.378Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_type\": \"bento\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1952-01-21T16:02:05.649Z\"\n    }\n  ],\n  \"start\": 1714,\n  \"total\": 1465\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a8f0ab3-f1f2-428a-a073-18317238974d",
+          "name": "Create host cluster",
+          "request": {
+            "name": "Create host cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "host_clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": {\n    \"image_builder_pod_eks_role_arn\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"region\": \"<string>\",\n    \"resource_instance_names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"standby_instances\": {\n      \"key_0\": \"<integer>\",\n      \"key_1\": \"<integer>\"\n    }\n  },\n  \"default\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"kube_config\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0383c128-2ff5-402a-b307-99d5ec1ecde7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "host_clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"image_builder_pod_eks_role_arn\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"region\": \"<string>\",\n    \"resource_instance_names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"standby_instances\": {\n      \"key_0\": \"<integer>\"\n    }\n  },\n  \"default\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"kube_config\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1998-07-06T20:09:52.016Z\",\n  \"default\": false,\n  \"deleted_at\": \"2021-07-17T16:38:38.621Z\",\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1971-07-28T07:24:18.926Z\",\n      \"deleted_at\": \"1967-02-05T07:48:09.254Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2016-10-31T07:18:57.513Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1966-10-30T03:54:35.924Z\",\n      \"deleted_at\": \"1975-01-26T18:17:21.295Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"organization\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1970-01-30T17:15:00.304Z\"\n    }\n  ],\n  \"resource_type\": \"api_token\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1950-04-23T02:59:01.037Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "77e5fd63-3e1d-44ee-a14f-a129346aeddf",
+    "name": "yatai api server admin api v1 host_clusters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

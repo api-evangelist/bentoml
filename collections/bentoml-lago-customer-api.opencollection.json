@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 lago customer API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lago customer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lago customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/lago/customers"
+          },
+          "docs": "List lago customers"
+        },
+        {
+          "info": {
+            "name": "Create lago customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/lago/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create lago customer"
+        },
+        {
+          "info": {
+            "name": "Update lago customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/lago/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update lago customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

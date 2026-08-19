@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 terminal record resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "terminal record resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a terminal record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/terminal_records/:uid",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a terminal record"
+        },
+        {
+          "info": {
+            "name": "Download a terminal record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/terminal_records/:uid/download"
+          },
+          "docs": "Download a terminal record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

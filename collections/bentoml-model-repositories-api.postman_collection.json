@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "4ecd6ae8-05e9-4c0c-8bde-35224b9367dd",
+      "name": "model repositories",
+      "description": {
+        "content": "model repositories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30cae3b1-5b56-454d-a430-33e805a5cf2e",
+          "name": "List model repositories",
+          "request": {
+            "name": "List model repositories",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "model_repositories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1d49404-475f-492d-8e98-e5df748caf1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "model_repositories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7020,\n  \"items\": [\n    {\n      \"created_at\": \"2007-04-03T09:10:52.204Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1952-11-30T15:41:15.831Z\",\n        \"deleted_at\": \"1969-12-09T22:52:36.667Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2005-01-29T22:19:48.081Z\"\n      },\n      \"deleted_at\": \"1949-05-05T22:10:13.928Z\",\n      \"description\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"latest_model\": {\n        \"build_at\": \"1994-08-07T11:03:16.724Z\",\n        \"created_at\": \"1975-08-13T05:21:47.224Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1951-04-20T03:19:21.699Z\",\n          \"deleted_at\": \"2025-06-06T03:08:47.282Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": true,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"model\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2017-05-22T21:44:40.774Z\"\n        },\n        \"deleted_at\": \"1985-08-23T06:49:22.849Z\",\n        \"description\": \"string\",\n        \"image_build_status\": \"string\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"manifest\": {\n          \"api_version\": \"string\",\n          \"bentoml_version\": \"string\",\n          \"context\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {}\n          },\n          \"metadata\": {\n            \"key_0\": {}\n          },\n          \"module\": \"string\",\n          \"options\": {\n            \"key_0\": {}\n          },\n          \"size_bytes\": 2459\n        },\n        \"model_uid\": \"string\",\n        \"name\": \"string\",\n        \"presigned_download_url\": \"string\",\n        \"presigned_upload_url\": \"string\",\n        \"presigned_urls_deprecated\": true,\n        \"resource_type\": \"model\",\n        \"transmission_strategy\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1948-10-17T19:03:48.245Z\",\n        \"upload_finished_at\": \"2012-07-14T05:12:23.567Z\",\n        \"upload_finished_reason\": \"string\",\n        \"upload_id\": \"string\",\n        \"upload_started_at\": \"1946-09-13T19:54:59.298Z\",\n        \"upload_status\": \"string\",\n        \"version\": \"string\"\n      },\n      \"name\": \"string\",\n      \"organization\": {\n        \"created_at\": \"2003-12-04T11:18:48.033Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2019-05-19T02:55:41.671Z\",\n          \"deleted_at\": \"1983-04-19T14:37:42.720Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": false,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"organization\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1984-01-27T07:13:26.823Z\"\n        },\n        \"deleted_at\": \"1970-06-25T11:54:29.970Z\",\n        \"description\": \"string\",\n        \"disable_grafana\": true,\n        \"disable_resources_graphs\": false,\n        \"enable_endpoints\": false,\n        \"enable_mixture_scaling\": true,\n        \"enable_monitoring_endpoint\": false,\n        \"expired_at\": \"1969-01-31T21:48:23.458Z\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"limit_group\": \"string\",\n        \"multi_tenancy\": false,\n        \"name\": \"string\",\n        \"public\": true,\n        \"resource_type\": \"cluster\",\n        \"status\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2026-08-01T00:03:15.714Z\"\n      },\n      \"resource_type\": \"deployment\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1955-06-23T23:23:40.865Z\"\n    },\n    {\n      \"created_at\": \"1976-01-04T18:11:08.732Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"2016-08-03T11:11:21.412Z\",\n        \"deleted_at\": \"1987-02-15T08:27:10.894Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"user\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1971-03-18T21:51:30.195Z\"\n      },\n      \"deleted_at\": \"1981-05-17T00:49:28.977Z\",\n      \"description\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"latest_model\": {\n        \"build_at\": \"2025-07-11T13:49:25.941Z\",\n        \"created_at\": \"1975-05-25T19:29:11.853Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"2006-05-17T05:27:18.585Z\",\n          \"deleted_at\": \"1987-03-09T04:02:45.496Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": false,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"bento_repository\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2020-08-23T20:14:56.909Z\"\n        },\n        \"deleted_at\": \"2024-04-14T04:01:04.956Z\",\n        \"description\": \"string\",\n        \"image_build_status\": \"string\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"manifest\": {\n          \"api_version\": \"string\",\n          \"bentoml_version\": \"string\",\n          \"context\": {\n            \"key_0\": {}\n          },\n          \"metadata\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          },\n          \"module\": \"string\",\n          \"options\": {\n            \"key_0\": {}\n          },\n          \"size_bytes\": 8091\n        },\n        \"model_uid\": \"string\",\n        \"name\": \"string\",\n        \"presigned_download_url\": \"string\",\n        \"presigned_upload_url\": \"string\",\n        \"presigned_urls_deprecated\": false,\n        \"resource_type\": \"deployment\",\n        \"transmission_strategy\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1983-04-23T21:53:09.302Z\",\n        \"upload_finished_at\": \"2014-09-07T17:26:08.021Z\",\n        \"upload_finished_reason\": \"string\",\n        \"upload_id\": \"string\",\n        \"upload_started_at\": \"2022-09-12T17:14:58.267Z\",\n        \"upload_status\": \"string\",\n        \"version\": \"string\"\n      },\n      \"name\": \"string\",\n      \"organization\": {\n        \"created_at\": \"1971-06-20T23:24:49.890Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1992-08-18T22:38:04.885Z\",\n          \"deleted_at\": \"1965-06-18T17:40:26.489Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": false,\n          \"is_super_admin\": false,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"organization\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2016-08-02T05:55:22.541Z\"\n        },\n        \"deleted_at\": \"1986-07-08T05:25:50.229Z\",\n        \"description\": \"string\",\n        \"disable_grafana\": false,\n        \"disable_resources_graphs\": false,\n        \"enable_endpoints\": true,\n        \"enable_mixture_scaling\": false,\n        \"enable_monitoring_endpoint\": true,\n        \"expired_at\": \"1955-06-15T16:41:28.829Z\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"limit_group\": \"string\",\n        \"multi_tenancy\": false,\n        \"name\": \"string\",\n        \"public\": false,\n        \"resource_type\": \"bento_repository\",\n        \"status\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2017-10-20T06:54:33.219Z\"\n      },\n      \"resource_type\": \"organization\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2007-12-19T04:28:54.897Z\"\n    }\n  ],\n  \"start\": 6097,\n  \"total\": 4042\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "356216d7-7643-47de-903d-34f97d0ed1be",
+          "name": "Create a model repository",
+          "request": {
+            "name": "Create a model repository",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "model_repositories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e86cf08a-5ec7-4520-9522-f87028b9e678",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "model_repositories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1959-07-02T06:59:31.270Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1960-12-31T07:49:58.222Z\",\n    \"deleted_at\": \"1978-09-27T16:54:04.079Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": true,\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"deployment\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1988-12-08T17:48:07.457Z\"\n  },\n  \"deleted_at\": \"1946-09-08T13:51:39.171Z\",\n  \"description\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"stage\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"latest_model\": {\n    \"build_at\": \"1992-10-13T18:53:34.514Z\",\n    \"created_at\": \"1972-10-16T21:11:19.998Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1966-11-27T08:15:01.358Z\",\n      \"deleted_at\": \"2000-01-22T22:45:24.034Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1989-12-22T15:44:55.192Z\"\n    },\n    \"deleted_at\": \"1981-04-02T05:47:33.459Z\",\n    \"description\": \"string\",\n    \"image_build_status\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"manifest\": {\n      \"api_version\": \"string\",\n      \"bentoml_version\": \"string\",\n      \"context\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"metadata\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"module\": \"string\",\n      \"options\": {\n        \"key_0\": {}\n      },\n      \"size_bytes\": 8089\n    },\n    \"model_uid\": \"string\",\n    \"name\": \"string\",\n    \"presigned_download_url\": \"string\",\n    \"presigned_upload_url\": \"string\",\n    \"presigned_urls_deprecated\": true,\n    \"resource_type\": \"bento\",\n    \"transmission_strategy\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1978-04-06T20:07:06.617Z\",\n    \"upload_finished_at\": \"1965-03-02T07:54:25.283Z\",\n    \"upload_finished_reason\": \"string\",\n    \"upload_id\": \"string\",\n    \"upload_started_at\": \"2012-09-09T23:30:40.178Z\",\n    \"upload_status\": \"string\",\n    \"version\": \"string\"\n  },\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"1956-08-31T09:11:23.866Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1975-07-07T19:53:58.206Z\",\n      \"deleted_at\": \"1951-10-08T19:26:18.270Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"stage\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1991-08-25T04:36:28.249Z\"\n    },\n    \"deleted_at\": \"2008-03-30T15:35:22.352Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": true,\n    \"disable_resources_graphs\": false,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": true,\n    \"expired_at\": \"2021-04-03T11:01:09.265Z\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"stage\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": true,\n    \"name\": \"string\",\n    \"public\": false,\n    \"resource_type\": \"user\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2019-10-09T22:43:59.468Z\"\n  },\n  \"resource_type\": \"api_token\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1989-12-15T21:54:34.173Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7bb3561-368d-4ca2-9875-e9750f937543",
+    "name": "yatai api server admin api v1 model repositories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

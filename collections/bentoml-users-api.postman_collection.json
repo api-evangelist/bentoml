@@ -1,0 +1,351 @@
+{
+  "item": [
+    {
+      "id": "44f59831-e9f2-4c2c-b02b-fa268be2da9f",
+      "name": "users",
+      "description": {
+        "content": "users api",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18d0a72a-0e56-4854-ac98-96987da9c15a",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51c0be8f-a90a-46a6-866d-e46d38f5653b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1796,\n  \"items\": [\n    {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1950-10-27T15:18:18.533Z\",\n      \"deleted_at\": \"1968-06-28T10:35:02.624Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"organization\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1950-02-14T14:02:35.630Z\"\n    },\n    {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1998-08-04T08:23:46.618Z\",\n      \"deleted_at\": \"2014-02-01T08:10:29.948Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1973-03-29T12:20:14.226Z\"\n    }\n  ],\n  \"start\": 9393,\n  \"total\": 5692\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54d7b0bf-694a-4cc0-8a37-daa269e67cdd",
+          "name": "Create an user",
+          "request": {
+            "name": "Create an user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "206765b2-79fb-4423-9fc7-a0d6731e38d3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"application_status\": \"string\",\n  \"avatar_url\": \"string\",\n  \"created_at\": \"1995-11-12T13:01:24.488Z\",\n  \"deleted_at\": \"1984-10-12T13:33:44.603Z\",\n  \"email\": \"string\",\n  \"first_name\": \"string\",\n  \"from_sso\": false,\n  \"is_super_admin\": false,\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"last_name\": \"string\",\n  \"name\": \"string\",\n  \"perm\": \"string\",\n  \"register_stage\": \"string\",\n  \"resource_type\": \"model_repository\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1958-10-01T15:34:39.707Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "290fc7d4-3175-4024-9d70-59a5cb23e8ef",
+          "name": "Invite an user",
+          "request": {
+            "name": "Invite an user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "invite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc9f7e04-6990-48dd-81fe-f95c3b71c951",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    "invite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invitation_code\": \"string\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "88dfc3b1-79fe-4022-b03f-7ea5fceee919",
+    "name": "yatai api server admin api v1 users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

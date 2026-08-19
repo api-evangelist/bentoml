@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "824e53ce-a592-45e6-bffe-3b2672e54110",
+      "name": "instance_types",
+      "description": {
+        "content": "instance_types",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a573dbf-87a8-4a2a-be4f-db71dc460081",
+          "name": "List instance types",
+          "request": {
+            "name": "List instance types",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "instance_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cluster",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "003fd083-64a0-4ad4-8a0f-91161d54077a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "instance_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cluster",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"config\": \"string\",\n    \"created_at\": \"1948-04-03T03:27:19.877Z\",\n    \"deleted_at\": \"2014-04-05T19:02:08.232Z\",\n    \"description\": \"string\",\n    \"display_name\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"lago_id\": \"string\",\n    \"name\": \"string\",\n    \"resource_type\": \"deployment_revision\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1969-04-10T08:44:29.070Z\"\n  },\n  {\n    \"config\": \"string\",\n    \"created_at\": \"2018-10-17T13:53:35.874Z\",\n    \"deleted_at\": \"1982-03-03T22:41:11.315Z\",\n    \"description\": \"string\",\n    \"display_name\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"lago_id\": \"string\",\n    \"name\": \"string\",\n    \"resource_type\": \"host_cluster\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1971-03-25T03:13:50.972Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "950a928e-6bf1-45d7-b70a-dba98258534a",
+    "name": "yatai api server admin api v1 instance_types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

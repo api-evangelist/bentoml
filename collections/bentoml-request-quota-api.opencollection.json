@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 request quota API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "request quota",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Request quota",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/requestquota",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Request quota"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

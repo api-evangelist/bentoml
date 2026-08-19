@@ -1,0 +1,709 @@
+{
+  "item": [
+    {
+      "id": "b2a142c9-44ef-4145-bae3-9e248d186976",
+      "name": "cluster resource",
+      "description": {
+        "content": "cluster resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ad70750-75ca-42a7-875a-50f05ea9139b",
+          "name": "Get a cluster",
+          "request": {
+            "name": "Get a cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82b82a48-2a70-4349-bf07-ad06c0a9a558",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"2002-03-26T03:58:43.351Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1990-09-19T16:52:02.775Z\",\n    \"deleted_at\": \"2019-05-17T01:52:01.269Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"model\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2000-10-03T07:19:24.960Z\"\n  },\n  \"default_deployment_kube_namespace\": \"string\",\n  \"deleted_at\": \"1974-07-15T13:29:21.989Z\",\n  \"description\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"host_cluster_display_name\": \"string\",\n  \"host_cluster_name\": \"string\",\n  \"is_first\": true,\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"multi_tenancy\": true,\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"2007-08-08T16:02:44.712Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1982-05-05T12:52:24.868Z\",\n      \"deleted_at\": \"2019-07-09T13:00:41.858Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1957-04-28T13:55:33.419Z\"\n    },\n    \"deleted_at\": \"1959-10-08T09:22:09.930Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": false,\n    \"disable_resources_graphs\": false,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": false,\n    \"expired_at\": \"1974-08-19T21:16:09.279Z\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": false,\n    \"name\": \"string\",\n    \"public\": true,\n    \"resource_type\": \"bento\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1964-04-02T05:22:26.561Z\"\n  },\n  \"organization_name\": \"string\",\n  \"provider\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2007-01-17T21:28:55.762Z\",\n      \"deleted_at\": \"2015-08-26T02:32:37.579Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2020-12-21T18:14:35.937Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1976-01-17T17:00:09.629Z\",\n      \"deleted_at\": \"2019-12-12T02:42:57.324Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1999-04-28T02:58:21.099Z\"\n    }\n  ],\n  \"resource_type\": \"deployment_revision\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1953-08-09T14:11:01.660Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f8cc1da-8695-4c32-aff4-483ecf5acc8c",
+          "name": "Update a cluster",
+          "request": {
+            "name": "Update a cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"host_cluster_id\": \"<integer>\",\n  \"multi_tenancy\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b601bb0b-7cc1-4d33-8177-ffbb9e27dc61",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"host_cluster_id\": \"<integer>\",\n  \"multi_tenancy\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"2002-03-26T03:58:43.351Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1990-09-19T16:52:02.775Z\",\n    \"deleted_at\": \"2019-05-17T01:52:01.269Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"model\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2000-10-03T07:19:24.960Z\"\n  },\n  \"default_deployment_kube_namespace\": \"string\",\n  \"deleted_at\": \"1974-07-15T13:29:21.989Z\",\n  \"description\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"host_cluster_display_name\": \"string\",\n  \"host_cluster_name\": \"string\",\n  \"is_first\": true,\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"multi_tenancy\": true,\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"2007-08-08T16:02:44.712Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1982-05-05T12:52:24.868Z\",\n      \"deleted_at\": \"2019-07-09T13:00:41.858Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1957-04-28T13:55:33.419Z\"\n    },\n    \"deleted_at\": \"1959-10-08T09:22:09.930Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": false,\n    \"disable_resources_graphs\": false,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": false,\n    \"expired_at\": \"1974-08-19T21:16:09.279Z\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": false,\n    \"name\": \"string\",\n    \"public\": true,\n    \"resource_type\": \"bento\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1964-04-02T05:22:26.561Z\"\n  },\n  \"organization_name\": \"string\",\n  \"provider\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2007-01-17T21:28:55.762Z\",\n      \"deleted_at\": \"2015-08-26T02:32:37.579Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2020-12-21T18:14:35.937Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1976-01-17T17:00:09.629Z\",\n      \"deleted_at\": \"2019-12-12T02:42:57.324Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1999-04-28T02:58:21.099Z\"\n    }\n  ],\n  \"resource_type\": \"deployment_revision\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1953-08-09T14:11:01.660Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "626c78ec-1472-47ff-bbb0-e46623223b08",
+          "name": "List cluster members",
+          "request": {
+            "name": "List cluster members",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe85bf6e-a6c2-4630-a390-fd092a8071d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cluster\": {\n      \"created_at\": \"1977-02-14T11:03:06.270Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1991-01-04T10:43:34.785Z\",\n        \"deleted_at\": \"1987-01-20T17:36:08.763Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"api_token\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1999-06-30T16:52:44.636Z\"\n      },\n      \"default_deployment_kube_namespace\": \"string\",\n      \"deleted_at\": \"2011-04-06T13:36:57.101Z\",\n      \"description\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"host_cluster_display_name\": \"string\",\n      \"host_cluster_name\": \"string\",\n      \"is_first\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multi_tenancy\": false,\n      \"name\": \"string\",\n      \"organization_name\": \"string\",\n      \"provider\": \"string\",\n      \"resource_type\": \"bento\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1951-02-16T11:24:08.536Z\"\n    },\n    \"created_at\": \"1980-10-21T04:26:12.070Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1957-05-22T07:29:17.620Z\",\n      \"deleted_at\": \"1989-12-03T10:02:48.244Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2023-06-21T18:34:17.199Z\"\n    },\n    \"deleted_at\": \"1968-08-26T11:03:38.884Z\",\n    \"role\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2020-10-15T10:16:16.345Z\",\n    \"user\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1990-12-21T06:12:13.327Z\",\n      \"deleted_at\": \"1960-01-09T17:30:10.845Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1997-01-07T11:39:48.127Z\"\n    }\n  },\n  {\n    \"cluster\": {\n      \"created_at\": \"1969-10-21T02:57:42.016Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1970-11-05T12:53:25.997Z\",\n        \"deleted_at\": \"2005-05-20T16:36:48.832Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"api_token\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1983-04-17T01:06:34.972Z\"\n      },\n      \"default_deployment_kube_namespace\": \"string\",\n      \"deleted_at\": \"1987-10-21T06:42:53.252Z\",\n      \"description\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"host_cluster_display_name\": \"string\",\n      \"host_cluster_name\": \"string\",\n      \"is_first\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multi_tenancy\": false,\n      \"name\": \"string\",\n      \"organization_name\": \"string\",\n      \"provider\": \"string\",\n      \"resource_type\": \"host_cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1991-12-26T11:08:55.333Z\"\n    },\n    \"created_at\": \"1999-11-09T11:39:22.297Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2000-08-06T08:08:24.013Z\",\n      \"deleted_at\": \"2015-04-26T15:14:26.475Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"bento\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2007-09-10T23:14:31.550Z\"\n    },\n    \"deleted_at\": \"2015-03-04T23:25:33.499Z\",\n    \"role\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1962-12-22T14:54:24.476Z\",\n    \"user\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1950-08-04T09:22:35.928Z\",\n      \"deleted_at\": \"1988-07-09T11:52:50.907Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1984-06-04T00:51:02.287Z\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18bfb97a-fc4b-48aa-b58c-23010cd4fb80",
+          "name": "Create a cluster member",
+          "request": {
+            "name": "Create a cluster member",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"<string>\",\n  \"usernames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20a22254-b3bb-447e-a4ab-7aa8492d4532",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"role\": \"<string>\",\n  \"usernames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cluster\": {\n      \"created_at\": \"1952-07-19T10:51:29.837Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"2023-08-26T21:56:44.381Z\",\n        \"deleted_at\": \"1964-08-12T10:28:19.339Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": true,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1981-09-04T01:09:54.479Z\"\n      },\n      \"default_deployment_kube_namespace\": \"string\",\n      \"deleted_at\": \"2017-10-30T19:58:47.516Z\",\n      \"description\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"host_cluster_display_name\": \"string\",\n      \"host_cluster_name\": \"string\",\n      \"is_first\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multi_tenancy\": true,\n      \"name\": \"string\",\n      \"organization_name\": \"string\",\n      \"provider\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1986-09-21T11:15:13.744Z\"\n    },\n    \"created_at\": \"1964-10-30T12:10:30.735Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2002-01-04T04:20:19.820Z\",\n      \"deleted_at\": \"2005-03-13T14:09:19.176Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": true,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1964-10-21T15:11:50.639Z\"\n    },\n    \"deleted_at\": \"2021-08-01T10:36:17.208Z\",\n    \"role\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1968-09-24T09:11:41.382Z\",\n    \"user\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1985-06-12T02:03:17.800Z\",\n      \"deleted_at\": \"1978-07-31T00:46:55.966Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"organization\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2019-11-15T06:39:12.179Z\"\n    }\n  },\n  {\n    \"cluster\": {\n      \"created_at\": \"1979-02-12T15:31:32.249Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"2001-06-07T06:58:13.109Z\",\n        \"deleted_at\": \"2019-02-27T03:17:54.170Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment_revision\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1970-03-11T19:38:09.137Z\"\n      },\n      \"default_deployment_kube_namespace\": \"string\",\n      \"deleted_at\": \"1972-11-15T06:40:23.584Z\",\n      \"description\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"host_cluster_display_name\": \"string\",\n      \"host_cluster_name\": \"string\",\n      \"is_first\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"multi_tenancy\": false,\n      \"name\": \"string\",\n      \"organization_name\": \"string\",\n      \"provider\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1967-08-12T06:15:41.474Z\"\n    },\n    \"created_at\": \"2012-10-29T08:11:48.151Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1963-05-31T15:19:03.769Z\",\n      \"deleted_at\": \"1956-08-01T18:42:10.638Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1955-04-07T12:46:18.114Z\"\n    },\n    \"deleted_at\": \"1952-06-14T09:07:24.375Z\",\n    \"role\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2026-03-02T02:21:17.565Z\",\n    \"user\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1991-03-24T00:42:31.433Z\",\n      \"deleted_at\": \"1962-05-24T23:10:03.593Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"user\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2017-07-16T19:08:47.111Z\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31544b24-3e36-4254-9fe6-c074a4fb4797",
+          "name": "Remove a cluster member",
+          "request": {
+            "name": "Remove a cluster member",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d058ff40-8ddf-48fa-8fe6-e0ebe2c6e335",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cluster\": {\n    \"created_at\": \"1946-09-05T10:23:08.384Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1982-09-27T20:33:22.184Z\",\n      \"deleted_at\": \"2019-05-12T12:26:27.528Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"api_token\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1963-06-30T20:12:35.725Z\"\n    },\n    \"default_deployment_kube_namespace\": \"string\",\n    \"deleted_at\": \"2015-10-26T04:03:17.864Z\",\n    \"description\": \"string\",\n    \"grafana_root_path\": \"string\",\n    \"host_cluster_display_name\": \"string\",\n    \"host_cluster_name\": \"string\",\n    \"is_first\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"multi_tenancy\": false,\n    \"name\": \"string\",\n    \"organization_name\": \"string\",\n    \"provider\": \"string\",\n    \"resource_type\": \"cluster\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2016-05-10T20:16:42.157Z\"\n  },\n  \"created_at\": \"1987-12-18T04:58:14.268Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"2010-06-27T15:54:31.075Z\",\n    \"deleted_at\": \"1946-12-21T03:30:22.081Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"deployment_revision\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2010-11-09T15:56:03.520Z\"\n  },\n  \"deleted_at\": \"2011-04-13T02:18:16.215Z\",\n  \"role\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1994-11-23T17:03:58.571Z\",\n  \"user\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1975-02-23T08:36:38.432Z\",\n    \"deleted_at\": \"1971-02-04T18:46:40.056Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"bento_repository\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2004-03-04T12:15:58.634Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f667a723-533b-4651-861d-80d9e3c6b4e4",
+          "name": "Update standby instances",
+          "request": {
+            "name": "Update standby instances",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName",
+                "standby_instances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"standby_instances\": {\n    \"key_0\": \"<integer>\",\n    \"key_1\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8457de9-1251-477e-a326-d13dc4d94fe7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName",
+                    "standby_instances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"standby_instances\": {\n    \"key_0\": \"<integer>\",\n    \"key_1\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1988-07-06T08:08:02.537Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"2017-01-31T17:59:16.497Z\",\n    \"deleted_at\": \"2001-07-27T11:19:29.377Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": true,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2005-09-20T14:46:40.583Z\"\n  },\n  \"default_deployment_kube_namespace\": \"string\",\n  \"deleted_at\": \"1955-07-17T06:33:41.886Z\",\n  \"description\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"host_cluster_display_name\": \"string\",\n  \"host_cluster_name\": \"string\",\n  \"is_first\": false,\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"organization_name\": \"string\",\n  \"provider\": \"string\",\n  \"resource_instance_names\": [\n    {\n      \"display_name\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"display_name\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"resource_type\": \"bento_repository\",\n  \"standby_instances\": {\n    \"key_0\": 637\n  },\n  \"uid\": \"string\",\n  \"updated_at\": \"2026-04-26T07:08:49.892Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dad1b7fa-d9be-4217-9a43-a3614e5dc25c",
+    "name": "yatai api server admin api v1 cluster resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

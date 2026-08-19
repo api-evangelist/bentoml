@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 cluster deployments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cluster deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cluster deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/deployments",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List cluster deployments"
+        },
+        {
+          "info": {
+            "name": "Create deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/deployments",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create deployment"
+        },
+        {
+          "info": {
+            "name": "List cluster deployments v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "all",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List cluster deployments v2"
+        },
+        {
+          "info": {
+            "name": "Create deployment v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/deployments",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create deployment v2"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

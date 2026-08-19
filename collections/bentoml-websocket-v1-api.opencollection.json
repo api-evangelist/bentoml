@@ -1,0 +1,261 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 websocket v1 API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "websocket v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cluster kube events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/kube_events",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cluster kube events"
+        },
+        {
+          "info": {
+            "name": "Deployment kube events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/kube_events",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deployment kube events"
+        },
+        {
+          "info": {
+            "name": "Ws deployment pods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/pods",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Ws deployment pods"
+        },
+        {
+          "info": {
+            "name": "Tail deployment pod log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/tail",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Tail deployment pod log"
+        },
+        {
+          "info": {
+            "name": "Deployment pod terminal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/terminal",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deployment pod terminal"
+        },
+        {
+          "info": {
+            "name": "Ws cluster pods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/pods",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Ws cluster pods"
+        },
+        {
+          "info": {
+            "name": "Tail cluster pod log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/tail",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Tail cluster pod log"
+        },
+        {
+          "info": {
+            "name": "Cluster pod terminal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/clusters/:clusterName/terminal",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cluster pod terminal"
+        },
+        {
+          "info": {
+            "name": "Subscribe resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ws/v1/subscription/resource"
+          },
+          "docs": "Subscribe resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

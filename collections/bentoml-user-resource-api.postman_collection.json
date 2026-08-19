@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "1fc9549f-fe67-4f8c-8e6f-293cf0c0db3f",
+      "name": "user resource",
+      "description": {
+        "content": "user resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc2882d3-cd89-4e26-82f0-f8b2fbeccb8e",
+          "name": "Get an user",
+          "request": {
+            "name": "Get an user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":userName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e359dc9b-0548-47b9-a170-e1a20687cb27",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "users",
+                    ":userName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"application_status\": \"string\",\n  \"avatar_url\": \"string\",\n  \"created_at\": \"2021-04-01T09:23:26.999Z\",\n  \"deleted_at\": \"1949-02-05T22:44:48.232Z\",\n  \"email\": \"string\",\n  \"first_name\": \"string\",\n  \"from_sso\": false,\n  \"is_super_admin\": false,\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"last_name\": \"string\",\n  \"name\": \"string\",\n  \"perm\": \"string\",\n  \"register_stage\": \"string\",\n  \"resource_type\": \"deployment\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1995-02-16T19:48:24.840Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a00eed67-554b-43d3-9362-be2690e55621",
+    "name": "yatai api server admin api v1 user resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

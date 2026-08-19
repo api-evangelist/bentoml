@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 lago billable metrics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lago billable metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lago billable metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/lago/billable_metrics"
+          },
+          "docs": "List lago billable metrics"
+        },
+        {
+          "info": {
+            "name": "Create lago billable metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/lago/billable_metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create lago billable metric"
+        },
+        {
+          "info": {
+            "name": "Update lago billable metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/lago/billable_metrics/:billableMetricCode",
+            "params": [
+              {
+                "name": "billableMetricCode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update lago billable metric"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

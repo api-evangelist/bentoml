@@ -1,0 +1,141 @@
+{
+  "item": [
+    {
+      "id": "d230657c-d171-4305-bb92-236c184bbf36",
+      "name": "customers",
+      "description": {
+        "content": "customers api",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ff1c3ce-f04d-44bb-9d83-f72ecbf02624",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a52c147a-66c8-4c37-8f02-3b3ddb824c0c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5476,\n  \"items\": [\n    {\n      \"billing_customer_id\": \"string\",\n      \"created_at\": \"2018-02-08T04:26:08.503Z\",\n      \"customer\": {},\n      \"deleted_at\": \"2015-01-24T05:56:51.434Z\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_customer\": {\n        \"email\": \"string\",\n        \"lago_id\": \"string\",\n        \"limit_group_plan\": \"string\",\n        \"name\": \"string\",\n        \"subscription_id\": \"string\",\n        \"wallet_id\": \"string\"\n      },\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"payment_portal_url\": \"string\",\n      \"resource_type\": \"cluster\",\n      \"stripe_id\": \"string\",\n      \"subscription_id\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1969-07-02T07:31:25.425Z\",\n      \"wallet_id\": \"string\"\n    },\n    {\n      \"billing_customer_id\": \"string\",\n      \"created_at\": \"1970-12-19T21:14:32.252Z\",\n      \"customer\": {},\n      \"deleted_at\": \"2003-02-16T14:42:59.450Z\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_customer\": {\n        \"email\": \"string\",\n        \"lago_id\": \"string\",\n        \"limit_group_plan\": \"string\",\n        \"name\": \"string\",\n        \"subscription_id\": \"string\",\n        \"wallet_id\": \"string\"\n      },\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"payment_portal_url\": \"string\",\n      \"resource_type\": \"cluster\",\n      \"stripe_id\": \"string\",\n      \"subscription_id\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1960-12-23T17:17:21.033Z\",\n      \"wallet_id\": \"string\"\n    }\n  ],\n  \"start\": 2340,\n  \"total\": 8285\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "13b5dd91-47e5-4287-be3d-2ccfee991e2f",
+    "name": "yatai api server admin api v1 customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 current organization resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "current organization resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get current organization"
+        },
+        {
+          "info": {
+            "name": "Update current organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/current_org",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update current organization"
+        },
+        {
+          "info": {
+            "name": "Get an organization's current credit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/current_credit",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get an organization's current credit"
+        },
+        {
+          "info": {
+            "name": "Get current organization with current price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/current_price",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get current organization with current price"
+        },
+        {
+          "info": {
+            "name": "Get an organization's current usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/current_usage",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get an organization's current usage"
+        },
+        {
+          "info": {
+            "name": "Get customer portal URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/customer_portal_url",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get customer portal URL"
+        },
+        {
+          "info": {
+            "name": "List current organization event operation names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/event_operation_names",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resource_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List current organization event operation names"
+        },
+        {
+          "info": {
+            "name": "List current organization events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/events",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List current organization events"
+        },
+        {
+          "info": {
+            "name": "Get an organization major cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/major_cluster",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get an organization major cluster"
+        },
+        {
+          "info": {
+            "name": "Get an organization model modules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/model_modules",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get an organization model modules"
+        },
+        {
+          "info": {
+            "name": "Get an organization's payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/payment",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get an organization's payment"
+        },
+        {
+          "info": {
+            "name": "Update an organization's plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/current_org/plan",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an organization's plan"
+        },
+        {
+          "info": {
+            "name": "Get an organization's usage metrics by time granularity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/usage_metrics",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "debug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metrics",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get an organization's usage metrics by time granularity"
+        },
+        {
+          "info": {
+            "name": "List current organization all yatai components",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/current_org/yatai_components",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "List current organization all yatai components"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

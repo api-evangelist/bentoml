@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 deployment revisions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "deployment revisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deployment revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/revisions",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment revisions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

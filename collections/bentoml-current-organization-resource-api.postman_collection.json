@@ -1,0 +1,1338 @@
+{
+  "item": [
+    {
+      "id": "fff790fa-0d86-4b42-8715-0e96a5ef1001",
+      "name": "current organization resource",
+      "description": {
+        "content": "current organization resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d14e4e5-8d82-4154-93ec-4f3aa907b5a6",
+          "name": "Get current organization",
+          "request": {
+            "name": "Get current organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e297f5f-4ffc-4f47-aec2-cfb89426f263",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-06-16T18:39:17.309Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1955-05-11T07:31:20.104Z\",\n    \"deleted_at\": \"1975-11-23T02:29:27.393Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1976-08-21T12:24:45.756Z\"\n  },\n  \"deleted_at\": \"1954-05-08T09:05:22.443Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": false,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"1995-04-13T12:53:44.004Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"host_cluster\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1970-02-14T03:50:13.498Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43c5da49-e5eb-42db-8617-2cb3afd614c4",
+          "name": "Update current organization",
+          "request": {
+            "name": "Update current organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\",\n  \"plan_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afa66bc3-a9ca-4895-a348-e64db83c2b77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\",\n  \"plan_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-06-16T18:39:17.309Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1955-05-11T07:31:20.104Z\",\n    \"deleted_at\": \"1975-11-23T02:29:27.393Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1976-08-21T12:24:45.756Z\"\n  },\n  \"deleted_at\": \"1954-05-08T09:05:22.443Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": false,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"1995-04-13T12:53:44.004Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"host_cluster\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1970-02-14T03:50:13.498Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4cb5b77-90e3-4654-9219-68e274cb342d",
+          "name": "Get an organization's current credit",
+          "request": {
+            "name": "Get an organization's current credit",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "current_credit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72e6f40c-47b1-4915-bad1-3f46519cfb4e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "current_credit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_credit\": 6081.926771038715,\n  \"total_credit\": 1202.9609092098726,\n  \"used_credit\": 6692.686107420584\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c6f8814-ce82-4b2f-9ded-aee7f0f8c437",
+          "name": "Get current organization with current price",
+          "request": {
+            "name": "Get current organization with current price",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "current_price"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "224ba743-42cf-4a02-b766-3f3b4281b282",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "current_price"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-06-16T18:39:17.309Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1955-05-11T07:31:20.104Z\",\n    \"deleted_at\": \"1975-11-23T02:29:27.393Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1976-08-21T12:24:45.756Z\"\n  },\n  \"deleted_at\": \"1954-05-08T09:05:22.443Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": false,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"1995-04-13T12:53:44.004Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"host_cluster\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1970-02-14T03:50:13.498Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52439a0b-7d97-4c36-9324-da1856dd2609",
+          "name": "Get an organization's current usage",
+          "request": {
+            "name": "Get an organization's current usage",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "current_usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0938c282-ecd8-4684-a71e-88273f567b24",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "current_usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"resourceInstanceName\": \"string\",\n      \"sumCost\": 6091.633144414771,\n      \"unitCost\": 9047.720831158433,\n      \"usage\": [\n        {\n          \"endTime\": \"string\",\n          \"startTime\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"endTime\": \"string\",\n          \"startTime\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"resourceInstanceName\": \"string\",\n      \"sumCost\": 7989.685968305027,\n      \"unitCost\": 3114.980923779209,\n      \"usage\": [\n        {\n          \"endTime\": \"string\",\n          \"startTime\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"endTime\": \"string\",\n          \"startTime\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72df99a0-40d3-43eb-bd19-8d41171ce5a0",
+          "name": "Get customer portal URL",
+          "request": {
+            "name": "Get customer portal URL",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "customer_portal_url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f225e38-e654-436b-8d92-45480ea2c52a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "customer_portal_url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2bd49ff-4967-48fe-bb35-7afcf4fe6568",
+          "name": "List current organization event operation names",
+          "request": {
+            "name": "List current organization event operation names",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "event_operation_names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resource_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2076ad6-b5ef-4248-a704-6fa133d8a563",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "event_operation_names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resource_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ca2e695-c154-4088-92ae-45c2bd87b6f4",
+          "name": "List current organization events",
+          "request": {
+            "name": "List current organization events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10ad11aa-d2d2-45cf-a4cf-ea0f5e7fbb7b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2595,\n  \"items\": [\n    {\n      \"api_token_name\": \"string\",\n      \"created_at\": \"1966-06-21T03:14:47.798Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1987-01-21T17:02:40.183Z\",\n        \"deleted_at\": \"1987-09-21T04:26:06.146Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": true,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2020-04-25T14:35:17.025Z\"\n      },\n      \"deleted_at\": \"1991-09-14T08:08:04.281Z\",\n      \"name\": \"string\",\n      \"operation_name\": \"string\",\n      \"resource\": {},\n      \"resource_deleted\": true,\n      \"status\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2025-01-06T19:50:39.142Z\"\n    },\n    {\n      \"api_token_name\": \"string\",\n      \"created_at\": \"1991-10-27T17:16:42.003Z\",\n      \"creator\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1997-08-11T21:43:16.847Z\",\n        \"deleted_at\": \"1953-07-10T04:53:50.933Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"deployment\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2025-10-04T05:09:20.310Z\"\n      },\n      \"deleted_at\": \"1999-12-11T21:54:57.059Z\",\n      \"name\": \"string\",\n      \"operation_name\": \"string\",\n      \"resource\": {},\n      \"resource_deleted\": false,\n      \"status\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1972-03-31T20:29:58.689Z\"\n    }\n  ],\n  \"start\": 1398,\n  \"total\": 6805\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c247e50-fb41-4810-b79c-304c5340b0dd",
+          "name": "Get an organization major cluster",
+          "request": {
+            "name": "Get an organization major cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "major_cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1b2d6e5-be77-4dd1-86e1-3f29b9659f27",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "major_cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1965-09-13T02:32:26.606Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1968-12-31T03:24:09.308Z\",\n    \"deleted_at\": \"2000-11-20T20:38:33.493Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": true,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"organization\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1953-10-11T22:53:54.038Z\"\n  },\n  \"default_deployment_kube_namespace\": \"string\",\n  \"deleted_at\": \"2019-06-05T15:47:13.067Z\",\n  \"description\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"host_cluster_display_name\": \"string\",\n  \"host_cluster_name\": \"string\",\n  \"is_first\": false,\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"1991-01-06T13:09:26.467Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"1996-01-06T04:42:44.351Z\",\n      \"deleted_at\": \"1947-08-31T03:37:03.253Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1950-02-12T05:06:47.980Z\"\n    },\n    \"deleted_at\": \"2012-03-04T08:11:01.262Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": true,\n    \"disable_resources_graphs\": false,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": true,\n    \"expired_at\": \"2007-07-09T03:30:40.863Z\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": true,\n    \"name\": \"string\",\n    \"public\": true,\n    \"resource_type\": \"host_cluster\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2025-12-03T00:26:15.887Z\"\n  },\n  \"organization_name\": \"string\",\n  \"provider\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2023-11-28T17:58:42.012Z\",\n      \"deleted_at\": \"1977-11-26T23:38:17.539Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1998-04-26T06:14:47.776Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2017-08-08T10:42:55.799Z\",\n      \"deleted_at\": \"1977-03-06T13:16:25.735Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"deployment_revision\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1982-04-29T23:45:56.729Z\"\n    }\n  ],\n  \"resource_type\": \"user\",\n  \"uid\": \"string\",\n  \"updated_at\": \"2007-05-02T00:58:52.666Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f448488-361b-43d9-bd7a-4910e02e0035",
+          "name": "Get an organization model modules",
+          "request": {
+            "name": "Get an organization model modules",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "model_modules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8f9f6a4-d962-46d3-9760-54080851b224",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "model_modules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0525c3bd-3217-4edc-83b5-8ea14bc036d1",
+          "name": "Get an organization's payment",
+          "request": {
+            "name": "Get an organization's payment",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "payment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8fe056f-57be-4120-bce5-da9f8ab54c21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "payment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"billing_customer_id\": \"string\",\n  \"created_at\": \"1980-02-05T12:44:32.174Z\",\n  \"customer\": {},\n  \"deleted_at\": \"1962-03-23T22:43:31.233Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"lago_customer\": {\n    \"email\": \"string\",\n    \"lago_id\": \"string\",\n    \"limit_group_plan\": \"string\",\n    \"name\": \"string\",\n    \"subscription_id\": \"string\",\n    \"wallet_id\": \"string\"\n  },\n  \"lago_id\": \"string\",\n  \"name\": \"string\",\n  \"payment_portal_url\": \"string\",\n  \"resource_type\": \"deployment\",\n  \"stripe_id\": \"string\",\n  \"subscription_id\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1989-08-23T23:55:00.652Z\",\n  \"wallet_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc23dd2b-3560-49b0-8104-40bb106c9cf0",
+          "name": "Update an organization's plan",
+          "request": {
+            "name": "Update an organization's plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\",\n  \"plan_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29dc7ef2-9fff-4be0-96de-3baab3716e67",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\",\n  \"plan_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-06-16T18:39:17.309Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1955-05-11T07:31:20.104Z\",\n    \"deleted_at\": \"1975-11-23T02:29:27.393Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1976-08-21T12:24:45.756Z\"\n  },\n  \"deleted_at\": \"1954-05-08T09:05:22.443Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": false,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"1995-04-13T12:53:44.004Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"host_cluster\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1970-02-14T03:50:13.498Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3caee030-7677-46c3-8cad-c9077aef1d0e",
+          "name": "Get an organization's usage metrics by time granularity",
+          "request": {
+            "name": "Get an organization's usage metrics by time granularity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "usage_metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "debug",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metrics",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fa8c541-7763-4740-9f98-66e4c5786f6e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "usage_metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "debug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metrics",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"debug\": false,\n  \"debugInfo\": {},\n  \"endTime\": \"string\",\n  \"granularity\": \"string\",\n  \"rawLagoResponse\": {},\n  \"startTime\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0c34224-6b45-4035-bab7-cd6a72c95802",
+          "name": "List current organization all yatai components",
+          "request": {
+            "name": "List current organization all yatai components",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "current_org",
+                "yatai_components"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f6cd092-06c9-485c-b4e0-dd4ebd139d2f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "current_org",
+                    "yatai_components"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cluster\": {\n      \"config\": \"string\",\n      \"created_at\": \"2018-07-19T05:31:28.209Z\",\n      \"default\": false,\n      \"deleted_at\": \"1996-03-01T22:16:02.704Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"kube_config\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_instances\": [\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1967-09-18T04:41:18.716Z\",\n          \"deleted_at\": \"1999-01-13T16:37:48.852Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"user\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2004-05-26T01:44:55.483Z\"\n        },\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1984-01-02T17:19:55.806Z\",\n          \"deleted_at\": \"2006-01-21T20:56:05.016Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"cluster\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2011-06-11T02:47:06.168Z\"\n        }\n      ],\n      \"resource_type\": \"bento\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1956-11-09T02:47:29.181Z\"\n    },\n    \"created_at\": \"2024-11-20T19:34:11.001Z\",\n    \"deleted_at\": \"2020-07-19T15:16:31.905Z\",\n    \"description\": \"string\",\n    \"kube_namespace\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"latest_heartbeat_at\": \"1968-07-09T11:47:25.255Z\",\n    \"latest_installed_at\": \"1976-03-25T22:24:53.178Z\",\n    \"manifest\": {\n      \"enable_envoy_gateway_ingress\": false,\n      \"latest_crd_version\": \"string\",\n      \"selector_labels\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"resource_type\": \"bento\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1953-08-27T22:26:18.736Z\",\n    \"version\": \"string\"\n  },\n  {\n    \"cluster\": {\n      \"config\": \"string\",\n      \"created_at\": \"2009-09-20T07:25:35.048Z\",\n      \"default\": true,\n      \"deleted_at\": \"1964-09-17T02:18:24.416Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"kube_config\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_instances\": [\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1958-09-19T20:04:03.523Z\",\n          \"deleted_at\": \"1951-08-01T06:56:12.940Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"bento\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1967-12-07T12:13:30.438Z\"\n        },\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1978-05-23T10:09:42.497Z\",\n          \"deleted_at\": \"1978-12-04T13:04:43.495Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"cluster\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1990-02-19T16:09:23.410Z\"\n        }\n      ],\n      \"resource_type\": \"cluster\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1970-06-01T14:06:22.768Z\"\n    },\n    \"created_at\": \"2004-12-09T01:24:23.059Z\",\n    \"deleted_at\": \"1970-04-04T15:43:21.765Z\",\n    \"description\": \"string\",\n    \"kube_namespace\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"latest_heartbeat_at\": \"1986-04-24T17:21:54.052Z\",\n    \"latest_installed_at\": \"1964-09-11T13:47:25.322Z\",\n    \"manifest\": {\n      \"enable_envoy_gateway_ingress\": false,\n      \"latest_crd_version\": \"string\",\n      \"selector_labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"resource_type\": \"model\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1992-11-18T14:07:47.417Z\",\n    \"version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "087af3c4-4aa6-46d1-be21-3c4c154d460f",
+    "name": "yatai api server admin api v1 current organization resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

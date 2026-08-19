@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 org resource for admin panel API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "org resource for admin panel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete an org in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName",
+            "params": [
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an org in admin panel"
+        },
+        {
+          "info": {
+            "name": "List models in an org in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/models",
+            "params": [
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List models in an org in admin panel"
+        },
+        {
+          "info": {
+            "name": "Operate an org in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/operate",
+            "params": [
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Operate an org in admin panel"
+        },
+        {
+          "info": {
+            "name": "Sync org S3 credentials to all non-multi-tenancy clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/sync_s3_credentials",
+            "params": [
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sync org S3 credentials to all non-multi-tenancy clusters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

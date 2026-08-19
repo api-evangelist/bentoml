@@ -1,0 +1,231 @@
+{
+  "item": [
+    {
+      "id": "1d8a3dbb-f672-4299-aa75-41151db853d9",
+      "name": "organization resource",
+      "description": {
+        "content": "organization resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a82e902-8036-403d-bc13-31c8fdbe1cf0",
+          "name": "Get an organization",
+          "request": {
+            "name": "Get an organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "orgs",
+                ":orgName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orgName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f53d0d6-8365-4afb-ab3d-b3fdfa6aeb23",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orgs",
+                    ":orgName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orgName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-05-25T22:02:52.025Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1981-12-07T02:58:41.513Z\",\n    \"deleted_at\": \"1960-04-14T00:12:35.893Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"deployment_revision\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2005-10-11T01:52:07.903Z\"\n  },\n  \"deleted_at\": \"1992-08-16T06:34:50.030Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": true,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"2007-05-02T15:50:40.816Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"model\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1976-11-02T21:40:28.068Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4647476-6e76-4452-b91c-9eccdc8c3eeb",
+          "name": "Update an organization",
+          "request": {
+            "name": "Update an organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "orgs",
+                ":orgName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orgName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b33c4c72-149a-4456-a674-046940407934",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "orgs",
+                    ":orgName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orgName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<string>\",\n  \"description\": \"<string>\",\n  \"limit_group_name\": \"<string>\",\n  \"multi_tenancy\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1969-05-25T22:02:52.025Z\",\n  \"creator\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"1981-12-07T02:58:41.513Z\",\n    \"deleted_at\": \"1960-04-14T00:12:35.893Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"deployment_revision\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2005-10-11T01:52:07.903Z\"\n  },\n  \"deleted_at\": \"1992-08-16T06:34:50.030Z\",\n  \"description\": \"string\",\n  \"disable_grafana\": false,\n  \"disable_resources_graphs\": true,\n  \"enable_endpoints\": true,\n  \"enable_mixture_scaling\": true,\n  \"enable_monitoring_endpoint\": false,\n  \"expired_at\": \"2007-05-02T15:50:40.816Z\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"limit_group\": \"string\",\n  \"multi_tenancy\": false,\n  \"name\": \"string\",\n  \"public\": true,\n  \"resource_type\": \"model\",\n  \"status\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1976-11-02T21:40:28.068Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "07da6a76-159a-48de-a0f5-60a0f3d39991",
+    "name": "yatai api server admin api v1 organization resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

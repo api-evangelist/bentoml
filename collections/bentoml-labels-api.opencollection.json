@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 labels API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/labels",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resource_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Labels"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

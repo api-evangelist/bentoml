@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 model repository resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "model repository resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a model repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/model_repositories/:modelRepositoryName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "modelRepositoryName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a model repository"
+        },
+        {
+          "info": {
+            "name": "Update a model repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/model_repositories/:modelRepositoryName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "modelRepositoryName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a model repository"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

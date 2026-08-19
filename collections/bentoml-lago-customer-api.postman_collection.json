@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "9c5be4e4-bc7e-47ae-a9da-13eb81b36c51",
+      "name": "lago customer",
+      "description": {
+        "content": "lago customer api",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80779061-8007-42e1-bb40-810a61c3e6eb",
+          "name": "List lago customers",
+          "request": {
+            "name": "List lago customers",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ef5e300-7004-4e8c-8935-3ff311453b34",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3732,\n  \"items\": [\n    {\n      \"email\": \"string\",\n      \"lago_id\": \"string\",\n      \"limit_group_plan\": \"string\",\n      \"name\": \"string\",\n      \"subscription_id\": \"string\",\n      \"wallet_id\": \"string\"\n    },\n    {\n      \"email\": \"string\",\n      \"lago_id\": \"string\",\n      \"limit_group_plan\": \"string\",\n      \"name\": \"string\",\n      \"subscription_id\": \"string\",\n      \"wallet_id\": \"string\"\n    }\n  ],\n  \"start\": 563,\n  \"total\": 3710\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58d7dcd3-e3fe-4f70-922e-1c53bf27565f",
+          "name": "Create lago customer",
+          "request": {
+            "name": "Create lago customer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Uid\": \"<string>\",\n  \"auto_create_stripe\": \"<boolean>\",\n  \"credit_amount\": \"<string>\",\n  \"email\": \"<string>\",\n  \"limit_group_plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"plan_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b180211-f221-4835-b1fe-eb726245f817",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Uid\": \"<string>\",\n  \"auto_create_stripe\": \"<boolean>\",\n  \"credit_amount\": \"<string>\",\n  \"email\": \"<string>\",\n  \"limit_group_plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"plan_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"lago_id\": \"string\",\n  \"limit_group_plan\": \"string\",\n  \"name\": \"string\",\n  \"subscription_id\": \"string\",\n  \"wallet_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a00cd57-1f0d-4998-bfd8-f72e877c0cdc",
+          "name": "Update lago customer",
+          "request": {
+            "name": "Update lago customer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stripe_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72068523-a944-49c2-9dbe-c1954129e2f2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"stripe_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79dd61c6-998e-4012-94cc-400fc721ae26",
+    "name": "yatai api server admin api v1 lago customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

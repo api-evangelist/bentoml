@@ -1,0 +1,756 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 deployment resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "deployment resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a deployment"
+        },
+        {
+          "info": {
+            "name": "Update a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a deployment"
+        },
+        {
+          "info": {
+            "name": "Delete a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a deployment"
+        },
+        {
+          "info": {
+            "name": "Sync a deployment status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/sync_status",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sync a deployment status"
+        },
+        {
+          "info": {
+            "name": "List deployment terminal records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/terminal_records",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment terminal records"
+        },
+        {
+          "info": {
+            "name": "Terminate a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/namespaces/:kubeNamespace/deployments/:deploymentName/terminate",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "kubeNamespace",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Terminate a deployment"
+        },
+        {
+          "info": {
+            "name": "Get a deployment v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a deployment v2"
+        },
+        {
+          "info": {
+            "name": "Update deployment v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update deployment v2"
+        },
+        {
+          "info": {
+            "name": "Delete a deployment v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a deployment v2"
+        },
+        {
+          "info": {
+            "name": "List deployment api tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/api_tokens",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment api tokens"
+        },
+        {
+          "info": {
+            "name": "Build a bento in dev deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/build_bento",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Build a bento in dev deployment"
+        },
+        {
+          "info": {
+            "name": "List endpoints associated with a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/endpoints",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List endpoints associated with a deployment"
+        },
+        {
+          "info": {
+            "name": "List all files in deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/files",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all files in deployment"
+        },
+        {
+          "info": {
+            "name": "Delete a series of files from deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/files",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a series of files from deployment"
+        },
+        {
+          "info": {
+            "name": "update labels for a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/labels",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update labels for a deployment"
+        },
+        {
+          "info": {
+            "name": "List deployment status records v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/status_records",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment status records v2"
+        },
+        {
+          "info": {
+            "name": "List deployment terminal records v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/terminal_records",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment terminal records v2"
+        },
+        {
+          "info": {
+            "name": "Terminate a deployment v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/terminate",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Terminate a deployment v2"
+        },
+        {
+          "info": {
+            "name": "void update deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v2/deployments/:deploymentName/void_update",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cluster",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "void update deployment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

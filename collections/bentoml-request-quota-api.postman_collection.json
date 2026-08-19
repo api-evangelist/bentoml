@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "62590b31-6a09-40ce-8f7e-0fd3f2512420",
+      "name": "request quota",
+      "description": {
+        "content": "request quota",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "470d5cf5-6880-45d6-85e4-beb6915d8afd",
+          "name": "Create a Request quota",
+          "request": {
+            "name": "Create a Request quota",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "requestquota"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resource_type\": \"<string>\",\n  \"current_quota\": \"<string>\",\n  \"gpu_type\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"requested_quota\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfd45201-d1a8-4c2f-b51c-48a65ffd67c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "requestquota"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resource_type\": \"<string>\",\n  \"current_quota\": \"<string>\",\n  \"gpu_type\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"requested_quota\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource_type\": \"string\",\n  \"current_quota\": \"string\",\n  \"gpu_type\": \"string\",\n  \"reason\": \"string\",\n  \"requested_quota\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5e821cb-4ac0-46f4-988f-e6cfa84c7dd1",
+    "name": "yatai api server admin api v1 request quota API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "1f98d3fd-c9bc-407f-8e71-acf6adc82c13",
+      "name": "api tokens",
+      "description": {
+        "content": "api tokens",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f389b0b-945b-4b6c-bf77-d85ddbcda7c4",
+          "name": "List api tokens",
+          "request": {
+            "name": "List api tokens",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "api_tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "561b1fc3-6705-4280-af57-87cfdac621ce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "api_tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5744,\n  \"items\": [\n    {\n      \"created_at\": \"1959-04-27T04:37:45.595Z\",\n      \"deleted_at\": \"2012-08-18T06:39:21.436Z\",\n      \"deployment_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deployment_uids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"expired_at\": \"1949-12-17T09:43:30.352Z\",\n      \"is_access_token\": true,\n      \"is_api_token\": true,\n      \"is_expired\": true,\n      \"is_global_access\": false,\n      \"is_global_router_access\": true,\n      \"is_monitoring_token\": false,\n      \"is_organization_token\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_used_at\": \"1968-12-27T08:43:33.611Z\",\n      \"name\": \"string\",\n      \"organization\": {\n        \"created_at\": \"1998-06-16T22:29:34.127Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1955-04-01T04:55:17.530Z\",\n          \"deleted_at\": \"1985-04-30T14:04:57.201Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": true,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"deployment_revision\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1946-11-14T00:24:53.183Z\"\n        },\n        \"deleted_at\": \"1992-05-22T04:45:54.386Z\",\n        \"description\": \"string\",\n        \"disable_grafana\": false,\n        \"disable_resources_graphs\": false,\n        \"enable_endpoints\": true,\n        \"enable_mixture_scaling\": true,\n        \"enable_monitoring_endpoint\": false,\n        \"expired_at\": \"1982-09-20T03:02:20.061Z\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"limit_group\": \"string\",\n        \"multi_tenancy\": false,\n        \"name\": \"string\",\n        \"public\": true,\n        \"resource_type\": \"deployment_revision\",\n        \"status\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1996-10-24T13:02:06.480Z\"\n      },\n      \"resource_type\": \"api_token\",\n      \"scopes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"token\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1950-09-09T09:02:58.649Z\",\n      \"user\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"2022-06-20T23:58:29.743Z\",\n        \"deleted_at\": \"1962-11-22T11:45:44.792Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"model_repository\",\n        \"uid\": \"string\",\n        \"updated_at\": \"2021-02-05T21:18:35.723Z\"\n      }\n    },\n    {\n      \"created_at\": \"1972-04-12T05:24:30.780Z\",\n      \"deleted_at\": \"2003-07-14T05:42:37.242Z\",\n      \"deployment_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deployment_uids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": \"string\",\n      \"expired_at\": \"1998-10-06T22:18:51.206Z\",\n      \"is_access_token\": false,\n      \"is_api_token\": true,\n      \"is_expired\": false,\n      \"is_global_access\": true,\n      \"is_global_router_access\": true,\n      \"is_monitoring_token\": true,\n      \"is_organization_token\": true,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_used_at\": \"1993-11-18T00:54:16.864Z\",\n      \"name\": \"string\",\n      \"organization\": {\n        \"created_at\": \"1962-11-22T18:14:51.223Z\",\n        \"creator\": {\n          \"application_status\": \"string\",\n          \"avatar_url\": \"string\",\n          \"created_at\": \"1995-05-10T06:25:28.900Z\",\n          \"deleted_at\": \"1951-01-02T06:25:29.722Z\",\n          \"email\": \"string\",\n          \"first_name\": \"string\",\n          \"from_sso\": false,\n          \"is_super_admin\": true,\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"last_name\": \"string\",\n          \"name\": \"string\",\n          \"perm\": \"string\",\n          \"register_stage\": \"string\",\n          \"resource_type\": \"host_cluster\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1948-05-07T13:56:32.871Z\"\n        },\n        \"deleted_at\": \"2024-08-10T04:25:11.081Z\",\n        \"description\": \"string\",\n        \"disable_grafana\": false,\n        \"disable_resources_graphs\": false,\n        \"enable_endpoints\": false,\n        \"enable_mixture_scaling\": false,\n        \"enable_monitoring_endpoint\": true,\n        \"expired_at\": \"1996-07-05T20:15:24.882Z\",\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"limit_group\": \"string\",\n        \"multi_tenancy\": false,\n        \"name\": \"string\",\n        \"public\": false,\n        \"resource_type\": \"user\",\n        \"status\": \"string\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1959-05-11T10:17:34.549Z\"\n      },\n      \"resource_type\": \"model_repository\",\n      \"scopes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"token\": \"string\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1997-04-08T23:09:40.427Z\",\n      \"user\": {\n        \"application_status\": \"string\",\n        \"avatar_url\": \"string\",\n        \"created_at\": \"1958-10-08T18:30:43.167Z\",\n        \"deleted_at\": \"1949-12-26T01:26:00.219Z\",\n        \"email\": \"string\",\n        \"first_name\": \"string\",\n        \"from_sso\": false,\n        \"is_super_admin\": false,\n        \"labels\": [\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"stage\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"last_name\": \"string\",\n        \"name\": \"string\",\n        \"perm\": \"string\",\n        \"register_stage\": \"string\",\n        \"resource_type\": \"api_token\",\n        \"uid\": \"string\",\n        \"updated_at\": \"1969-09-13T14:14:09.979Z\"\n      }\n    }\n  ],\n  \"start\": 7836,\n  \"total\": 9348\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e1901e3-23d9-4eda-9f21-ea2f97c6c163",
+          "name": "Create api token",
+          "request": {
+            "name": "Create api token",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "api_tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"deployment_uids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"is_global_access\": \"<boolean>\",\n  \"is_global_router_access\": \"<boolean>\",\n  \"is_monitoring_token\": \"<boolean>\",\n  \"is_organization_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20683b05-b77b-4373-8b9e-6e83a0812f0f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "api_tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"deployment_uids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"is_global_access\": \"<boolean>\",\n  \"is_global_router_access\": \"<boolean>\",\n  \"is_monitoring_token\": \"<boolean>\",\n  \"is_organization_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1982-03-09T04:19:22.619Z\",\n  \"deleted_at\": \"1969-02-12T11:11:10.369Z\",\n  \"deployment_names\": [\n    \"string\",\n    \"string\"\n  ],\n  \"deployment_uids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"expired_at\": \"1975-04-28T13:35:05.392Z\",\n  \"is_access_token\": true,\n  \"is_api_token\": true,\n  \"is_expired\": true,\n  \"is_global_access\": true,\n  \"is_global_router_access\": true,\n  \"is_monitoring_token\": false,\n  \"is_organization_token\": false,\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"last_used_at\": \"2012-08-07T17:20:40.424Z\",\n  \"name\": \"string\",\n  \"organization\": {\n    \"created_at\": \"1992-12-31T17:50:08.376Z\",\n    \"creator\": {\n      \"application_status\": \"string\",\n      \"avatar_url\": \"string\",\n      \"created_at\": \"2011-04-03T17:40:13.763Z\",\n      \"deleted_at\": \"2012-12-02T08:46:28.098Z\",\n      \"email\": \"string\",\n      \"first_name\": \"string\",\n      \"from_sso\": false,\n      \"is_super_admin\": false,\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"name\": \"string\",\n      \"perm\": \"string\",\n      \"register_stage\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1952-09-08T03:09:43.024Z\"\n    },\n    \"deleted_at\": \"2014-08-15T11:08:42.120Z\",\n    \"description\": \"string\",\n    \"disable_grafana\": false,\n    \"disable_resources_graphs\": true,\n    \"enable_endpoints\": true,\n    \"enable_mixture_scaling\": false,\n    \"enable_monitoring_endpoint\": false,\n    \"expired_at\": \"1953-03-27T18:12:48.677Z\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"limit_group\": \"string\",\n    \"multi_tenancy\": false,\n    \"name\": \"string\",\n    \"public\": true,\n    \"resource_type\": \"cluster\",\n    \"status\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"2021-01-16T02:08:36.190Z\"\n  },\n  \"resource_type\": \"bento\",\n  \"scopes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"token\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"2000-04-15T04:28:04.430Z\",\n  \"user\": {\n    \"application_status\": \"string\",\n    \"avatar_url\": \"string\",\n    \"created_at\": \"2002-02-16T03:16:04.644Z\",\n    \"deleted_at\": \"1972-09-15T17:08:45.801Z\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"from_sso\": false,\n    \"is_super_admin\": false,\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"last_name\": \"string\",\n    \"name\": \"string\",\n    \"perm\": \"string\",\n    \"register_stage\": \"string\",\n    \"resource_type\": \"user\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1980-05-14T00:28:32.842Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a56372f9-08af-4200-a7b1-be8400e280bc",
+    "name": "yatai api server admin api v1 api tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

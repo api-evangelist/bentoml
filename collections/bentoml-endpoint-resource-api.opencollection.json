@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 endpoint resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "endpoint resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/endpoints/:endpointUID",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endpointUID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an endpoint"
+        },
+        {
+          "info": {
+            "name": "Update an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/endpoints/:endpointUID",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endpointUID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an endpoint"
+        },
+        {
+          "info": {
+            "name": "Delete an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/endpoints/:endpointUID",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endpointUID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an endpoint"
+        },
+        {
+          "info": {
+            "name": "Start an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/endpoints/:endpointUID/start",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endpointUID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start an endpoint"
+        },
+        {
+          "info": {
+            "name": "Terminate an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/endpoints/:endpointUID/terminate",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "endpointUID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Terminate an endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

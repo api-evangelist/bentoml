@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 host cluster resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "host cluster resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a host cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/host_clusters/:hostClusterName",
+            "params": [
+              {
+                "name": "hostClusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a host cluster"
+        },
+        {
+          "info": {
+            "name": "Update a host cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/v1/host_clusters/:hostClusterName",
+            "params": [
+              {
+                "name": "hostClusterName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a host cluster"
+        },
+        {
+          "info": {
+            "name": "Delete a host cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/host_clusters/:hostClusterName",
+            "params": [
+              {
+                "name": "hostClusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a host cluster"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

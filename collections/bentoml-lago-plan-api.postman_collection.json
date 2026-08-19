@@ -1,0 +1,311 @@
+{
+  "item": [
+    {
+      "id": "27ee413e-6543-467d-8a50-73c5f3c559f7",
+      "name": "lago plan",
+      "description": {
+        "content": "lago plan api",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e50da94-42fe-4783-ad58-267b2f3874a8",
+          "name": "List lago plans",
+          "request": {
+            "name": "List lago plans",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81ea80f7-2b4b-4de1-8cda-714437514740",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2744,\n  \"items\": [\n    {\n      \"charges\": [\n        {\n          \"price\": \"string\",\n          \"resource_instance\": \"string\"\n        },\n        {\n          \"price\": \"string\",\n          \"resource_instance\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"lago_id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"charges\": [\n        {\n          \"price\": \"string\",\n          \"resource_instance\": \"string\"\n        },\n        {\n          \"price\": \"string\",\n          \"resource_instance\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"lago_id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"start\": 9012,\n  \"total\": 5196\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d95a930-6312-4df3-a05f-15085fc2c5f9",
+          "name": "Create lago plan",
+          "request": {
+            "name": "Create lago plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c55a3f81-ddd7-4439-9628-85403e8d9ae6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"lago_id\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6a5f810-7838-4431-93d6-c89a09ffae76",
+          "name": "Update lago plan",
+          "request": {
+            "name": "Update lago plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "lago",
+                "plans",
+                ":planName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "planName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8fa2c2a1-1e2c-433f-97db-affd6c5e775d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "lago",
+                    "plans",
+                    ":planName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "planName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"charges\": [\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"resource_instance\": \"<string>\"\n    }\n  ],\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"lago_id\": \"string\",\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e4adaaa0-eb96-40a8-8326-8b37ea2993f7",
+    "name": "yatai api server admin api v1 lago plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

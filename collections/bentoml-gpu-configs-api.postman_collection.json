@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "39f50025-ba12-4492-a9fe-5355c3cfab96",
+      "name": "gpu configs",
+      "description": {
+        "content": "gpu configs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b42a69b9-bf5a-4231-b940-109a33a2f429",
+          "name": "List gpu configs",
+          "request": {
+            "name": "List gpu configs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "gpu_configs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b8d7631-9ff5-4886-83e0-7ea50c447f48",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "gpu_configs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"2024-07-07T21:15:16.998Z\",\n    \"deleted_at\": \"2003-10-19T03:17:14.252Z\",\n    \"memory\": \"string\",\n    \"name\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1986-07-26T06:26:50.941Z\",\n    \"vendor\": \"string\"\n  },\n  {\n    \"created_at\": \"1968-02-12T12:00:21.640Z\",\n    \"deleted_at\": \"1979-10-07T18:40:59.126Z\",\n    \"memory\": \"string\",\n    \"name\": \"string\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1994-09-10T15:23:21.111Z\",\n    \"vendor\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e56fe79d-974f-49ae-a46b-cc9ebdeb0582",
+          "name": "Create a gpu config",
+          "request": {
+            "name": "Create a gpu config",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "gpu_configs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"memory\": \"<string>\",\n  \"name\": \"<string>\",\n  \"vendor\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "403991ed-fdb8-41c3-b48b-a858728973e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "gpu_configs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"memory\": \"<string>\",\n  \"name\": \"<string>\",\n  \"vendor\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1963-03-26T14:05:38.482Z\",\n  \"deleted_at\": \"1999-10-05T01:33:38.384Z\",\n  \"memory\": \"string\",\n  \"name\": \"string\",\n  \"uid\": \"string\",\n  \"updated_at\": \"2001-02-21T00:41:29.068Z\",\n  \"vendor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5b94620c-0c43-426f-a27c-3ca9895b5efd",
+    "name": "yatai api server admin api v1 gpu configs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

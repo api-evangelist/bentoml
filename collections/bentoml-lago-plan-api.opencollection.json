@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 lago plan API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lago plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lago plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/lago/plans"
+          },
+          "docs": "List lago plans"
+        },
+        {
+          "info": {
+            "name": "Create lago plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/lago/plans",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create lago plan"
+        },
+        {
+          "info": {
+            "name": "Update lago plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/lago/plans/:planName",
+            "params": [
+              {
+                "name": "planName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update lago plan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 limit group resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "limit group resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a limit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/limit_groups/:limitGroupName",
+            "params": [
+              {
+                "name": "limitGroupName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a limit group"
+        },
+        {
+          "info": {
+            "name": "Update a limit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/v1/limit_groups/:limitGroupName",
+            "params": [
+              {
+                "name": "limitGroupName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a limit group"
+        },
+        {
+          "info": {
+            "name": "Delete a limit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/limit_groups/:limitGroupName",
+            "params": [
+              {
+                "name": "limitGroupName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a limit group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

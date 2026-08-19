@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "920a3e88-fd28-41d2-8666-dd78f3a6efc6",
+      "name": "host cluster resource",
+      "description": {
+        "content": "host cluster resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09fcbdc5-e47d-4a24-8884-ada4f4d98134",
+          "name": "Get a host cluster",
+          "request": {
+            "name": "Get a host cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "host_clusters",
+                ":hostClusterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hostClusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "feca8dd0-067c-4aa1-a5dc-9fc88198a83b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "host_clusters",
+                    ":hostClusterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hostClusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1986-12-28T23:33:36.692Z\",\n  \"default\": true,\n  \"deleted_at\": \"2002-09-18T05:34:17.190Z\",\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2017-12-07T06:35:17.769Z\",\n      \"deleted_at\": \"1991-05-25T21:03:56.123Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2007-11-02T18:37:53.870Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1950-11-25T02:36:57.778Z\",\n      \"deleted_at\": \"2019-08-14T13:41:13.777Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1956-12-21T08:37:22.602Z\"\n    }\n  ],\n  \"resource_type\": \"cluster\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1962-08-06T03:17:56.955Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96b4bd3c-8657-405b-b0fa-8e1bf7e00455",
+          "name": "Delete a host cluster",
+          "request": {
+            "name": "Delete a host cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "host_clusters",
+                ":hostClusterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hostClusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37ae7ee3-c493-45cf-9049-3eeb2c13bb92",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "host_clusters",
+                    ":hostClusterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hostClusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1986-12-28T23:33:36.692Z\",\n  \"default\": true,\n  \"deleted_at\": \"2002-09-18T05:34:17.190Z\",\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2017-12-07T06:35:17.769Z\",\n      \"deleted_at\": \"1991-05-25T21:03:56.123Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2007-11-02T18:37:53.870Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1950-11-25T02:36:57.778Z\",\n      \"deleted_at\": \"2019-08-14T13:41:13.777Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1956-12-21T08:37:22.602Z\"\n    }\n  ],\n  \"resource_type\": \"cluster\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1962-08-06T03:17:56.955Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72ed75d1-719c-4316-b89a-c37d6f518299",
+          "name": "Update a host cluster",
+          "request": {
+            "name": "Update a host cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "host_clusters",
+                ":hostClusterName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hostClusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"kube_config\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6d10f42-f55c-4afd-9b22-a75a9b8091a1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "host_clusters",
+                    ":hostClusterName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hostClusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<string>\",\n  \"default\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"kube_config\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1986-12-28T23:33:36.692Z\",\n  \"default\": true,\n  \"deleted_at\": \"2002-09-18T05:34:17.190Z\",\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"grafana_root_path\": \"string\",\n  \"kube_config\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"resource_instances\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2017-12-07T06:35:17.769Z\",\n      \"deleted_at\": \"1991-05-25T21:03:56.123Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2007-11-02T18:37:53.870Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1950-11-25T02:36:57.778Z\",\n      \"deleted_at\": \"2019-08-14T13:41:13.777Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1956-12-21T08:37:22.602Z\"\n    }\n  ],\n  \"resource_type\": \"cluster\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1962-08-06T03:17:56.955Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eacc6ef1-955c-423a-ac0a-0ccd089fd30b",
+    "name": "yatai api server admin api v1 host cluster resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

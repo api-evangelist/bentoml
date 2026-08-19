@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 user resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/users/:userName",
+            "params": [
+              {
+                "name": "userName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

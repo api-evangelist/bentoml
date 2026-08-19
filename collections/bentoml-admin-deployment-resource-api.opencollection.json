@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 admin deployment resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "admin deployment resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deployment status records in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/organizations/:orgName/clusters/:clusterName/namespaces/:namespace/deployments/:deploymentName/status_records",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploymentName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployment status records in admin panel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

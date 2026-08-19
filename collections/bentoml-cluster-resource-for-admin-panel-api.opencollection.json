@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 cluster resource for admin panel API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cluster resource for admin panel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a cluster in admin panel"
+        },
+        {
+          "info": {
+            "name": "Update a cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a cluster in admin panel"
+        },
+        {
+          "info": {
+            "name": "Delete a cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a cluster in admin panel"
+        },
+        {
+          "info": {
+            "name": "List cluster members in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/members",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List cluster members in admin panel"
+        },
+        {
+          "info": {
+            "name": "Create a cluster member in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/members",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cluster member in admin panel"
+        },
+        {
+          "info": {
+            "name": "Remove a cluster member in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/members",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a cluster member in admin panel"
+        },
+        {
+          "info": {
+            "name": "Migrate deployments on cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/migrate_deployments",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Migrate deployments on cluster in admin panel"
+        },
+        {
+          "info": {
+            "name": "Sync tenant kubeconfig in a cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/sync_tenant_kubeconfig",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sync tenant kubeconfig in a cluster in admin panel"
+        },
+        {
+          "info": {
+            "name": "Sync tenant resources in a cluster in admin panel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/admin/v1/orgs/:orgName/clusters/:clusterName/sync_tenant_resources",
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orgName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sync tenant resources in a cluster in admin panel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

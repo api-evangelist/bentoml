@@ -1,0 +1,323 @@
+{
+  "item": [
+    {
+      "id": "7c10b167-6b84-4da1-a233-dc2115fc5fa6",
+      "name": "websocket v2",
+      "description": {
+        "content": "websocket v2",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28f92f6d-f104-46f7-b56e-6d0d57b2fce4",
+          "name": "Ws v2 Deployment kube events",
+          "request": {
+            "name": "Ws v2 Deployment kube events",
+            "description": {},
+            "url": {
+              "path": [
+                "ws",
+                "v2",
+                "deployments",
+                ":deploymentName",
+                "kube_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cluster",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deploymentName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5d8ef29-2ef8-4ff8-8bc5-d1741f0a9019",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v2",
+                    "deployments",
+                    ":deploymentName",
+                    "kube_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cluster",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deploymentName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e306e260-8962-44af-b1b8-b05d544ce7be",
+          "name": "Ws v2 deployment pods",
+          "request": {
+            "name": "Ws v2 deployment pods",
+            "description": {},
+            "url": {
+              "path": [
+                "ws",
+                "v2",
+                "deployments",
+                ":deploymentName",
+                "pods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cluster",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deploymentName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf703927-49af-4f6f-b86b-e8c26a7e5c0a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v2",
+                    "deployments",
+                    ":deploymentName",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cluster",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deploymentName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8ac96bc-7662-4b39-ad76-74511d6f63fc",
+          "name": "Subscribe resource v2",
+          "request": {
+            "name": "Subscribe resource v2",
+            "description": {},
+            "url": {
+              "path": [
+                "ws",
+                "v2",
+                "subscription",
+                "resource"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1bf5e71-f03c-49c5-aa09-67265e5291cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "v2",
+                    "subscription",
+                    "resource"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d9aedf98-e736-4ee6-baa4-9a53fef30a9d",
+    "name": "yatai api server admin api v1 websocket v2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

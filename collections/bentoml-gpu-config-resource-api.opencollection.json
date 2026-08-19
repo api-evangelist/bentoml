@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 gpu config resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "gpu config resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a gpu config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/gpu_configs/:gpuConfigName",
+            "params": [
+              {
+                "name": "gpuConfigName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a gpu config"
+        },
+        {
+          "info": {
+            "name": "Update a gpu config",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/v1/gpu_configs/:gpuConfigName",
+            "params": [
+              {
+                "name": "gpuConfigName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a gpu config"
+        },
+        {
+          "info": {
+            "name": "Delete a gpu config",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/gpu_configs/:gpuConfigName",
+            "params": [
+              {
+                "name": "gpuConfigName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a gpu config"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

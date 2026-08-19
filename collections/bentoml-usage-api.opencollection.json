@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 usage API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get last usage send time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/usage/:usageId",
+            "params": [
+              {
+                "name": "usageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "host_cluster_name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get last usage send time"
+        },
+        {
+          "info": {
+            "name": "Collect usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/usage/:usageId",
+            "params": [
+              {
+                "name": "usageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "host_cluster_name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Collect usage"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

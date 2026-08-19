@@ -1,0 +1,135 @@
+{
+  "item": [
+    {
+      "id": "0335f294-a349-44a8-b524-3fb72dd3ff88",
+      "name": "yatai components",
+      "description": {
+        "content": "yatai components",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4719d18-e88c-4768-9944-05aae98bebce",
+          "name": "List yatai components",
+          "request": {
+            "name": "List yatai components",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":clusterName",
+                "yatai_components"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Yatai-Organization",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e679d043-400b-413e-baa0-bb7e606bb601",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":clusterName",
+                    "yatai_components"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "X-Yatai-Organization",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cluster\": {\n      \"config\": \"string\",\n      \"created_at\": \"2013-01-15T11:33:56.998Z\",\n      \"default\": true,\n      \"deleted_at\": \"1954-01-06T07:30:43.454Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"kube_config\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_instances\": [\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1947-02-04T19:04:42.939Z\",\n          \"deleted_at\": \"2023-02-15T23:28:32.606Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"bento_repository\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2007-12-27T12:30:18.991Z\"\n        },\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1951-08-23T21:55:00.658Z\",\n          \"deleted_at\": \"1998-10-04T13:32:47.030Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"api_token\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1960-07-13T11:22:48.888Z\"\n        }\n      ],\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1974-02-15T06:19:10.371Z\"\n    },\n    \"created_at\": \"1971-03-22T21:48:15.081Z\",\n    \"deleted_at\": \"2010-05-12T02:22:46.620Z\",\n    \"description\": \"string\",\n    \"kube_namespace\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"latest_heartbeat_at\": \"1977-01-29T05:53:24.516Z\",\n    \"latest_installed_at\": \"1950-12-06T11:06:36.665Z\",\n    \"manifest\": {\n      \"enable_envoy_gateway_ingress\": true,\n      \"latest_crd_version\": \"string\",\n      \"selector_labels\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"resource_type\": \"api_token\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1989-02-19T22:40:45.670Z\",\n    \"version\": \"string\"\n  },\n  {\n    \"cluster\": {\n      \"config\": \"string\",\n      \"created_at\": \"2011-12-16T15:17:12.250Z\",\n      \"default\": false,\n      \"deleted_at\": \"1968-12-21T03:53:59.195Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"grafana_root_path\": \"string\",\n      \"kube_config\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"resource_instances\": [\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1994-07-19T18:42:10.032Z\",\n          \"deleted_at\": \"2024-01-01T13:51:08.905Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"model_repository\",\n          \"uid\": \"string\",\n          \"updated_at\": \"1969-07-02T10:32:34.374Z\"\n        },\n        {\n          \"config\": \"string\",\n          \"created_at\": \"1993-07-07T21:01:08.879Z\",\n          \"deleted_at\": \"1965-08-02T17:30:45.872Z\",\n          \"description\": \"string\",\n          \"display_name\": \"string\",\n          \"labels\": [\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            },\n            {\n              \"key\": \"string\",\n              \"stage\": \"string\",\n              \"value\": \"string\"\n            }\n          ],\n          \"lago_id\": \"string\",\n          \"name\": \"string\",\n          \"resource_type\": \"model\",\n          \"uid\": \"string\",\n          \"updated_at\": \"2005-12-29T19:11:01.695Z\"\n        }\n      ],\n      \"resource_type\": \"bento_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1959-08-10T22:01:00.722Z\"\n    },\n    \"created_at\": \"1986-10-08T23:40:08.259Z\",\n    \"deleted_at\": \"2022-10-15T00:03:49.095Z\",\n    \"description\": \"string\",\n    \"kube_namespace\": \"string\",\n    \"labels\": [\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"stage\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"latest_heartbeat_at\": \"1949-01-23T07:35:51.866Z\",\n    \"latest_installed_at\": \"2018-05-18T04:04:47.497Z\",\n    \"manifest\": {\n      \"enable_envoy_gateway_ingress\": true,\n      \"latest_crd_version\": \"string\",\n      \"selector_labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      }\n    },\n    \"name\": \"string\",\n    \"resource_type\": \"deployment_revision\",\n    \"uid\": \"string\",\n    \"updated_at\": \"1967-11-14T00:19:57.457Z\",\n    \"version\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e9446115-8c2d-4421-b165-7cc5d65ec05c",
+    "name": "yatai api server admin api v1 yatai components API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

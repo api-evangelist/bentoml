@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "9dbaf42d-e2f2-4327-92ae-c7ffb9f60782",
+      "name": "resource instances",
+      "description": {
+        "content": "resource instances",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4c38f52-fe56-4d3a-ae8b-4a7099210929",
+          "name": "List resource instances",
+          "request": {
+            "name": "List resource instances",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "resource_instances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "120695c6-e623-4e24-ba28-d8c38e2d82ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "resource_instances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2275,\n  \"items\": [\n    {\n      \"config\": \"string\",\n      \"created_at\": \"2019-01-03T02:24:40.922Z\",\n      \"deleted_at\": \"1970-11-27T14:39:05.375Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model\",\n      \"uid\": \"string\",\n      \"updated_at\": \"1994-01-27T21:27:38.502Z\"\n    },\n    {\n      \"config\": \"string\",\n      \"created_at\": \"1988-08-29T08:24:16.770Z\",\n      \"deleted_at\": \"1995-05-06T03:50:22.416Z\",\n      \"description\": \"string\",\n      \"display_name\": \"string\",\n      \"labels\": [\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"stage\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"lago_id\": \"string\",\n      \"name\": \"string\",\n      \"resource_type\": \"model_repository\",\n      \"uid\": \"string\",\n      \"updated_at\": \"2018-04-21T00:32:33.201Z\"\n    }\n  ],\n  \"start\": 8437,\n  \"total\": 1489\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e57a66b8-d352-4be8-974c-9a15e93866fd",
+          "name": "Create a resource instance",
+          "request": {
+            "name": "Create a resource instance",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "v1",
+                "resource_instances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": {\n    \"gpu_config\": {\n      \"memory\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"group\": \"<string>\",\n    \"node_selectors\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"price\": \"<string>\",\n    \"resources\": {\n      \"limits\": {\n        \"cpu\": \"<string>\",\n        \"custom\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"gpu\": \"<string>\",\n        \"memory\": \"<string>\"\n      },\n      \"requests\": {\n        \"cpu\": \"<string>\",\n        \"custom\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"gpu\": \"<string>\",\n        \"memory\": \"<string>\"\n      }\n    },\n    \"tolerations\": [\n      {\n        \"effect\": \"<string>\",\n        \"key\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"tolerationSeconds\": \"<long>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"effect\": \"<string>\",\n        \"key\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"tolerationSeconds\": \"<long>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"tpu_config\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "006e12fd-cd53-4edc-841d-2e21ccf1cf23",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "v1",
+                    "resource_instances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"gpu_config\": {\n      \"memory\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"group\": \"<string>\",\n    \"node_selectors\": {\n      \"key_0\": \"<string>\"\n    },\n    \"price\": \"<string>\",\n    \"resources\": {\n      \"limits\": {\n        \"cpu\": \"<string>\",\n        \"custom\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"gpu\": \"<string>\",\n        \"memory\": \"<string>\"\n      },\n      \"requests\": {\n        \"cpu\": \"<string>\",\n        \"custom\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"gpu\": \"<string>\",\n        \"memory\": \"<string>\"\n      }\n    },\n    \"tolerations\": [\n      {\n        \"effect\": \"<string>\",\n        \"key\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"tolerationSeconds\": \"<long>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"effect\": \"<string>\",\n        \"key\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"tolerationSeconds\": \"<long>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"tpu_config\": {\n      \"type\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config\": \"string\",\n  \"created_at\": \"1959-08-06T04:01:44.840Z\",\n  \"deleted_at\": \"1990-03-12T17:55:28.851Z\",\n  \"description\": \"string\",\n  \"display_name\": \"string\",\n  \"labels\": [\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"key\": \"string\",\n      \"stage\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"lago_id\": \"string\",\n  \"name\": \"string\",\n  \"resource_type\": \"deployment_revision\",\n  \"uid\": \"string\",\n  \"updated_at\": \"1957-10-18T10:06:57.364Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5dfc7b87-8af7-4c85-9f7e-148e470c49f4",
+    "name": "yatai api server admin api v1 resource instances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is yatai api server.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 yatai components API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "yatai components",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List yatai components",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clusters/:clusterName/yatai_components",
+            "headers": [
+              {
+                "name": "X-Yatai-Organization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List yatai components"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

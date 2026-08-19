@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "yatai api server admin api v1 resource instance resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "resource instance resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/v1/resource_instances/:resourceInstanceName",
+            "params": [
+              {
+                "name": "resourceInstanceName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a resource instance"
+        },
+        {
+          "info": {
+            "name": "Update a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/v1/resource_instances/:resourceInstanceName",
+            "params": [
+              {
+                "name": "resourceInstanceName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a resource instance"
+        },
+        {
+          "info": {
+            "name": "Delete a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/admin/v1/resource_instances/:resourceInstanceName",
+            "params": [
+              {
+                "name": "resourceInstanceName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a resource instance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

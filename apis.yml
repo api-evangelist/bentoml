@@ -28,6 +28,17 @@ description: >
   management. The platform supports all major ML frameworks including PyTorch, TensorFlow,
   Transformers, ONNX, XGBoost, and Scikit-Learn, and is licensed under Apache 2.0.
 tags:
+  - Machine-Learning
+  - Model Serving
+  - Inference
+  - Artificial Intelligence
+  - REST API
+  - MLOps
+  - Deployment
+  - GPU
+  - LLM
+  - BentoCloud
+tags_raw:
   - machine learning
   - model serving
   - inference
@@ -48,6 +59,10 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/build-with-bentoml/services.html
   baseURL: https://localhost:3000
   tags:
+  - Inference
+  - REST API
+  - Model Serving
+  tags_raw:
   - inference
   - REST API
   - model serving
@@ -78,6 +93,10 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Authentication
+  - Tokens
+  - Security
+  tags_raw:
   - authentication
   - tokens
   - security
@@ -126,6 +145,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - API Tokens
+  tags_raw:
   - api tokens
   properties:
   - type: OpenAPI
@@ -138,6 +159,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - ApiV1
+  tags_raw:
   - api v1
   properties:
   - type: OpenAPI
@@ -150,6 +173,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -270,6 +295,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Cluster
+  tags_raw:
   - clusters
   properties:
   - type: OpenAPI
@@ -318,6 +345,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Customers
+  tags_raw:
   - customers
   properties:
   - type: OpenAPI
@@ -437,7 +466,8 @@ apis:
   description: host_clusters
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
-  tags:
+  tags: []
+  tags_raw:
   - host_clusters
   properties:
   - type: OpenAPI
@@ -450,6 +480,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Instance Types
+  tags_raw:
   - instance_types
   properties:
   - type: OpenAPI
@@ -462,6 +494,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Labels
+  tags_raw:
   - labels
   properties:
   - type: OpenAPI
@@ -522,6 +556,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Limit Groups
+  tags_raw:
   - limit groups
   properties:
   - type: OpenAPI
@@ -570,6 +606,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Models
+  tags_raw:
   - models
   properties:
   - type: OpenAPI
@@ -606,6 +644,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Organization Secrets
+  tags_raw:
   - organization secrets
   properties:
   - type: OpenAPI
@@ -642,6 +682,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Plans
+  tags_raw:
   - plans
   properties:
   - type: OpenAPI
@@ -678,6 +720,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Resource Instances
+  tags_raw:
   - resource instances
   properties:
   - type: OpenAPI
@@ -726,6 +770,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Usage
+  tags_raw:
   - usage
   properties:
   - type: OpenAPI
@@ -738,6 +784,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - User Resource
+  tags_raw:
   - user resource
   properties:
   - type: OpenAPI
@@ -750,6 +798,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI

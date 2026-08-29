@@ -855,6 +855,9 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 common:
+  - type: CapabilityMap
+    url: capabilities/bentoml-capability-edges.yml
+    name: BentoML Business Capability Map
   - type: AgenticAccess
     url: agentic-access/bentoml-agentic-access.yml
   - type: DomainSecurity

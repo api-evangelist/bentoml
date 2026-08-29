@@ -1,0 +1,158 @@
+slug: bentoml
+provider: BentoML
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 15
+edges:
+- tag: model resource
+  spec_file: bentoml-model-resource-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.82
+  evidence: GET .../models/{version}  Get a model; PATCH .../finish_upload  Finish upload a model; GET
+    .../deployments  List model deployments
+  reason: 'Versioned ML model artefact lifecycle: upload, retrieve, delete, and list deployments of a
+    model — core MLOps model registry operations under Artificial Intelligence Management.'
+- tag: model repositories
+  spec_file: bentoml-model-repositories-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.78
+  evidence: GET /api/v1/model_repositories  List model repositories; POST ... Create a model repository;
+    ModelschemasModelManifestSchema
+  reason: Registry of machine-learning model repositories — the model registry portion of the ML model
+    lifecycle (MLOps), which maps to Artificial Intelligence Management.
+- tag: models
+  spec_file: bentoml-models-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.78
+  evidence: POST /api/v1/model_repositories/{modelRepositoryName}/models  Create a model; Schemasv1ModelListSchema
+  reason: Creation and listing of ML model versions within a repository — model registry / MLOps lifecycle,
+    mapped to Artificial Intelligence Management.
+- tag: organization secrets
+  spec_file: bentoml-organization-secrets-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.78
+  evidence: GET /api/v1/org_secrets "List secrets"; POST /api/v1/org_secrets "Create a secret"; schemas
+    V1ConfigMapKeySelector, ModelschemasEnvItemSchema
+  reason: CRUD over org-scoped secrets injected into deployment runtime (env items, config map key selectors)
+    is runtime configuration and secrets management, not a business-domain capability.
+- tag: secret names
+  spec_file: bentoml-secret-names-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.78
+  evidence: GET /api/v1/org_secrets/{name} "Get a secret by name"; DELETE "Delete a secret by name"; PATCH
+    "Update a secret by name"
+  reason: Named-secret CRUD for the deployment platform is secrets and runtime configuration management;
+    the tag word 'names' is merely the path parameter.
+- tag: model repository resource
+  spec_file: bentoml-model-repository-resource-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: GET /api/v1/model_repositories/{modelRepositoryName}  Get a model repository; Update_A_Model_RepositoryInput
+  reason: Read/update of an individual ML model repository in the model registry — AI/ML model lifecycle
+    management.
+- tag: lago billable metrics
+  spec_file: bentoml-lago-billable-metrics-api-openapi.yml
+  capability_id: BC-4250.10
+  capability_id_l1: BC-4250
+  capability_name: Usage Metering
+  confidence: 0.72
+  evidence: POST /api/v1/lago/billable_metrics  Create lago billable metric; Schemasv1BillableMetrics
+  reason: Lago billable metrics define the usage events aggregated for billing of the platform's consumption
+    — usage metering definition feeding rating. Confidence moderated because the metric definition also
+    borders on rating configuration.
+- tag: bento resource
+  spec_file: bentoml-bento-resource-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: '''Get a bento'', ''Delete a bento'', ''List bento models'', ''Pre sign bento upload URL'''
+  reason: Lifecycle of individual packaged ML model service versions, including their constituent models
+    and artefact upload/download — ML model lifecycle / MLOps.
+- tag: bentos
+  spec_file: bentoml-bentos-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: '''List bentos'' / ''Create a bento'' with ModelschemasBentoManifestModelSchema'
+  reason: Creation and listing of packaged ML model service versions — core model packaging step of the
+    ML model lifecycle.
+- tag: cluster deployments
+  spec_file: bentoml-cluster-deployments-api-openapi.yml
+  capability_id: BC-4210.40
+  capability_id_l1: BC-4210
+  capability_name: Deployment Orchestration
+  confidence: 0.7
+  evidence: '''Create deployment'' and ''List cluster deployments'' with ModelschemasExtraDeploymentOverrides,
+    Schemasv2DeploymentListSchema'
+  reason: Operations create and list deployments of packaged services onto compute clusters — deployment
+    orchestration of software to running infrastructure. Some ambiguity with generic IT operations.
+- tag: clusters
+  spec_file: bentoml-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '''Create cluster'' / ''List clusters'' with ModelschemasClusterConfigSchema, ModelschemasImageResgitryConfig'
+  reason: Provisioning and listing of compute clusters with registry configuration is cloud/compute infrastructure
+    management.
+- tag: organization secrets with check message
+  spec_file: bentoml-organization-secrets-with-check-message-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.7
+  evidence: POST /api/v1/org_secrets_check "List secrets with check message"
+  reason: Same secret surface as org_secrets, returning validation/check messages for stored secrets —
+    runtime configuration and secrets management for the platform.
+- tag: users
+  spec_file: bentoml-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/v1/users  Create an user; POST /api/v1/users/invite  Invite an user; Schemasv1InviteUserResponseSchema
+  reason: Creation, listing and invitation of user accounts on the platform's admin API is user identity/account
+    administration (joiner provisioning), not HR employee records. Mapped to Identity & Access Management.
+- tag: websocket v1
+  spec_file: bentoml-websocket-v1-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: GET /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/tail  Tail
+    deployment pod log; "Cluster kube events"
+  reason: Streaming Kubernetes events, pod listings and live log tails for deployments is production observability
+    of the running service. Terminal access is closer to operations tooling, which adds some ambiguity
+    between observability and general IT operations.
+- tag: websocket v2
+  spec_file: bentoml-websocket-v2-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: GET /ws/v2/deployments/{deploymentName}/kube_events  Ws v2 Deployment kube events
+  reason: 'Same surface as v1: live streaming of deployment kube events and pod state for running services,
+    i.e. observability of the deployed platform.'

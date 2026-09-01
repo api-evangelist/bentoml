@@ -40,8 +40,8 @@ description: >
   management. The platform supports all major ML frameworks including PyTorch, TensorFlow,
   Transformers, ONNX, XGBoost, and Scikit-Learn, and is licensed under Apache 2.0.
 tags:
-  - machine learning
-  - model serving
+  - Machine-Learning
+  - Model Serving
   - Inference
   - Artificial Intelligence
   - REST API
@@ -73,7 +73,7 @@ apis:
   tags:
   - Inference
   - REST API
-  - model serving
+  - Model Serving
   tags_raw:
   - inference
   - REST API
@@ -157,7 +157,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - api tokens
+  - API Tokens
   tags_raw:
   - api tokens
   properties:
@@ -171,7 +171,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - api v1
+  - ApiV1
   tags_raw:
   - api v1
   properties:
@@ -307,7 +307,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - clusters
+  - Cluster
   tags_raw:
   - clusters
   properties:
@@ -491,7 +491,8 @@ apis:
   description: instance_types
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
-  tags: []
+  tags:
+  - Instance Types
   tags_raw:
   - instance_types
   properties:
@@ -567,7 +568,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - limit groups
+  - Limit Groups
   tags_raw:
   - limit groups
   properties:
@@ -655,7 +656,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - organization secrets
+  - Organization Secrets
   tags_raw:
   - organization secrets
   properties:
@@ -731,7 +732,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - resource instances
+  - Resource Instances
   tags_raw:
   - resource instances
   properties:
@@ -795,7 +796,7 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
-  - user resource
+  - User Resource
   tags_raw:
   - user resource
   properties:

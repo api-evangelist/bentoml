@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 11
+edge_count: 16
 edges:
 - tag: auth
   spec_file: bentoml-auth-api-openapi.yml
@@ -107,6 +107,37 @@ edges:
   evidence: POST /api/v1/bento_repositories/{bentoRepositoryName}/bentos "Create a bento"; ModelschemasBentoManifestModelSchema
   reason: Creation and listing of bentos — versioned packaged ML model services — is core ML model lifecycle
     management on this inference platform.
+- tag: cluster deployments
+  spec_file: bentoml-cluster-deployments-api-openapi.yml
+  capability_id: BC-4210.40
+  capability_id_l1: BC-4210
+  capability_name: Deployment Orchestration
+  confidence: 0.7
+  evidence: '''Create deployment'' and ''List cluster deployments'' with ModelschemasExtraDeploymentOverrides,
+    Schemasv2DeploymentListSchema'
+  reason: Operations create and list deployments of packaged services onto compute clusters — deployment
+    orchestration of software to running infrastructure. Some ambiguity with generic IT operations.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: clusters
+  spec_file: bentoml-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '''Create cluster'' / ''List clusters'' with ModelschemasClusterConfigSchema, ModelschemasImageResgitryConfig'
+  reason: Provisioning and listing of compute clusters with registry configuration is cloud/compute infrastructure
+    management.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: organization secrets with check message
+  spec_file: bentoml-organization-secrets-with-check-message-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.7
+  evidence: POST /api/v1/org_secrets_check "List secrets with check message"
+  reason: Same secret surface as org_secrets, returning validation/check messages for stored secrets —
+    runtime configuration and secrets management for the platform.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: users
   spec_file: bentoml-users-api-openapi.yml
   capability_id: BC-620.20
@@ -117,3 +148,25 @@ edges:
   reason: Create, list and invite user accounts on the ML platform's admin API — account provisioning
     and onboarding of platform users, i.e. identity and access administration rather than any HR capability
     (no employment data present).
+- tag: websocket v1
+  spec_file: bentoml-websocket-v1-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: GET /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/tail  Tail
+    deployment pod log; "Cluster kube events"
+  reason: Streaming Kubernetes events, pod listings and live log tails for deployments is production observability
+    of the running service. Terminal access is closer to operations tooling, which adds some ambiguity
+    between observability and general IT operations.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: websocket v2
+  spec_file: bentoml-websocket-v2-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: GET /ws/v2/deployments/{deploymentName}/kube_events  Ws v2 Deployment kube events
+  reason: 'Same surface as v1: live streaming of deployment kube events and pod state for running services,
+    i.e. observability of the deployed platform.'
+  recovered_from: sweep-20260829T005356Z-edges.json

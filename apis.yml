@@ -40,6 +40,9 @@ description: >
   scale-to-zero cost optimization, and a control-plane API for programmatic deployment lifecycle
   management. The platform supports all major ML frameworks including PyTorch, TensorFlow,
   Transformers, ONNX, XGBoost, and Scikit-Learn, and is licensed under Apache 2.0.
+x-docs-platform: readthedocs
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-20
 tags:
   - Machine-Learning
   - Model Serving

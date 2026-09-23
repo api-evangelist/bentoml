@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 lago customer API
+  title: yatai api server lago customer API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -29,7 +29,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create Lago CustomerInput'
+              $ref: '#/components/schemas/Create_Lago_CustomerInput'
       responses:
         '200':
           description: OK
@@ -53,12 +53,53 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update Lago CustomerInput'
+              $ref: '#/components/schemas/Update_Lago_CustomerInput'
       responses:
         '200':
           description: OK
 components:
   schemas:
+    Create_Lago_CustomerInput:
+      type: object
+      properties:
+        Uid:
+          type: string
+        auto_create_stripe:
+          type: boolean
+        credit_amount:
+          type:
+          - string
+          - 'null'
+        email:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        plan_type:
+          type: string
+    Update_Lago_CustomerInput:
+      type: object
+      properties:
+        stripe_id:
+          type:
+          - string
+          - 'null'
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
     Schemasv1LagoCustomerListSchema:
       type: object
       properties:
@@ -75,45 +116,6 @@ components:
         total:
           type: integer
           format: int32
-    Create Lago CustomerInput:
-      type: object
-      properties:
-        Uid:
-          type: string
-        auto_create_stripe:
-          type: boolean
-        credit_amount:
-          type: string
-          nullable: true
-        email:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        plan_type:
-          type: string
-    Update Lago CustomerInput:
-      type: object
-      properties:
-        stripe_id:
-          type: string
-          nullable: true
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

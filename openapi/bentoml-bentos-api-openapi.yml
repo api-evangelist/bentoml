@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 bentos API
+  title: yatai api server Bentos API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -31,8 +31,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -68,7 +69,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A BentoInput'
+              $ref: '#/components/schemas/Create_A_BentoInput'
       responses:
         '200':
           description: OK
@@ -96,9 +97,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -139,9 +141,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   image_build_status:
@@ -175,100 +178,49 @@ paths:
                     - model
                     - api_token
                   transmission_strategy:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   uid:
                     type: string
                   updated_at:
                     type: string
                     format: date-time
                   upload_finished_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   upload_finished_reason:
                     type: string
                   upload_id:
                     type: string
                   upload_started_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   upload_status:
                     type: string
                   version:
                     type: string
 components:
   schemas:
-    ModelschemasBentoRunnerResourceSchema:
+    Create_A_BentoInput:
       type: object
       properties:
-        cpu:
-          type: number
-          format: double
-          nullable: true
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type: number
-          format: double
-          nullable: true
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
+        build_at:
           type: string
-        stage:
+        description:
           type: string
-        value:
-          type: string
-    ModelschemasBentoManifestSchema:
-      type: object
-      properties:
-        apis:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
-        bentoml_version:
-          type: string
-        dev:
-          type: boolean
-        entry_service:
-          type: string
-        envs:
+        labels:
           type: array
           items:
-            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
-        image:
-          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
-        models:
-          type: array
-          items:
-            type: string
-        name:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        manifest:
+          $ref: '#/components/schemas/ModelschemasBentoManifestSchema'
+        version:
           type: string
-        runners:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
-        schema:
-          type: object
-          additionalProperties: {}
-        service:
-          type: string
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
-        size_bytes:
-          type: integer
-          format: int32
-        spec:
-          type: integer
-          format: int32
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -277,6 +229,52 @@ components:
         stage:
           type: string
         value:
+          type: string
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
+    ModelschemasBentoImageInfoSchema:
+      type: object
+      properties:
+        base_image:
+          type: string
+        commands:
+          type: array
+          items:
+            type: string
+        python_requirements:
+          type: string
+        python_version:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
           type: string
     Schemasv1BentoWithSlimRepositoryListSchema:
       type: object
@@ -308,9 +306,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -351,9 +350,10 @@ components:
                     type: string
                     format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               image_build_status:
@@ -379,9 +379,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   labels:
@@ -410,9 +411,10 @@ components:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -453,9 +455,10 @@ components:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       image_build_status:
@@ -489,25 +492,28 @@ components:
                         - model
                         - api_token
                       transmission_strategy:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       uid:
                         type: string
                       updated_at:
                         type: string
                         format: date-time
                       upload_finished_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_finished_reason:
                         type: string
                       upload_id:
                         type: string
                       upload_started_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_status:
                         type: string
                       version:
@@ -531,9 +537,10 @@ components:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -574,9 +581,10 @@ components:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -590,16 +598,18 @@ components:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -661,25 +671,28 @@ components:
                 - model
                 - api_token
               transmission_strategy:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               uid:
                 type: string
               updated_at:
                 type: string
                 format: date-time
               upload_finished_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_finished_reason:
                 type: string
               upload_id:
                 type: string
               upload_started_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_status:
                 type: string
               version:
@@ -688,6 +701,50 @@ components:
           type: integer
           format: int32
         total:
+          type: integer
+          format: int32
+    ModelschemasBentoManifestSchema:
+      type: object
+      properties:
+        apis:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
+        bentoml_version:
+          type: string
+        dev:
+          type: boolean
+        entry_service:
+          type: string
+        envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
+        image:
+          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        runners:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
+        schema:
+          type: object
+          additionalProperties: {}
+        service:
+          type: string
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
+        size_bytes:
+          type: integer
+          format: int32
+        spec:
           type: integer
           format: int32
     ModelschemasBentoApiSchema:
@@ -701,33 +758,14 @@ components:
           type: string
         route:
           type: string
-    Create A BentoInput:
+    ModelschemasEnvItemSchema:
       type: object
       properties:
-        build_at:
+        name:
           type: string
-        description:
+        stage:
           type: string
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        manifest:
-          $ref: '#/components/schemas/ModelschemasBentoManifestSchema'
-        version:
-          type: string
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
-          type: array
-          items:
-            type: string
-        python_requirements:
-          type: string
-        python_version:
+        value:
           type: string
     ModelschemasBentoManifestServiceSchema:
       type: object
@@ -755,21 +793,6 @@ components:
         resource_config:
           $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
         runnable_type:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
           type: string
   securitySchemes:
     apiToken:

@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 instance_types API
+  title: yatai api server Instance Types API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: instance_types
+- name: Instance Types
   description: instance_types
 paths:
   /api/v1/instance_types:
     get:
       tags:
-      - instance_types
+      - Instance Types
       summary: List instance types
       operationId: List instance types
       parameters:
@@ -30,8 +30,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -52,15 +53,17 @@ paths:
                   type: object
                   properties:
                     config:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     created_at:
                       type: string
                       format: date-time
                     deleted_at:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       format: date-time
-                      nullable: true
                     description:
                       type: string
                     display_name:

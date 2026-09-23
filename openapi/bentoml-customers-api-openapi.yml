@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 customers API
+  title: yatai api server Customers API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: customers
+- name: Customers
   description: customers api
 paths:
   /api/v1/customers:
     get:
       tags:
-      - customers
+      - Customers
       summary: List customers
       operationId: List customers
       parameters:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -42,6 +43,30 @@ paths:
                 $ref: '#/components/schemas/Schemasv1CustomerListFullSchema'
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
     Schemasv1CustomerListFullSchema:
       type: object
       properties:
@@ -60,11 +85,11 @@ components:
                 format: date-time
               customer:
                 description: Value of any type, including null
-                nullable: true
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               labels:
                 type: array
                 items:
@@ -108,30 +133,6 @@ components:
         total:
           type: integer
           format: int32
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

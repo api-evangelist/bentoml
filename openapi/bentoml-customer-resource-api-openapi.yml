@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 customer resource API
+  title: yatai api server customer resource API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -34,11 +34,11 @@ paths:
                     format: date-time
                   customer:
                     description: Value of any type, including null
-                    nullable: true
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   labels:
                     type: array
                     items:
@@ -91,7 +91,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update A CustomerInput'
+              $ref: '#/components/schemas/Update_A_CustomerInput'
       responses:
         '200':
           description: OK
@@ -106,9 +106,10 @@ paths:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   labels:
                     type: array
                     items:
@@ -144,6 +145,15 @@ paths:
                     type: string
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1LagoCustomer:
       type: object
       properties:
@@ -159,39 +169,37 @@ components:
           type: string
         wallet_id:
           type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Update A CustomerInput:
+    Update_A_CustomerInput:
       type: object
       properties:
         active:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         billing_customer_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         lago_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         payment_ready:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         stripe_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         subscription_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         wallet_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

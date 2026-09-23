@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 gpu configs API
+  title: yatai api server gpu configs API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -51,7 +52,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A Gpu ConfigInput'
+              $ref: '#/components/schemas/Create_A_Gpu_ConfigInput'
       responses:
         '200':
           description: OK
@@ -61,15 +62,6 @@ paths:
                 $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
 components:
   schemas:
-    Create A Gpu ConfigInput:
-      type: object
-      properties:
-        memory:
-          type: string
-        name:
-          type: string
-        vendor:
-          type: string
     Schemasv1GPUConfigSchema:
       type: object
       properties:
@@ -77,9 +69,10 @@ components:
           type: string
           format: date-time
         deleted_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         memory:
           type: string
         name:
@@ -89,6 +82,15 @@ components:
         updated_at:
           type: string
           format: date-time
+        vendor:
+          type: string
+    Create_A_Gpu_ConfigInput:
+      type: object
+      properties:
+        memory:
+          type: string
+        name:
+          type: string
         vendor:
           type: string
   securitySchemes:

@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 users API
+  title: yatai api server Users API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: users
+- name: Users
   description: users api
 paths:
   /api/v1/users:
     get:
       tags:
-      - users
+      - Users
       summary: List users
       operationId: List users
       parameters:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -42,7 +43,7 @@ paths:
                 $ref: '#/components/schemas/Schemasv1UserListSchema'
     post:
       tags:
-      - users
+      - Users
       summary: Create an user
       operationId: Create an user
       parameters:
@@ -54,7 +55,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create An UserInput'
+              $ref: '#/components/schemas/Create_An_UserInput'
       responses:
         '200':
           description: OK
@@ -71,9 +72,10 @@ paths:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -116,7 +118,7 @@ paths:
   /api/v1/users/invite:
     post:
       tags:
-      - users
+      - Users
       summary: Invite an user
       operationId: Invite an user
       parameters:
@@ -128,7 +130,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Invite An UserInput'
+              $ref: '#/components/schemas/Invite_An_UserInput'
       responses:
         '200':
           description: OK
@@ -138,26 +140,6 @@ paths:
                 $ref: '#/components/schemas/Schemasv1InviteUserResponseSchema'
 components:
   schemas:
-    Invite An UserInput:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        role:
-          type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-      required:
-      - email
-      - first_name
-      - last_name
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -166,33 +148,6 @@ components:
         stage:
           type: string
         value:
-          type: string
-    Create An UserInput:
-      type: object
-      properties:
-        email:
-          type: string
-        name:
-          type: string
-        password:
-          type: string
-        role:
-          type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-      required:
-      - email
-      - name
-      - password
-    Schemasv1InviteUserResponseSchema:
-      type: object
-      properties:
-        invitation_code:
-          type: string
-        url:
           type: string
     Schemasv1UserListSchema:
       type: object
@@ -213,9 +168,10 @@ components:
                 type: string
                 format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               email:
                 type: string
               first_name:
@@ -261,6 +217,53 @@ components:
         total:
           type: integer
           format: int32
+    Schemasv1InviteUserResponseSchema:
+      type: object
+      properties:
+        invitation_code:
+          type: string
+        url:
+          type: string
+    Create_An_UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+      required:
+      - email
+      - name
+      - password
+    Invite_An_UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+      required:
+      - email
+      - first_name
+      - last_name
   securitySchemes:
     apiToken:
       type: apiKey

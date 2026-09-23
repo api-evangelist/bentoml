@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 org resource for admin panel API
+  title: yatai api server org resource for admin panel API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -28,8 +28,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -44,9 +45,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -87,9 +89,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   disable_grafana:
@@ -103,16 +106,18 @@ paths:
                   enable_monitoring_endpoint:
                     type: boolean
                   expired_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   labels:
                     type: array
                     items:
                       $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                   limit_group:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   multi_tenancy:
                     type: boolean
                   name:
@@ -164,8 +169,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -194,7 +200,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Operate An Org In Admin PanelInput'
+              $ref: '#/components/schemas/Operate_An_Org_In_Admin_PanelInput'
       responses:
         '200':
           description: OK
@@ -204,8 +210,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -220,9 +227,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -263,9 +271,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   disable_grafana:
@@ -279,16 +288,18 @@ paths:
                   enable_monitoring_endpoint:
                     type: boolean
                   expired_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   labels:
                     type: array
                     items:
                       $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                   limit_group:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   multi_tenancy:
                     type: boolean
                   name:
@@ -337,8 +348,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -353,9 +365,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -396,9 +409,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   disable_grafana:
@@ -412,16 +426,18 @@ paths:
                   enable_monitoring_endpoint:
                     type: boolean
                   expired_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   labels:
                     type: array
                     items:
                       $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                   limit_group:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   multi_tenancy:
                     type: boolean
                   name:
@@ -451,6 +467,41 @@ paths:
                     format: date-time
 components:
   schemas:
+    Operate_An_Org_In_Admin_PanelInput:
+      type: object
+      properties:
+        status:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasModelManifestSchema:
+      type: object
+      properties:
+        api_version:
+          type: string
+        bentoml_version:
+          type: string
+        context:
+          type: object
+          additionalProperties: {}
+        metadata:
+          type: object
+          additionalProperties: {}
+        module:
+          type: string
+        options:
+          type: object
+          additionalProperties: {}
+        size_bytes:
+          type: integer
+          format: int32
     Schemasv1ModelWithRepositoryListSchema:
       type: object
       properties:
@@ -479,9 +530,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -522,9 +574,10 @@ components:
                     type: string
                     format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               image_build_status:
@@ -562,9 +615,10 @@ components:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -605,9 +659,10 @@ components:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   labels:
@@ -634,9 +689,10 @@ components:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -677,9 +733,10 @@ components:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       image_build_status:
@@ -715,25 +772,28 @@ components:
                         - model
                         - api_token
                       transmission_strategy:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       uid:
                         type: string
                       updated_at:
                         type: string
                         format: date-time
                       upload_finished_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_finished_reason:
                         type: string
                       upload_id:
                         type: string
                       upload_started_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_status:
                         type: string
                       version:
@@ -757,9 +817,10 @@ components:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -800,9 +861,10 @@ components:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -816,16 +878,18 @@ components:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -887,25 +951,28 @@ components:
                 - model
                 - api_token
               transmission_strategy:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               uid:
                 type: string
               updated_at:
                 type: string
                 format: date-time
               upload_finished_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_finished_reason:
                 type: string
               upload_id:
                 type: string
               upload_started_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_status:
                 type: string
               version:
@@ -914,41 +981,6 @@ components:
           type: integer
           format: int32
         total:
-          type: integer
-          format: int32
-    Operate An Org In Admin PanelInput:
-      type: object
-      properties:
-        status:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasModelManifestSchema:
-      type: object
-      properties:
-        api_version:
-          type: string
-        bentoml_version:
-          type: string
-        context:
-          type: object
-          additionalProperties: {}
-        metadata:
-          type: object
-          additionalProperties: {}
-        module:
-          type: string
-        options:
-          type: object
-          additionalProperties: {}
-        size_bytes:
           type: integer
           format: int32
   securitySchemes:

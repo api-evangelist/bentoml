@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 resource instance resource API
+  title: yatai api server resource instance resource API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -28,15 +28,17 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -88,15 +90,17 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -143,7 +147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update A Resource InstanceInput'
+              $ref: '#/components/schemas/Update_A_Resource_InstanceInput'
       responses:
         '200':
           description: OK
@@ -153,15 +157,17 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -195,6 +201,25 @@ paths:
                     format: date-time
 components:
   schemas:
+    Update_A_Resource_InstanceInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type:
+          - string
+          - 'null'
+        lago_id:
+          type:
+          - string
+          - 'null'
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -204,21 +229,6 @@ components:
           type: string
         value:
           type: string
-    Update A Resource InstanceInput:
-      type: object
-      properties:
-        config:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        display_name:
-          type: string
-          nullable: true
-        lago_id:
-          type: string
-          nullable: true
   securitySchemes:
     apiToken:
       type: apiKey

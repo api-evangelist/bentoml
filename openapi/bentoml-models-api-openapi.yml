@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 models API
+  title: yatai api server Models API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: models
+- name: Models
   description: models
 paths:
   /api/v1/model_repositories/{modelRepositoryName}/models:
     get:
       tags:
-      - models
+      - Models
       summary: List models
       operationId: List models
       parameters:
@@ -31,8 +31,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -51,7 +52,7 @@ paths:
                 $ref: '#/components/schemas/Schemasv1ModelListSchema'
     post:
       tags:
-      - models
+      - Models
       summary: Create a model
       operationId: Create a model
       parameters:
@@ -68,7 +69,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A ModelInput'
+              $ref: '#/components/schemas/Create_A_ModelInput'
       responses:
         '200':
           description: OK
@@ -94,9 +95,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -137,9 +139,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   image_build_status:
@@ -175,32 +178,44 @@ paths:
                     - model
                     - api_token
                   transmission_strategy:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   uid:
                     type: string
                   updated_at:
                     type: string
                     format: date-time
                   upload_finished_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   upload_finished_reason:
                     type: string
                   upload_id:
                     type: string
                   upload_started_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   upload_status:
                     type: string
                   version:
                     type: string
 components:
   schemas:
-    Create A ModelInput:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Create_A_ModelInput:
       type: object
       properties:
         build_at:
@@ -214,15 +229,6 @@ components:
         manifest:
           $ref: '#/components/schemas/ModelschemasModelManifestSchema'
         version:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
     ModelschemasModelManifestSchema:
       type: object
@@ -273,9 +279,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -316,9 +323,10 @@ components:
                     type: string
                     format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               image_build_status:
@@ -354,25 +362,28 @@ components:
                 - model
                 - api_token
               transmission_strategy:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               uid:
                 type: string
               updated_at:
                 type: string
                 format: date-time
               upload_finished_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_finished_reason:
                 type: string
               upload_id:
                 type: string
               upload_started_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               upload_status:
                 type: string
               version:

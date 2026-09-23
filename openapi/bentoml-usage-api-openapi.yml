@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 usage API
+  title: yatai api server Usage API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: usage
+- name: Usage
   description: usage resource
 paths:
   /api/v1/usage/{usageId}:
     get:
       tags:
-      - usage
+      - Usage
       summary: Get last usage send time
       operationId: Get usage
       parameters:
@@ -32,7 +32,7 @@ paths:
                 $ref: '#/components/schemas/Schemasv1LastSendTimeSchema'
     post:
       tags:
-      - usage
+      - Usage
       summary: Collect usage
       operationId: Collect usage
       parameters:
@@ -49,13 +49,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Collect UsageInput'
+              $ref: '#/components/schemas/Collect_UsageInput'
       responses:
         '200':
           description: OK
 components:
   schemas:
-    Collect UsageInput:
+    Collect_UsageInput:
       type: object
       properties:
         billable_metric_code:

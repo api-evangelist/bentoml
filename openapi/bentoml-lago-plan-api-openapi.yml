@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 lago plan API
+  title: yatai api server lago plan API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -29,7 +29,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create Lago PlanInput'
+              $ref: '#/components/schemas/Create_Lago_PlanInput'
       responses:
         '200':
           description: OK
@@ -53,7 +53,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update Lago PlanInput'
+              $ref: '#/components/schemas/Update_Lago_PlanInput'
       responses:
         '200':
           description: OK
@@ -63,7 +63,22 @@ paths:
                 $ref: '#/components/schemas/Schemasv1Plan'
 components:
   schemas:
-    Create Lago PlanInput:
+    Update_Lago_PlanInput:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type:
+          - string
+          - 'null'
+    Schemasv1Plan:
       type: object
       properties:
         charges:
@@ -73,22 +88,11 @@ components:
         description:
           type: string
         display_name:
+          type: string
+        lago_id:
           type: string
         name:
           type: string
-    Update Lago PlanInput:
-      type: object
-      properties:
-        charges:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1Charge'
-        description:
-          type: string
-          nullable: true
-        display_name:
-          type: string
-          nullable: true
     Schemasv1LagoPlanListSchema:
       type: object
       properties:
@@ -105,7 +109,14 @@ components:
         total:
           type: integer
           format: int32
-    Schemasv1Plan:
+    Schemasv1Charge:
+      type: object
+      properties:
+        price:
+          type: string
+        resource_instance:
+          type: string
+    Create_Lago_PlanInput:
       type: object
       properties:
         charges:
@@ -116,16 +127,7 @@ components:
           type: string
         display_name:
           type: string
-        lago_id:
-          type: string
         name:
-          type: string
-    Schemasv1Charge:
-      type: object
-      properties:
-        price:
-          type: string
-        resource_instance:
           type: string
   securitySchemes:
     apiToken:

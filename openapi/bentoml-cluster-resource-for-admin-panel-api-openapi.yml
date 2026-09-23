@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 cluster resource for admin panel API
+  title: yatai api server cluster resource for admin panel API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -33,8 +33,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -49,9 +50,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -94,9 +96,10 @@ paths:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -108,8 +111,9 @@ paths:
                   is_first:
                     type: boolean
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -135,9 +139,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -178,9 +183,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -194,16 +200,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -241,15 +249,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -325,8 +335,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -341,9 +352,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -386,9 +398,10 @@ paths:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -400,8 +413,9 @@ paths:
                   is_first:
                     type: boolean
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -427,9 +441,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -470,9 +485,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -486,16 +502,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -533,15 +551,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -612,7 +632,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update A Cluster In Admin PanelInput'
+              $ref: '#/components/schemas/Update_A_Cluster_In_Admin_PanelInput'
       responses:
         '200':
           description: OK
@@ -622,8 +642,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -638,9 +659,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -683,9 +705,10 @@ paths:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -697,8 +720,9 @@ paths:
                   is_first:
                     type: boolean
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -724,9 +748,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -767,9 +792,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -783,16 +809,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -830,15 +858,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -935,7 +965,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A Cluster Member In Admin PanelInput'
+              $ref: '#/components/schemas/Create_A_Cluster_Member_In_Admin_PanelInput'
       responses:
         '200':
           description: OK
@@ -989,7 +1019,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Migrate Deployments On Cluster In Admin PanelInput'
+              $ref: '#/components/schemas/Migrate_Deployments_On_Cluster_In_Admin_PanelInput'
       responses:
         '200':
           description: OK
@@ -1024,8 +1054,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -1040,9 +1071,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -1085,9 +1117,10 @@ paths:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -1099,8 +1132,9 @@ paths:
                   is_first:
                     type: boolean
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -1126,9 +1160,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -1169,9 +1204,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -1185,16 +1221,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -1232,15 +1270,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -1317,8 +1357,9 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
@@ -1333,9 +1374,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -1378,9 +1420,10 @@ paths:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -1392,8 +1435,9 @@ paths:
                   is_first:
                     type: boolean
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -1419,9 +1463,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -1462,9 +1507,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -1478,16 +1524,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -1525,15 +1573,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -1595,24 +1645,6 @@ components:
           type: string
         value:
           type: string
-    Update A Cluster In Admin PanelInput:
-      type: object
-      properties:
-        config:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        host_cluster_id:
-          type: integer
-          format: int32
-          nullable: true
-        multi_tenancy:
-          type: boolean
-        name:
-          type: string
-          nullable: true
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1633,9 +1665,10 @@ components:
                   type: string
                   format: date-time
                 deleted_at:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   format: date-time
-                  nullable: true
                 email:
                   type: string
                 first_name:
@@ -1678,9 +1711,10 @@ components:
             default_deployment_kube_namespace:
               type: string
             deleted_at:
-              type: string
+              type:
+              - string
+              - 'null'
               format: date-time
-              nullable: true
             description:
               type: string
             grafana_root_path:
@@ -1736,9 +1770,10 @@ components:
               type: string
               format: date-time
             deleted_at:
-              type: string
+              type:
+              - string
+              - 'null'
               format: date-time
-              nullable: true
             email:
               type: string
             first_name:
@@ -1779,9 +1814,10 @@ components:
               type: string
               format: date-time
         deleted_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         role:
           type: string
         uid:
@@ -1800,9 +1836,10 @@ components:
               type: string
               format: date-time
             deleted_at:
-              type: string
+              type:
+              - string
+              - 'null'
               format: date-time
-              nullable: true
             email:
               type: string
             first_name:
@@ -1842,12 +1879,34 @@ components:
             updated_at:
               type: string
               format: date-time
-    Migrate Deployments On Cluster In Admin PanelInput:
+    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
       type: object
       properties:
         targetClusterName:
           type: string
-    Create A Cluster Member In Admin PanelInput:
+    Update_A_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
+        name:
+          type:
+          - string
+          - 'null'
+    Create_A_Cluster_Member_In_Admin_PanelInput:
       type: object
       properties:
         role:

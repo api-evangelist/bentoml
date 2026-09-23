@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 yatai components API
+  title: yatai api server yatai components API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -37,17 +37,19 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         default:
                           type: boolean
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -55,8 +57,9 @@ paths:
                         grafana_root_path:
                           type: string
                         kube_config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         labels:
                           type: array
                           items:
@@ -69,15 +72,17 @@ paths:
                             type: object
                             properties:
                               config:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               created_at:
                                 type: string
                                 format: date-time
                               deleted_at:
-                                type: string
+                                type:
+                                - string
+                                - 'null'
                                 format: date-time
-                                nullable: true
                               description:
                                 type: string
                               display_name:
@@ -132,9 +137,10 @@ paths:
                       type: string
                       format: date-time
                     deleted_at:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       format: date-time
-                      nullable: true
                     description:
                       type: string
                     kube_namespace:
@@ -144,13 +150,15 @@ paths:
                       items:
                         $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                     latest_heartbeat_at:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       format: date-time
-                      nullable: true
                     latest_installed_at:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       format: date-time
-                      nullable: true
                     manifest:
                       $ref: '#/components/schemas/ModelschemasYataiComponentManifestSchema'
                     name:
@@ -178,6 +186,15 @@ paths:
                       type: string
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     ModelschemasYataiComponentManifestSchema:
       type: object
       properties:
@@ -189,15 +206,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

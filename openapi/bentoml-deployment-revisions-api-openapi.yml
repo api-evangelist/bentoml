@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 deployment revisions API
+  title: yatai api server deployment revisions API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -41,8 +41,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -61,105 +62,128 @@ paths:
                 $ref: '#/components/schemas/Schemasv1DeploymentRevisionListSchema'
 components:
   schemas:
-    V1SecretEnvSource:
+    ModelschemasHPAMetric:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+    V1DownwardAPIVolumeSource:
+      type: object
+      properties:
+        defaultMode:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1DownwardAPIVolumeFile'
+    V1PodCertificateProjection:
+      type: object
+      properties:
+        certificateChainPath:
+          type: string
+        credentialBundlePath:
+          type: string
+        keyPath:
+          type: string
+        keyType:
+          type: string
+        maxExpirationSeconds:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        signerName:
+          type: string
+    V1ConfigMapProjection:
       type: object
       properties:
         LocalObjectReference:
           $ref: '#/components/schemas/V1LocalObjectReference'
-        optional:
-          type: boolean
-          nullable: true
-    ModelschemasDeploymentRoutingSchema:
-      type: object
-      properties:
-        route_by:
-          type: string
-          nullable: true
-        route_type:
-          type: string
-          nullable: true
-        weights:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-    V1GitRepoVolumeSource:
-      type: object
-      properties:
-        directory:
-          type: string
-        repository:
-          type: string
-        revision:
-          type: string
-    V1LabelSelector:
-      type: object
-      properties:
-        matchExpressions:
+        items:
           type: array
           items:
-            $ref: '#/components/schemas/V1LabelSelectorRequirement'
-        matchLabels:
-          type: object
-          additionalProperties:
-            type: string
-    V1FlexVolumeSource:
+            $ref: '#/components/schemas/V1KeyToPath'
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1TopologySpreadConstraint:
       type: object
       properties:
-        driver:
+        labelSelector:
+          $ref: '#/components/schemas/V1LabelSelector'
+        matchLabelKeys:
+          type: array
+          items:
+            type: string
+        maxSkew:
+          type: integer
+          format: int32
+        minDomains:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        nodeAffinityPolicy:
+          type:
+          - string
+          - 'null'
+        nodeTaintsPolicy:
+          type:
+          - string
+          - 'null'
+        topologyKey:
           type: string
+        whenUnsatisfiable:
+          type: string
+    V1CephFSVolumeSource:
+      type: object
+      properties:
+        monitors:
+          type: array
+          items:
+            type: string
+        path:
+          type: string
+        readOnly:
+          type: boolean
+        secretFile:
+          type: string
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        user:
+          type: string
+    V1RBDVolumeSource:
+      type: object
+      properties:
         fsType:
           type: string
-        options:
-          type: object
-          additionalProperties:
+        image:
+          type: string
+        keyring:
+          type: string
+        monitors:
+          type: array
+          items:
             type: string
+        pool:
+          type: string
         readOnly:
           type: boolean
         secretRef:
           $ref: '#/components/schemas/V1LocalObjectReference'
-    ModelschemasDeploymentTargetResourceItem:
+        user:
+          type: string
+    V1EphemeralVolumeSource:
       type: object
       properties:
-        cpu:
-          type: string
-        custom:
-          type: object
-          additionalProperties:
-            type: string
-        gpu:
-          type: string
-        memory:
-          type: string
-    V1ServiceAccountTokenProjection:
-      type: object
-      properties:
-        audience:
-          type: string
-        expirationSeconds:
-          type: integer
-          format: int64
-          nullable: true
-        path:
-          type: string
-    V1Affinity:
-      type: object
-      properties:
-        nodeAffinity:
-          $ref: '#/components/schemas/V1NodeAffinity'
-        podAffinity:
-          $ref: '#/components/schemas/V1PodAffinity'
-        podAntiAffinity:
-          $ref: '#/components/schemas/V1PodAntiAffinity'
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
+        volumeClaimTemplate:
+          $ref: '#/components/schemas/V1PersistentVolumeClaimTemplate'
     ModelschemasDeploymentManifest:
       type: object
       properties:
@@ -174,16 +198,14 @@ components:
           $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
         super_admin:
           type: boolean
-    V1KeyToPath:
+    V1GitRepoVolumeSource:
       type: object
       properties:
-        key:
+        directory:
           type: string
-        mode:
-          type: integer
-          format: int32
-          nullable: true
-        path:
+        repository:
+          type: string
+        revision:
           type: string
     V1EmptyDirVolumeSource:
       type: object
@@ -192,6 +214,24 @@ components:
           type: string
         sizeLimit:
           $ref: '#/components/schemas/ResourceQuantity'
+    V1SecretVolumeSource:
+      type: object
+      properties:
+        defaultMode:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1KeyToPath'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        secretName:
+          type: string
     V1PhotonPersistentDiskVolumeSource:
       type: object
       properties:
@@ -199,79 +239,328 @@ components:
           type: string
         pdID:
           type: string
-    ModelschemasDeploymentTargetHPAConf:
+    V1KeyToPath:
       type: object
       properties:
-        max_replicas:
-          type: integer
+        key:
+          type: string
+        mode:
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
-        min_replicas:
-          type: integer
-          format: int32
-          nullable: true
-        policy:
-          $ref: '#/components/schemas/ModelschemasHPAPolicy'
-    V1ClusterTrustBundleProjection:
+        path:
+          type: string
+    V1WeightedPodAffinityTerm:
       type: object
       properties:
-        labelSelector:
+        podAffinityTerm:
+          $ref: '#/components/schemas/V1PodAffinityTerm'
+        weight:
+          type: integer
+          format: int32
+    V1SecretKeySelector:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        key:
+          type: string
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1PersistentVolumeClaimVolumeSource:
+      type: object
+      properties:
+        claimName:
+          type: string
+        readOnly:
+          type: boolean
+    ModelschemasDeploymentTargetResourceItem:
+      type: object
+      properties:
+        cpu:
+          type: string
+        custom:
+          type: object
+          additionalProperties:
+            type: string
+        gpu:
+          type: string
+        memory:
+          type: string
+    V1PersistentVolumeClaimSpec:
+      type: object
+      properties:
+        accessModes:
+          type: array
+          items:
+            type: string
+        dataSource:
+          $ref: '#/components/schemas/V1TypedLocalObjectReference'
+        dataSourceRef:
+          $ref: '#/components/schemas/V1TypedObjectReference'
+        resources:
+          $ref: '#/components/schemas/V1VolumeResourceRequirements'
+        selector:
           $ref: '#/components/schemas/V1LabelSelector'
+        storageClassName:
+          type:
+          - string
+          - 'null'
+        volumeAttributesClassName:
+          type:
+          - string
+          - 'null'
+        volumeMode:
+          type:
+          - string
+          - 'null'
+        volumeName:
+          type: string
+    ModelschemasDeploymentTargetCanaryRule:
+      type: object
+      properties:
+        cookie:
+          type:
+          - string
+          - 'null'
+        header:
+          type:
+          - string
+          - 'null'
+        route_by:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+          enum:
+          - header
+          - query
+          - random
+          - cookie
+        weight:
+          type:
+          - integer
+          - 'null'
+          format: int32
+    V1ScaleIOVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        gateway:
+          type: string
+        protectionDomain:
+          type: string
+        readOnly:
+          type: boolean
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        sslEnabled:
+          type: boolean
+        storageMode:
+          type: string
+        storagePool:
+          type: string
+        system:
+          type: string
+        volumeName:
+          type: string
+    V1PortworxVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        readOnly:
+          type: boolean
+        volumeID:
+          type: string
+    V1NodeSelectorRequirement:
+      type: object
+      properties:
+        key:
+          type: string
+        operator:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+    V1EnvFromSource:
+      type: object
+      properties:
+        configMapRef:
+          $ref: '#/components/schemas/V1ConfigMapEnvSource'
+        prefix:
+          type: string
+        secretRef:
+          $ref: '#/components/schemas/V1SecretEnvSource'
+    V1ResourceRequirements:
+      type: object
+      properties:
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1ResourceClaim'
+        limits:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceQuantity'
+        requests:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceQuantity'
+    ModelschemasBentoManifestSchema:
+      type: object
+      properties:
+        apis:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
+        bentoml_version:
+          type: string
+        dev:
+          type: boolean
+        entry_service:
+          type: string
+        envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
+        image:
+          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
+        models:
+          type: array
+          items:
+            type: string
         name:
           type: string
-          nullable: true
-        optional:
-          type: boolean
-          nullable: true
-        path:
-          type: string
-        signerName:
-          type: string
-          nullable: true
-    ModelschemasHPAPolicy:
-      type: object
-      properties:
-        metrics:
+        runners:
           type: array
           items:
-            $ref: '#/components/schemas/ModelschemasHPAMetric'
-        scale_down_behavior:
+            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
+        schema:
+          type: object
+          additionalProperties: {}
+        service:
           type: string
-          nullable: true
-        scale_down_stabilization_window:
-          type: integer
-          format: int32
-          nullable: true
-        scale_up_behavior:
-          type: string
-          nullable: true
-        scale_up_stabilization_window:
-          type: integer
-          format: int32
-          nullable: true
-        scaling_strategy:
-          type: string
-          nullable: true
-    V1DownwardAPIProjection:
-      type: object
-      properties:
-        items:
+        services:
           type: array
           items:
-            $ref: '#/components/schemas/V1DownwardAPIVolumeFile'
-    V1DownwardAPIVolumeFile:
+            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
+        size_bytes:
+          type: integer
+          format: int32
+        spec:
+          type: integer
+          format: int32
+    V1ProjectedVolumeSource:
       type: object
       properties:
+        defaultMode:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1VolumeProjection'
+    V1TypedLocalObjectReference:
+      type: object
+      properties:
+        apiGroup:
+          type:
+          - string
+          - 'null'
+        kind:
+          type: string
+        name:
+          type: string
+    V1ObjectFieldSelector:
+      type: object
+      properties:
+        apiVersion:
+          type: string
+        fieldPath:
+          type: string
+    V1EnvVarSource:
+      type: object
+      properties:
+        configMapKeyRef:
+          $ref: '#/components/schemas/V1ConfigMapKeySelector'
         fieldRef:
           $ref: '#/components/schemas/V1ObjectFieldSelector'
-        mode:
-          type: integer
-          format: int32
-          nullable: true
-        path:
-          type: string
+        fileKeyRef:
+          $ref: '#/components/schemas/V1FileKeySelector'
         resourceFieldRef:
           $ref: '#/components/schemas/V1ResourceFieldSelector'
+        secretKeyRef:
+          $ref: '#/components/schemas/V1SecretKeySelector'
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoImageInfoSchema:
+      type: object
+      properties:
+        base_image:
+          type: string
+        commands:
+          type: array
+          items:
+            type: string
+        python_requirements:
+          type: string
+        python_version:
+          type: string
+    V1CSIVolumeSource:
+      type: object
+      properties:
+        driver:
+          type: string
+        fsType:
+          type:
+          - string
+          - 'null'
+        nodePublishSecretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        readOnly:
+          type:
+          - boolean
+          - 'null'
+        volumeAttributes:
+          type: object
+          additionalProperties:
+            type: string
+    V1PodAffinity:
+      type: object
+      properties:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1WeightedPodAffinityTerm'
+        requiredDuringSchedulingIgnoredDuringExecution:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1PodAffinityTerm'
+    V1alpha1MonitorExporterMountSpec:
+      type: object
+      properties:
+        VolumeSource:
+          $ref: '#/components/schemas/V1VolumeSource'
+        path:
+          type: string
+        readOnly:
+          type: boolean
     V1LabelSelectorRequirement:
       type: object
       properties:
@@ -283,27 +572,52 @@ components:
           type: array
           items:
             type: string
+    V1SecretEnvSource:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1PodAntiAffinity:
+      type: object
+      properties:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1WeightedPodAffinityTerm'
+        requiredDuringSchedulingIgnoredDuringExecution:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1PodAffinityTerm'
     ModelschemasDeploymentTargetRunnerConfig:
       type: object
       properties:
         bento_function_overrides:
           $ref: '#/components/schemas/ModelschemasRunnerBentoFunctionOverrides'
         deployment_cold_start_wait_timeout:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         deployment_strategy:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         enable_debug_mode:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         enable_debug_pod_receive_production_traffic:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         enable_stealing_traffic_debug_mode:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         envs:
           type: array
           items:
@@ -311,8 +625,9 @@ components:
         hpa_conf:
           $ref: '#/components/schemas/ModelschemasDeploymentTargetHPAConf'
         resource_instance:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         resources:
           $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
         secrets:
@@ -321,6 +636,425 @@ components:
             type: string
         traffic_control:
           $ref: '#/components/schemas/ModelschemasTrafficControlConfig'
+    V1EnvVar:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        valueFrom:
+          $ref: '#/components/schemas/V1EnvVarSource'
+    V1GlusterfsVolumeSource:
+      type: object
+      properties:
+        endpoints:
+          type: string
+        path:
+          type: string
+        readOnly:
+          type: boolean
+    V1ManagedFieldsEntry:
+      type: object
+      properties:
+        apiVersion:
+          type: string
+        fieldsType:
+          type: string
+        fieldsV1:
+          $ref: '#/components/schemas/V1FieldsV1'
+        manager:
+          type: string
+        operation:
+          type: string
+        subresource:
+          type: string
+        time:
+          $ref: '#/components/schemas/V1Time'
+    ModelschemasBentoManifestServiceSchema:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: {}
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+        name:
+          type: string
+        service:
+          type: string
+    V1NFSVolumeSource:
+      type: object
+      properties:
+        path:
+          type: string
+        readOnly:
+          type: boolean
+        server:
+          type: string
+    V1ImageVolumeSource:
+      type: object
+      properties:
+        pullPolicy:
+          type: string
+        reference:
+          type: string
+    V1ServiceAccountTokenProjection:
+      type: object
+      properties:
+        audience:
+          type: string
+        expirationSeconds:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        path:
+          type: string
+    V1ConfigMapEnvSource:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1DownwardAPIProjection:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1DownwardAPIVolumeFile'
+    ResourceQuantity:
+      type: object
+    V1QuobyteVolumeSource:
+      type: object
+      properties:
+        group:
+          type: string
+        readOnly:
+          type: boolean
+        registry:
+          type: string
+        tenant:
+          type: string
+        user:
+          type: string
+        volume:
+          type: string
+    ModelschemasBentoRequestOverrides:
+      type: object
+      properties:
+        dockerConfigJsonSecretName:
+          type: string
+        downloaderContainerEnvFrom:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1EnvFromSource'
+        imageBuildTimeout:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        imageBuilderContainerResources:
+          $ref: '#/components/schemas/V1ResourceRequirements'
+        imageBuilderExtraContainerEnv:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1EnvVar'
+        imageBuilderExtraPodMetadata:
+          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
+        imageBuilderExtraPodSpec:
+          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
+    V1Time:
+      type: object
+    V1NodeSelectorTerm:
+      type: object
+      properties:
+        matchExpressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1NodeSelectorRequirement'
+        matchFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1NodeSelectorRequirement'
+    ModelschemasHPAPolicy:
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasHPAMetric'
+        scale_down_behavior:
+          type:
+          - string
+          - 'null'
+        scale_down_stabilization_window:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        scale_up_behavior:
+          type:
+          - string
+          - 'null'
+        scale_up_stabilization_window:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        scaling_strategy:
+          type:
+          - string
+          - 'null'
+    ModelschemasDeploymentTargetResources:
+      type: object
+      properties:
+        limits:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+        requests:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+    ModelschemasRequestQueueConfig:
+      type: object
+      properties:
+        enabled:
+          type:
+          - boolean
+          - 'null'
+        max_consume_concurrency:
+          type:
+          - integer
+          - 'null'
+          format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    V1PersistentVolumeClaimTemplate:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/V1ObjectMeta'
+        spec:
+          $ref: '#/components/schemas/V1PersistentVolumeClaimSpec'
+    V1ClusterTrustBundleProjection:
+      type: object
+      properties:
+        labelSelector:
+          $ref: '#/components/schemas/V1LabelSelector'
+        name:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        path:
+          type: string
+        signerName:
+          type:
+          - string
+          - 'null'
+    V1GCEPersistentDiskVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        partition:
+          type: integer
+          format: int32
+        pdName:
+          type: string
+        readOnly:
+          type: boolean
+    V1LabelSelector:
+      type: object
+      properties:
+        matchExpressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1LabelSelectorRequirement'
+        matchLabels:
+          type: object
+          additionalProperties:
+            type: string
+    V1OwnerReference:
+      type: object
+      properties:
+        apiVersion:
+          type: string
+        blockOwnerDeletion:
+          type:
+          - boolean
+          - 'null'
+        controller:
+          type:
+          - boolean
+          - 'null'
+        kind:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+    V1ISCSIVolumeSource:
+      type: object
+      properties:
+        chapAuthDiscovery:
+          type: boolean
+        chapAuthSession:
+          type: boolean
+        fsType:
+          type: string
+        initiatorName:
+          type:
+          - string
+          - 'null'
+        iqn:
+          type: string
+        iscsiInterface:
+          type: string
+        lun:
+          type: integer
+          format: int32
+        portals:
+          type: array
+          items:
+            type: string
+        readOnly:
+          type: boolean
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        targetPortal:
+          type: string
+    V1AWSElasticBlockStoreVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        partition:
+          type: integer
+          format: int32
+        readOnly:
+          type: boolean
+        volumeID:
+          type: string
+    V1CinderVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        readOnly:
+          type: boolean
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        volumeID:
+          type: string
+    V1SecretProjection:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1KeyToPath'
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1AzureFileVolumeSource:
+      type: object
+      properties:
+        readOnly:
+          type: boolean
+        secretName:
+          type: string
+        shareName:
+          type: string
+    V1VolumeResourceRequirements:
+      type: object
+      properties:
+        limits:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceQuantity'
+        requests:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ResourceQuantity'
+    V1FlockerVolumeSource:
+      type: object
+      properties:
+        datasetName:
+          type: string
+        datasetUUID:
+          type: string
+    V1DownwardAPIVolumeFile:
+      type: object
+      properties:
+        fieldRef:
+          $ref: '#/components/schemas/V1ObjectFieldSelector'
+        mode:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        path:
+          type: string
+        resourceFieldRef:
+          $ref: '#/components/schemas/V1ResourceFieldSelector'
+    ModelschemasTrafficControlConfig:
+      type: object
+      properties:
+        concurrency:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        request_queue:
+          $ref: '#/components/schemas/ModelschemasRequestQueueConfig'
+        timeout:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    V1FieldsV1:
+      type: object
+    V1alpha1ExtraPodSpec:
+      type: object
+      properties:
+        affinity:
+          $ref: '#/components/schemas/V1Affinity'
+        nodeSelector:
+          type: object
+          additionalProperties:
+            type: string
+        priorityClassName:
+          type: string
+        schedulerName:
+          type: string
+        serviceAccountName:
+          type: string
+        tolerations:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1Toleration'
+        topologySpreadConstraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1TopologySpreadConstraint'
     Schemasv1DeploymentRevisionListSchema:
       type: object
       properties:
@@ -346,9 +1080,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -389,9 +1124,10 @@ components:
                     type: string
                     format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               deployment:
                 type: object
                 properties:
@@ -412,9 +1148,10 @@ components:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -457,9 +1194,10 @@ components:
                       default_deployment_kube_namespace:
                         type: string
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       grafana_root_path:
@@ -515,9 +1253,10 @@ components:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -558,9 +1297,10 @@ components:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   distributed:
@@ -574,8 +1314,9 @@ components:
                   manifest:
                     $ref: '#/components/schemas/ModelschemasDeploymentManifest'
                   mode:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   name:
                     type: string
                   resource_type:
@@ -617,9 +1358,10 @@ components:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -711,9 +1453,10 @@ components:
                               type: string
                               format: date-time
                             deleted_at:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               format: date-time
-                              nullable: true
                             email:
                               type: string
                             first_name:
@@ -754,9 +1497,10 @@ components:
                               type: string
                               format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         image_build_status:
@@ -795,9 +1539,10 @@ components:
                                   type: string
                                   format: date-time
                                 deleted_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 email:
                                   type: string
                                 first_name:
@@ -838,9 +1583,10 @@ components:
                                   type: string
                                   format: date-time
                             deleted_at:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               format: date-time
-                              nullable: true
                             description:
                               type: string
                             labels:
@@ -869,9 +1615,10 @@ components:
                                       type: string
                                       format: date-time
                                     deleted_at:
-                                      type: string
+                                      type:
+                                      - string
+                                      - 'null'
                                       format: date-time
-                                      nullable: true
                                     email:
                                       type: string
                                     first_name:
@@ -912,9 +1659,10 @@ components:
                                       type: string
                                       format: date-time
                                 deleted_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 description:
                                   type: string
                                 image_build_status:
@@ -948,25 +1696,28 @@ components:
                                   - model
                                   - api_token
                                 transmission_strategy:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 uid:
                                   type: string
                                 updated_at:
                                   type: string
                                   format: date-time
                                 upload_finished_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 upload_finished_reason:
                                   type: string
                                 upload_id:
                                   type: string
                                 upload_started_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 upload_status:
                                   type: string
                                 version:
@@ -995,9 +1746,10 @@ components:
                                         type: string
                                         format: date-time
                                       deleted_at:
-                                        type: string
+                                        type:
+                                        - string
+                                        - 'null'
                                         format: date-time
-                                        nullable: true
                                       email:
                                         type: string
                                       first_name:
@@ -1038,9 +1790,10 @@ components:
                                         type: string
                                         format: date-time
                                   deleted_at:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     format: date-time
-                                    nullable: true
                                   description:
                                     type: string
                                   image_build_status:
@@ -1074,25 +1827,28 @@ components:
                                     - model
                                     - api_token
                                   transmission_strategy:
-                                    type: string
-                                    nullable: true
+                                    type:
+                                    - string
+                                    - 'null'
                                   uid:
                                     type: string
                                   updated_at:
                                     type: string
                                     format: date-time
                                   upload_finished_at:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     format: date-time
-                                    nullable: true
                                   upload_finished_reason:
                                     type: string
                                   upload_id:
                                     type: string
                                   upload_started_at:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     format: date-time
-                                    nullable: true
                                   upload_status:
                                     type: string
                                   version:
@@ -1119,9 +1875,10 @@ components:
                                       type: string
                                       format: date-time
                                     deleted_at:
-                                      type: string
+                                      type:
+                                      - string
+                                      - 'null'
                                       format: date-time
-                                      nullable: true
                                     email:
                                       type: string
                                     first_name:
@@ -1162,9 +1919,10 @@ components:
                                       type: string
                                       format: date-time
                                 deleted_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 description:
                                   type: string
                                 disable_grafana:
@@ -1178,16 +1936,18 @@ components:
                                 enable_monitoring_endpoint:
                                   type: boolean
                                 expired_at:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   format: date-time
-                                  nullable: true
                                 labels:
                                   type: array
                                   items:
                                     $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                                 limit_group:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 multi_tenancy:
                                   type: boolean
                                 name:
@@ -1249,25 +2009,28 @@ components:
                           - model
                           - api_token
                         transmission_strategy:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         uid:
                           type: string
                         updated_at:
                           type: string
                           format: date-time
                         upload_finished_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_finished_reason:
                           type: string
                         upload_id:
                           type: string
                         upload_started_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_status:
                           type: string
                         version:
@@ -1292,9 +2055,10 @@ components:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         email:
                           type: string
                         first_name:
@@ -1335,9 +2099,10 @@ components:
                           type: string
                           format: date-time
                     deleted_at:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       format: date-time
-                      nullable: true
                     labels:
                       type: array
                       items:
@@ -1379,920 +2144,6 @@ components:
         total:
           type: integer
           format: int32
-    V1SecretProjection:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1KeyToPath'
-        optional:
-          type: boolean
-          nullable: true
-    V1NodeSelectorTerm:
-      type: object
-      properties:
-        matchExpressions:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1NodeSelectorRequirement'
-        matchFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1NodeSelectorRequirement'
-    V1PodCertificateProjection:
-      type: object
-      properties:
-        certificateChainPath:
-          type: string
-        credentialBundlePath:
-          type: string
-        keyPath:
-          type: string
-        keyType:
-          type: string
-        maxExpirationSeconds:
-          type: integer
-          format: int32
-          nullable: true
-        signerName:
-          type: string
-    ModelschemasRequestQueueConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          nullable: true
-        max_consume_concurrency:
-          type: integer
-          format: int32
-          nullable: true
-    V1SecretKeySelector:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        key:
-          type: string
-        optional:
-          type: boolean
-          nullable: true
-    ModelschemasBentoRequestOverrides:
-      type: object
-      properties:
-        dockerConfigJsonSecretName:
-          type: string
-        downloaderContainerEnvFrom:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1EnvFromSource'
-        imageBuildTimeout:
-          type: integer
-          format: int64
-          nullable: true
-        imageBuilderContainerResources:
-          $ref: '#/components/schemas/V1ResourceRequirements'
-        imageBuilderExtraContainerEnv:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1EnvVar'
-        imageBuilderExtraPodMetadata:
-          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
-        imageBuilderExtraPodSpec:
-          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
-    V1LocalObjectReference:
-      type: object
-      properties:
-        name:
-          type: string
-    V1ManagedFieldsEntry:
-      type: object
-      properties:
-        apiVersion:
-          type: string
-        fieldsType:
-          type: string
-        fieldsV1:
-          $ref: '#/components/schemas/V1FieldsV1'
-        manager:
-          type: string
-        operation:
-          type: string
-        subresource:
-          type: string
-        time:
-          $ref: '#/components/schemas/V1Time'
-    V1ConfigMapKeySelector:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        key:
-          type: string
-        optional:
-          type: boolean
-          nullable: true
-    ModelschemasDeploymentTargetConfig:
-      type: object
-      properties:
-        access_control:
-          type: string
-          nullable: true
-        bento_function_overrides:
-          $ref: '#/components/schemas/ModelschemasApiServerBentoFunctionOverrides'
-        bento_request_overrides:
-          $ref: '#/components/schemas/ModelschemasBentoRequestOverrides'
-        config_overrides:
-          type: object
-          additionalProperties: {}
-        deployment_cold_start_wait_timeout:
-          type: integer
-          format: int64
-          nullable: true
-        deployment_strategy:
-          type: string
-          nullable: true
-        enable_debug_mode:
-          type: boolean
-          nullable: true
-        enable_debug_pod_receive_production_traffic:
-          type: boolean
-          nullable: true
-        enable_image_builder_colocation:
-          type: boolean
-          nullable: true
-        enable_ingress:
-          type: boolean
-          nullable: true
-        enable_stealing_traffic_debug_mode:
-          type: boolean
-          nullable: true
-        envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        global_envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        hpa_conf:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetHPAConf'
-        kubeResourceUid:
-          type: string
-        kubeResourceVersion:
-          type: string
-        resource_instance:
-          type: string
-          nullable: true
-        resources:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
-        runners:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ModelschemasDeploymentTargetRunnerConfig'
-        secrets:
-          type: array
-          items:
-            type: string
-        target_name:
-          type: string
-        traffic_control:
-          $ref: '#/components/schemas/ModelschemasTrafficControlConfig'
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
-          type: string
-    V1ProjectedVolumeSource:
-      type: object
-      properties:
-        defaultMode:
-          type: integer
-          format: int32
-          nullable: true
-        sources:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1VolumeProjection'
-    V1DownwardAPIVolumeSource:
-      type: object
-      properties:
-        defaultMode:
-          type: integer
-          format: int32
-          nullable: true
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1DownwardAPIVolumeFile'
-    V1TypedObjectReference:
-      type: object
-      properties:
-        apiGroup:
-          type: string
-          nullable: true
-        kind:
-          type: string
-        name:
-          type: string
-        namespace:
-          type: string
-          nullable: true
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    V1CSIVolumeSource:
-      type: object
-      properties:
-        driver:
-          type: string
-        fsType:
-          type: string
-          nullable: true
-        nodePublishSecretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        readOnly:
-          type: boolean
-          nullable: true
-        volumeAttributes:
-          type: object
-          additionalProperties:
-            type: string
-    ResourceQuantity:
-      type: object
-    V1HostPathVolumeSource:
-      type: object
-      properties:
-        path:
-          type: string
-        type:
-          type: string
-          nullable: true
-    ModelschemasTrafficControlConfig:
-      type: object
-      properties:
-        concurrency:
-          type: integer
-          format: int32
-          nullable: true
-        request_queue:
-          $ref: '#/components/schemas/ModelschemasRequestQueueConfig'
-        timeout:
-          type: integer
-          format: int64
-          nullable: true
-    V1TopologySpreadConstraint:
-      type: object
-      properties:
-        labelSelector:
-          $ref: '#/components/schemas/V1LabelSelector'
-        matchLabelKeys:
-          type: array
-          items:
-            type: string
-        maxSkew:
-          type: integer
-          format: int32
-        minDomains:
-          type: integer
-          format: int32
-          nullable: true
-        nodeAffinityPolicy:
-          type: string
-          nullable: true
-        nodeTaintsPolicy:
-          type: string
-          nullable: true
-        topologyKey:
-          type: string
-        whenUnsatisfiable:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
-          type: string
-    V1SecretVolumeSource:
-      type: object
-      properties:
-        defaultMode:
-          type: integer
-          format: int32
-          nullable: true
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1KeyToPath'
-        optional:
-          type: boolean
-          nullable: true
-        secretName:
-          type: string
-    V1AWSElasticBlockStoreVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        partition:
-          type: integer
-          format: int32
-        readOnly:
-          type: boolean
-        volumeID:
-          type: string
-    V1ConfigMapProjection:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1KeyToPath'
-        optional:
-          type: boolean
-          nullable: true
-    ModelschemasBentoManifestSchema:
-      type: object
-      properties:
-        apis:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
-        bentoml_version:
-          type: string
-        dev:
-          type: boolean
-        entry_service:
-          type: string
-        envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
-        image:
-          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        runners:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
-        schema:
-          type: object
-          additionalProperties: {}
-        service:
-          type: string
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
-        size_bytes:
-          type: integer
-          format: int32
-        spec:
-          type: integer
-          format: int32
-    V1alpha1MonitorExporterMountSpec:
-      type: object
-      properties:
-        VolumeSource:
-          $ref: '#/components/schemas/V1VolumeSource'
-        path:
-          type: string
-        readOnly:
-          type: boolean
-    V1VolumeResourceRequirements:
-      type: object
-      properties:
-        limits:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceQuantity'
-        requests:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceQuantity'
-    V1ResourceClaim:
-      type: object
-      properties:
-        name:
-          type: string
-        request:
-          type: string
-    V1EphemeralVolumeSource:
-      type: object
-      properties:
-        volumeClaimTemplate:
-          $ref: '#/components/schemas/V1PersistentVolumeClaimTemplate'
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
-          type: string
-    V1AzureFileVolumeSource:
-      type: object
-      properties:
-        readOnly:
-          type: boolean
-        secretName:
-          type: string
-        shareName:
-          type: string
-    V1FieldsV1:
-      type: object
-    V1AzureDiskVolumeSource:
-      type: object
-      properties:
-        cachingMode:
-          type: string
-          nullable: true
-        diskName:
-          type: string
-        diskURI:
-          type: string
-        fsType:
-          type: string
-          nullable: true
-        kind:
-          type: string
-          nullable: true
-        readOnly:
-          type: boolean
-          nullable: true
-    V1PodAffinityTerm:
-      type: object
-      properties:
-        labelSelector:
-          $ref: '#/components/schemas/V1LabelSelector'
-        matchLabelKeys:
-          type: array
-          items:
-            type: string
-        mismatchLabelKeys:
-          type: array
-          items:
-            type: string
-        namespaceSelector:
-          $ref: '#/components/schemas/V1LabelSelector'
-        namespaces:
-          type: array
-          items:
-            type: string
-        topologyKey:
-          type: string
-    ModelschemasBentoRunnerResourceSchema:
-      type: object
-      properties:
-        cpu:
-          type: number
-          format: double
-          nullable: true
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type: number
-          format: double
-          nullable: true
-    V1NFSVolumeSource:
-      type: object
-      properties:
-        path:
-          type: string
-        readOnly:
-          type: boolean
-        server:
-          type: string
-    V1QuobyteVolumeSource:
-      type: object
-      properties:
-        group:
-          type: string
-        readOnly:
-          type: boolean
-        registry:
-          type: string
-        tenant:
-          type: string
-        user:
-          type: string
-        volume:
-          type: string
-    V1EnvVarSource:
-      type: object
-      properties:
-        configMapKeyRef:
-          $ref: '#/components/schemas/V1ConfigMapKeySelector'
-        fieldRef:
-          $ref: '#/components/schemas/V1ObjectFieldSelector'
-        fileKeyRef:
-          $ref: '#/components/schemas/V1FileKeySelector'
-        resourceFieldRef:
-          $ref: '#/components/schemas/V1ResourceFieldSelector'
-        secretKeyRef:
-          $ref: '#/components/schemas/V1SecretKeySelector'
-    V1PodAffinity:
-      type: object
-      properties:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1WeightedPodAffinityTerm'
-        requiredDuringSchedulingIgnoredDuringExecution:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1PodAffinityTerm'
-    ModelschemasDeploymentTargetResources:
-      type: object
-      properties:
-        limits:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-        requests:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-    V1alpha1ExtraPodMetadata:
-      type: object
-      properties:
-        annotations:
-          type: object
-          additionalProperties:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-    V1GCEPersistentDiskVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        partition:
-          type: integer
-          format: int32
-        pdName:
-          type: string
-        readOnly:
-          type: boolean
-    V1PersistentVolumeClaimVolumeSource:
-      type: object
-      properties:
-        claimName:
-          type: string
-        readOnly:
-          type: boolean
-    V1RBDVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        image:
-          type: string
-        keyring:
-          type: string
-        monitors:
-          type: array
-          items:
-            type: string
-        pool:
-          type: string
-        readOnly:
-          type: boolean
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        user:
-          type: string
-    V1StorageOSVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        readOnly:
-          type: boolean
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        volumeName:
-          type: string
-        volumeNamespace:
-          type: string
-    ModelschemasRunnerBentoFunctionOverrides:
-      type: object
-      properties:
-        annotations:
-          type: object
-          additionalProperties:
-            type: string
-        extraPodMetadata:
-          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
-        extraPodSpec:
-          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
-    V1ConfigMapEnvSource:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        optional:
-          type: boolean
-          nullable: true
-    V1PodAntiAffinity:
-      type: object
-      properties:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1WeightedPodAffinityTerm'
-        requiredDuringSchedulingIgnoredDuringExecution:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1PodAffinityTerm'
-    V1GlusterfsVolumeSource:
-      type: object
-      properties:
-        endpoints:
-          type: string
-        path:
-          type: string
-        readOnly:
-          type: boolean
-    V1ScaleIOVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        gateway:
-          type: string
-        protectionDomain:
-          type: string
-        readOnly:
-          type: boolean
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        sslEnabled:
-          type: boolean
-        storageMode:
-          type: string
-        storagePool:
-          type: string
-        system:
-          type: string
-        volumeName:
-          type: string
-    V1PreferredSchedulingTerm:
-      type: object
-      properties:
-        preference:
-          $ref: '#/components/schemas/V1NodeSelectorTerm'
-        weight:
-          type: integer
-          format: int32
-    V1ConfigMapVolumeSource:
-      type: object
-      properties:
-        LocalObjectReference:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        defaultMode:
-          type: integer
-          format: int32
-          nullable: true
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1KeyToPath'
-        optional:
-          type: boolean
-          nullable: true
-    V1Toleration:
-      type: object
-      properties:
-        effect:
-          type: string
-        key:
-          type: string
-        operator:
-          type: string
-        tolerationSeconds:
-          type: integer
-          format: int64
-          nullable: true
-        value:
-          type: string
-    V1ResourceFieldSelector:
-      type: object
-      properties:
-        containerName:
-          type: string
-        divisor:
-          $ref: '#/components/schemas/ResourceQuantity'
-        resource:
-          type: string
-    V1VsphereVirtualDiskVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        storagePolicyID:
-          type: string
-        storagePolicyName:
-          type: string
-        volumePath:
-          type: string
-    V1TypedLocalObjectReference:
-      type: object
-      properties:
-        apiGroup:
-          type: string
-          nullable: true
-        kind:
-          type: string
-        name:
-          type: string
-    V1VolumeProjection:
-      type: object
-      properties:
-        clusterTrustBundle:
-          $ref: '#/components/schemas/V1ClusterTrustBundleProjection'
-        configMap:
-          $ref: '#/components/schemas/V1ConfigMapProjection'
-        downwardAPI:
-          $ref: '#/components/schemas/V1DownwardAPIProjection'
-        podCertificate:
-          $ref: '#/components/schemas/V1PodCertificateProjection'
-        secret:
-          $ref: '#/components/schemas/V1SecretProjection'
-        serviceAccountToken:
-          $ref: '#/components/schemas/V1ServiceAccountTokenProjection'
-    V1NodeAffinity:
-      type: object
-      properties:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1PreferredSchedulingTerm'
-        requiredDuringSchedulingIgnoredDuringExecution:
-          $ref: '#/components/schemas/V1NodeSelector'
-    V1CephFSVolumeSource:
-      type: object
-      properties:
-        monitors:
-          type: array
-          items:
-            type: string
-        path:
-          type: string
-        readOnly:
-          type: boolean
-        secretFile:
-          type: string
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        user:
-          type: string
-    ModelschemasHPAMetric:
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-    V1ResourceRequirements:
-      type: object
-      properties:
-        claims:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1ResourceClaim'
-        limits:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceQuantity'
-        requests:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ResourceQuantity'
-    V1PersistentVolumeClaimTemplate:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/V1ObjectMeta'
-        spec:
-          $ref: '#/components/schemas/V1PersistentVolumeClaimSpec'
-    V1OwnerReference:
-      type: object
-      properties:
-        apiVersion:
-          type: string
-        blockOwnerDeletion:
-          type: boolean
-          nullable: true
-        controller:
-          type: boolean
-          nullable: true
-        kind:
-          type: string
-        name:
-          type: string
-        uid:
-          type: string
-    V1CinderVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        readOnly:
-          type: boolean
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        volumeID:
-          type: string
-    V1Time:
-      type: object
-    V1ISCSIVolumeSource:
-      type: object
-      properties:
-        chapAuthDiscovery:
-          type: boolean
-        chapAuthSession:
-          type: boolean
-        fsType:
-          type: string
-        initiatorName:
-          type: string
-          nullable: true
-        iqn:
-          type: string
-        iscsiInterface:
-          type: string
-        lun:
-          type: integer
-          format: int32
-        portals:
-          type: array
-          items:
-            type: string
-        readOnly:
-          type: boolean
-        secretRef:
-          $ref: '#/components/schemas/V1LocalObjectReference'
-        targetPortal:
-          type: string
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
-          type: array
-          items:
-            type: string
-        python_requirements:
-          type: string
-        python_version:
-          type: string
-    V1PortworxVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        readOnly:
-          type: boolean
-        volumeID:
-          type: string
     V1NodeSelector:
       type: object
       properties:
@@ -2300,181 +2151,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/V1NodeSelectorTerm'
-    V1EnvFromSource:
-      type: object
-      properties:
-        configMapRef:
-          $ref: '#/components/schemas/V1ConfigMapEnvSource'
-        prefix:
-          type: string
-        secretRef:
-          $ref: '#/components/schemas/V1SecretEnvSource'
-    V1ImageVolumeSource:
-      type: object
-      properties:
-        pullPolicy:
-          type: string
-        reference:
-          type: string
-    V1FlockerVolumeSource:
-      type: object
-      properties:
-        datasetName:
-          type: string
-        datasetUUID:
-          type: string
-    V1ObjectFieldSelector:
-      type: object
-      properties:
-        apiVersion:
-          type: string
-        fieldPath:
-          type: string
-    V1NodeSelectorRequirement:
-      type: object
-      properties:
-        key:
-          type: string
-        operator:
-          type: string
-        values:
-          type: array
-          items:
-            type: string
-    V1WeightedPodAffinityTerm:
-      type: object
-      properties:
-        podAffinityTerm:
-          $ref: '#/components/schemas/V1PodAffinityTerm'
-        weight:
-          type: integer
-          format: int32
-    ModelschemasApiServerBentoFunctionOverrides:
-      type: object
-      properties:
-        annotations:
-          type: object
-          additionalProperties:
-            type: string
-        extraPodMetadata:
-          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
-        extraPodSpec:
-          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
-        monitorExporter:
-          $ref: '#/components/schemas/V1alpha1MonitorExporterSpec'
-    V1FCVolumeSource:
-      type: object
-      properties:
-        fsType:
-          type: string
-        lun:
-          type: integer
-          format: int32
-          nullable: true
-        readOnly:
-          type: boolean
-        targetWWNs:
-          type: array
-          items:
-            type: string
-        wwids:
-          type: array
-          items:
-            type: string
-    V1PersistentVolumeClaimSpec:
-      type: object
-      properties:
-        accessModes:
-          type: array
-          items:
-            type: string
-        dataSource:
-          $ref: '#/components/schemas/V1TypedLocalObjectReference'
-        dataSourceRef:
-          $ref: '#/components/schemas/V1TypedObjectReference'
-        resources:
-          $ref: '#/components/schemas/V1VolumeResourceRequirements'
-        selector:
-          $ref: '#/components/schemas/V1LabelSelector'
-        storageClassName:
-          type: string
-          nullable: true
-        volumeAttributesClassName:
-          type: string
-          nullable: true
-        volumeMode:
-          type: string
-          nullable: true
-        volumeName:
-          type: string
-    ModelschemasBentoManifestServiceSchema:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: {}
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
-        name:
-          type: string
-        service:
-          type: string
-    V1alpha1MonitorExporterSpec:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        mounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1alpha1MonitorExporterMountSpec'
-        options:
-          type: object
-          additionalProperties:
-            type: string
-        output:
-          type: string
-        structureOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1EnvVar'
-    ModelschemasDeploymentTargetCanaryRule:
-      type: object
-      properties:
-        cookie:
-          type: string
-          nullable: true
-        header:
-          type: string
-          nullable: true
-        route_by:
-          type: string
-          nullable: true
-        type:
-          type: string
-          enum:
-          - header
-          - query
-          - random
-          - cookie
-        weight:
-          type: integer
-          format: int32
-          nullable: true
-    V1FileKeySelector:
-      type: object
-      properties:
-        key:
-          type: string
-        optional:
-          type: boolean
-          nullable: true
-        path:
-          type: string
-        volumeName:
-          type: string
     V1ObjectMeta:
       type: object
       properties:
@@ -2485,9 +2161,10 @@ components:
         creationTimestamp:
           $ref: '#/components/schemas/V1Time'
         deletionGracePeriodSeconds:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         deletionTimestamp:
           $ref: '#/components/schemas/V1Time'
         finalizers:
@@ -2521,6 +2198,21 @@ components:
           type: string
         uid:
           type: string
+    V1VolumeProjection:
+      type: object
+      properties:
+        clusterTrustBundle:
+          $ref: '#/components/schemas/V1ClusterTrustBundleProjection'
+        configMap:
+          $ref: '#/components/schemas/V1ConfigMapProjection'
+        downwardAPI:
+          $ref: '#/components/schemas/V1DownwardAPIProjection'
+        podCertificate:
+          $ref: '#/components/schemas/V1PodCertificateProjection'
+        secret:
+          $ref: '#/components/schemas/V1SecretProjection'
+        serviceAccountToken:
+          $ref: '#/components/schemas/V1ServiceAccountTokenProjection'
     V1VolumeSource:
       type: object
       properties:
@@ -2584,38 +2276,455 @@ components:
           $ref: '#/components/schemas/V1StorageOSVolumeSource'
         vsphereVolume:
           $ref: '#/components/schemas/V1VsphereVirtualDiskVolumeSource'
-    V1EnvVar:
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
+          type: string
+    V1ConfigMapVolumeSource:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        defaultMode:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1KeyToPath'
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1LocalObjectReference:
       type: object
       properties:
         name:
           type: string
-        value:
-          type: string
-        valueFrom:
-          $ref: '#/components/schemas/V1EnvVarSource'
-    V1alpha1ExtraPodSpec:
+    V1FCVolumeSource:
       type: object
       properties:
-        affinity:
-          $ref: '#/components/schemas/V1Affinity'
-        nodeSelector:
+        fsType:
+          type: string
+        lun:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        readOnly:
+          type: boolean
+        targetWWNs:
+          type: array
+          items:
+            type: string
+        wwids:
+          type: array
+          items:
+            type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
+          type: string
+    V1FileKeySelector:
+      type: object
+      properties:
+        key:
+          type: string
+        optional:
+          type:
+          - boolean
+          - 'null'
+        path:
+          type: string
+        volumeName:
+          type: string
+    V1HostPathVolumeSource:
+      type: object
+      properties:
+        path:
+          type: string
+        type:
+          type:
+          - string
+          - 'null'
+    V1Toleration:
+      type: object
+      properties:
+        effect:
+          type: string
+        key:
+          type: string
+        operator:
+          type: string
+        tolerationSeconds:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        value:
+          type: string
+    V1AzureDiskVolumeSource:
+      type: object
+      properties:
+        cachingMode:
+          type:
+          - string
+          - 'null'
+        diskName:
+          type: string
+        diskURI:
+          type: string
+        fsType:
+          type:
+          - string
+          - 'null'
+        kind:
+          type:
+          - string
+          - 'null'
+        readOnly:
+          type:
+          - boolean
+          - 'null'
+    V1alpha1MonitorExporterSpec:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        mounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1alpha1MonitorExporterMountSpec'
+        options:
           type: object
           additionalProperties:
             type: string
-        priorityClassName:
+        output:
           type: string
-        schedulerName:
-          type: string
-        serviceAccountName:
-          type: string
-        tolerations:
+        structureOptions:
           type: array
           items:
-            $ref: '#/components/schemas/V1Toleration'
-        topologySpreadConstraints:
+            $ref: '#/components/schemas/V1EnvVar'
+    ModelschemasDeploymentRoutingSchema:
+      type: object
+      properties:
+        route_by:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type:
+          - string
+          - 'null'
+        weights:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+    V1FlexVolumeSource:
+      type: object
+      properties:
+        driver:
+          type: string
+        fsType:
+          type: string
+        options:
+          type: object
+          additionalProperties:
+            type: string
+        readOnly:
+          type: boolean
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+    V1ResourceClaim:
+      type: object
+      properties:
+        name:
+          type: string
+        request:
+          type: string
+    ModelschemasDeploymentTargetConfig:
+      type: object
+      properties:
+        access_control:
+          type:
+          - string
+          - 'null'
+        bento_function_overrides:
+          $ref: '#/components/schemas/ModelschemasApiServerBentoFunctionOverrides'
+        bento_request_overrides:
+          $ref: '#/components/schemas/ModelschemasBentoRequestOverrides'
+        config_overrides:
+          type: object
+          additionalProperties: {}
+        deployment_cold_start_wait_timeout:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        deployment_strategy:
+          type:
+          - string
+          - 'null'
+        enable_debug_mode:
+          type:
+          - boolean
+          - 'null'
+        enable_debug_pod_receive_production_traffic:
+          type:
+          - boolean
+          - 'null'
+        enable_image_builder_colocation:
+          type:
+          - boolean
+          - 'null'
+        enable_ingress:
+          type:
+          - boolean
+          - 'null'
+        enable_stealing_traffic_debug_mode:
+          type:
+          - boolean
+          - 'null'
+        envs:
           type: array
           items:
-            $ref: '#/components/schemas/V1TopologySpreadConstraint'
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        global_envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        hpa_conf:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetHPAConf'
+        kubeResourceUid:
+          type: string
+        kubeResourceVersion:
+          type: string
+        resource_instance:
+          type:
+          - string
+          - 'null'
+        resources:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
+        runners:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasDeploymentTargetRunnerConfig'
+        secrets:
+          type: array
+          items:
+            type: string
+        target_name:
+          type: string
+        traffic_control:
+          $ref: '#/components/schemas/ModelschemasTrafficControlConfig'
+    ModelschemasRunnerBentoFunctionOverrides:
+      type: object
+      properties:
+        annotations:
+          type: object
+          additionalProperties:
+            type: string
+        extraPodMetadata:
+          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
+        extraPodSpec:
+          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
+    V1TypedObjectReference:
+      type: object
+      properties:
+        apiGroup:
+          type:
+          - string
+          - 'null'
+        kind:
+          type: string
+        name:
+          type: string
+        namespace:
+          type:
+          - string
+          - 'null'
+    V1ConfigMapKeySelector:
+      type: object
+      properties:
+        LocalObjectReference:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        key:
+          type: string
+        optional:
+          type:
+          - boolean
+          - 'null'
+    V1NodeAffinity:
+      type: object
+      properties:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1PreferredSchedulingTerm'
+        requiredDuringSchedulingIgnoredDuringExecution:
+          $ref: '#/components/schemas/V1NodeSelector'
+    ModelschemasApiServerBentoFunctionOverrides:
+      type: object
+      properties:
+        annotations:
+          type: object
+          additionalProperties:
+            type: string
+        extraPodMetadata:
+          $ref: '#/components/schemas/V1alpha1ExtraPodMetadata'
+        extraPodSpec:
+          $ref: '#/components/schemas/V1alpha1ExtraPodSpec'
+        monitorExporter:
+          $ref: '#/components/schemas/V1alpha1MonitorExporterSpec'
+    V1PreferredSchedulingTerm:
+      type: object
+      properties:
+        preference:
+          $ref: '#/components/schemas/V1NodeSelectorTerm'
+        weight:
+          type: integer
+          format: int32
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
+    V1StorageOSVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        readOnly:
+          type: boolean
+        secretRef:
+          $ref: '#/components/schemas/V1LocalObjectReference'
+        volumeName:
+          type: string
+        volumeNamespace:
+          type: string
+    ModelschemasDeploymentTargetHPAConf:
+      type: object
+      properties:
+        max_replicas:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        min_replicas:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        policy:
+          $ref: '#/components/schemas/ModelschemasHPAPolicy'
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
+    V1ResourceFieldSelector:
+      type: object
+      properties:
+        containerName:
+          type: string
+        divisor:
+          $ref: '#/components/schemas/ResourceQuantity'
+        resource:
+          type: string
+    V1PodAffinityTerm:
+      type: object
+      properties:
+        labelSelector:
+          $ref: '#/components/schemas/V1LabelSelector'
+        matchLabelKeys:
+          type: array
+          items:
+            type: string
+        mismatchLabelKeys:
+          type: array
+          items:
+            type: string
+        namespaceSelector:
+          $ref: '#/components/schemas/V1LabelSelector'
+        namespaces:
+          type: array
+          items:
+            type: string
+        topologyKey:
+          type: string
+    V1Affinity:
+      type: object
+      properties:
+        nodeAffinity:
+          $ref: '#/components/schemas/V1NodeAffinity'
+        podAffinity:
+          $ref: '#/components/schemas/V1PodAffinity'
+        podAntiAffinity:
+          $ref: '#/components/schemas/V1PodAntiAffinity'
+    V1alpha1ExtraPodMetadata:
+      type: object
+      properties:
+        annotations:
+          type: object
+          additionalProperties:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    V1VsphereVirtualDiskVolumeSource:
+      type: object
+      properties:
+        fsType:
+          type: string
+        storagePolicyID:
+          type: string
+        storagePolicyName:
+          type: string
+        volumePath:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

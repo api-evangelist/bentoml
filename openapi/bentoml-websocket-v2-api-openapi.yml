@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 websocket v2 API
+  title: yatai api server websocket v2 API
   description: This is yatai api server.
   version: 1.0.0
 tags:

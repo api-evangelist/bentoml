@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 request quota API
+  title: yatai api server request quota API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -22,7 +22,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A Request QuotaInput'
+              $ref: '#/components/schemas/Create_A_Request_QuotaInput'
       responses:
         '200':
           description: OK
@@ -32,7 +32,7 @@ paths:
                 $ref: '#/components/schemas/Controllersv2CreateRequestQuotaSchema'
 components:
   schemas:
-    Create A Request QuotaInput:
+    Create_A_Request_QuotaInput:
       type: object
       properties:
         current_quota:

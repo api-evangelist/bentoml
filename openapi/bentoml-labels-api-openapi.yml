@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 labels API
+  title: yatai api server Labels API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: labels
+- name: Labels
   description: labels
 paths:
   /api/v1/labels:
     get:
       tags:
-      - labels
+      - Labels
       summary: List Labels
       operationId: List Labels
       parameters:

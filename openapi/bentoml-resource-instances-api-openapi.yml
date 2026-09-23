@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 resource instances API
+  title: yatai api server resource instances API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: resource instances
+- name: Resource Instances
   description: resource instances
 paths:
   /api/admin/v1/resource_instances:
     get:
       tags:
-      - resource instances
+      - Resource Instances
       summary: List resource instances
       operationId: List resource instances
       parameters:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -42,14 +43,14 @@ paths:
                 $ref: '#/components/schemas/Schemasv1ResourceInstanceListSchema'
     post:
       tags:
-      - resource instances
+      - Resource Instances
       summary: Create a resource instance
       operationId: Create a resource instance
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A Resource InstanceInput'
+              $ref: '#/components/schemas/Create_A_Resource_InstanceInput'
       responses:
         '200':
           description: OK
@@ -59,15 +60,17 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -101,12 +104,14 @@ paths:
                     format: date-time
 components:
   schemas:
-    ModelschemasGPUConfig:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        memory:
+        key:
           type: string
-        type:
+        stage:
+          type: string
+        value:
           type: string
     Schemasv1ResourceInstanceListSchema:
       type: object
@@ -120,15 +125,17 @@ components:
             type: object
             properties:
               config:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               created_at:
                 type: string
                 format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               display_name:
@@ -166,26 +173,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Create A Resource InstanceInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
     V1Toleration:
       type: object
       properties:
@@ -196,21 +183,30 @@ components:
         operator:
           type: string
         tolerationSeconds:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         value:
           type: string
-    ModelschemasDeploymentTargetResources:
+    ModelschemasDeploymentTargetResourceItem:
       type: object
       properties:
-        limits:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-        requests:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-    ModelschemasTPUConfig:
+        cpu:
+          type: string
+        custom:
+          type: object
+          additionalProperties:
+            type: string
+        gpu:
+          type: string
+        memory:
+          type: string
+    ModelschemasGPUConfig:
       type: object
       properties:
+        memory:
+          type: string
         type:
           type: string
     ModelschemasResourceInstanceConfigSchema:
@@ -234,19 +230,29 @@ components:
             $ref: '#/components/schemas/V1Toleration'
         tpu_config:
           $ref: '#/components/schemas/ModelschemasTPUConfig'
-    ModelschemasDeploymentTargetResourceItem:
+    ModelschemasTPUConfig:
       type: object
       properties:
-        cpu:
+        type:
           type: string
-        custom:
-          type: object
-          additionalProperties:
-            type: string
-        gpu:
+    Create_A_Resource_InstanceInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
+        description:
           type: string
-        memory:
+        display_name:
           type: string
+        name:
+          type: string
+    ModelschemasDeploymentTargetResources:
+      type: object
+      properties:
+        limits:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+        requests:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
   securitySchemes:
     apiToken:
       type: apiKey

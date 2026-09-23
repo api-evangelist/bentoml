@@ -1,16 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 limit groups API
+  title: yatai api server limit groups API
   description: This is yatai api server.
   version: 1.0.0
 tags:
-- name: limit groups
+- name: Limit Groups
   description: limit groups
 paths:
   /api/admin/v1/limit_groups:
     get:
       tags:
-      - limit groups
+      - Limit Groups
       summary: List limit groups
       operationId: List limit groups
       parameters:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -42,14 +43,14 @@ paths:
                 $ref: '#/components/schemas/Schemasv1LimitGroupListSchema'
     post:
       tags:
-      - limit groups
+      - Limit Groups
       summary: Create a limit group
       operationId: Create a limit group
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create A Limit GroupInput'
+              $ref: '#/components/schemas/Create_A_Limit_GroupInput'
       responses:
         '200':
           description: OK
@@ -59,15 +60,17 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -104,10 +107,27 @@ paths:
                     type: string
                     format: date-time
                   visible:
-                    type: boolean
-                    nullable: true
+                    type:
+                    - boolean
+                    - 'null'
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasLimitGroupResourceInstanceSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
     Schemasv1LimitGroupListSchema:
       type: object
       properties:
@@ -120,15 +140,17 @@ components:
             type: object
             properties:
               config:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               created_at:
                 type: string
                 format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               display_name:
@@ -165,14 +187,28 @@ components:
                 type: string
                 format: date-time
               visible:
-                type: boolean
-                nullable: true
+                type:
+                - boolean
+                - 'null'
         start:
           type: integer
           format: int32
         total:
           type: integer
           format: int32
+    ResourceQuantity:
+      type: object
+    ModelschemasLimitGroupDeploymentConfig:
+      type: object
+      properties:
+        access_authorization:
+          type: array
+          items:
+            type: boolean
+        deployment_strategy:
+          type: array
+          items:
+            type: string
     Schemasv1ResourceInstanceWithActiveSchema:
       type: object
       properties:
@@ -182,15 +218,17 @@ components:
           type: object
           properties:
             config:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
             created_at:
               type: string
               format: date-time
             deleted_at:
-              type: string
+              type:
+              - string
+              - 'null'
               format: date-time
-              nullable: true
             description:
               type: string
             display_name:
@@ -222,7 +260,7 @@ components:
             updated_at:
               type: string
               format: date-time
-    Create A Limit GroupInput:
+    Create_A_Limit_GroupInput:
       type: object
       properties:
         config:
@@ -236,58 +274,42 @@ components:
         plan_code:
           type: string
         visible:
-          type: boolean
-          nullable: true
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasLimitGroupDeploymentConfig:
-      type: object
-      properties:
-        access_authorization:
-          type: array
-          items:
-            type: boolean
-        deployment_strategy:
-          type: array
-          items:
-            type: string
-    ResourceQuantity:
-      type: object
+          type:
+          - boolean
+          - 'null'
     ModelschemasLimitGroupConfigSchema:
       type: object
       properties:
         allow_custom_resource:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         allow_deployment_config:
           $ref: '#/components/schemas/ModelschemasLimitGroupDeploymentConfig'
         bento_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         bento_size:
           $ref: '#/components/schemas/ResourceQuantity'
         deployment_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         disable_grafana:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         filter_down_resource_instance_names:
           type: array
           items:
             type: string
         has_kube_access:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         image_builder_pod_resource_cpu_limit:
           $ref: '#/components/schemas/ResourceQuantity'
         image_builder_pod_resource_gpu_limit:
@@ -295,28 +317,34 @@ components:
         image_builder_pod_resource_memory_limit:
           $ref: '#/components/schemas/ResourceQuantity'
         internal:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         member_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         model_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         model_size:
           $ref: '#/components/schemas/ResourceQuantity'
         must_scale_to_zero:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         organization_lifespan:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         plan_type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         resource_cpu_limit:
           $ref: '#/components/schemas/ResourceQuantity'
         resource_gpu_limit:
@@ -331,13 +359,6 @@ components:
           type: array
           items:
             type: string
-    ModelschemasLimitGroupResourceInstanceSchema:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

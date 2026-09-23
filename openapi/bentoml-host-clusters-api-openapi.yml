@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 host_clusters API
+  title: yatai api server Host Clusters API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -26,8 +26,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -49,7 +50,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create Host ClusterInput'
+              $ref: '#/components/schemas/Create_Host_ClusterInput'
       responses:
         '200':
           description: OK
@@ -59,17 +60,19 @@ paths:
                 type: object
                 properties:
                   config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   created_at:
                     type: string
                     format: date-time
                   default:
                     type: boolean
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   display_name:
@@ -77,8 +80,9 @@ paths:
                   grafana_root_path:
                     type: string
                   kube_config:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   labels:
                     type: array
                     items:
@@ -91,15 +95,17 @@ paths:
                       type: object
                       properties:
                         config:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         created_at:
                           type: string
                           format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         display_name:
@@ -152,6 +158,15 @@ paths:
                     format: date-time
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     ModelschemasHostClusterConfigSchema:
       type: object
       properties:
@@ -170,15 +185,6 @@ components:
           additionalProperties:
             type: integer
             format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Schemasv1HostClusterListSchema:
       type: object
       properties:
@@ -191,17 +197,19 @@ components:
             type: object
             properties:
               config:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               created_at:
                 type: string
                 format: date-time
               default:
                 type: boolean
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               display_name:
@@ -239,7 +247,7 @@ components:
         total:
           type: integer
           format: int32
-    Create Host ClusterInput:
+    Create_Host_ClusterInput:
       type: object
       properties:
         config:

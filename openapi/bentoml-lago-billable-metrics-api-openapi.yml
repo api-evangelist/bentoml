@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 lago billable metrics API
+  title: yatai api server lago billable metrics API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -29,7 +29,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Create Lago Billable MetricInput'
+              $ref: '#/components/schemas/Create_Lago_Billable_MetricInput'
       responses:
         '200':
           description: OK
@@ -53,7 +53,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update Lago Billable MetricInput'
+              $ref: '#/components/schemas/Update_Lago_Billable_MetricInput'
       responses:
         '200':
           description: OK
@@ -63,35 +63,17 @@ paths:
                 $ref: '#/components/schemas/Schemasv1BillableMetrics'
 components:
   schemas:
-    Update Lago Billable MetricInput:
+    Update_Lago_Billable_MetricInput:
       type: object
       properties:
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         display_name:
-          type: string
-          nullable: true
-    Schemasv1BillableMetrics:
-      type: object
-      properties:
-        description:
-          type: string
-        display_name:
-          type: string
-        lago_id:
-          type: string
-        name:
-          type: string
-    Create Lago Billable MetricInput:
-      type: object
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-        display_name:
-          type: string
+          type:
+          - string
+          - 'null'
     Schemasv1LagoBillableMetricsListSchema:
       type: object
       properties:
@@ -108,6 +90,26 @@ components:
         total:
           type: integer
           format: int32
+    Schemasv1BillableMetrics:
+      type: object
+      properties:
+        description:
+          type: string
+        display_name:
+          type: string
+        lago_id:
+          type: string
+        name:
+          type: string
+    Create_Lago_Billable_MetricInput:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        display_name:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

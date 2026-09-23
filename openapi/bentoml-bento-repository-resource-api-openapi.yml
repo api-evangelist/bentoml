@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: yatai api server admin api v1 bento repository resource API
+  title: yatai api server bento repository resource API
   description: This is yatai api server.
   version: 1.0.0
 tags:
@@ -45,9 +45,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -88,9 +89,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   labels:
@@ -119,9 +121,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -162,9 +165,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       image_build_status:
@@ -198,25 +202,28 @@ paths:
                         - model
                         - api_token
                       transmission_strategy:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       uid:
                         type: string
                       updated_at:
                         type: string
                         format: date-time
                       upload_finished_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_finished_reason:
                         type: string
                       upload_id:
                         type: string
                       upload_started_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_status:
                         type: string
                       version:
@@ -245,9 +252,10 @@ paths:
                               type: string
                               format: date-time
                             deleted_at:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               format: date-time
-                              nullable: true
                             email:
                               type: string
                             first_name:
@@ -288,9 +296,10 @@ paths:
                               type: string
                               format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         image_build_status:
@@ -324,25 +333,28 @@ paths:
                           - model
                           - api_token
                         transmission_strategy:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         uid:
                           type: string
                         updated_at:
                           type: string
                           format: date-time
                         upload_finished_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_finished_reason:
                           type: string
                         upload_id:
                           type: string
                         upload_started_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_status:
                           type: string
                         version:
@@ -369,9 +381,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -412,9 +425,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -428,16 +442,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -503,7 +519,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Update A Bento RepositoryInput'
+              $ref: '#/components/schemas/Update_A_Bento_RepositoryInput'
       responses:
         '200':
           description: OK
@@ -526,9 +542,10 @@ paths:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -569,9 +586,10 @@ paths:
                         type: string
                         format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   labels:
@@ -600,9 +618,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -643,9 +662,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       image_build_status:
@@ -679,25 +699,28 @@ paths:
                         - model
                         - api_token
                       transmission_strategy:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       uid:
                         type: string
                       updated_at:
                         type: string
                         format: date-time
                       upload_finished_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_finished_reason:
                         type: string
                       upload_id:
                         type: string
                       upload_started_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       upload_status:
                         type: string
                       version:
@@ -726,9 +749,10 @@ paths:
                               type: string
                               format: date-time
                             deleted_at:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               format: date-time
-                              nullable: true
                             email:
                               type: string
                             first_name:
@@ -769,9 +793,10 @@ paths:
                               type: string
                               format: date-time
                         deleted_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         description:
                           type: string
                         image_build_status:
@@ -805,25 +830,28 @@ paths:
                           - model
                           - api_token
                         transmission_strategy:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         uid:
                           type: string
                         updated_at:
                           type: string
                           format: date-time
                         upload_finished_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_finished_reason:
                           type: string
                         upload_id:
                           type: string
                         upload_started_at:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           format: date-time
-                          nullable: true
                         upload_status:
                           type: string
                         version:
@@ -850,9 +878,10 @@ paths:
                             type: string
                             format: date-time
                           deleted_at:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             format: date-time
-                            nullable: true
                           email:
                             type: string
                           first_name:
@@ -893,9 +922,10 @@ paths:
                             type: string
                             format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       description:
                         type: string
                       disable_grafana:
@@ -909,16 +939,18 @@ paths:
                       enable_monitoring_endpoint:
                         type: boolean
                       expired_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       labels:
                         type: array
                         items:
                           $ref: '#/components/schemas/ModelschemasLabelItemSchema'
                       limit_group:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       multi_tenancy:
                         type: boolean
                       name:
@@ -989,8 +1021,9 @@ paths:
       - name: search
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: start
         in: query
         schema:
@@ -1009,59 +1042,6 @@ paths:
                 $ref: '#/components/schemas/Schemasv1DeploymentListWoRevisionSchema'
 components:
   schemas:
-    ModelschemasBentoRunnerResourceSchema:
-      type: object
-      properties:
-        cpu:
-          type: number
-          format: double
-          nullable: true
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type: number
-          format: double
-          nullable: true
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasDeploymentRoutingSchema:
-      type: object
-      properties:
-        route_by:
-          type: string
-          nullable: true
-        route_type:
-          type: string
-          nullable: true
-        weights:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-    ModelschemasDeploymentManifest:
-      type: object
-      properties:
-        dev:
-          type: boolean
-        replicas:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        routing:
-          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
-        super_admin:
-          type: boolean
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -1071,61 +1051,24 @@ components:
           type: string
         value:
           type: string
-    ModelschemasBentoManifestSchema:
+    ModelschemasBentoRunnerResourceSchema:
       type: object
       properties:
-        apis:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
-        bentoml_version:
-          type: string
-        dev:
-          type: boolean
-        entry_service:
-          type: string
-        envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
-        image:
-          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        runners:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
-        schema:
-          type: object
-          additionalProperties: {}
-        service:
-          type: string
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
-        size_bytes:
-          type: integer
-          format: int32
-        spec:
-          type: integer
-          format: int32
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
-          type: string
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
     ModelschemasBentoImageInfoSchema:
       type: object
       properties:
@@ -1139,33 +1082,22 @@ components:
           type: string
         python_version:
           type: string
-    ModelschemasBentoManifestServiceSchema:
+    ModelschemasDeploymentRoutingSchema:
       type: object
       properties:
-        config:
+        route_by:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type:
+          - string
+          - 'null'
+        weights:
           type: object
-          additionalProperties: {}
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
-        name:
-          type: string
-        service:
-          type: string
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
-          type: string
+          additionalProperties:
+            type: integer
+            format: int32
     Schemasv1DeploymentListWoRevisionSchema:
       type: object
       properties:
@@ -1194,9 +1126,10 @@ components:
                         type: string
                         format: date-time
                       deleted_at:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         format: date-time
-                        nullable: true
                       email:
                         type: string
                       first_name:
@@ -1239,9 +1172,10 @@ components:
                   default_deployment_kube_namespace:
                     type: string
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   description:
                     type: string
                   grafana_root_path:
@@ -1297,9 +1231,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -1340,9 +1275,10 @@ components:
                     type: string
                     format: date-time
               deleted_at:
-                type: string
+                type:
+                - string
+                - 'null'
                 format: date-time
-                nullable: true
               description:
                 type: string
               distributed:
@@ -1356,8 +1292,9 @@ components:
               manifest:
                 $ref: '#/components/schemas/ModelschemasDeploymentManifest'
               mode:
-                type: string
-                nullable: true
+                type:
+                - string
+                - 'null'
               name:
                 type: string
               resource_type:
@@ -1399,9 +1336,10 @@ components:
                     type: string
                     format: date-time
                   deleted_at:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: date-time
-                    nullable: true
                   email:
                     type: string
                   first_name:
@@ -1462,16 +1400,122 @@ components:
           type: string
         tag:
           type: string
-    Update A Bento RepositoryInput:
+    Update_A_Bento_RepositoryInput:
       type: object
       properties:
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         labels:
           type: array
           items:
             $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+    ModelschemasBentoManifestSchema:
+      type: object
+      properties:
+        apis:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
+        bentoml_version:
+          type: string
+        dev:
+          type: boolean
+        entry_service:
+          type: string
+        envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
+        image:
+          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        runners:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
+        schema:
+          type: object
+          additionalProperties: {}
+        service:
+          type: string
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
+        size_bytes:
+          type: integer
+          format: int32
+        spec:
+          type: integer
+          format: int32
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
+          type: string
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoManifestServiceSchema:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: {}
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+        name:
+          type: string
+        service:
+          type: string
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
+    ModelschemasDeploymentManifest:
+      type: object
+      properties:
+        dev:
+          type: boolean
+        replicas:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        routing:
+          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
+        super_admin:
+          type: boolean
   securitySchemes:
     apiToken:
       type: apiKey

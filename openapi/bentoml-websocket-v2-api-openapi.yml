@@ -12,7 +12,7 @@ paths:
       tags:
       - websocket v2
       summary: Ws v2 Deployment kube events
-      operationId: Ws v2 Deployment kube events
+      operationId: WsV2DeploymentKubeEvents
       parameters:
       - name: deploymentName
         in: path
@@ -34,12 +34,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Ws v2 Deployment kube events
   /ws/v2/deployments/{deploymentName}/pods:
     get:
       tags:
       - websocket v2
       summary: Ws v2 deployment pods
-      operationId: Ws v2 deployment pods
+      operationId: WsV2DeploymentPods
       parameters:
       - name: deploymentName
         in: path
@@ -61,15 +63,19 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Ws v2 deployment pods
   /ws/v2/subscription/resource:
     get:
       tags:
       - websocket v2
       summary: Subscribe resource v2
-      operationId: Subscribe resource v2
+      operationId: SubscribeResourceV2
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Subscribe resource v2
 components:
   securitySchemes:
     apiToken:

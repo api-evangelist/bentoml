@@ -12,7 +12,7 @@ paths:
       tags:
       - websocket v1
       summary: Cluster kube events
-      operationId: Cluster kube events
+      operationId: ClusterKubeEvents
       parameters:
       - name: clusterName
         in: path
@@ -26,12 +26,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Cluster kube events
   /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/kube_events:
     get:
       tags:
       - websocket v1
       summary: Deployment kube events
-      operationId: Deployment kube events
+      operationId: DeploymentKubeEvents
       parameters:
       - name: clusterName
         in: path
@@ -55,12 +57,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Deployment kube events
   /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/pods:
     get:
       tags:
       - websocket v1
       summary: Ws deployment pods
-      operationId: Ws deployment pods
+      operationId: WsDeploymentPods
       parameters:
       - name: clusterName
         in: path
@@ -84,12 +88,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Ws deployment pods
   /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/tail:
     get:
       tags:
       - websocket v1
       summary: Tail deployment pod log
-      operationId: Tail deployment pod log
+      operationId: TailDeploymentPodLog
       parameters:
       - name: clusterName
         in: path
@@ -113,12 +119,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Tail deployment pod log
   /ws/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminal:
     get:
       tags:
       - websocket v1
       summary: Deployment pod terminal
-      operationId: Deployment pod terminal
+      operationId: DeploymentPodTerminal
       parameters:
       - name: clusterName
         in: path
@@ -142,12 +150,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Deployment pod terminal
   /ws/v1/clusters/{clusterName}/pods:
     get:
       tags:
       - websocket v1
       summary: Ws cluster pods
-      operationId: Ws cluster pods
+      operationId: WsClusterPods
       parameters:
       - name: clusterName
         in: path
@@ -161,12 +171,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Ws cluster pods
   /ws/v1/clusters/{clusterName}/tail:
     get:
       tags:
       - websocket v1
       summary: Tail cluster pod log
-      operationId: Tail cluster pod log
+      operationId: TailClusterPodLog
       parameters:
       - name: clusterName
         in: path
@@ -180,12 +192,14 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Tail cluster pod log
   /ws/v1/clusters/{clusterName}/terminal:
     get:
       tags:
       - websocket v1
       summary: Cluster pod terminal
-      operationId: Cluster pod terminal
+      operationId: ClusterPodTerminal
       parameters:
       - name: clusterName
         in: path
@@ -199,15 +213,19 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Cluster pod terminal
   /ws/v1/subscription/resource:
     get:
       tags:
       - websocket v1
       summary: Subscribe resource
-      operationId: Subscribe resource
+      operationId: SubscribeResource
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Subscribe resource
 components:
   securitySchemes:
     apiToken:

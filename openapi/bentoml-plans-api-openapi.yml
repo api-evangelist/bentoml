@@ -12,7 +12,7 @@ paths:
       tags:
       - Plans
       summary: List limit groups plans
-      operationId: List limit groups plans
+      operationId: ListLimitGroupsPlans
       parameters:
       - name: count
         in: query
@@ -41,59 +41,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1PlanListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List limit groups plans
 components:
   schemas:
-    Schemasv1ResourceInstanceWithActiveSchema:
-      type: object
-      properties:
-        active:
-          type: boolean
-        resource_instance:
-          type: object
-          properties:
-            config:
-              type:
-              - string
-              - 'null'
-            created_at:
-              type: string
-              format: date-time
-            deleted_at:
-              type:
-              - string
-              - 'null'
-              format: date-time
-            description:
-              type: string
-            display_name:
-              type: string
-            labels:
-              type: array
-              items:
-                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-            lago_id:
-              type: string
-            name:
-              type: string
-            resource_type:
-              type: string
-              enum:
-              - user
-              - organization
-              - cluster
-              - host_cluster
-              - bento_repository
-              - bento
-              - deployment
-              - deployment_revision
-              - model_repository
-              - model
-              - api_token
-            uid:
-              type: string
-            updated_at:
-              type: string
-              format: date-time
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -165,6 +116,57 @@ components:
         total:
           type: integer
           format: int32
+    Schemasv1ResourceInstanceWithActiveSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        resource_instance:
+          type: object
+          properties:
+            config:
+              type:
+              - string
+              - 'null'
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type:
+              - string
+              - 'null'
+              format: date-time
+            description:
+              type: string
+            display_name:
+              type: string
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            lago_id:
+              type: string
+            name:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
   securitySchemes:
     apiToken:
       type: apiKey

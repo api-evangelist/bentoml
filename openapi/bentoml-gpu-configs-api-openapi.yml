@@ -12,7 +12,7 @@ paths:
       tags:
       - gpu configs
       summary: List gpu configs
-      operationId: List gpu configs
+      operationId: ListGpuConfigs
       parameters:
       - name: count
         in: query
@@ -43,11 +43,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List gpu configs
     post:
       tags:
       - gpu configs
       summary: Create a gpu config
-      operationId: Create a gpu config
+      operationId: CreateAGpuConfig
       requestBody:
         content:
           application/json:
@@ -60,8 +62,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a gpu config
 components:
   schemas:
+    Create_A_Gpu_ConfigInput:
+      type: object
+      properties:
+        memory:
+          type: string
+        name:
+          type: string
+        vendor:
+          type: string
     Schemasv1GPUConfigSchema:
       type: object
       properties:
@@ -82,15 +95,6 @@ components:
         updated_at:
           type: string
           format: date-time
-        vendor:
-          type: string
-    Create_A_Gpu_ConfigInput:
-      type: object
-      properties:
-        memory:
-          type: string
-        name:
-          type: string
         vendor:
           type: string
   securitySchemes:

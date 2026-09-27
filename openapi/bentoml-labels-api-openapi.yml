@@ -12,7 +12,7 @@ paths:
       tags:
       - Labels
       summary: List Labels
-      operationId: List Labels
+      operationId: ListLabels
       parameters:
       - name: resource_type
         in: query
@@ -31,6 +31,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1LabelWithValuesSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List Labels
 components:
   schemas:
     Schemasv1LabelWithValuesSchema:

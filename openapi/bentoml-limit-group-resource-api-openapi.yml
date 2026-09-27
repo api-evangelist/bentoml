@@ -12,7 +12,7 @@ paths:
       tags:
       - limit group resource
       summary: Get a limit group
-      operationId: Get a limit group
+      operationId: GetALimitGroup
       parameters:
       - name: limitGroupName
         in: path
@@ -78,11 +78,13 @@ paths:
                     type:
                     - boolean
                     - 'null'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a limit group
     delete:
       tags:
       - limit group resource
       summary: Delete a limit group
-      operationId: Delete a limit group
+      operationId: DeleteALimitGroup
       parameters:
       - name: limitGroupName
         in: path
@@ -148,11 +150,13 @@ paths:
                     type:
                     - boolean
                     - 'null'
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a limit group
     patch:
       tags:
       - limit group resource
       summary: Update a limit group
-      operationId: Update a limit group
+      operationId: UpdateALimitGroup
       parameters:
       - name: limitGroupName
         in: path
@@ -223,6 +227,8 @@ paths:
                     type:
                     - boolean
                     - 'null'
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a limit group
 components:
   schemas:
     ModelschemasLabelItemSchema:
@@ -234,6 +240,29 @@ components:
           type: string
         value:
           type: string
+    Update_A_Limit_GroupInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type:
+          - string
+          - 'null'
+        plan_code:
+          type:
+          - string
+          - 'null'
+        visible:
+          type:
+          - boolean
+          - 'null'
     Schemasv1ResourceInstanceWithActiveSchema:
       type: object
       properties:
@@ -285,29 +314,6 @@ components:
             updated_at:
               type: string
               format: date-time
-    Update_A_Limit_GroupInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        display_name:
-          type:
-          - string
-          - 'null'
-        plan_code:
-          type:
-          - string
-          - 'null'
-        visible:
-          type:
-          - boolean
-          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

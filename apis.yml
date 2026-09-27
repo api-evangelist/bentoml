@@ -44,7 +44,7 @@ x-docs-platform: readthedocs
 x-docs-platform-confidence: high
 x-docs-platform-checked: 2026-09-20
 tags:
-  - Machine-Learning
+  - Machine Learning
   - Model Serving
   - Inference
   - Artificial Intelligence
@@ -65,6 +65,7 @@ tags_raw:
   - GPU
   - LLM
   - BentoCloud
+  - Machine-Learning
 apis:
 - aid: bentoml:bentoml-service-api
   name: BentoML Service REST API
@@ -184,7 +185,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-auth-api
-  name: BentoML auth API
+  name: BentoML Auth API
   description: auth api
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -246,7 +247,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-bentos-api
-  name: BentoML bentos API
+  name: BentoML Bentos API
   description: bentos
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -306,7 +307,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-clusters-api
-  name: BentoML clusters API
+  name: BentoML Clusters API
   description: clusters
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -356,7 +357,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-customers-api
-  name: BentoML customers API
+  name: BentoML Customers API
   description: customers api
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -478,7 +479,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-host-clusters-api
-  name: BentoML host_clusters API
+  name: BentoML Host Clusters API
   description: host_clusters
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -491,7 +492,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-instance-types-api
-  name: BentoML instance_types API
+  name: BentoML Instance Types API
   description: instance_types
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -505,7 +506,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-labels-api
-  name: BentoML labels API
+  name: BentoML Labels API
   description: labels
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -617,7 +618,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-models-api
-  name: BentoML models API
+  name: BentoML Models API
   description: models
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -693,7 +694,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-plans-api
-  name: BentoML plans API
+  name: BentoML Plans API
   description: plans
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -781,7 +782,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-usage-api
-  name: BentoML usage API
+  name: BentoML Usage API
   description: usage resource
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
@@ -809,7 +810,7 @@ apis:
   - type: Documentation
     url: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
 - aid: bentoml:bentoml-users-api
-  name: BentoML users API
+  name: BentoML Users API
   description: users api
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com

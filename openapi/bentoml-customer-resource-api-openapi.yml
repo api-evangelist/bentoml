@@ -12,7 +12,7 @@ paths:
       tags:
       - customer resource
       summary: Get a customer
-      operationId: Get a customer
+      operationId: GetACustomer
       parameters:
       - name: customerName
         in: path
@@ -76,11 +76,13 @@ paths:
                     format: date-time
                   wallet_id:
                     type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a customer
     patch:
       tags:
       - customer resource
       summary: Update a customer
-      operationId: Update a customer
+      operationId: UpdateACustomer
       parameters:
       - name: customerName
         in: path
@@ -143,32 +145,10 @@ paths:
                     format: date-time
                   wallet_id:
                     type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a customer
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
     Update_A_CustomerInput:
       type: object
       properties:
@@ -200,6 +180,30 @@ components:
           type:
           - string
           - 'null'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

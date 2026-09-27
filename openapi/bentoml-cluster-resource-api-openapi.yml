@@ -12,7 +12,7 @@ paths:
       tags:
       - cluster resource
       summary: Get a cluster
-      operationId: Get a cluster
+      operationId: GetACluster
       parameters:
       - name: clusterName
         in: path
@@ -309,11 +309,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a cluster
     patch:
       tags:
       - cluster resource
       summary: Update a cluster
-      operationId: Update a cluster
+      operationId: UpdateACluster
       parameters:
       - name: clusterName
         in: path
@@ -615,12 +617,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a cluster
   /api/v1/clusters/{clusterName}/members:
     get:
       tags:
       - cluster resource
       summary: List cluster members
-      operationId: List cluster members
+      operationId: ListClusterMembers
       parameters:
       - name: clusterName
         in: path
@@ -640,11 +644,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List cluster members
     post:
       tags:
       - cluster resource
       summary: Create a cluster member
-      operationId: Create a cluster member
+      operationId: CreateAClusterMember
       parameters:
       - name: clusterName
         in: path
@@ -669,11 +675,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a cluster member
     delete:
       tags:
       - cluster resource
       summary: Remove a cluster member
-      operationId: Remove a cluster member
+      operationId: RemoveAClusterMember
       parameters:
       - name: clusterName
         in: path
@@ -691,12 +699,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Remove a cluster member
   /api/v1/clusters/{clusterName}/standby_instances:
     patch:
       tags:
       - cluster resource
       summary: Update standby instances
-      operationId: Update standby instances
+      operationId: UpdateStandbyInstances
       parameters:
       - name: clusterName
         in: path
@@ -834,25 +844,24 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update standby instances
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    Create_A_Cluster_MemberInput:
       type: object
       properties:
-        key:
+        role:
           type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Update_Standby_InstancesInput:
-      type: object
-      properties:
-        standby_instances:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1087,26 +1096,29 @@ components:
             updated_at:
               type: string
               format: date-time
-    Create_A_Cluster_MemberInput:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-        usernames:
-          type: array
-          items:
-            type: string
     Schemasv1ResourceInstanceName:
       type: object
       properties:
         display_name:
           type: string
         name:
+          type: string
+    Update_Standby_InstancesInput:
+      type: object
+      properties:
+        standby_instances:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
           type: string
     Update_A_ClusterInput:
       type: object

@@ -12,7 +12,7 @@ paths:
       tags:
       - model repositories
       summary: List model repositories
-      operationId: List model repositories
+      operationId: ListModelRepositories
       parameters:
       - name: count
         in: query
@@ -45,11 +45,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ModelRepositoryListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List model repositories
     post:
       tags:
       - model repositories
       summary: Create a model repository
-      operationId: Create a model repository
+      operationId: CreateAModelRepository
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -403,6 +405,8 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a model repository
 components:
   schemas:
     Create_A_Model_RepositoryInput:
@@ -415,15 +419,6 @@ components:
           items:
             $ref: '#/components/schemas/ModelschemasLabelItemSchema'
         name:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
     ModelschemasModelManifestSchema:
       type: object
@@ -798,6 +793,15 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

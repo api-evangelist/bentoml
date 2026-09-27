@@ -12,7 +12,7 @@ paths:
       tags:
       - organization resource
       summary: Get an organization
-      operationId: Get an organization
+      operationId: GetAnOrganization
       parameters:
       - name: orgName
         in: path
@@ -145,11 +145,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization
     patch:
       tags:
       - organization resource
       summary: Update an organization
-      operationId: Update an organization
+      operationId: UpdateAnOrganization
       parameters:
       - name: orgName
         in: path
@@ -287,8 +289,19 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update an organization
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_An_OrganizationInput:
       type: object
       properties:
@@ -308,15 +321,6 @@ components:
           type:
           - boolean
           - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

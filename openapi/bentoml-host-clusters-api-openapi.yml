@@ -12,7 +12,7 @@ paths:
       tags:
       - host_clusters
       summary: List host clusters
-      operationId: List host clusters
+      operationId: ListHostClusters
       parameters:
       - name: count
         in: query
@@ -41,11 +41,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1HostClusterListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List host clusters
     post:
       tags:
       - host_clusters
       summary: Create host cluster
-      operationId: Create host cluster
+      operationId: CreateHostCluster
       requestBody:
         content:
           application/json:
@@ -156,6 +158,8 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create host cluster
 components:
   schemas:
     ModelschemasLabelItemSchema:

@@ -12,7 +12,7 @@ paths:
       tags:
       - lago plan
       summary: List lago plans
-      operationId: List lago plans
+      operationId: ListLagoPlans
       responses:
         '200':
           description: OK
@@ -20,11 +20,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1LagoPlanListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List lago plans
     post:
       tags:
       - lago plan
       summary: Create lago plan
-      operationId: Create lago plan
+      operationId: CreateLagoPlan
       requestBody:
         content:
           application/json:
@@ -37,12 +39,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1Plan'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create lago plan
   /api/v1/lago/plans/{planName}:
     put:
       tags:
       - lago plan
       summary: Update lago plan
-      operationId: Update lago plan
+      operationId: UpdateLagoPlan
       parameters:
       - name: planName
         in: path
@@ -61,8 +65,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1Plan'
+      x-operation-id-source: normalized
+      x-operation-id-original: Update lago plan
 components:
   schemas:
+    Create_Lago_PlanInput:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
     Update_Lago_PlanInput:
       type: object
       properties:
@@ -78,6 +97,13 @@ components:
           type:
           - string
           - 'null'
+    Schemasv1Charge:
+      type: object
+      properties:
+        price:
+          type: string
+        resource_instance:
+          type: string
     Schemasv1Plan:
       type: object
       properties:
@@ -109,26 +135,6 @@ components:
         total:
           type: integer
           format: int32
-    Schemasv1Charge:
-      type: object
-      properties:
-        price:
-          type: string
-        resource_instance:
-          type: string
-    Create_Lago_PlanInput:
-      type: object
-      properties:
-        charges:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1Charge'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

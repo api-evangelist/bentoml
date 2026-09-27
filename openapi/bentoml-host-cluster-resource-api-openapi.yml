@@ -12,7 +12,7 @@ paths:
       tags:
       - host cluster resource
       summary: Get a host cluster
-      operationId: Get a host cluster
+      operationId: GetAHostCluster
       parameters:
       - name: hostClusterName
         in: path
@@ -124,11 +124,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a host cluster
     delete:
       tags:
       - host cluster resource
       summary: Delete a host cluster
-      operationId: Delete a host cluster
+      operationId: DeleteAHostCluster
       parameters:
       - name: hostClusterName
         in: path
@@ -240,11 +242,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a host cluster
     patch:
       tags:
       - host cluster resource
       summary: Update a host cluster
-      operationId: Update a host cluster
+      operationId: UpdateAHostCluster
       parameters:
       - name: hostClusterName
         in: path
@@ -361,8 +365,19 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a host cluster
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Host_ClusterInput:
       type: object
       properties:
@@ -386,15 +401,6 @@ components:
           type:
           - string
           - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

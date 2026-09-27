@@ -12,7 +12,7 @@ paths:
       tags:
       - API Tokens
       summary: List api tokens
-      operationId: List api tokens
+      operationId: ListApiTokens
       parameters:
       - name: count
         in: query
@@ -45,11 +45,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ApiTokenListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List api tokens
     post:
       tags:
       - API Tokens
       summary: Create api token
-      operationId: Create api token
+      operationId: CreateApiToken
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -312,49 +314,10 @@ paths:
                       updated_at:
                         type: string
                         format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create api token
 components:
   schemas:
-    Create_Api_TokenInput:
-      type: object
-      properties:
-        code:
-          type:
-          - string
-          - 'null'
-        deployment_uids:
-          type: array
-          items:
-            type: string
-        description:
-          type: string
-        expired_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        is_global_access:
-          type: boolean
-        is_global_router_access:
-          type: boolean
-        is_monitoring_token:
-          type: boolean
-        is_organization_token:
-          type: boolean
-        name:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Schemasv1ApiTokenListSchema:
       type: object
       properties:
@@ -616,6 +579,47 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Create_Api_TokenInput:
+      type: object
+      properties:
+        code:
+          type:
+          - string
+          - 'null'
+        deployment_uids:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        expired_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        is_global_access:
+          type: boolean
+        is_global_router_access:
+          type: boolean
+        is_monitoring_token:
+          type: boolean
+        is_organization_token:
+          type: boolean
+        name:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     apiToken:
       type: apiKey

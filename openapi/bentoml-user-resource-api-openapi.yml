@@ -12,7 +12,7 @@ paths:
       tags:
       - User Resource
       summary: Get an user
-      operationId: Get an user
+      operationId: GetAnUser
       parameters:
       - name: userName
         in: path
@@ -78,6 +78,8 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an user
 components:
   schemas:
     ModelschemasLabelItemSchema:

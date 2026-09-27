@@ -12,7 +12,7 @@ paths:
       tags:
       - model repository resource
       summary: Get a model repository
-      operationId: Get a model repository
+      operationId: GetAModelRepository
       parameters:
       - name: modelRepositoryName
         in: path
@@ -366,11 +366,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a model repository
     patch:
       tags:
       - model repository resource
       summary: Update a model repository
-      operationId: Update a model repository
+      operationId: UpdateAModelRepository
       parameters:
       - name: modelRepositoryName
         in: path
@@ -729,6 +731,8 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a model repository
 components:
   schemas:
     Update_A_Model_RepositoryInput:

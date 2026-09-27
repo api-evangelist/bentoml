@@ -12,7 +12,7 @@ paths:
       tags:
       - Usage
       summary: Get last usage send time
-      operationId: Get usage
+      operationId: GetUsage
       parameters:
       - name: usageId
         in: path
@@ -30,11 +30,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1LastSendTimeSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get usage
     post:
       tags:
       - Usage
       summary: Collect usage
-      operationId: Collect usage
+      operationId: CollectUsage
       parameters:
       - name: usageId
         in: path
@@ -53,6 +55,8 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Collect usage
 components:
   schemas:
     Collect_UsageInput:
@@ -66,8 +70,6 @@ components:
             type: string
         record_value:
           type: string
-    TimeTime:
-      type: object
     Schemasv1LastSendTimeSchema:
       type: object
       properties:
@@ -75,6 +77,8 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/TimeTime'
+    TimeTime:
+      type: object
   securitySchemes:
     apiToken:
       type: apiKey

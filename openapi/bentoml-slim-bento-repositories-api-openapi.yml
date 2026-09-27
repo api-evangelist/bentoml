@@ -12,7 +12,7 @@ paths:
       tags:
       - slim bento repositories
       summary: List slim bento repositories
-      operationId: List slim bento repositories
+      operationId: ListSlimBentoRepositories
       parameters:
       - name: count
         in: query
@@ -45,62 +45,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1BentoRepositorySlimListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List slim bento repositories
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    ModelschemasBentoRunnerSchema:
       type: object
       properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasBentoRunnerResourceSchema:
-      type: object
-      properties:
-        cpu:
-          type:
-          - number
-          - 'null'
-          format: double
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type:
-          - number
-          - 'null'
-          format: double
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
+        models:
           type: array
           items:
             type: string
-        python_requirements:
+        name:
           type: string
-        python_version:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
           type: string
     Schemasv1BentoRepositorySlimListSchema:
       type: object
@@ -464,6 +424,52 @@ components:
           type: string
         value:
           type: string
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
+    ModelschemasBentoImageInfoSchema:
+      type: object
+      properties:
+        base_image:
+          type: string
+        commands:
+          type: array
+          items:
+            type: string
+        python_requirements:
+          type: string
+        python_version:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
+          type: string
     ModelschemasBentoManifestServiceSchema:
       type: object
       properties:
@@ -478,18 +484,14 @@ components:
           type: string
         service:
           type: string
-    ModelschemasBentoRunnerSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
+        key:
           type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
+        stage:
+          type: string
+        value:
           type: string
   securitySchemes:
     apiToken:

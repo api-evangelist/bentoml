@@ -12,7 +12,7 @@ paths:
       tags:
       - gpu config resource
       summary: Get a gpu config
-      operationId: Get a gpu config
+      operationId: GetAGpuConfig
       parameters:
       - name: gpuConfigName
         in: path
@@ -26,11 +26,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a gpu config
     delete:
       tags:
       - gpu config resource
       summary: Delete a gpu config
-      operationId: Delete a gpu config
+      operationId: DeleteAGpuConfig
       parameters:
       - name: gpuConfigName
         in: path
@@ -44,11 +46,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a gpu config
     patch:
       tags:
       - gpu config resource
       summary: Update a gpu config
-      operationId: Update a gpu config
+      operationId: UpdateAGpuConfig
       parameters:
       - name: gpuConfigName
         in: path
@@ -67,8 +71,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1GPUConfigSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a gpu config
 components:
   schemas:
+    Update_A_Gpu_ConfigInput:
+      type: object
+      properties:
+        memory:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        vendor:
+          type:
+          - string
+          - 'null'
     Schemasv1GPUConfigSchema:
       type: object
       properties:
@@ -91,21 +112,6 @@ components:
           format: date-time
         vendor:
           type: string
-    Update_A_Gpu_ConfigInput:
-      type: object
-      properties:
-        memory:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        vendor:
-          type:
-          - string
-          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

@@ -12,7 +12,7 @@ paths:
       tags:
       - Auth
       summary: Airtable event callback
-      operationId: Airtable event callback
+      operationId: AirtableEventCallback
       requestBody:
         content:
           application/json:
@@ -25,12 +25,14 @@ paths:
             application/json:
               schema:
                 type: object
+      x-operation-id-source: normalized
+      x-operation-id-original: Airtable event callback
   /api/v1/auth/code:
     get:
       tags:
       - Auth
       summary: Get auth code
-      operationId: Get auth code
+      operationId: GetAuthCode
       responses:
         '200':
           description: OK
@@ -38,12 +40,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1CodeSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get auth code
   /api/v1/auth/current:
     get:
       tags:
       - Auth
       summary: Get current user
-      operationId: Get current user
+      operationId: GetCurrentUser
       responses:
         '200':
           description: OK
@@ -103,11 +107,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get current user
     put:
       tags:
       - Auth
       summary: Put infos for current user
-      operationId: Put infos for current user
+      operationId: PutInfosForCurrentUser
       requestBody:
         content:
           application/json:
@@ -172,12 +178,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Put infos for current user
   /api/v1/auth/firebase_info:
     get:
       tags:
       - Auth
       summary: Firebase Info
-      operationId: Firebase Info
+      operationId: FirebaseInfo
       responses:
         '200':
           description: OK
@@ -185,12 +193,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv1FirebaseInfoSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Firebase Info
   /api/v1/auth/login:
     post:
       tags:
       - Auth
       summary: Login an user
-      operationId: Login an user
+      operationId: LoginAnUser
       requestBody:
         content:
           application/json:
@@ -255,12 +265,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Login an user
   /api/v1/auth/oidc/callback:
     get:
       tags:
       - Auth
       summary: Handle OIDC authentication callback
-      operationId: OIDC Callback
+      operationId: OIDCCallback
       parameters:
       - name: code
         in: query
@@ -281,12 +293,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv1OIDCCallbackResponseSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: OIDC Callback
   /api/v1/auth/oidc_info:
     get:
       tags:
       - Auth
       summary: Get OIDC configuration for organization
-      operationId: OIDC Info
+      operationId: OIDCInfo
       responses:
         '200':
           description: OK
@@ -294,12 +308,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv1OIDCInfoSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: OIDC Info
   /api/v1/auth/register:
     post:
       tags:
       - Auth
       summary: Register an user
-      operationId: Register an user
+      operationId: RegisterAnUser
       requestBody:
         content:
           application/json:
@@ -364,12 +380,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Register an user
   /api/v1/auth/reset_password:
     patch:
       tags:
       - Auth
       summary: Reset password
-      operationId: Reset password
+      operationId: ResetPassword
       requestBody:
         content:
           application/json:
@@ -434,12 +452,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Reset password
   /api/v1/auth/sso:
     post:
       tags:
       - Auth
       summary: Single sign on
-      operationId: Single sign on
+      operationId: SingleSignOn
       requestBody:
         content:
           application/json:
@@ -504,12 +524,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Single sign on
   /api/v1/auth/token:
     get:
       tags:
       - Auth
       summary: Get auth token by code
-      operationId: Get auth token by code
+      operationId: GetAuthTokenByCode
       parameters:
       - name: code
         in: query
@@ -767,65 +789,28 @@ paths:
                       updated_at:
                         type: string
                         format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get auth token by code
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    Controllersv1GroupMappingDebug:
       type: object
       properties:
-        key:
+        error:
           type: string
-        stage:
+        group:
           type: string
-        value:
+        role:
           type: string
-    Controllersv1OIDCDebugInfo:
+        success:
+          type: boolean
+        target_org_name:
+          type: string
+    Schemasv1CodeSchema:
       type: object
       properties:
-        current_org_id:
-          type: integer
-          format: int32
-        current_org_name:
+        code:
           type: string
-        processed_mappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Controllersv1GroupMappingDebug'
-        user_groups:
-          type: array
-          items:
-            type: string
-    Single_Sign_OnInput:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type: string
-        idToken:
-          type: string
-        invitation_code:
-          type: string
-        last_name:
-          type: string
-      required:
-      - idToken
-    Register_An_UserInput:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        name:
-          type: string
-        password:
-          type: string
-      required:
-      - email
-      - name
-      - password
     Put_Infos_For_Current_UserInput:
       type: object
       properties:
@@ -857,16 +842,51 @@ components:
           type: string
       required:
       - organization_name
-    Login_An_UserInput:
+    Reset_PasswordInput:
       type: object
       properties:
-        name_or_email:
+        current_password:
+          type: string
+        new_password:
+          type: string
+    ServicesAirtableItemSchema:
+      type: object
+      properties:
+        id:
+          type: string
+    Register_An_UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        name:
           type: string
         password:
           type: string
       required:
-      - name_or_email
+      - email
+      - name
       - password
+    Controllersv1OIDCDebugInfo:
+      type: object
+      properties:
+        current_org_id:
+          type: integer
+          format: int32
+        current_org_name:
+          type: string
+        processed_mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1GroupMappingDebug'
+        user_groups:
+          type: array
+          items:
+            type: string
     Airtable_Event_CallbackInput:
       type: object
       properties:
@@ -876,56 +896,6 @@ components:
           type: string
         webhook:
           $ref: '#/components/schemas/ServicesAirtableItemSchema'
-    Controllersv1OIDCInfoSchema:
-      type: object
-      properties:
-        client_id:
-          type: string
-        enabled:
-          type: boolean
-        provider_url:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-    Reset_PasswordInput:
-      type: object
-      properties:
-        current_password:
-          type: string
-        new_password:
-          type: string
-    Controllersv1FirebaseInfoSchema:
-      type: object
-      properties:
-        api_key:
-          type: string
-        auth_domain:
-          type: string
-    Schemasv1CodeSchema:
-      type: object
-      properties:
-        code:
-          type: string
-    ServicesAirtableItemSchema:
-      type: object
-      properties:
-        id:
-          type: string
-    Controllersv1GroupMappingDebug:
-      type: object
-      properties:
-        error:
-          type: string
-        group:
-          type: string
-        role:
-          type: string
-        success:
-          type: boolean
-        target_org_name:
-          type: string
     Controllersv1OIDCCallbackResponseSchema:
       type: object
       properties:
@@ -985,6 +955,60 @@ components:
             updated_at:
               type: string
               format: date-time
+    Controllersv1FirebaseInfoSchema:
+      type: object
+      properties:
+        api_key:
+          type: string
+        auth_domain:
+          type: string
+    Single_Sign_OnInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        idToken:
+          type: string
+        invitation_code:
+          type: string
+        last_name:
+          type: string
+      required:
+      - idToken
+    Controllersv1OIDCInfoSchema:
+      type: object
+      properties:
+        client_id:
+          type: string
+        enabled:
+          type: boolean
+        provider_url:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Login_An_UserInput:
+      type: object
+      properties:
+        name_or_email:
+          type: string
+        password:
+          type: string
+      required:
+      - name_or_email
+      - password
   securitySchemes:
     apiToken:
       type: apiKey

@@ -12,7 +12,7 @@ paths:
       tags:
       - lago customer
       summary: List lago customers
-      operationId: List lago customers
+      operationId: ListLagoCustomers
       responses:
         '200':
           description: OK
@@ -20,11 +20,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1LagoCustomerListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List lago customers
     post:
       tags:
       - lago customer
       summary: Create lago customer
-      operationId: Create lago customer
+      operationId: CreateLagoCustomer
       requestBody:
         content:
           application/json:
@@ -37,12 +39,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1LagoCustomer'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create lago customer
   /api/v1/lago/customers/{customerId}:
     put:
       tags:
       - lago customer
       summary: Update lago customer
-      operationId: Update lago customer
+      operationId: UpdateLagoCustomer
       parameters:
       - name: customerId
         in: path
@@ -57,6 +61,8 @@ paths:
       responses:
         '200':
           description: OK
+      x-operation-id-source: normalized
+      x-operation-id-original: Update lago customer
 components:
   schemas:
     Create_Lago_CustomerInput:
@@ -78,13 +84,6 @@ components:
           type: string
         plan_type:
           type: string
-    Update_Lago_CustomerInput:
-      type: object
-      properties:
-        stripe_id:
-          type:
-          - string
-          - 'null'
     Schemasv1LagoCustomer:
       type: object
       properties:
@@ -100,6 +99,13 @@ components:
           type: string
         wallet_id:
           type: string
+    Update_Lago_CustomerInput:
+      type: object
+      properties:
+        stripe_id:
+          type:
+          - string
+          - 'null'
     Schemasv1LagoCustomerListSchema:
       type: object
       properties:

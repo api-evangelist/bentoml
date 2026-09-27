@@ -12,7 +12,7 @@ paths:
       tags:
       - Models
       summary: List models
-      operationId: List models
+      operationId: ListModels
       parameters:
       - name: modelRepositoryName
         in: path
@@ -50,11 +50,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ModelListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List models
     post:
       tags:
       - Models
       summary: Create a model
-      operationId: Create a model
+      operationId: CreateAModel
       parameters:
       - name: modelRepositoryName
         in: path
@@ -204,17 +206,10 @@ paths:
                     type: string
                   version:
                     type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a model
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Create_A_ModelInput:
       type: object
       properties:
@@ -251,6 +246,15 @@ components:
         size_bytes:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1ModelListSchema:
       type: object
       properties:

@@ -12,7 +12,7 @@ paths:
       tags:
       - Instance Types
       summary: List instance types
-      operationId: List instance types
+      operationId: ListInstanceTypes
       parameters:
       - name: cluster
         in: query
@@ -95,6 +95,8 @@ paths:
                     updated_at:
                       type: string
                       format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: List instance types
 components:
   schemas:
     ModelschemasLabelItemSchema:

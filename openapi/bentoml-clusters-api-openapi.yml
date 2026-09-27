@@ -12,7 +12,7 @@ paths:
       tags:
       - Clusters
       summary: List clusters
-      operationId: List clusters
+      operationId: ListClusters
       parameters:
       - name: count
         in: query
@@ -45,11 +45,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ClusterWithStandbyListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List clusters
     post:
       tags:
       - Clusters
       summary: Create cluster
-      operationId: Create cluster
+      operationId: CreateCluster
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -346,36 +348,18 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create cluster
 components:
   schemas:
-    ModelschemasClusterConfigSchema:
+    ModelschemasImageResgitryConfig:
       type: object
       properties:
-        default_deployment_kube_namespace:
+        password:
           type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
+        server:
           type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Create_ClusterInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasClusterConfigSchema'
-        description:
-          type: string
-        host_cluster_name:
-          type: string
-        image_resgitry_config:
-          $ref: '#/components/schemas/ModelschemasImageResgitryConfig'
-        multi_tenancy:
-          type: boolean
-        name:
+        username:
           type: string
     Schemasv1ClusterWithStandbyListSchema:
       type: object
@@ -508,6 +492,26 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasClusterConfigSchema:
+      type: object
+      properties:
+        default_deployment_kube_namespace:
+          type: string
+    Create_ClusterInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasClusterConfigSchema'
+        description:
+          type: string
+        host_cluster_name:
+          type: string
+        image_resgitry_config:
+          $ref: '#/components/schemas/ModelschemasImageResgitryConfig'
+        multi_tenancy:
+          type: boolean
+        name:
+          type: string
     Schemasv1ResourceInstanceName:
       type: object
       properties:
@@ -515,14 +519,14 @@ components:
           type: string
         name:
           type: string
-    ModelschemasImageResgitryConfig:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        password:
+        key:
           type: string
-        server:
+        stage:
           type: string
-        username:
+        value:
           type: string
   securitySchemes:
     apiToken:

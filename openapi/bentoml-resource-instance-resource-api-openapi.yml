@@ -12,7 +12,7 @@ paths:
       tags:
       - resource instance resource
       summary: Get a resource instance
-      operationId: Get a resource instance
+      operationId: GetAResourceInstance
       parameters:
       - name: resourceInstanceName
         in: path
@@ -70,11 +70,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a resource instance
     delete:
       tags:
       - resource instance resource
       summary: Delete a resource instance
-      operationId: Delete a resource instance
+      operationId: DeleteAResourceInstance
       parameters:
       - name: resourceInstanceName
         in: path
@@ -132,11 +134,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a resource instance
     patch:
       tags:
       - resource instance resource
       summary: Update a resource instance
-      operationId: Update a resource instance
+      operationId: UpdateAResourceInstance
       parameters:
       - name: resourceInstanceName
         in: path
@@ -199,8 +203,19 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a resource instance
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Resource_InstanceInput:
       type: object
       properties:
@@ -220,15 +235,6 @@ components:
           type:
           - string
           - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

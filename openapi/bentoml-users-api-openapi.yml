@@ -12,7 +12,7 @@ paths:
       tags:
       - Users
       summary: List users
-      operationId: List users
+      operationId: ListUsers
       parameters:
       - name: count
         in: query
@@ -41,11 +41,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1UserListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List users
     post:
       tags:
       - Users
       summary: Create an user
-      operationId: Create an user
+      operationId: CreateAnUser
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -115,12 +117,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create an user
   /api/v1/users/invite:
     post:
       tags:
       - Users
       summary: Invite an user
-      operationId: Invite an user
+      operationId: InviteAnUser
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -138,17 +142,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1InviteUserResponseSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Invite an user
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Schemasv1UserListSchema:
       type: object
       properties:
@@ -224,26 +221,15 @@ components:
           type: string
         url:
           type: string
-    Create_An_UserInput:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        email:
+        key:
           type: string
-        name:
+        stage:
           type: string
-        password:
+        value:
           type: string
-        role:
-          type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-      required:
-      - email
-      - name
-      - password
     Invite_An_UserInput:
       type: object
       properties:
@@ -264,6 +250,26 @@ components:
       - email
       - first_name
       - last_name
+    Create_An_UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+      required:
+      - email
+      - name
+      - password
   securitySchemes:
     apiToken:
       type: apiKey

@@ -12,7 +12,7 @@ paths:
       tags:
       - cluster resource for admin panel
       summary: Get a cluster in admin panel
-      operationId: Get a cluster in admin panel
+      operationId: GetAClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -310,11 +310,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a cluster in admin panel
     delete:
       tags:
       - cluster resource for admin panel
       summary: Delete a cluster in admin panel
-      operationId: Delete a cluster in admin panel
+      operationId: DeleteAClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -612,11 +614,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a cluster in admin panel
     patch:
       tags:
       - cluster resource for admin panel
       summary: Update a cluster in admin panel
-      operationId: Update a cluster in admin panel
+      operationId: UpdateAClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -919,12 +923,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a cluster in admin panel
   /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members:
     get:
       tags:
       - cluster resource for admin panel
       summary: List cluster members in admin panel
-      operationId: List cluster members in admin panel
+      operationId: ListClusterMembersInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -945,11 +951,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List cluster members in admin panel
     post:
       tags:
       - cluster resource for admin panel
       summary: Create a cluster member in admin panel
-      operationId: Create a cluster member in admin panel
+      operationId: CreateAClusterMemberInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -975,11 +983,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a cluster member in admin panel
     delete:
       tags:
       - cluster resource for admin panel
       summary: Remove a cluster member in admin panel
-      operationId: Remove a cluster member in admin panel
+      operationId: RemoveAClusterMemberInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -998,12 +1008,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ClusterMemberSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Remove a cluster member in admin panel
   /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/migrate_deployments:
     post:
       tags:
       - cluster resource for admin panel
       summary: Migrate deployments on cluster in admin panel
-      operationId: Migrate deployments on cluster in admin panel
+      operationId: MigrateDeploymentsOnClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -1028,12 +1040,14 @@ paths:
               schema:
                 type: integer
                 format: int32
+      x-operation-id-source: normalized
+      x-operation-id-original: Migrate deployments on cluster in admin panel
   /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_kubeconfig:
     put:
       tags:
       - cluster resource for admin panel
       summary: Sync tenant kubeconfig in a cluster in admin panel
-      operationId: Sync tenant kubeconfig in a cluster in admin panel
+      operationId: SyncTenantKubeconfigInAClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -1331,12 +1345,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Sync tenant kubeconfig in a cluster in admin panel
   /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_resources:
     put:
       tags:
       - cluster resource for admin panel
       summary: Sync tenant resources in a cluster in admin panel
-      operationId: Sync tenant resources in a cluster in admin panel
+      operationId: SyncTenantResourcesInAClusterInAdminPanel
       parameters:
       - name: clusterName
         in: path
@@ -1634,16 +1650,50 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Sync tenant resources in a cluster in admin panel
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    Create_A_Cluster_Member_In_Admin_PanelInput:
       type: object
       properties:
-        key:
+        role:
           type: string
-        stage:
-          type: string
-        value:
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
+    Update_A_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
+        name:
+          type:
+          - string
+          - 'null'
+    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        targetClusterName:
           type: string
     Schemasv1ClusterMemberSchema:
       type: object
@@ -1879,47 +1929,15 @@ components:
             updated_at:
               type: string
               format: date-time
-    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        targetClusterName:
+        key:
           type: string
-    Update_A_Cluster_In_Admin_PanelInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        host_cluster_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        multi_tenancy:
-          type: boolean
-        name:
-          type:
-          - string
-          - 'null'
-    Create_A_Cluster_Member_In_Admin_PanelInput:
-      type: object
-      properties:
-        role:
+        stage:
           type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-        usernames:
-          type: array
-          items:
-            type: string
+        value:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

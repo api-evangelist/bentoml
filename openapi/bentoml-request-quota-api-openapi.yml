@@ -12,7 +12,7 @@ paths:
       tags:
       - request quota
       summary: Create a Request quota
-      operationId: Create a Request quota
+      operationId: CreateARequestQuota
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -30,6 +30,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv2CreateRequestQuotaSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a Request quota
 components:
   schemas:
     Create_A_Request_QuotaInput:

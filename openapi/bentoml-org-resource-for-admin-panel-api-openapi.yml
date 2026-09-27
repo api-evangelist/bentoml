@@ -12,7 +12,7 @@ paths:
       tags:
       - org resource for admin panel
       summary: Delete an org in admin panel
-      operationId: Delete an org in admin panel
+      operationId: DeleteAnOrgInAdminPanel
       parameters:
       - name: orgName
         in: path
@@ -145,12 +145,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete an org in admin panel
   /api/admin/v1/orgs/{orgName}/models:
     get:
       tags:
       - org resource for admin panel
       summary: List models in an org in admin panel
-      operationId: List models in an org in admin panel
+      operationId: ListModelsInAnOrgInAdminPanel
       parameters:
       - name: orgName
         in: path
@@ -184,12 +186,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ModelWithRepositoryListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List models in an org in admin panel
   /api/admin/v1/orgs/{orgName}/operate:
     post:
       tags:
       - org resource for admin panel
       summary: Operate an org in admin panel
-      operationId: Operate an org in admin panel
+      operationId: OperateAnOrgInAdminPanel
       parameters:
       - name: orgName
         in: path
@@ -327,12 +331,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Operate an org in admin panel
   /api/admin/v1/orgs/{orgName}/sync_s3_credentials:
     post:
       tags:
       - org resource for admin panel
       summary: Sync org S3 credentials to all non-multi-tenancy clusters
-      operationId: Sync org S3 credentials to clusters
+      operationId: SyncOrgS3CredentialsToClusters
       parameters:
       - name: orgName
         in: path
@@ -465,43 +471,10 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Sync org S3 credentials to clusters
 components:
   schemas:
-    Operate_An_Org_In_Admin_PanelInput:
-      type: object
-      properties:
-        status:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasModelManifestSchema:
-      type: object
-      properties:
-        api_version:
-          type: string
-        bentoml_version:
-          type: string
-        context:
-          type: object
-          additionalProperties: {}
-        metadata:
-          type: object
-          additionalProperties: {}
-        module:
-          type: string
-        options:
-          type: object
-          additionalProperties: {}
-        size_bytes:
-          type: integer
-          format: int32
     Schemasv1ModelWithRepositoryListSchema:
       type: object
       properties:
@@ -983,6 +956,41 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasModelManifestSchema:
+      type: object
+      properties:
+        api_version:
+          type: string
+        bentoml_version:
+          type: string
+        context:
+          type: object
+          additionalProperties: {}
+        metadata:
+          type: object
+          additionalProperties: {}
+        module:
+          type: string
+        options:
+          type: object
+          additionalProperties: {}
+        size_bytes:
+          type: integer
+          format: int32
+    Operate_An_Org_In_Admin_PanelInput:
+      type: object
+      properties:
+        status:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

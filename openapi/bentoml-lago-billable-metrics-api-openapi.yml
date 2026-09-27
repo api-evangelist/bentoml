@@ -12,7 +12,7 @@ paths:
       tags:
       - lago billable metrics
       summary: List lago billable metrics
-      operationId: List lago billable metrics
+      operationId: ListLagoBillableMetrics
       responses:
         '200':
           description: OK
@@ -20,11 +20,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1LagoBillableMetricsListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List lago billable metrics
     post:
       tags:
       - lago billable metrics
       summary: Create lago billable metric
-      operationId: Create lago billable metric
+      operationId: CreateLagoBillableMetric
       requestBody:
         content:
           application/json:
@@ -37,12 +39,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1BillableMetrics'
+      x-operation-id-source: normalized
+      x-operation-id-original: Create lago billable metric
   /api/v1/lago/billable_metrics/{billableMetricCode}:
     put:
       tags:
       - lago billable metrics
       summary: Update lago billable metric
-      operationId: Update lago billable metric
+      operationId: UpdateLagoBillableMetric
       parameters:
       - name: billableMetricCode
         in: path
@@ -61,8 +65,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1BillableMetrics'
+      x-operation-id-source: normalized
+      x-operation-id-original: Update lago billable metric
 components:
   schemas:
+    Create_Lago_Billable_MetricInput:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        display_name:
+          type: string
     Update_Lago_Billable_MetricInput:
       type: object
       properties:
@@ -74,6 +89,17 @@ components:
           type:
           - string
           - 'null'
+    Schemasv1BillableMetrics:
+      type: object
+      properties:
+        description:
+          type: string
+        display_name:
+          type: string
+        lago_id:
+          type: string
+        name:
+          type: string
     Schemasv1LagoBillableMetricsListSchema:
       type: object
       properties:
@@ -90,26 +116,6 @@ components:
         total:
           type: integer
           format: int32
-    Schemasv1BillableMetrics:
-      type: object
-      properties:
-        description:
-          type: string
-        display_name:
-          type: string
-        lago_id:
-          type: string
-        name:
-          type: string
-    Create_Lago_Billable_MetricInput:
-      type: object
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-        display_name:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

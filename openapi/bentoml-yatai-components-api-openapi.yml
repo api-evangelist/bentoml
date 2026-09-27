@@ -12,7 +12,7 @@ paths:
       tags:
       - yatai components
       summary: List yatai components
-      operationId: List yatai components
+      operationId: ListYataiComponents
       parameters:
       - name: clusterName
         in: path
@@ -184,6 +184,8 @@ paths:
                       format: date-time
                     version:
                       type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: List yatai components
 components:
   schemas:
     ModelschemasLabelItemSchema:

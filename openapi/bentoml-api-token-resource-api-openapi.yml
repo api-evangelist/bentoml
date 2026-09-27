@@ -12,7 +12,7 @@ paths:
       tags:
       - api token resource
       summary: Get a api token
-      operationId: Get a api token
+      operationId: GetAApiToken
       parameters:
       - name: apiTokenUid
         in: path
@@ -275,11 +275,13 @@ paths:
                       updated_at:
                         type: string
                         format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get a api token
     delete:
       tags:
       - api token resource
       summary: Delete a api token
-      operationId: Delete a api token
+      operationId: DeleteAApiToken
       parameters:
       - name: apiTokenUid
         in: path
@@ -542,11 +544,13 @@ paths:
                       updated_at:
                         type: string
                         format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Delete a api token
     patch:
       tags:
       - api token resource
       summary: Update a api token
-      operationId: Update a api token
+      operationId: UpdateAApiToken
       parameters:
       - name: apiTokenUid
         in: path
@@ -814,6 +818,8 @@ paths:
                       updated_at:
                         type: string
                         format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update a api token
 components:
   schemas:
     Update_A_Api_TokenInput:

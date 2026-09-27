@@ -12,7 +12,7 @@ paths:
       tags:
       - Resource Instances
       summary: List resource instances
-      operationId: List resource instances
+      operationId: ListResourceInstances
       parameters:
       - name: count
         in: query
@@ -41,11 +41,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1ResourceInstanceListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List resource instances
     post:
       tags:
       - Resource Instances
       summary: Create a resource instance
-      operationId: Create a resource instance
+      operationId: CreateAResourceInstance
       requestBody:
         content:
           application/json:
@@ -102,16 +104,73 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Create a resource instance
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    Create_A_Resource_InstanceInput:
       type: object
       properties:
-        key:
+        config:
+          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
+        description:
           type: string
-        stage:
+        display_name:
           type: string
-        value:
+        name:
+          type: string
+    ModelschemasDeploymentTargetResourceItem:
+      type: object
+      properties:
+        cpu:
+          type: string
+        custom:
+          type: object
+          additionalProperties:
+            type: string
+        gpu:
+          type: string
+        memory:
+          type: string
+    ModelschemasResourceInstanceConfigSchema:
+      type: object
+      properties:
+        gpu_config:
+          $ref: '#/components/schemas/ModelschemasGPUConfig'
+        group:
+          type: string
+        node_selectors:
+          type: object
+          additionalProperties:
+            type: string
+        price:
+          type: string
+        resources:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
+        tolerations:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1Toleration'
+        tpu_config:
+          $ref: '#/components/schemas/ModelschemasTPUConfig'
+    ModelschemasGPUConfig:
+      type: object
+      properties:
+        memory:
+          type: string
+        type:
+          type: string
+    ModelschemasDeploymentTargetResources:
+      type: object
+      properties:
+        limits:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+        requests:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+    ModelschemasTPUConfig:
+      type: object
+      properties:
+        type:
           type: string
     Schemasv1ResourceInstanceListSchema:
       type: object
@@ -173,6 +232,15 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     V1Toleration:
       type: object
       properties:
@@ -189,70 +257,6 @@ components:
           format: int64
         value:
           type: string
-    ModelschemasDeploymentTargetResourceItem:
-      type: object
-      properties:
-        cpu:
-          type: string
-        custom:
-          type: object
-          additionalProperties:
-            type: string
-        gpu:
-          type: string
-        memory:
-          type: string
-    ModelschemasGPUConfig:
-      type: object
-      properties:
-        memory:
-          type: string
-        type:
-          type: string
-    ModelschemasResourceInstanceConfigSchema:
-      type: object
-      properties:
-        gpu_config:
-          $ref: '#/components/schemas/ModelschemasGPUConfig'
-        group:
-          type: string
-        node_selectors:
-          type: object
-          additionalProperties:
-            type: string
-        price:
-          type: string
-        resources:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
-        tolerations:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1Toleration'
-        tpu_config:
-          $ref: '#/components/schemas/ModelschemasTPUConfig'
-    ModelschemasTPUConfig:
-      type: object
-      properties:
-        type:
-          type: string
-    Create_A_Resource_InstanceInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
-    ModelschemasDeploymentTargetResources:
-      type: object
-      properties:
-        limits:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-        requests:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
   securitySchemes:
     apiToken:
       type: apiKey

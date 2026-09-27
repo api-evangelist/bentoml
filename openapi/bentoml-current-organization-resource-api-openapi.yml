@@ -12,7 +12,7 @@ paths:
       tags:
       - current organization resource
       summary: Get current organization
-      operationId: Get current organization
+      operationId: GetCurrentOrganization
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -144,11 +144,13 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get current organization
     patch:
       tags:
       - current organization resource
       summary: Update current organization
-      operationId: Update current organization
+      operationId: UpdateCurrentOrganization
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -285,12 +287,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update current organization
   /api/v1/current_org/current_credit:
     get:
       tags:
       - current organization resource
       summary: Get an organization's current credit
-      operationId: Get an organization's current credit
+      operationId: GetAnOrganization'sCurrentCredit
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -303,12 +307,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1CustomerCurrentCreditSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization's current credit
   /api/v1/current_org/current_price:
     get:
       tags:
       - current organization resource
       summary: Get current organization with current price
-      operationId: Get current organization with current price
+      operationId: GetCurrentOrganizationWithCurrentPrice
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -440,12 +446,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get current organization with current price
   /api/v1/current_org/current_usage:
     get:
       tags:
       - current organization resource
       summary: Get an organization's current usage
-      operationId: Get an organization's current usage
+      operationId: GetAnOrganization'sCurrentUsage
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -458,12 +466,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv1CustomerCurrentUsageSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization's current usage
   /api/v1/current_org/customer_portal_url:
     get:
       tags:
       - current organization resource
       summary: Get customer portal URL
-      operationId: Get customer portal URL
+      operationId: GetCustomerPortalURL
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -476,12 +486,14 @@ paths:
             application/json:
               schema:
                 type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Get customer portal URL
   /api/v1/current_org/event_operation_names:
     get:
       tags:
       - current organization resource
       summary: List current organization event operation names
-      operationId: List current organization event operation names
+      operationId: ListCurrentOrganizationEventOperationNames
       parameters:
       - name: resource_type
         in: query
@@ -500,12 +512,14 @@ paths:
                 type: array
                 items:
                   type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: List current organization event operation names
   /api/v1/current_org/events:
     get:
       tags:
       - current organization resource
       summary: List current organization events
-      operationId: List current organization events
+      operationId: ListCurrentOrganizationEvents
       parameters:
       - name: count
         in: query
@@ -538,12 +552,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schemasv1EventListSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: List current organization events
   /api/v1/current_org/major_cluster:
     get:
       tags:
       - current organization resource
       summary: Get an organization major cluster
-      operationId: Get an organization major cluster
+      operationId: GetAnOrganizationMajorCluster
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -835,12 +851,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization major cluster
   /api/v1/current_org/model_modules:
     get:
       tags:
       - current organization resource
       summary: Get an organization model modules
-      operationId: Get an organization model modules
+      operationId: GetAnOrganizationModelModules
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -855,12 +873,14 @@ paths:
                 type: array
                 items:
                   type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization model modules
   /api/v1/current_org/payment:
     get:
       tags:
       - current organization resource
       summary: Get an organization's payment
-      operationId: Get an organization's payment
+      operationId: GetAnOrganization'sPayment
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -923,12 +943,14 @@ paths:
                     format: date-time
                   wallet_id:
                     type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization's payment
   /api/v1/current_org/plan:
     put:
       tags:
       - current organization resource
       summary: Update an organization's plan
-      operationId: Update an organization's plan
+      operationId: UpdateAnOrganization'sPlan
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -1065,12 +1087,14 @@ paths:
                   updated_at:
                     type: string
                     format: date-time
+      x-operation-id-source: normalized
+      x-operation-id-original: Update an organization's plan
   /api/v1/current_org/usage_metrics:
     get:
       tags:
       - current organization resource
       summary: Get an organization's usage metrics by time granularity
-      operationId: Get an organization's usage metrics
+      operationId: GetAnOrganization'sUsageMetrics
       parameters:
       - name: debug
         in: query
@@ -1095,12 +1119,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controllersv1MetricUsageSchema'
+      x-operation-id-source: normalized
+      x-operation-id-original: Get an organization's usage metrics
   /api/v1/current_org/yatai_components:
     get:
       tags:
       - current organization resource
       summary: List current organization all yatai components
-      operationId: List current organization all yatai components
+      operationId: ListCurrentOrganizationAllYataiComponents
       parameters:
       - name: X-Yatai-Organization
         in: header
@@ -1267,6 +1293,8 @@ paths:
                       format: date-time
                     version:
                       type: string
+      x-operation-id-source: normalized
+      x-operation-id-original: List current organization all yatai components
 components:
   schemas:
     Controllersv1CustomerCurrentUsage:
@@ -1284,109 +1312,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Controllersv1Usage'
-    Schemasv1EventListSchema:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1EventSchema'
-        start:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Controllersv1CustomerCurrentUsageSchema:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Controllersv1CustomerCurrentUsage'
-    Update_An_Organization_S_PlanInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        limit_group_name:
-          type:
-          - string
-          - 'null'
-        multi_tenancy:
-          type:
-          - boolean
-          - 'null'
-        plan_type:
-          type:
-          - string
-          - 'null'
-    Schemasv1CustomerCurrentCreditSchema:
-      type: object
-      properties:
-        current_credit:
-          type: number
-          format: double
-        total_credit:
-          type: number
-          format: double
-        used_credit:
-          type: number
-          format: double
-    Controllersv1MetricUsageSchema:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-        debug:
-          type: boolean
-        debugInfo:
-          description: Value of any type, including null
-        endTime:
-          type: string
-        granularity:
-          type: string
-        rawLagoResponse:
-          description: Value of any type, including null
-        startTime:
-          type: string
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
     Controllersv1Usage:
       type: object
       properties:
@@ -1396,29 +1321,6 @@ components:
           type: string
         value:
           type: string
-    Update_Current_OrganizationInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        limit_group_name:
-          type:
-          - string
-          - 'null'
-        multi_tenancy:
-          type:
-          - boolean
-          - 'null'
-        plan_type:
-          type:
-          - string
-          - 'null'
     Schemasv1EventSchema:
       type: object
       properties:
@@ -1501,6 +1403,93 @@ components:
         updated_at:
           type: string
           format: date-time
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+    Schemasv1CustomerCurrentCreditSchema:
+      type: object
+      properties:
+        current_credit:
+          type: number
+          format: double
+        total_credit:
+          type: number
+          format: double
+        used_credit:
+          type: number
+          format: double
+    Controllersv1MetricUsageSchema:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        debug:
+          type: boolean
+        debugInfo:
+          description: Value of any type, including null
+        endTime:
+          type: string
+        granularity:
+          type: string
+        rawLagoResponse:
+          description: Value of any type, including null
+        startTime:
+          type: string
+    Schemasv1EventListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1EventSchema'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Update_Current_OrganizationInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        limit_group_name:
+          type:
+          - string
+          - 'null'
+        multi_tenancy:
+          type:
+          - boolean
+          - 'null'
+        plan_type:
+          type:
+          - string
+          - 'null'
     ModelschemasYataiComponentManifestSchema:
       type: object
       properties:
@@ -1512,6 +1501,45 @@ components:
           type: object
           additionalProperties:
             type: string
+    Update_An_Organization_S_PlanInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        limit_group_name:
+          type:
+          - string
+          - 'null'
+        multi_tenancy:
+          type:
+          - boolean
+          - 'null'
+        plan_type:
+          type:
+          - string
+          - 'null'
+    Controllersv1CustomerCurrentUsageSchema:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1CustomerCurrentUsage'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

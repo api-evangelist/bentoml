@@ -735,17 +735,6 @@ paths:
       x-operation-id-original: Update a model repository
 components:
   schemas:
-    Update_A_Model_RepositoryInput:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -776,6 +765,17 @@ components:
         size_bytes:
           type: integer
           format: int32
+    Update_A_Model_RepositoryInput:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
   securitySchemes:
     apiToken:
       type: apiKey

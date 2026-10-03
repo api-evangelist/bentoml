@@ -108,29 +108,14 @@ paths:
       x-operation-id-original: Create a resource instance
 components:
   schemas:
-    Create_A_Resource_InstanceInput:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
-        description:
+        key:
           type: string
-        display_name:
+        stage:
           type: string
-        name:
-          type: string
-    ModelschemasDeploymentTargetResourceItem:
-      type: object
-      properties:
-        cpu:
-          type: string
-        custom:
-          type: object
-          additionalProperties:
-            type: string
-        gpu:
-          type: string
-        memory:
+        value:
           type: string
     ModelschemasResourceInstanceConfigSchema:
       type: object
@@ -153,6 +138,22 @@ components:
             $ref: '#/components/schemas/V1Toleration'
         tpu_config:
           $ref: '#/components/schemas/ModelschemasTPUConfig'
+    V1Toleration:
+      type: object
+      properties:
+        effect:
+          type: string
+        key:
+          type: string
+        operator:
+          type: string
+        tolerationSeconds:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        value:
+          type: string
     ModelschemasGPUConfig:
       type: object
       properties:
@@ -160,17 +161,21 @@ components:
           type: string
         type:
           type: string
-    ModelschemasDeploymentTargetResources:
-      type: object
-      properties:
-        limits:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
-        requests:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
     ModelschemasTPUConfig:
       type: object
       properties:
         type:
+          type: string
+    Create_A_Resource_InstanceInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
           type: string
     Schemasv1ResourceInstanceListSchema:
       type: object
@@ -232,31 +237,26 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
+    ModelschemasDeploymentTargetResourceItem:
       type: object
       properties:
-        key:
+        cpu:
           type: string
-        stage:
+        custom:
+          type: object
+          additionalProperties:
+            type: string
+        gpu:
           type: string
-        value:
+        memory:
           type: string
-    V1Toleration:
+    ModelschemasDeploymentTargetResources:
       type: object
       properties:
-        effect:
-          type: string
-        key:
-          type: string
-        operator:
-          type: string
-        tolerationSeconds:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        value:
-          type: string
+        limits:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
+        requests:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResourceItem'
   securitySchemes:
     apiToken:
       type: apiKey

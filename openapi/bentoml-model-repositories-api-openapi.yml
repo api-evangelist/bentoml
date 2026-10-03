@@ -409,16 +409,14 @@ paths:
       x-operation-id-original: Create a model repository
 components:
   schemas:
-    Create_A_Model_RepositoryInput:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        description:
+        key:
           type: string
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        name:
+        stage:
+          type: string
+        value:
           type: string
     ModelschemasModelManifestSchema:
       type: object
@@ -441,6 +439,17 @@ components:
         size_bytes:
           type: integer
           format: int32
+    Create_A_Model_RepositoryInput:
+      type: object
+      properties:
+        description:
+          type: string
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        name:
+          type: string
     Schemasv1ModelRepositoryListSchema:
       type: object
       properties:
@@ -793,15 +802,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

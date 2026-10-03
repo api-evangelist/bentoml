@@ -822,6 +822,15 @@ paths:
       x-operation-id-original: Update a api token
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Api_TokenInput:
       type: object
       properties:
@@ -843,15 +852,6 @@ components:
           type: array
           items:
             type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

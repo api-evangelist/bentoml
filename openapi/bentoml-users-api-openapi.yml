@@ -146,6 +146,15 @@ paths:
       x-operation-id-original: Invite an user
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1UserListSchema:
       type: object
       properties:
@@ -220,15 +229,6 @@ components:
         invitation_code:
           type: string
         url:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
     Invite_An_UserInput:
       type: object

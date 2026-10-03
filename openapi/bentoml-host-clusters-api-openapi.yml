@@ -189,6 +189,21 @@ components:
           additionalProperties:
             type: integer
             format: int32
+    Create_Host_ClusterInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasHostClusterConfigSchema'
+        default:
+          type: boolean
+        description:
+          type: string
+        display_name:
+          type: string
+        kube_config:
+          type: string
+        name:
+          type: string
     Schemasv1HostClusterListSchema:
       type: object
       properties:
@@ -251,21 +266,6 @@ components:
         total:
           type: integer
           format: int32
-    Create_Host_ClusterInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasHostClusterConfigSchema'
-        default:
-          type: boolean
-        description:
-          type: string
-        display_name:
-          type: string
-        kube_config:
-          type: string
-        name:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

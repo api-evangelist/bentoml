@@ -116,6 +116,169 @@ paths:
       x-operation-id-original: Create a limit group
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasLimitGroupResourceInstanceSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
+    Schemasv1LimitGroupListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              config:
+                type:
+                - string
+                - 'null'
+              created_at:
+                type: string
+                format: date-time
+              deleted_at:
+                type:
+                - string
+                - 'null'
+                format: date-time
+              description:
+                type: string
+              display_name:
+                type: string
+              labels:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+              name:
+                type: string
+              plan_code:
+                type: string
+              resource_instance_list:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
+              resource_type:
+                type: string
+                enum:
+                - user
+                - organization
+                - cluster
+                - host_cluster
+                - bento_repository
+                - bento
+                - deployment
+                - deployment_revision
+                - model_repository
+                - model
+                - api_token
+              uid:
+                type: string
+              updated_at:
+                type: string
+                format: date-time
+              visible:
+                type:
+                - boolean
+                - 'null'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Create_A_Limit_GroupInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasLimitGroupConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+        plan_code:
+          type: string
+        visible:
+          type:
+          - boolean
+          - 'null'
+    Schemasv1ResourceInstanceWithActiveSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        resource_instance:
+          type: object
+          properties:
+            config:
+              type:
+              - string
+              - 'null'
+            created_at:
+              type: string
+              format: date-time
+            deleted_at:
+              type:
+              - string
+              - 'null'
+              format: date-time
+            description:
+              type: string
+            display_name:
+              type: string
+            labels:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+            lago_id:
+              type: string
+            name:
+              type: string
+            resource_type:
+              type: string
+              enum:
+              - user
+              - organization
+              - cluster
+              - host_cluster
+              - bento_repository
+              - bento
+              - deployment
+              - deployment_revision
+              - model_repository
+              - model
+              - api_token
+            uid:
+              type: string
+            updated_at:
+              type: string
+              format: date-time
+    ModelschemasLimitGroupDeploymentConfig:
+      type: object
+      properties:
+        access_authorization:
+          type: array
+          items:
+            type: boolean
+        deployment_strategy:
+          type: array
+          items:
+            type: string
     ModelschemasLimitGroupConfigSchema:
       type: object
       properties:
@@ -198,171 +361,8 @@ components:
           type: array
           items:
             type: string
-    ModelschemasLimitGroupDeploymentConfig:
-      type: object
-      properties:
-        access_authorization:
-          type: array
-          items:
-            type: boolean
-        deployment_strategy:
-          type: array
-          items:
-            type: string
-    ModelschemasLimitGroupResourceInstanceSchema:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
-          type: string
     ResourceQuantity:
       type: object
-    Schemasv1ResourceInstanceWithActiveSchema:
-      type: object
-      properties:
-        active:
-          type: boolean
-        resource_instance:
-          type: object
-          properties:
-            config:
-              type:
-              - string
-              - 'null'
-            created_at:
-              type: string
-              format: date-time
-            deleted_at:
-              type:
-              - string
-              - 'null'
-              format: date-time
-            description:
-              type: string
-            display_name:
-              type: string
-            labels:
-              type: array
-              items:
-                $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-            lago_id:
-              type: string
-            name:
-              type: string
-            resource_type:
-              type: string
-              enum:
-              - user
-              - organization
-              - cluster
-              - host_cluster
-              - bento_repository
-              - bento
-              - deployment
-              - deployment_revision
-              - model_repository
-              - model
-              - api_token
-            uid:
-              type: string
-            updated_at:
-              type: string
-              format: date-time
-    Create_A_Limit_GroupInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasLimitGroupConfigSchema'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
-        plan_code:
-          type: string
-        visible:
-          type:
-          - boolean
-          - 'null'
-    Schemasv1LimitGroupListSchema:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              config:
-                type:
-                - string
-                - 'null'
-              created_at:
-                type: string
-                format: date-time
-              deleted_at:
-                type:
-                - string
-                - 'null'
-                format: date-time
-              description:
-                type: string
-              display_name:
-                type: string
-              labels:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-              name:
-                type: string
-              plan_code:
-                type: string
-              resource_instance_list:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Schemasv1ResourceInstanceWithActiveSchema'
-              resource_type:
-                type: string
-                enum:
-                - user
-                - organization
-                - cluster
-                - host_cluster
-                - bento_repository
-                - bento
-                - deployment
-                - deployment_revision
-                - model_repository
-                - model
-                - api_token
-              uid:
-                type: string
-              updated_at:
-                type: string
-                format: date-time
-              visible:
-                type:
-                - boolean
-                - 'null'
-        start:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

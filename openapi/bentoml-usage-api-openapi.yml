@@ -59,6 +59,15 @@ paths:
       x-operation-id-original: Collect usage
 components:
   schemas:
+    Schemasv1LastSendTimeSchema:
+      type: object
+      properties:
+        last_send_time:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TimeTime'
+    TimeTime:
+      type: object
     Collect_UsageInput:
       type: object
       properties:
@@ -70,15 +79,6 @@ components:
             type: string
         record_value:
           type: string
-    Schemasv1LastSendTimeSchema:
-      type: object
-      properties:
-        last_send_time:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/TimeTime'
-    TimeTime:
-      type: object
   securitySchemes:
     apiToken:
       type: apiKey

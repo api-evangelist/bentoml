@@ -352,14 +352,19 @@ paths:
       x-operation-id-original: Create cluster
 components:
   schemas:
-    ModelschemasImageResgitryConfig:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        password:
+        key:
           type: string
-        server:
+        stage:
           type: string
-        username:
+        value:
+          type: string
+    ModelschemasClusterConfigSchema:
+      type: object
+      properties:
+        default_deployment_kube_namespace:
           type: string
     Schemasv1ClusterWithStandbyListSchema:
       type: object
@@ -492,11 +497,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasClusterConfigSchema:
-      type: object
-      properties:
-        default_deployment_kube_namespace:
-          type: string
     Create_ClusterInput:
       type: object
       properties:
@@ -512,21 +512,21 @@ components:
           type: boolean
         name:
           type: string
+    ModelschemasImageResgitryConfig:
+      type: object
+      properties:
+        password:
+          type: string
+        server:
+          type: string
+        username:
+          type: string
     Schemasv1ResourceInstanceName:
       type: object
       properties:
         display_name:
           type: string
         name:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
   securitySchemes:
     apiToken:

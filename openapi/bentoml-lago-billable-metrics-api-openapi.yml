@@ -78,6 +78,22 @@ components:
           type: string
         display_name:
           type: string
+    Schemasv1LagoBillableMetricsListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1BillableMetrics'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
     Update_Lago_Billable_MetricInput:
       type: object
       properties:
@@ -100,22 +116,6 @@ components:
           type: string
         name:
           type: string
-    Schemasv1LagoBillableMetricsListSchema:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1BillableMetrics'
-        start:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
   securitySchemes:
     apiToken:
       type: apiKey

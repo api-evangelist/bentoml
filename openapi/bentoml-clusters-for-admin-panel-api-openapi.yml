@@ -314,15 +314,6 @@ paths:
       x-operation-id-original: Create cluster in admin panel
 components:
   schemas:
-    ModelschemasImageResgitryConfig:
-      type: object
-      properties:
-        password:
-          type: string
-        server:
-          type: string
-        username:
-          type: string
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -351,6 +342,15 @@ components:
         multi_tenancy:
           type: boolean
         name:
+          type: string
+    ModelschemasImageResgitryConfig:
+      type: object
+      properties:
+        password:
+          type: string
+        server:
+          type: string
+        username:
           type: string
   securitySchemes:
     apiToken:

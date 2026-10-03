@@ -1654,20 +1654,15 @@ paths:
       x-operation-id-original: Sync tenant resources in a cluster in admin panel
 components:
   schemas:
-    Create_A_Cluster_Member_In_Admin_PanelInput:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        role:
+        key:
           type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-        usernames:
-          type: array
-          items:
-            type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Cluster_In_Admin_PanelInput:
       type: object
       properties:
@@ -1690,11 +1685,6 @@ components:
           type:
           - string
           - 'null'
-    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
-      type: object
-      properties:
-        targetClusterName:
-          type: string
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1929,14 +1919,24 @@ components:
             updated_at:
               type: string
               format: date-time
-    ModelschemasLabelItemSchema:
+    Create_A_Cluster_Member_In_Admin_PanelInput:
       type: object
       properties:
-        key:
+        role:
           type: string
-        stage:
-          type: string
-        value:
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
+    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        targetClusterName:
           type: string
   securitySchemes:
     apiToken:

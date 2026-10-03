@@ -1048,19 +1048,47 @@ paths:
       x-operation-id-original: List bento repository deployments
 components:
   schemas:
-    ModelschemasBentoRunnerSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
+        key:
           type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
+        stage:
           type: string
+        value:
+          type: string
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
+    ModelschemasDeploymentManifest:
+      type: object
+      properties:
+        dev:
+          type: boolean
+        replicas:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        routing:
+          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
+        super_admin:
+          type: boolean
     ModelschemasBentoManifestSchema:
       type: object
       properties:
@@ -1105,89 +1133,6 @@ components:
         spec:
           type: integer
           format: int32
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
-          type: string
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasDeploymentManifest:
-      type: object
-      properties:
-        dev:
-          type: boolean
-        replicas:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        routing:
-          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
-        super_admin:
-          type: boolean
-    ModelschemasDeploymentRoutingSchema:
-      type: object
-      properties:
-        route_by:
-          type:
-          - string
-          - 'null'
-        route_type:
-          type:
-          - string
-          - 'null'
-        weights:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
-          type: string
-    ModelschemasBentoRunnerResourceSchema:
-      type: object
-      properties:
-        cpu:
-          type:
-          - number
-          - 'null'
-          format: double
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type:
-          - number
-          - 'null'
-          format: double
     ModelschemasBentoImageInfoSchema:
       type: object
       properties:
@@ -1200,6 +1145,15 @@ components:
         python_requirements:
           type: string
         python_version:
+          type: string
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
           type: string
     Schemasv1DeploymentListWoRevisionSchema:
       type: object
@@ -1488,6 +1442,28 @@ components:
         total:
           type: integer
           format: int32
+    Update_A_Bento_RepositoryInput:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
+          type: string
     ModelschemasBentoManifestServiceSchema:
       type: object
       properties:
@@ -1502,26 +1478,50 @@ components:
           type: string
         service:
           type: string
-    Update_A_Bento_RepositoryInput:
+    ModelschemasBentoRunnerSchema:
       type: object
       properties:
-        description:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
+          type: string
+    ModelschemasDeploymentRoutingSchema:
+      type: object
+      properties:
+        route_by:
           type:
           - string
           - 'null'
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
+        route_type:
+          type:
+          - string
+          - 'null'
+        weights:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
   securitySchemes:
     apiToken:
       type: apiKey

@@ -475,6 +475,36 @@ paths:
       x-operation-id-original: Sync org S3 credentials to clusters
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasModelManifestSchema:
+      type: object
+      properties:
+        api_version:
+          type: string
+        bentoml_version:
+          type: string
+        context:
+          type: object
+          additionalProperties: {}
+        metadata:
+          type: object
+          additionalProperties: {}
+        module:
+          type: string
+        options:
+          type: object
+          additionalProperties: {}
+        size_bytes:
+          type: integer
+          format: int32
     Schemasv1ModelWithRepositoryListSchema:
       type: object
       properties:
@@ -954,36 +984,6 @@ components:
           type: integer
           format: int32
         total:
-          type: integer
-          format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasModelManifestSchema:
-      type: object
-      properties:
-        api_version:
-          type: string
-        bentoml_version:
-          type: string
-        context:
-          type: object
-          additionalProperties: {}
-        metadata:
-          type: object
-          additionalProperties: {}
-        module:
-          type: string
-        options:
-          type: object
-          additionalProperties: {}
-        size_bytes:
           type: integer
           format: int32
     Operate_An_Org_In_Admin_PanelInput:

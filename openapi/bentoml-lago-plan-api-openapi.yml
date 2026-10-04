@@ -69,28 +69,6 @@ paths:
       x-operation-id-original: Update lago plan
 components:
   schemas:
-    Schemasv1Charge:
-      type: object
-      properties:
-        price:
-          type: string
-        resource_instance:
-          type: string
-    Update_Lago_PlanInput:
-      type: object
-      properties:
-        charges:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1Charge'
-        description:
-          type:
-          - string
-          - 'null'
-        display_name:
-          type:
-          - string
-          - 'null'
     Create_Lago_PlanInput:
       type: object
       properties:
@@ -101,21 +79,6 @@ components:
         description:
           type: string
         display_name:
-          type: string
-        name:
-          type: string
-    Schemasv1Plan:
-      type: object
-      properties:
-        charges:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1Charge'
-        description:
-          type: string
-        display_name:
-          type: string
-        lago_id:
           type: string
         name:
           type: string
@@ -135,6 +98,43 @@ components:
         total:
           type: integer
           format: int32
+    Update_Lago_PlanInput:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type:
+          - string
+          - 'null'
+    Schemasv1Plan:
+      type: object
+      properties:
+        charges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1Charge'
+        description:
+          type: string
+        display_name:
+          type: string
+        lago_id:
+          type: string
+        name:
+          type: string
+    Schemasv1Charge:
+      type: object
+      properties:
+        price:
+          type: string
+        resource_instance:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

@@ -1654,37 +1654,20 @@ paths:
       x-operation-id-original: Sync tenant resources in a cluster in admin panel
 components:
   schemas:
-    ModelschemasLabelItemSchema:
+    Create_A_Cluster_Member_In_Admin_PanelInput:
       type: object
       properties:
-        key:
+        role:
           type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Update_A_Cluster_In_Admin_PanelInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        host_cluster_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        multi_tenancy:
-          type: boolean
-        name:
-          type:
-          - string
-          - 'null'
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1919,20 +1902,37 @@ components:
             updated_at:
               type: string
               format: date-time
-    Create_A_Cluster_Member_In_Admin_PanelInput:
+    Update_A_Cluster_In_Admin_PanelInput:
       type: object
       properties:
-        role:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
+        name:
+          type:
+          - string
+          - 'null'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
           type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-        usernames:
-          type: array
-          items:
-            type: string
+        stage:
+          type: string
+        value:
+          type: string
     Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
       type: object
       properties:

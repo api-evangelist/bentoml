@@ -314,6 +314,20 @@ paths:
       x-operation-id-original: Create cluster in admin panel
 components:
   schemas:
+    ModelschemasClusterConfigSchema:
+      type: object
+      properties:
+        default_deployment_kube_namespace:
+          type: string
+    ModelschemasImageResgitryConfig:
+      type: object
+      properties:
+        password:
+          type: string
+        server:
+          type: string
+        username:
+          type: string
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -322,11 +336,6 @@ components:
         stage:
           type: string
         value:
-          type: string
-    ModelschemasClusterConfigSchema:
-      type: object
-      properties:
-        default_deployment_kube_namespace:
           type: string
     Create_Cluster_In_Admin_PanelInput:
       type: object
@@ -342,15 +351,6 @@ components:
         multi_tenancy:
           type: boolean
         name:
-          type: string
-    ModelschemasImageResgitryConfig:
-      type: object
-      properties:
-        password:
-          type: string
-        server:
-          type: string
-        username:
           type: string
   securitySchemes:
     apiToken:

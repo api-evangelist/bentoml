@@ -49,15 +49,6 @@ paths:
       x-operation-id-original: Get bento repositories stats
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     ModelschemasBentoRunnerResourceSchema:
       type: object
       properties:
@@ -76,6 +67,33 @@ components:
           - number
           - 'null'
           format: double
+    ModelschemasBentoManifestServiceSchema:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: {}
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+        name:
+          type: string
+        service:
+          type: string
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
     ModelschemasBentoManifestSchema:
       type: object
       properties:
@@ -132,6 +150,32 @@ components:
         python_requirements:
           type: string
         python_version:
+          type: string
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
           type: string
     ModelschemasEnvItemSchema:
       type: object
@@ -502,58 +546,14 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasBentoApiSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        doc:
+        key:
           type: string
-        input:
+        stage:
           type: string
-        output:
-          type: string
-        route:
-          type: string
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
-          type: string
-    ModelschemasBentoManifestServiceSchema:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: {}
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
-        name:
-          type: string
-        service:
+        value:
           type: string
   securitySchemes:
     apiToken:

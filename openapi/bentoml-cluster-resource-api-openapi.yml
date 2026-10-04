@@ -848,33 +848,6 @@ paths:
       x-operation-id-original: Update standby instances
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Update_A_ClusterInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        host_cluster_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        multi_tenancy:
-          type: boolean
     Update_Standby_InstancesInput:
       type: object
       properties:
@@ -883,6 +856,20 @@ components:
           additionalProperties:
             type: integer
             format: int32
+    Create_A_Cluster_MemberInput:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - guest
+          - developer
+          - admin
+          - api_user
+        usernames:
+          type: array
+          items:
+            type: string
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1117,26 +1104,39 @@ components:
             updated_at:
               type: string
               format: date-time
-    Create_A_Cluster_MemberInput:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - guest
-          - developer
-          - admin
-          - api_user
-        usernames:
-          type: array
-          items:
-            type: string
     Schemasv1ResourceInstanceName:
       type: object
       properties:
         display_name:
           type: string
         name:
+          type: string
+    Update_A_ClusterInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
           type: string
   securitySchemes:
     apiToken:

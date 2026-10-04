@@ -207,15 +207,6 @@ paths:
       x-operation-id-original: Update a resource instance
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Update_A_Resource_InstanceInput:
       type: object
       properties:
@@ -235,6 +226,15 @@ components:
           type:
           - string
           - 'null'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

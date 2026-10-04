@@ -45,15 +45,6 @@ paths:
       x-operation-id-original: List repositories with certified bentos
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     ModelschemasBentoRunnerResourceSchema:
       type: object
       properties:
@@ -72,71 +63,19 @@ components:
           - number
           - 'null'
           format: double
-    ModelschemasBentoManifestSchema:
+    ModelschemasBentoManifestServiceSchema:
       type: object
       properties:
-        apis:
+        config:
           type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
-        bentoml_version:
-          type: string
-        dev:
-          type: boolean
-        entry_service:
-          type: string
-        envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
-        image:
-          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
+          additionalProperties: {}
         models:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
         name:
           type: string
-        runners:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
-        schema:
-          type: object
-          additionalProperties: {}
         service:
-          type: string
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
-        size_bytes:
-          type: integer
-          format: int32
-        spec:
-          type: integer
-          format: int32
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
-          type: array
-          items:
-            type: string
-        python_requirements:
-          type: string
-        python_version:
-          type: string
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
     Schemasv1CertifiedBentoRepositoryListIndexSchema:
       type: object
@@ -436,17 +375,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
-          type: string
     ModelschemasBentoRunnerSchema:
       type: object
       properties:
@@ -459,6 +387,39 @@ components:
         resource_config:
           $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
         runnable_type:
+          type: string
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoImageInfoSchema:
+      type: object
+      properties:
+        base_image:
+          type: string
+        commands:
+          type: array
+          items:
+            type: string
+        python_requirements:
+          type: string
+        python_version:
+          type: string
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
           type: string
     ModelschemasBentoManifestModelSchema:
       type: object
@@ -475,19 +436,58 @@ components:
           type: string
         tag:
           type: string
-    ModelschemasBentoManifestServiceSchema:
+    ModelschemasBentoManifestSchema:
       type: object
       properties:
-        config:
+        apis:
           type: object
-          additionalProperties: {}
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
+        bentoml_version:
+          type: string
+        dev:
+          type: boolean
+        entry_service:
+          type: string
+        envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
+        image:
+          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
         models:
           type: array
           items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+            type: string
         name:
           type: string
+        runners:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
+        schema:
+          type: object
+          additionalProperties: {}
         service:
+          type: string
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
+        size_bytes:
+          type: integer
+          format: int32
+        spec:
+          type: integer
+          format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
           type: string
   securitySchemes:
     apiToken:

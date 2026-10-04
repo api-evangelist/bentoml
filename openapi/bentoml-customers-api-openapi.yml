@@ -54,21 +54,6 @@ components:
           type: string
         value:
           type: string
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
     Schemasv1CustomerListFullSchema:
       type: object
       properties:
@@ -135,6 +120,21 @@ components:
         total:
           type: integer
           format: int32
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

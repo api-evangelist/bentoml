@@ -69,15 +69,17 @@ paths:
       x-operation-id-original: Update lago billable metric
 components:
   schemas:
-    Create_Lago_Billable_MetricInput:
+    Update_Lago_Billable_MetricInput:
       type: object
       properties:
-        code:
-          type: string
         description:
-          type: string
+          type:
+          - string
+          - 'null'
         display_name:
-          type: string
+          type:
+          - string
+          - 'null'
     Schemasv1LagoBillableMetricsListSchema:
       type: object
       properties:
@@ -94,17 +96,15 @@ components:
         total:
           type: integer
           format: int32
-    Update_Lago_Billable_MetricInput:
+    Create_Lago_Billable_MetricInput:
       type: object
       properties:
+        code:
+          type: string
         description:
-          type:
-          - string
-          - 'null'
+          type: string
         display_name:
-          type:
-          - string
-          - 'null'
+          type: string
     Schemasv1BillableMetrics:
       type: object
       properties:

@@ -116,6 +116,43 @@ paths:
       x-operation-id-original: Create a limit group
 components:
   schemas:
+    Create_A_Limit_GroupInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasLimitGroupConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+        plan_code:
+          type: string
+        visible:
+          type:
+          - boolean
+          - 'null'
+    ResourceQuantity:
+      type: object
+    ModelschemasLimitGroupDeploymentConfig:
+      type: object
+      properties:
+        access_authorization:
+          type: array
+          items:
+            type: boolean
+        deployment_strategy:
+          type: array
+          items:
+            type: string
+    ModelschemasLimitGroupResourceInstanceSchema:
+      type: object
+      properties:
+        active:
+          type: boolean
+        name:
+          type: string
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -124,13 +161,6 @@ components:
         stage:
           type: string
         value:
-          type: string
-    ModelschemasLimitGroupResourceInstanceSchema:
-      type: object
-      properties:
-        active:
-          type: boolean
-        name:
           type: string
     Schemasv1LimitGroupListSchema:
       type: object
@@ -200,23 +230,6 @@ components:
         total:
           type: integer
           format: int32
-    Create_A_Limit_GroupInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasLimitGroupConfigSchema'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
-        plan_code:
-          type: string
-        visible:
-          type:
-          - boolean
-          - 'null'
     Schemasv1ResourceInstanceWithActiveSchema:
       type: object
       properties:
@@ -268,17 +281,6 @@ components:
             updated_at:
               type: string
               format: date-time
-    ModelschemasLimitGroupDeploymentConfig:
-      type: object
-      properties:
-        access_authorization:
-          type: array
-          items:
-            type: boolean
-        deployment_strategy:
-          type: array
-          items:
-            type: string
     ModelschemasLimitGroupConfigSchema:
       type: object
       properties:
@@ -361,8 +363,6 @@ components:
           type: array
           items:
             type: string
-    ResourceQuantity:
-      type: object
   securitySchemes:
     apiToken:
       type: apiKey

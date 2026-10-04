@@ -231,6 +231,29 @@ paths:
       x-operation-id-original: Update a limit group
 components:
   schemas:
+    Update_A_Limit_GroupInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type:
+          - string
+          - 'null'
+        plan_code:
+          type:
+          - string
+          - 'null'
+        visible:
+          type:
+          - boolean
+          - 'null'
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -291,29 +314,6 @@ components:
             updated_at:
               type: string
               format: date-time
-    Update_A_Limit_GroupInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        display_name:
-          type:
-          - string
-          - 'null'
-        plan_code:
-          type:
-          - string
-          - 'null'
-        visible:
-          type:
-          - boolean
-          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

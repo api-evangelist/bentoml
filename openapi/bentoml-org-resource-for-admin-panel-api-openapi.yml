@@ -475,15 +475,6 @@ paths:
       x-operation-id-original: Sync org S3 credentials to clusters
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     ModelschemasModelManifestSchema:
       type: object
       properties:
@@ -505,6 +496,15 @@ components:
         size_bytes:
           type: integer
           format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1ModelWithRepositoryListSchema:
       type: object
       properties:

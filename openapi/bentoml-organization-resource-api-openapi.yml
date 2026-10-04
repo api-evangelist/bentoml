@@ -293,15 +293,6 @@ paths:
       x-operation-id-original: Update an organization
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Update_An_OrganizationInput:
       type: object
       properties:
@@ -321,6 +312,15 @@ components:
           type:
           - boolean
           - 'null'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

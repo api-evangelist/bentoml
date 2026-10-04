@@ -318,15 +318,6 @@ paths:
       x-operation-id-original: Create api token
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Create_Api_TokenInput:
       type: object
       properties:
@@ -359,6 +350,15 @@ components:
           type: array
           items:
             type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1ApiTokenListSchema:
       type: object
       properties:

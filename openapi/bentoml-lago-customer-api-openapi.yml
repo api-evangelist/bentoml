@@ -65,25 +65,6 @@ paths:
       x-operation-id-original: Update lago customer
 components:
   schemas:
-    Create_Lago_CustomerInput:
-      type: object
-      properties:
-        Uid:
-          type: string
-        auto_create_stripe:
-          type: boolean
-        credit_amount:
-          type:
-          - string
-          - 'null'
-        email:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        plan_type:
-          type: string
     Schemasv1LagoCustomer:
       type: object
       properties:
@@ -122,6 +103,25 @@ components:
         total:
           type: integer
           format: int32
+    Create_Lago_CustomerInput:
+      type: object
+      properties:
+        Uid:
+          type: string
+        auto_create_stripe:
+          type: boolean
+        credit_amount:
+          type:
+          - string
+          - 'null'
+        email:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        plan_type:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

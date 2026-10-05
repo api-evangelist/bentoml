@@ -1,0 +1,12 @@
+{
+ "url": "https://cloud.bentoml.com/openapi.json",
+ "requested_url": "https://cloud.bentoml.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 1337033,
+ "sha256": "2e7b9ef2a47fe6b60ce3371545b811ceed817ca2e1800530044426d049f791af",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

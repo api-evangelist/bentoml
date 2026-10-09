@@ -1,19 +1,45 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/bentoml-bentocloud-deployment-api-openapi.yml
+source: openapi/bentoml-admin-api-v1-api-openapi.yml, openapi/bentoml-admin-deployment-resource-api-openapi.yml,
+  openapi/bentoml-api-token-resource-api-openapi.yml, openapi/bentoml-api-tokens-api-openapi.yml,
+  openapi/bentoml-api-v1-api-openapi.yml, openapi/bentoml-auth-api-openapi.yml, openapi/bentoml-bento-repositories-api-openapi.yml,
+  openapi/bentoml-bento-repositories-statistics-api-openapi.yml, openapi/bentoml-bento-repository-resource-api-openapi.yml,
+  openapi/bentoml-bento-resource-api-openapi.yml, openapi/bentoml-bentos-api-openapi.yml, openapi/bentoml-certified-bento-repositories-api-openapi.yml,
+  openapi/bentoml-cluster-deployments-api-openapi.yml, openapi/bentoml-cluster-resource-api-openapi.yml,
+  openapi/bentoml-cluster-resource-for-admin-panel-api-openapi.yml, openapi/bentoml-clusters-api-openapi.yml,
+  openapi/bentoml-clusters-for-admin-panel-api-openapi.yml, openapi/bentoml-current-organization-resource-api-openapi.yml,
+  openapi/bentoml-customer-resource-api-openapi.yml, openapi/bentoml-customers-api-openapi.yml,
+  openapi/bentoml-deployment-resource-api-openapi.yml, openapi/bentoml-deployment-revision-resource-api-openapi.yml,
+  openapi/bentoml-deployment-revisions-api-openapi.yml, openapi/bentoml-deployment-v2-revision-resource-api-openapi.yml,
+  openapi/bentoml-deployment-v2-revisions-api-openapi.yml, openapi/bentoml-endpoint-resource-api-openapi.yml,
+  openapi/bentoml-gpu-config-resource-api-openapi.yml, openapi/bentoml-gpu-configs-api-openapi.yml,
+  openapi/bentoml-host-cluster-resource-api-openapi.yml, openapi/bentoml-host-clusters-api-openapi.yml,
+  openapi/bentoml-instance-types-api-openapi.yml, openapi/bentoml-labels-api-openapi.yml, openapi/bentoml-lago-billable-metrics-api-openapi.yml,
+  openapi/bentoml-lago-customer-api-openapi.yml, openapi/bentoml-lago-plan-api-openapi.yml,
+  openapi/bentoml-limit-group-resource-api-openapi.yml, openapi/bentoml-limit-groups-api-openapi.yml,
+  openapi/bentoml-model-repositories-api-openapi.yml, openapi/bentoml-model-repository-resource-api-openapi.yml,
+  openapi/bentoml-model-resource-api-openapi.yml, openapi/bentoml-models-api-openapi.yml, openapi/bentoml-org-resource-for-admin-panel-api-openapi.yml,
+  openapi/bentoml-organization-resource-api-openapi.yml, openapi/bentoml-organization-secrets-api-openapi.yml,
+  openapi/bentoml-organization-secrets-with-check-message-api-openapi.yml, openapi/bentoml-organization-secrets-with-template-api-openapi.yml,
+  openapi/bentoml-plans-api-openapi.yml, openapi/bentoml-request-quota-api-openapi.yml, openapi/bentoml-resource-instance-resource-api-openapi.yml,
+  openapi/bentoml-resource-instances-api-openapi.yml, openapi/bentoml-secret-names-api-openapi.yml,
+  openapi/bentoml-slim-bento-repositories-api-openapi.yml, openapi/bentoml-terminal-record-resource-api-openapi.yml,
+  openapi/bentoml-usage-api-openapi.yml, openapi/bentoml-user-resource-api-openapi.yml, openapi/bentoml-users-api-openapi.yml,
+  openapi/bentoml-websocket-v1-api-openapi.yml, openapi/bentoml-websocket-v2-api-openapi.yml,
+  openapi/bentoml-yatai-components-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 222
   by_action_class:
-    connected: 116
-    acting: 106
+    connected: 117
+    acting: 105
   by_consequence:
-    read: 116
-    write: 90
-    physical: 12
+    read: 117
+    write: 89
     safety-critical: 4
+    physical: 12
   human_in_the_loop_required: 4
 operations:
 - path: /api/admin/v1/clusters
@@ -36,197 +62,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/admin/v1/gpu_configs
-  method: get
-  operationId: List gpu configs
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/gpu_configs
-  method: post
-  operationId: Create a gpu config
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/gpu_configs/{gpuConfigName}
-  method: get
-  operationId: Get a gpu config
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/gpu_configs/{gpuConfigName}
-  method: delete
-  operationId: Delete a gpu config
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/gpu_configs/{gpuConfigName}
-  method: patch
-  operationId: Update a gpu config
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/host_clusters
-  method: get
-  operationId: List host clusters
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/host_clusters
-  method: post
-  operationId: Create host cluster
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/host_clusters/{hostClusterName}
-  method: get
-  operationId: Get a host cluster
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/host_clusters/{hostClusterName}
-  method: delete
-  operationId: Delete a host cluster
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/host_clusters/{hostClusterName}
-  method: patch
-  operationId: Update a host cluster
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/limit_groups
-  method: get
-  operationId: List limit groups
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/limit_groups
-  method: post
-  operationId: Create a limit group
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/limit_groups/{limitGroupName}
-  method: get
-  operationId: Get a limit group
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/limit_groups/{limitGroupName}
-  method: delete
-  operationId: Delete a limit group
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/limit_groups/{limitGroupName}
-  method: patch
-  operationId: Update a limit group
+- path: /api/admin/v1/sync_all_tenant_resources
+  method: put
+  operationId: Sync all tenant resources in a cluster in admin panel
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -250,324 +88,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/admin/v1/orgs/{orgName}
-  method: delete
-  operationId: Delete an org in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters
-  method: post
-  operationId: Create cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
-  method: get
-  operationId: Get a cluster in admin panel
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
-  method: delete
-  operationId: Delete a cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
-  method: patch
-  operationId: Update a cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
-  method: get
-  operationId: List cluster members in admin panel
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
-  method: post
-  operationId: Create a cluster member in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
-  method: delete
-  operationId: Remove a cluster member in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/migrate_deployments
-  method: post
-  operationId: Migrate deployments on cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_kubeconfig
-  method: put
-  operationId: Sync tenant kubeconfig in a cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_resources
-  method: put
-  operationId: Sync tenant resources in a cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/models
-  method: get
-  operationId: List models in an org in admin panel
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/orgs/{orgName}/operate
-  method: post
-  operationId: Operate an org in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/orgs/{orgName}/sync_s3_credentials
-  method: post
-  operationId: Sync org S3 credentials to clusters
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/resource_instances
-  method: get
-  operationId: List resource instances
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/resource_instances
-  method: post
-  operationId: Create a resource instance
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/resource_instances/{resourceInstanceName}
-  method: get
-  operationId: Get a resource instance
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/admin/v1/resource_instances/{resourceInstanceName}
-  method: delete
-  operationId: Delete a resource instance
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/resource_instances/{resourceInstanceName}
-  method: patch
-  operationId: Update a resource instance
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/admin/v1/sync_all_tenant_resources
-  method: put
-  operationId: Sync all tenant resources in a cluster in admin panel
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/api_tokens
-  method: get
-  operationId: List api tokens
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/api_tokens
-  method: post
-  operationId: Create api token
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v1/api_tokens/{apiTokenUid}
   method: get
   operationId: Get a api token
@@ -610,6 +130,314 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/api_tokens
+  method: get
+  operationId: List api tokens
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/api_tokens
+  method: post
+  operationId: Create api token
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/bentos
+  method: get
+  operationId: List all bentos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/deployment_creation_json_schema
+  method: get
+  operationId: Get deployment creation json schema
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/deployments
+  method: get
+  operationId: List organization deployments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/deployments-wo-revisions
+  method: get
+  operationId: List organization deployments without revisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/endpoints
+  method: get
+  operationId: List organization endpoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/endpoints
+  method: post
+  operationId: Create an endpoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/image_build_status_unsynced_bentos
+  method: get
+  operationId: List image build status unsynced bentos
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/info
+  method: get
+  operationId: Get info
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/members
+  method: get
+  operationId: List organization members
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/members
+  method: put
+  operationId: Update an organization member
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/members
+  method: post
+  operationId: Create an organization member
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/members
+  method: delete
+  operationId: Remove an organization member
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/members/current
+  method: get
+  operationId: Get current organization member
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/model_endpoints
+  method: get
+  operationId: List organization model endpoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/model_endpoints/{modelName}
+  method: get
+  operationId: Get model endpoint by name
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/models
+  method: get
+  operationId: List all models
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/news
+  method: get
+  operationId: Get news
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/orgs
+  method: get
+  operationId: List organizations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/orgs
+  method: post
+  operationId: Create organization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/setup
+  method: post
+  operationId: Setup admin user, org, cluster for selfhosted mode
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/sso
+  method: post
+  operationId: Single sign on for marketplace
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/tolerations_json_schema
+  method: get
+  operationId: Get tolerations json schema
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/version
+  method: get
+  operationId: Get version
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/yatai_components
+  method: get
+  operationId: List organization all yatai components
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/auth/airtable_event
   method: post
   operationId: Airtable event callback
@@ -792,6 +620,16 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/bento_repositories_stats
+  method: get
+  operationId: Get bento repositories stats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/bento_repositories/{bentoRepositoryName}
   method: get
   operationId: Get a bento repository
@@ -818,9 +656,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/bento_repositories/{bentoRepositoryName}/bentos
+- path: /api/v1/bento_repositories/{bentoRepositoryName}/deployments
   method: get
-  operationId: List bentos
+  operationId: List bento repository deployments
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -828,22 +666,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/bento_repositories/{bentoRepositoryName}/bentos
-  method: post
-  operationId: Create a bento
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v1/bento_repositories/{bentoRepositoryName}/bentos/{version}
   method: get
   operationId: Get a bento
@@ -1060,9 +882,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/bento_repositories/{bentoRepositoryName}/deployments
+- path: /api/v1/bento_repositories/{bentoRepositoryName}/bentos
   method: get
-  operationId: List bento repository deployments
+  operationId: List bentos
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1070,26 +892,22 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/bento_repositories_stats
-  method: get
-  operationId: Get bento repositories stats
+- path: /api/v1/bento_repositories/{bentoRepositoryName}/bentos
+  method: post
+  operationId: Create a bento
   x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
     token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/bentos
-  method: get
-  operationId: List all bentos
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/v1/certified_bento_repositories
   method: get
   operationId: List repositories with certified bentos
@@ -1100,9 +918,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/clusters
+- path: /api/v1/clusters/{clusterName}/deployments
   method: get
-  operationId: List clusters
+  operationId: List cluster deployments
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1110,16 +928,46 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/clusters
+- path: /api/v1/clusters/{clusterName}/deployments
   method: post
-  operationId: Create cluster
+  operationId: Create deployment
   x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: physical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments
+  method: get
+  operationId: List cluster deployments v2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments
+  method: post
+  operationId: Create deployment v2
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
@@ -1146,34 +994,6 @@ operations:
     audience: null
     token:
       max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/clusters/{clusterName}/deployments
-  method: get
-  operationId: List cluster deployments
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/clusters/{clusterName}/deployments
-  method: post
-  operationId: Create deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
@@ -1222,116 +1042,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
-  method: get
-  operationId: Get a deployment
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
-  method: delete
-  operationId: Delete a deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
-  method: patch
-  operationId: Update a deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions
-  method: get
-  operationId: List deployment revisions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions/{revisionUid}
-  method: get
-  operationId: Get a deployment revision
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/sync_status
-  method: post
-  operationId: Sync a deployment status
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminal_records
-  method: get
-  operationId: List deployment terminal records
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminate
-  method: post
-  operationId: Terminate a deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
 - path: /api/v1/clusters/{clusterName}/standby_instances
   method: patch
   operationId: Update standby instances
@@ -1348,9 +1058,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/clusters/{clusterName}/yatai_components
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
   method: get
-  operationId: List yatai components
+  operationId: Get a cluster in admin panel
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1358,6 +1068,172 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
+  method: delete
+  operationId: Delete a cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}
+  method: patch
+  operationId: Update a cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
+  method: get
+  operationId: List cluster members in admin panel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
+  method: post
+  operationId: Create a cluster member in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/members
+  method: delete
+  operationId: Remove a cluster member in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/migrate_deployments
+  method: post
+  operationId: Migrate deployments on cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_kubeconfig
+  method: put
+  operationId: Sync tenant kubeconfig in a cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters/{clusterName}/sync_tenant_resources
+  method: put
+  operationId: Sync tenant resources in a cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/clusters
+  method: get
+  operationId: List clusters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/clusters
+  method: post
+  operationId: Create cluster
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/clusters
+  method: post
+  operationId: Create cluster in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/v1/current_org
   method: get
   operationId: Get current organization
@@ -1510,16 +1386,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/customers
-  method: get
-  operationId: List customers
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /api/v1/customers/{customerName}
   method: get
   operationId: Get a customer
@@ -1546,9 +1412,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/deployment_creation_json_schema
+- path: /api/v1/customers
   method: get
-  operationId: Get deployment creation json schema
+  operationId: List customers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1556,9 +1422,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/deployments
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
   method: get
-  operationId: List organization deployments
+  operationId: Get a deployment
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1566,42 +1432,310 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/deployments-wo-revisions
-  method: get
-  operationId: List organization deployments without revisions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/endpoints
-  method: get
-  operationId: List organization endpoints
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/endpoints
-  method: post
-  operationId: Create an endpoint
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
+  method: delete
+  operationId: Delete a deployment
   x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: physical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}
+  method: patch
+  operationId: Update a deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/sync_status
+  method: post
+  operationId: Sync a deployment status
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminal_records
+  method: get
+  operationId: List deployment terminal records
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/terminate
+  method: post
+  operationId: Terminate a deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v2/deployments/{deploymentName}
+  method: get
+  operationId: Get a deployment v2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}
+  method: put
+  operationId: Update deployment v2
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments/{deploymentName}
+  method: delete
+  operationId: Delete a deployment v2
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments/{deploymentName}/api_tokens
+  method: get
+  operationId: List deployment api tokens
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/build_bento
+  method: post
+  operationId: Build a bento in dev deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments/{deploymentName}/endpoints
+  method: get
+  operationId: List deployment endpoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/files
+  method: get
+  operationId: List files in deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/files
+  method: delete
+  operationId: Delete files from deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments/{deploymentName}/labels
+  method: put
+  operationId: update deployment labels
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/deployments/{deploymentName}/status_records
+  method: get
+  operationId: List deployment status records v2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/terminal_records
+  method: get
+  operationId: List deployment terminal records v2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/terminate
+  method: post
+  operationId: Terminate a deployment v2
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /api/v2/deployments/{deploymentName}/void_update
+  method: put
+  operationId: void update deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions/{revisionUid}
+  method: get
+  operationId: Get a deployment revision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/clusters/{clusterName}/namespaces/{kubeNamespace}/deployments/{deploymentName}/revisions
+  method: get
+  operationId: List deployment revisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/revisions/{revisionUid}
+  method: get
+  operationId: Get a deployment v2 revision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/deployments/{deploymentName}/revisions
+  method: get
+  operationId: List deployment v2 revisions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/endpoints/{endpointUID}
   method: get
   operationId: Get an endpoint
@@ -1676,9 +1810,9 @@ operations:
     escalation:
       human-in-the-loop: required
     audit: required
-- path: /api/v1/image_build_status_unsynced_bentos
+- path: /api/admin/v1/gpu_configs/{gpuConfigName}
   method: get
-  operationId: List image build status unsynced bentos
+  operationId: Get a gpu config
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1686,9 +1820,41 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/info
+- path: /api/admin/v1/gpu_configs/{gpuConfigName}
+  method: delete
+  operationId: Delete a gpu config
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/gpu_configs/{gpuConfigName}
+  method: patch
+  operationId: Update a gpu config
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/gpu_configs
   method: get
-  operationId: Get info
+  operationId: List gpu configs
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1696,6 +1862,90 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /api/admin/v1/gpu_configs
+  method: post
+  operationId: Create a gpu config
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/host_clusters/{hostClusterName}
+  method: get
+  operationId: Get a host cluster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/admin/v1/host_clusters/{hostClusterName}
+  method: delete
+  operationId: Delete a host cluster
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/host_clusters/{hostClusterName}
+  method: patch
+  operationId: Update a host cluster
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/host_clusters
+  method: get
+  operationId: List host clusters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/admin/v1/host_clusters
+  method: post
+  operationId: Create host cluster
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/v1/instance_types
   method: get
   operationId: List instance types
@@ -1842,9 +2092,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/members
+- path: /api/admin/v1/limit_groups/{limitGroupName}
   method: get
-  operationId: List organization members
+  operationId: Get a limit group
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1852,41 +2102,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/members
-  method: put
-  operationId: Update an organization member
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/members
-  method: post
-  operationId: Create an organization member
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/members
+- path: /api/admin/v1/limit_groups/{limitGroupName}
   method: delete
-  operationId: Remove an organization member
+  operationId: Delete a limit group
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1900,9 +2118,25 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/members/current
+- path: /api/admin/v1/limit_groups/{limitGroupName}
+  method: patch
+  operationId: Update a limit group
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/limit_groups
   method: get
-  operationId: Get current organization member
+  operationId: List limit groups
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1910,26 +2144,22 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/model_endpoints
-  method: get
-  operationId: List organization model endpoints
+- path: /api/admin/v1/limit_groups
+  method: post
+  operationId: Create a limit group
   x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
     token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/model_endpoints/{modelName}
-  method: get
-  operationId: Get model endpoint by name
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/v1/model_repositories
   method: get
   operationId: List model repositories
@@ -1969,32 +2199,6 @@ operations:
 - path: /api/v1/model_repositories/{modelRepositoryName}
   method: patch
   operationId: Update a model repository
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/model_repositories/{modelRepositoryName}/models
-  method: get
-  operationId: List models
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/model_repositories/{modelRepositoryName}/models
-  method: post
-  operationId: Create a model
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2182,9 +2386,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/models
+- path: /api/v1/model_repositories/{modelRepositoryName}/models
   method: get
-  operationId: List all models
+  operationId: List models
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2192,9 +2396,41 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/news
+- path: /api/v1/model_repositories/{modelRepositoryName}/models
+  method: post
+  operationId: Create a model
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}
+  method: delete
+  operationId: Delete an org in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/models
   method: get
-  operationId: Get news
+  operationId: List models in an org in admin panel
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2202,6 +2438,64 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /api/admin/v1/orgs/{orgName}/operate
+  method: post
+  operationId: Operate an org in admin panel
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/orgs/{orgName}/sync_s3_credentials
+  method: post
+  operationId: Sync org S3 credentials to clusters
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/orgs/{orgName}
+  method: get
+  operationId: Get an organization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/orgs/{orgName}
+  method: patch
+  operationId: Update an organization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/v1/org_secrets
   method: get
   operationId: List secrets
@@ -2215,6 +2509,120 @@ operations:
 - path: /api/v1/org_secrets
   method: post
   operationId: Create a secret
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/org_secrets_check
+  method: post
+  operationId: List secrets with check message
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/org_secrets_template
+  method: get
+  operationId: List secret template
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/plans
+  method: get
+  operationId: List limit groups plans
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/requestquota
+  method: post
+  operationId: Create a Request quota
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/resource_instances/{resourceInstanceName}
+  method: get
+  operationId: Get a resource instance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/admin/v1/resource_instances/{resourceInstanceName}
+  method: delete
+  operationId: Delete a resource instance
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/resource_instances/{resourceInstanceName}
+  method: patch
+  operationId: Update a resource instance
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/admin/v1/resource_instances
+  method: get
+  operationId: List resource instances
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/admin/v1/resource_instances
+  method: post
+  operationId: Create a resource instance
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2270,110 +2678,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v1/org_secrets_check
-  method: post
-  operationId: List secrets with check message
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/org_secrets_template
-  method: get
-  operationId: List secret template
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/orgs
-  method: get
-  operationId: List organizations
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/orgs
-  method: post
-  operationId: Create organization
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/orgs/{orgName}
-  method: get
-  operationId: Get an organization
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/orgs/{orgName}
-  method: patch
-  operationId: Update an organization
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/plans
-  method: get
-  operationId: List limit groups plans
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/setup
-  method: post
-  operationId: Setup admin user, org, cluster for selfhosted mode
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v1/slim_bento_repositories
   method: get
   operationId: List slim bento repositories
@@ -2384,22 +2688,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v1/sso
-  method: post
-  operationId: Single sign on for marketplace
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v1/terminal_records/{uid}
   method: get
   operationId: Get a terminal record
@@ -2413,16 +2701,6 @@ operations:
 - path: /api/v1/terminal_records/{uid}/download
   method: get
   operationId: Download a terminal record
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/tolerations_json_schema
-  method: get
-  operationId: Get tolerations json schema
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2456,6 +2734,16 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v1/users/{userName}
+  method: get
+  operationId: Get an user
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/v1/users
   method: get
   operationId: List users
@@ -2485,284 +2773,6 @@ operations:
 - path: /api/v1/users/invite
   method: post
   operationId: Invite an user
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v1/users/{userName}
-  method: get
-  operationId: Get an user
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/version
-  method: get
-  operationId: Get version
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v1/yatai_components
-  method: get
-  operationId: List organization all yatai components
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments
-  method: get
-  operationId: List cluster deployments v2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments
-  method: post
-  operationId: Create deployment v2
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}
-  method: get
-  operationId: Get a deployment v2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}
-  method: put
-  operationId: Update deployment v2
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}
-  method: delete
-  operationId: Delete a deployment v2
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}/api_tokens
-  method: get
-  operationId: List deployment api tokens
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/build_bento
-  method: post
-  operationId: Build a bento in dev deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}/endpoints
-  method: get
-  operationId: List deployment endpoints
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/files
-  method: get
-  operationId: List files in deployment
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/files
-  method: delete
-  operationId: Delete files from deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}/labels
-  method: put
-  operationId: update deployment labels
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/deployments/{deploymentName}/revisions
-  method: get
-  operationId: List deployment v2 revisions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/revisions/{revisionUid}
-  method: get
-  operationId: Get a deployment v2 revision
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/status_records
-  method: get
-  operationId: List deployment status records v2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/terminal_records
-  method: get
-  operationId: List deployment terminal records v2
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v2/deployments/{deploymentName}/terminate
-  method: post
-  operationId: Terminate a deployment v2
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
-- path: /api/v2/deployments/{deploymentName}/void_update
-  method: put
-  operationId: void update deployment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v2/requestquota
-  method: post
-  operationId: Create a Request quota
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -2889,6 +2899,16 @@ operations:
 - path: /ws/v2/subscription/resource
   method: get
   operationId: Subscribe resource v2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/clusters/{clusterName}/yatai_components
+  method: get
+  operationId: List yatai components
   x-agentic-access:
     action-class: connected
     consequence: read

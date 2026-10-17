@@ -108,6 +108,75 @@ paths:
       x-operation-id-original: Create a resource instance
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasResourceInstanceConfigSchema:
+      type: object
+      properties:
+        gpu_config:
+          $ref: '#/components/schemas/ModelschemasGPUConfig'
+        group:
+          type: string
+        node_selectors:
+          type: object
+          additionalProperties:
+            type: string
+        price:
+          type: string
+        resources:
+          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
+        tolerations:
+          type: array
+          items:
+            $ref: '#/components/schemas/V1Toleration'
+        tpu_config:
+          $ref: '#/components/schemas/ModelschemasTPUConfig'
+    ModelschemasGPUConfig:
+      type: object
+      properties:
+        memory:
+          type: string
+        type:
+          type: string
+    ModelschemasTPUConfig:
+      type: object
+      properties:
+        type:
+          type: string
+    Create_A_Resource_InstanceInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
+        description:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+    V1Toleration:
+      type: object
+      properties:
+        effect:
+          type: string
+        key:
+          type: string
+        operator:
+          type: string
+        tolerationSeconds:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        value:
+          type: string
     ModelschemasDeploymentTargetResources:
       type: object
       properties:
@@ -175,54 +244,6 @@ components:
         total:
           type: integer
           format: int32
-    V1Toleration:
-      type: object
-      properties:
-        effect:
-          type: string
-        key:
-          type: string
-        operator:
-          type: string
-        tolerationSeconds:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        value:
-          type: string
-    ModelschemasResourceInstanceConfigSchema:
-      type: object
-      properties:
-        gpu_config:
-          $ref: '#/components/schemas/ModelschemasGPUConfig'
-        group:
-          type: string
-        node_selectors:
-          type: object
-          additionalProperties:
-            type: string
-        price:
-          type: string
-        resources:
-          $ref: '#/components/schemas/ModelschemasDeploymentTargetResources'
-        tolerations:
-          type: array
-          items:
-            $ref: '#/components/schemas/V1Toleration'
-        tpu_config:
-          $ref: '#/components/schemas/ModelschemasTPUConfig'
-    Create_A_Resource_InstanceInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasResourceInstanceConfigSchema'
-        description:
-          type: string
-        display_name:
-          type: string
-        name:
-          type: string
     ModelschemasDeploymentTargetResourceItem:
       type: object
       properties:
@@ -235,27 +256,6 @@ components:
         gpu:
           type: string
         memory:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasGPUConfig:
-      type: object
-      properties:
-        memory:
-          type: string
-        type:
-          type: string
-    ModelschemasTPUConfig:
-      type: object
-      properties:
-        type:
           type: string
   securitySchemes:
     apiToken:

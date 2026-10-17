@@ -149,6 +149,30 @@ paths:
       x-operation-id-original: Update a customer
 components:
   schemas:
+    Schemasv1LagoCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        lago_id:
+          type: string
+        limit_group_plan:
+          type: string
+        name:
+          type: string
+        subscription_id:
+          type: string
+        wallet_id:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_CustomerInput:
       type: object
       properties:
@@ -180,30 +204,6 @@ components:
           type:
           - string
           - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Schemasv1LagoCustomer:
-      type: object
-      properties:
-        email:
-          type: string
-        lago_id:
-          type: string
-        limit_group_plan:
-          type: string
-        name:
-          type: string
-        subscription_id:
-          type: string
-        wallet_id:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

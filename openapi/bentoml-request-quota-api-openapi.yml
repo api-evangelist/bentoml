@@ -34,7 +34,7 @@ paths:
       x-operation-id-original: Create a Request quota
 components:
   schemas:
-    Controllersv2CreateRequestQuotaSchema:
+    Create_A_Request_QuotaInput:
       type: object
       properties:
         current_quota:
@@ -49,7 +49,7 @@ components:
           type: string
       required:
       - resource_type
-    Create_A_Request_QuotaInput:
+    Controllersv2CreateRequestQuotaSchema:
       type: object
       properties:
         current_quota:

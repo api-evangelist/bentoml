@@ -162,6 +162,33 @@ paths:
       x-operation-id-original: Create host cluster
 components:
   schemas:
+    ModelschemasHostClusterConfigSchema:
+      type: object
+      properties:
+        image_builder_pod_eks_role_arn:
+          type: string
+        provider:
+          type: string
+        region:
+          type: string
+        resource_instance_names:
+          type: array
+          items:
+            type: string
+        standby_instances:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1HostClusterListSchema:
       type: object
       properties:
@@ -224,33 +251,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasHostClusterConfigSchema:
-      type: object
-      properties:
-        image_builder_pod_eks_role_arn:
-          type: string
-        provider:
-          type: string
-        region:
-          type: string
-        resource_instance_names:
-          type: array
-          items:
-            type: string
-        standby_instances:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Create_Host_ClusterInput:
       type: object
       properties:

@@ -409,27 +409,26 @@ paths:
       x-operation-id-original: Create a model repository
 components:
   schemas:
-    ModelschemasModelManifestSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        api_version:
+        key:
           type: string
-        bentoml_version:
+        stage:
           type: string
-        context:
-          type: object
-          additionalProperties: {}
-        metadata:
-          type: object
-          additionalProperties: {}
-        module:
+        value:
           type: string
-        options:
-          type: object
-          additionalProperties: {}
-        size_bytes:
-          type: integer
-          format: int32
+    Create_A_Model_RepositoryInput:
+      type: object
+      properties:
+        description:
+          type: string
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        name:
+          type: string
     Schemasv1ModelRepositoryListSchema:
       type: object
       properties:
@@ -782,26 +781,27 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
+    ModelschemasModelManifestSchema:
       type: object
       properties:
-        key:
+        api_version:
           type: string
-        stage:
+        bentoml_version:
           type: string
-        value:
+        context:
+          type: object
+          additionalProperties: {}
+        metadata:
+          type: object
+          additionalProperties: {}
+        module:
           type: string
-    Create_A_Model_RepositoryInput:
-      type: object
-      properties:
-        description:
-          type: string
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        name:
-          type: string
+        options:
+          type: object
+          additionalProperties: {}
+        size_bytes:
+          type: integer
+          format: int32
   securitySchemes:
     apiToken:
       type: apiKey

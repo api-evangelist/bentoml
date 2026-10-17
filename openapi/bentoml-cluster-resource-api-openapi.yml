@@ -848,6 +848,24 @@ paths:
       x-operation-id-original: Update standby instances
 components:
   schemas:
+    Update_A_ClusterInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
     Update_Standby_InstancesInput:
       type: object
       properties:
@@ -856,6 +874,22 @@ components:
           additionalProperties:
             type: integer
             format: int32
+    Schemasv1ResourceInstanceName:
+      type: object
+      properties:
+        display_name:
+          type: string
+        name:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Create_A_Cluster_MemberInput:
       type: object
       properties:
@@ -1104,40 +1138,6 @@ components:
             updated_at:
               type: string
               format: date-time
-    Schemasv1ResourceInstanceName:
-      type: object
-      properties:
-        display_name:
-          type: string
-        name:
-          type: string
-    Update_A_ClusterInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        host_cluster_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        multi_tenancy:
-          type: boolean
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

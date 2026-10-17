@@ -49,50 +49,29 @@ paths:
       x-operation-id-original: Get bento repositories stats
 components:
   schemas:
-    ModelschemasBentoRunnerResourceSchema:
+    ModelschemasBentoImageInfoSchema:
       type: object
       properties:
-        cpu:
-          type:
-          - number
-          - 'null'
-          format: double
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type:
-          - number
-          - 'null'
-          format: double
-    ModelschemasBentoManifestServiceSchema:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: {}
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
-        name:
+        base_image:
           type: string
-        service:
-          type: string
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
+        commands:
           type: array
           items:
             type: string
-        name:
+        python_requirements:
           type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
+        python_version:
+          type: string
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
           type: string
     ModelschemasBentoManifestSchema:
       type: object
@@ -138,29 +117,27 @@ components:
         spec:
           type: integer
           format: int32
-    ModelschemasBentoImageInfoSchema:
+    ModelschemasEnvItemSchema:
       type: object
       properties:
-        base_image:
+        name:
           type: string
-        commands:
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
           type: array
           items:
             type: string
-        python_requirements:
+        name:
           type: string
-        python_version:
-          type: string
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
           type: string
     ModelschemasBentoManifestModelSchema:
       type: object
@@ -177,15 +154,33 @@ components:
           type: string
         tag:
           type: string
-    ModelschemasEnvItemSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        name:
+        key:
           type: string
         stage:
           type: string
         value:
           type: string
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
     Schemasv1BentoRepositoryWithStatisticsListSchema:
       type: object
       properties:
@@ -546,14 +541,19 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
+    ModelschemasBentoManifestServiceSchema:
       type: object
       properties:
-        key:
+        config:
+          type: object
+          additionalProperties: {}
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+        name:
           type: string
-        stage:
-          type: string
-        value:
+        service:
           type: string
   securitySchemes:
     apiToken:

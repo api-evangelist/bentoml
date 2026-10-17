@@ -352,26 +352,6 @@ paths:
       x-operation-id-original: Create cluster
 components:
   schemas:
-    ModelschemasClusterConfigSchema:
-      type: object
-      properties:
-        default_deployment_kube_namespace:
-          type: string
-    Create_ClusterInput:
-      type: object
-      properties:
-        config:
-          $ref: '#/components/schemas/ModelschemasClusterConfigSchema'
-        description:
-          type: string
-        host_cluster_name:
-          type: string
-        image_resgitry_config:
-          $ref: '#/components/schemas/ModelschemasImageResgitryConfig'
-        multi_tenancy:
-          type: boolean
-        name:
-          type: string
     ModelschemasImageResgitryConfig:
       type: object
       properties:
@@ -380,13 +360,6 @@ components:
         server:
           type: string
         username:
-          type: string
-    Schemasv1ResourceInstanceName:
-      type: object
-      properties:
-        display_name:
-          type: string
-        name:
           type: string
     Schemasv1ClusterWithStandbyListSchema:
       type: object
@@ -519,6 +492,18 @@ components:
         total:
           type: integer
           format: int32
+    ModelschemasClusterConfigSchema:
+      type: object
+      properties:
+        default_deployment_kube_namespace:
+          type: string
+    Schemasv1ResourceInstanceName:
+      type: object
+      properties:
+        display_name:
+          type: string
+        name:
+          type: string
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -527,6 +512,21 @@ components:
         stage:
           type: string
         value:
+          type: string
+    Create_ClusterInput:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/ModelschemasClusterConfigSchema'
+        description:
+          type: string
+        host_cluster_name:
+          type: string
+        image_resgitry_config:
+          $ref: '#/components/schemas/ModelschemasImageResgitryConfig'
+        multi_tenancy:
+          type: boolean
+        name:
           type: string
   securitySchemes:
     apiToken:

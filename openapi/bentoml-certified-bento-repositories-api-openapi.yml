@@ -45,37 +45,18 @@ paths:
       x-operation-id-original: List repositories with certified bentos
 components:
   schemas:
-    ModelschemasBentoRunnerResourceSchema:
+    ModelschemasBentoImageInfoSchema:
       type: object
       properties:
-        cpu:
-          type:
-          - number
-          - 'null'
-          format: double
-        custom_resources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        nvidia_gpu:
-          type:
-          - number
-          - 'null'
-          format: double
-    ModelschemasBentoManifestServiceSchema:
-      type: object
-      properties:
-        config:
-          type: object
-          additionalProperties: {}
-        models:
+        base_image:
+          type: string
+        commands:
           type: array
           items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
-        name:
+            type: string
+        python_requirements:
           type: string
-        service:
+        python_version:
           type: string
     Schemasv1CertifiedBentoRepositoryListIndexSchema:
       type: object
@@ -375,41 +356,6 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
-          type: string
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
-          type: array
-          items:
-            type: string
-        python_requirements:
-          type: string
-        python_version:
-          type: string
     ModelschemasBentoApiSchema:
       type: object
       properties:
@@ -420,21 +366,6 @@ components:
         output:
           type: string
         route:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
           type: string
     ModelschemasBentoManifestSchema:
       type: object
@@ -480,6 +411,43 @@ components:
         spec:
           type: integer
           format: int32
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
+          type: string
     ModelschemasLabelItemSchema:
       type: object
       properties:
@@ -488,6 +456,38 @@ components:
         stage:
           type: string
         value:
+          type: string
+    ModelschemasBentoRunnerResourceSchema:
+      type: object
+      properties:
+        cpu:
+          type:
+          - number
+          - 'null'
+          format: double
+        custom_resources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        nvidia_gpu:
+          type:
+          - number
+          - 'null'
+          format: double
+    ModelschemasBentoManifestServiceSchema:
+      type: object
+      properties:
+        config:
+          type: object
+          additionalProperties: {}
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestModelSchema'
+        name:
+          type: string
+        service:
           type: string
   securitySchemes:
     apiToken:

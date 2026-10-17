@@ -80,29 +80,6 @@ components:
           type: string
         wallet_id:
           type: string
-    Update_Lago_CustomerInput:
-      type: object
-      properties:
-        stripe_id:
-          type:
-          - string
-          - 'null'
-    Schemasv1LagoCustomerListSchema:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Schemasv1LagoCustomer'
-        start:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
     Create_Lago_CustomerInput:
       type: object
       properties:
@@ -122,6 +99,29 @@ components:
           type: string
         plan_type:
           type: string
+    Schemasv1LagoCustomerListSchema:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Schemasv1LagoCustomer'
+        start:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Update_Lago_CustomerInput:
+      type: object
+      properties:
+        stripe_id:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

@@ -369,6 +369,15 @@ paths:
       x-operation-id-original: Update a host cluster
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Host_ClusterInput:
       type: object
       properties:
@@ -392,15 +401,6 @@ components:
           type:
           - string
           - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

@@ -45,15 +45,6 @@ paths:
       x-operation-id-original: List customers
 components:
   schemas:
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Schemasv1CustomerListFullSchema:
       type: object
       properties:
@@ -134,6 +125,15 @@ components:
         subscription_id:
           type: string
         wallet_id:
+          type: string
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
           type: string
   securitySchemes:
     apiToken:

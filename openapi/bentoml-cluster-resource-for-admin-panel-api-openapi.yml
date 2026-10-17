@@ -1668,6 +1668,42 @@ components:
           type: array
           items:
             type: string
+    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        targetClusterName:
+          type: string
+    Update_A_Cluster_In_Admin_PanelInput:
+      type: object
+      properties:
+        config:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        host_cluster_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        multi_tenancy:
+          type: boolean
+        name:
+          type:
+          - string
+          - 'null'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Schemasv1ClusterMemberSchema:
       type: object
       properties:
@@ -1902,42 +1938,6 @@ components:
             updated_at:
               type: string
               format: date-time
-    Update_A_Cluster_In_Admin_PanelInput:
-      type: object
-      properties:
-        config:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        host_cluster_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        multi_tenancy:
-          type: boolean
-        name:
-          type:
-          - string
-          - 'null'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    Migrate_Deployments_On_Cluster_In_Admin_PanelInput:
-      type: object
-      properties:
-        targetClusterName:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

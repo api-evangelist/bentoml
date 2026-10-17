@@ -793,44 +793,35 @@ paths:
       x-operation-id-original: Get auth token by code
 components:
   schemas:
-    Put_Infos_For_Current_UserInput:
+    Controllersv1OIDCDebugInfo:
       type: object
       properties:
-        company:
+        current_org_id:
+          type: integer
+          format: int32
+        current_org_name:
           type: string
-        company_size:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        linkedin_url:
-          type: string
-        model_category:
+        processed_mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Controllersv1GroupMappingDebug'
+        user_groups:
           type: array
           items:
             type: string
-        model_type:
+    Controllersv1OIDCInfoSchema:
+      type: object
+      properties:
+        client_id:
+          type: string
+        enabled:
+          type: boolean
+        provider_url:
+          type: string
+        scopes:
           type: array
           items:
             type: string
-        organization_name:
-          type: string
-        product_usage:
-          type: string
-        role_in_company:
-          type: string
-        use_case:
-          type: string
-      required:
-      - organization_name
-    Controllersv1FirebaseInfoSchema:
-      type: object
-      properties:
-        api_key:
-          type: string
-        auth_domain:
-          type: string
     Login_An_UserInput:
       type: object
       properties:
@@ -841,11 +832,6 @@ components:
       required:
       - name_or_email
       - password
-    ServicesAirtableItemSchema:
-      type: object
-      properties:
-        id:
-          type: string
     Controllersv1GroupMappingDebug:
       type: object
       properties:
@@ -858,11 +844,6 @@ components:
         success:
           type: boolean
         target_org_name:
-          type: string
-    Schemasv1CodeSchema:
-      type: object
-      properties:
-        code:
           type: string
     Controllersv1OIDCCallbackResponseSchema:
       type: object
@@ -923,22 +904,33 @@ components:
             updated_at:
               type: string
               format: date-time
-    Controllersv1OIDCDebugInfo:
+    ServicesAirtableItemSchema:
       type: object
       properties:
-        current_org_id:
-          type: integer
-          format: int32
-        current_org_name:
+        id:
           type: string
-        processed_mappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/Controllersv1GroupMappingDebug'
-        user_groups:
-          type: array
-          items:
-            type: string
+    Controllersv1FirebaseInfoSchema:
+      type: object
+      properties:
+        api_key:
+          type: string
+        auth_domain:
+          type: string
+    Single_Sign_OnInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        idToken:
+          type: string
+        invitation_code:
+          type: string
+        last_name:
+          type: string
+      required:
+      - idToken
     Register_An_UserInput:
       type: object
       properties:
@@ -956,50 +948,6 @@ components:
       - email
       - name
       - password
-    Reset_PasswordInput:
-      type: object
-      properties:
-        current_password:
-          type: string
-        new_password:
-          type: string
-    Controllersv1OIDCInfoSchema:
-      type: object
-      properties:
-        client_id:
-          type: string
-        enabled:
-          type: boolean
-        provider_url:
-          type: string
-        scopes:
-          type: array
-          items:
-            type: string
-    Single_Sign_OnInput:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type: string
-        idToken:
-          type: string
-        invitation_code:
-          type: string
-        last_name:
-          type: string
-      required:
-      - idToken
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Airtable_Event_CallbackInput:
       type: object
       properties:
@@ -1009,6 +957,58 @@ components:
           type: string
         webhook:
           $ref: '#/components/schemas/ServicesAirtableItemSchema'
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Put_Infos_For_Current_UserInput:
+      type: object
+      properties:
+        company:
+          type: string
+        company_size:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        linkedin_url:
+          type: string
+        model_category:
+          type: array
+          items:
+            type: string
+        model_type:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        product_usage:
+          type: string
+        role_in_company:
+          type: string
+        use_case:
+          type: string
+      required:
+      - organization_name
+    Reset_PasswordInput:
+      type: object
+      properties:
+        current_password:
+          type: string
+        new_password:
+          type: string
+    Schemasv1CodeSchema:
+      type: object
+      properties:
+        code:
+          type: string
   securitySchemes:
     apiToken:
       type: apiKey

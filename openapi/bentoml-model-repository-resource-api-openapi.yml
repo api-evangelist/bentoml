@@ -735,6 +735,15 @@ paths:
       x-operation-id-original: Update a model repository
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     Update_A_Model_RepositoryInput:
       type: object
       properties:
@@ -746,15 +755,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     ModelschemasModelManifestSchema:
       type: object
       properties:

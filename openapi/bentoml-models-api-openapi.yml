@@ -210,6 +210,30 @@ paths:
       x-operation-id-original: Create a model
 components:
   schemas:
+    ModelschemasLabelItemSchema:
+      type: object
+      properties:
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    Create_A_ModelInput:
+      type: object
+      properties:
+        build_at:
+          type: string
+        description:
+          type: string
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+        manifest:
+          $ref: '#/components/schemas/ModelschemasModelManifestSchema'
+        version:
+          type: string
     ModelschemasModelManifestSchema:
       type: object
       properties:
@@ -231,15 +255,6 @@ components:
         size_bytes:
           type: integer
           format: int32
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
     Schemasv1ModelListSchema:
       type: object
       properties:
@@ -383,21 +398,6 @@ components:
         total:
           type: integer
           format: int32
-    Create_A_ModelInput:
-      type: object
-      properties:
-        build_at:
-          type: string
-        description:
-          type: string
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-        manifest:
-          $ref: '#/components/schemas/ModelschemasModelManifestSchema'
-        version:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey

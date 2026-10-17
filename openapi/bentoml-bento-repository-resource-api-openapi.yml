@@ -1048,6 +1048,152 @@ paths:
       x-operation-id-original: List bento repository deployments
 components:
   schemas:
+    Update_A_Bento_RepositoryInput:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
+    ModelschemasBentoImageInfoSchema:
+      type: object
+      properties:
+        base_image:
+          type: string
+        commands:
+          type: array
+          items:
+            type: string
+        python_requirements:
+          type: string
+        python_version:
+          type: string
+    ModelschemasDeploymentManifest:
+      type: object
+      properties:
+        dev:
+          type: boolean
+        replicas:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        routing:
+          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
+        super_admin:
+          type: boolean
+    ModelschemasDeploymentRoutingSchema:
+      type: object
+      properties:
+        route_by:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type:
+          - string
+          - 'null'
+        weights:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+    ModelschemasBentoApiSchema:
+      type: object
+      properties:
+        doc:
+          type: string
+        input:
+          type: string
+        output:
+          type: string
+        route:
+          type: string
+    ModelschemasBentoManifestSchema:
+      type: object
+      properties:
+        apis:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
+        bentoml_version:
+          type: string
+        dev:
+          type: boolean
+        entry_service:
+          type: string
+        envs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
+        image:
+          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        runners:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
+        schema:
+          type: object
+          additionalProperties: {}
+        service:
+          type: string
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
+        size_bytes:
+          type: integer
+          format: int32
+        spec:
+          type: integer
+          format: int32
+    ModelschemasEnvItemSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
+    ModelschemasBentoManifestModelSchema:
+      type: object
+      properties:
+        alias:
+          type: string
+        creation_time:
+          type: string
+        endpoint:
+          type: string
+        module:
+          type: string
+        registry:
+          type: string
+        tag:
+          type: string
+    ModelschemasBentoRunnerSchema:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        resource_config:
+          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
+        runnable_type:
+          type: string
     Schemasv1DeploymentListWoRevisionSchema:
       type: object
       properties:
@@ -1335,22 +1481,15 @@ components:
         total:
           type: integer
           format: int32
-    ModelschemasDeploymentRoutingSchema:
+    ModelschemasLabelItemSchema:
       type: object
       properties:
-        route_by:
-          type:
-          - string
-          - 'null'
-        route_type:
-          type:
-          - string
-          - 'null'
-        weights:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
+        key:
+          type: string
+        stage:
+          type: string
+        value:
+          type: string
     ModelschemasBentoRunnerResourceSchema:
       type: object
       properties:
@@ -1382,145 +1521,6 @@ components:
         name:
           type: string
         service:
-          type: string
-    ModelschemasBentoRunnerSchema:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        resource_config:
-          $ref: '#/components/schemas/ModelschemasBentoRunnerResourceSchema'
-        runnable_type:
-          type: string
-    ModelschemasBentoManifestSchema:
-      type: object
-      properties:
-        apis:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ModelschemasBentoApiSchema'
-        bentoml_version:
-          type: string
-        dev:
-          type: boolean
-        entry_service:
-          type: string
-        envs:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasEnvItemSchema'
-        image:
-          $ref: '#/components/schemas/ModelschemasBentoImageInfoSchema'
-        models:
-          type: array
-          items:
-            type: string
-        name:
-          type: string
-        runners:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoRunnerSchema'
-        schema:
-          type: object
-          additionalProperties: {}
-        service:
-          type: string
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasBentoManifestServiceSchema'
-        size_bytes:
-          type: integer
-          format: int32
-        spec:
-          type: integer
-          format: int32
-    Update_A_Bento_RepositoryInput:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelschemasLabelItemSchema'
-    ModelschemasBentoImageInfoSchema:
-      type: object
-      properties:
-        base_image:
-          type: string
-        commands:
-          type: array
-          items:
-            type: string
-        python_requirements:
-          type: string
-        python_version:
-          type: string
-    ModelschemasDeploymentManifest:
-      type: object
-      properties:
-        dev:
-          type: boolean
-        replicas:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        routing:
-          $ref: '#/components/schemas/ModelschemasDeploymentRoutingSchema'
-        super_admin:
-          type: boolean
-    ModelschemasBentoApiSchema:
-      type: object
-      properties:
-        doc:
-          type: string
-        input:
-          type: string
-        output:
-          type: string
-        route:
-          type: string
-    ModelschemasBentoManifestModelSchema:
-      type: object
-      properties:
-        alias:
-          type: string
-        creation_time:
-          type: string
-        endpoint:
-          type: string
-        module:
-          type: string
-        registry:
-          type: string
-        tag:
-          type: string
-    ModelschemasEnvItemSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        stage:
-          type: string
-        value:
-          type: string
-    ModelschemasLabelItemSchema:
-      type: object
-      properties:
-        key:
-          type: string
-        stage:
-          type: string
-        value:
           type: string
   securitySchemes:
     apiToken:

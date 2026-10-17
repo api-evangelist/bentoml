@@ -75,21 +75,6 @@ paths:
       x-operation-id-original: Update a gpu config
 components:
   schemas:
-    Update_A_Gpu_ConfigInput:
-      type: object
-      properties:
-        memory:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        vendor:
-          type:
-          - string
-          - 'null'
     Schemasv1GPUConfigSchema:
       type: object
       properties:
@@ -112,6 +97,21 @@ components:
           format: date-time
         vendor:
           type: string
+    Update_A_Gpu_ConfigInput:
+      type: object
+      properties:
+        memory:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        vendor:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     apiToken:
       type: apiKey

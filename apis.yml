@@ -288,6 +288,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - Cluster Resource
+  tags_raw:
   - cluster resource
   properties:
   - type: OpenAPI

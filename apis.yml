@@ -150,6 +150,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - api-token-resource
+  tags_raw:
   - api token resource
   properties:
   - type: OpenAPI
@@ -352,6 +354,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - CustomerResource
+  tags_raw:
   - customer resource
   properties:
   - type: OpenAPI
@@ -651,6 +655,8 @@ apis:
   humanURL: https://docs.bentoml.com/en/latest/reference/bentocloud/bentocloud-api.html
   baseURL: https://cloud.bentoml.com
   tags:
+  - OrganizationResource
+  tags_raw:
   - organization resource
   properties:
   - type: OpenAPI

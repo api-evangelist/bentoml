@@ -1,4 +1,4 @@
-# BentoML (bentoml)
+# BentoML
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,54 +64,229 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-BentoML is an open-source unified inference platform for packaging, deploying, and scaling machine learning models as REST API services. The framework lets developers define inference services with Python class decorators that auto-generate HTTP endpoints, supporting all major ML frameworks including PyTorch, TensorFlow, Transformers, ONNX, XGBoost, and Scikit-Learn. BentoCloud, the managed cloud platform, provides autoscaling GPU/CPU infrastructure, scale-to-zero cost optimization, a Deployment API for programmatic lifecycle management, and BYOC (Bring Your Own Cloud) for enterprise deployments. BentoML is licensed under Apache 2.0 and is used by 10,000+ organizations including 50+ Fortune 500 companies.
+BentoML is an open-source unified inference platform for building, packaging, and deploying machine learning models as scalable REST API services. Developers define services using Python class decorators that automatically expose model inference logic as HTTP endpoints. BentoCloud, the managed cloud offering, provides autoscaling infrastructure, GPU instance provisioning, scale-to-zero cost optimization, and a control-plane API for programmatic deployment lifecycle management. The platform supports all major ML frameworks including PyTorch, TensorFlow, Transformers, ONNX, XGBoost, and Scikit-Learn, and is licensed under Apache 2.0.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bentoml/refs/heads/main/apis.yml)
+**Areas:** Machine Learning · Model Serving · Inference · Artificial Intelligence · REST API · MLOps · Deployment · GPU · LLM · BentoCloud
 
-Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=bentoml-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=bentoml-api-evangelist&utm_content=repo)
+## BentoML on APIs.io
 
-## Tags
+Everything profiled for BentoML is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bentoml/](https://apis.io/providers/bentoml/)** — or go straight to one of the APIs or properties below.
 
-machine learning, model serving, inference, AI, REST API, MLOps, deployment, GPU, LLM, BentoCloud
+### APIs (62)
 
-## APIs
+- [BentoML Service REST API](https://apis.io/apis/bentoml/bentoml-service-api/) — Auto-generated REST API endpoints produced when BentoML services are deployed. Each decorated service method becomes an HTTP POST endpoint. Supports custom…
+- [BentoML Python SDK](https://apis.io/apis/bentoml/bentoml-sdk/) — Core Python SDK for packaging models as Bentos, managing the model store, building container images, and interacting with BentoML services programmatically…
+- [BentoCloud API Token Management](https://apis.io/apis/bentoml/bentocloud-token-api/) — API for creating, listing, retrieving, and deleting API tokens used to authenticate with BentoCloud services. Supports scoped tokens with granular…
+- [BentoML admin api v1 API](https://apis.io/apis/bentoml/bentoml-admin-api-v1-api/) — admin api v1
+- [BentoML admin deployment resource API](https://apis.io/apis/bentoml/bentoml-admin-deployment-resource-api/) — admin deployment resource
+- [BentoML api token resource API](https://apis.io/apis/bentoml/bentoml-api-token-resource-api/) — api token resource
+- [BentoML api tokens API](https://apis.io/apis/bentoml/bentoml-api-tokens-api/) — api tokens
+- [BentoML api v1 API](https://apis.io/apis/bentoml/bentoml-api-v1-api/) — api v1
+- [BentoML Auth API](https://apis.io/apis/bentoml/bentoml-auth-api/) — auth api
+- [BentoML bento repositories API](https://apis.io/apis/bentoml/bentoml-bento-repositories-api/) — bento repositories
+- [BentoML bento repositories statistics API](https://apis.io/apis/bentoml/bentoml-bento-repositories-statistics-api/) — bento repositories statistics
+- [BentoML bento repository resource API](https://apis.io/apis/bentoml/bentoml-bento-repository-resource-api/) — bento repository resource
+- [BentoML bento resource API](https://apis.io/apis/bentoml/bentoml-bento-resource-api/) — bento resource
+- [BentoML Bentos API](https://apis.io/apis/bentoml/bentoml-bentos-api/) — bentos
+- [BentoML certified bento repositories API](https://apis.io/apis/bentoml/bentoml-certified-bento-repositories-api/) — certified bento repositories
+- [BentoML cluster deployments API](https://apis.io/apis/bentoml/bentoml-cluster-deployments-api/) — cluster deployments
+- [BentoML cluster resource API](https://apis.io/apis/bentoml/bentoml-cluster-resource-api/) — cluster resource
+- [BentoML cluster resource for admin panel API](https://apis.io/apis/bentoml/bentoml-cluster-resource-for-admin-panel-api/) — cluster resource for admin panel
+- [BentoML Clusters API](https://apis.io/apis/bentoml/bentoml-clusters-api/) — clusters
+- [BentoML clusters for admin panel API](https://apis.io/apis/bentoml/bentoml-clusters-for-admin-panel-api/) — clusters for admin panel
+- [BentoML current organization resource API](https://apis.io/apis/bentoml/bentoml-current-organization-resource-api/) — current organization resource
+- [BentoML customer resource API](https://apis.io/apis/bentoml/bentoml-customer-resource-api/) — customer resource
+- [BentoML Customers API](https://apis.io/apis/bentoml/bentoml-customers-api/) — customers api
+- [BentoML deployment resource API](https://apis.io/apis/bentoml/bentoml-deployment-resource-api/) — deployment resource
+- [BentoML deployment revision resource API](https://apis.io/apis/bentoml/bentoml-deployment-revision-resource-api/) — deployment revision resource
+- [BentoML deployment revisions API](https://apis.io/apis/bentoml/bentoml-deployment-revisions-api/) — deployment revisions
+- [BentoML deployment v2 revision resource API](https://apis.io/apis/bentoml/bentoml-deployment-v2-revision-resource-api/) — deployment revision resource
+- [BentoML deployment v2 revisions API](https://apis.io/apis/bentoml/bentoml-deployment-v2-revisions-api/) — deployment revisions
+- [BentoML endpoint resource API](https://apis.io/apis/bentoml/bentoml-endpoint-resource-api/) — endpoint resource
+- [BentoML gpu config resource API](https://apis.io/apis/bentoml/bentoml-gpu-config-resource-api/) — gpu config resource
+- [BentoML gpu configs API](https://apis.io/apis/bentoml/bentoml-gpu-configs-api/) — gpu configs
+- [BentoML host cluster resource API](https://apis.io/apis/bentoml/bentoml-host-cluster-resource-api/) — host cluster resource
+- [BentoML Host Clusters API](https://apis.io/apis/bentoml/bentoml-host-clusters-api/) — host_clusters
+- [BentoML Instance Types API](https://apis.io/apis/bentoml/bentoml-instance-types-api/) — instance_types
+- [BentoML Labels API](https://apis.io/apis/bentoml/bentoml-labels-api/) — labels
+- [BentoML lago billable metrics API](https://apis.io/apis/bentoml/bentoml-lago-billable-metrics-api/) — lago billable metrics api
+- [BentoML lago customer API](https://apis.io/apis/bentoml/bentoml-lago-customer-api/) — lago customer api
+- [BentoML lago plan API](https://apis.io/apis/bentoml/bentoml-lago-plan-api/) — lago plan api
+- [BentoML limit group resource API](https://apis.io/apis/bentoml/bentoml-limit-group-resource-api/) — limit group resource
+- [BentoML limit groups API](https://apis.io/apis/bentoml/bentoml-limit-groups-api/) — limit groups
+- [BentoML model repositories API](https://apis.io/apis/bentoml/bentoml-model-repositories-api/) — model repositories
+- [BentoML model repository resource API](https://apis.io/apis/bentoml/bentoml-model-repository-resource-api/) — model repository resource
+- [BentoML model resource API](https://apis.io/apis/bentoml/bentoml-model-resource-api/) — model resource
+- [BentoML Models API](https://apis.io/apis/bentoml/bentoml-models-api/) — models
+- [BentoML org resource for admin panel API](https://apis.io/apis/bentoml/bentoml-org-resource-for-admin-panel-api/) — org resource for admin panel
+- [BentoML organization resource API](https://apis.io/apis/bentoml/bentoml-organization-resource-api/) — organization resource
+- [BentoML organization secrets API](https://apis.io/apis/bentoml/bentoml-organization-secrets-api/) — organization secrets
+- [BentoML organization secrets with check message API](https://apis.io/apis/bentoml/bentoml-organization-secrets-with-check-message-api/) — organization secrets with check message
+- [BentoML organization secrets with template API](https://apis.io/apis/bentoml/bentoml-organization-secrets-with-template-api/) — organization secrets with template
+- [BentoML Plans API](https://apis.io/apis/bentoml/bentoml-plans-api/) — plans
+- [BentoML request quota API](https://apis.io/apis/bentoml/bentoml-request-quota-api/) — request quota
+- [BentoML resource instance resource API](https://apis.io/apis/bentoml/bentoml-resource-instance-resource-api/) — resource instance resource
+- [BentoML resource instances API](https://apis.io/apis/bentoml/bentoml-resource-instances-api/) — resource instances
+- [BentoML secret names API](https://apis.io/apis/bentoml/bentoml-secret-names-api/) — secret names
+- [BentoML slim bento repositories API](https://apis.io/apis/bentoml/bentoml-slim-bento-repositories-api/) — slim bento repositories
+- [BentoML terminal record resource API](https://apis.io/apis/bentoml/bentoml-terminal-record-resource-api/) — terminal record resource
+- [BentoML Usage API](https://apis.io/apis/bentoml/bentoml-usage-api/) — usage resource
+- [BentoML user resource API](https://apis.io/apis/bentoml/bentoml-user-resource-api/) — user resource
+- [BentoML Users API](https://apis.io/apis/bentoml/bentoml-users-api/) — users api
+- [BentoML websocket v1 API](https://apis.io/apis/bentoml/bentoml-websocket-v1-api/) — websocket v1
+- [BentoML websocket v2 API](https://apis.io/apis/bentoml/bentoml-websocket-v2-api/) — websocket v2
+- [BentoML yatai components API](https://apis.io/apis/bentoml/bentoml-yatai-components-api/) — yatai components
 
-| API | Description |
-|-----|-------------|
-| BentoCloud Deployment API | Programmatic API for managing BentoCloud deployments — create, list, update, terminate, delete |
-| BentoML Service REST API | Auto-generated REST endpoints from decorated service methods for model inference workloads |
-| BentoML Python SDK | Core SDK for packaging models, managing the model store, and calling deployed services |
-| BentoCloud API Token Management | Create, list, retrieve, and delete scoped API tokens for BentoCloud authentication |
+### Published properties
 
-## Plans / Rate Limits / FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | URL |
-|----------|-----|
-| Plans & Pricing | [plans/bentoml-plans-pricing.yml](plans/bentoml-plans-pricing.yml) |
-| Rate Limits | [rate-limits/bentoml-rate-limits.yml](rate-limits/bentoml-rate-limits.yml) |
-| FinOps | [finops/bentoml-finops.yml](finops/bentoml-finops.yml) |
+#### Agentic access (1)
 
-**Pricing tiers:** Starter (pay-as-you-go, monthly), Scale (SLA-backed, invoice), Enterprise (BYOC, invoice). All BentoCloud compute is metered per second; scale-to-zero deployments incur no cost. New accounts receive $10 in free trial credits.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Timestamps
+- [Bentoml Agentic Access](https://apis.io/agentic-access/bentoml/bentoml-agentic-access/)
 
-- Created: 2026-06-12
-- Modified: 2026-06-12
+#### JSON Schema (1)
 
-## Common Properties
+The data models the API reads and writes.
 
-| Type | URL |
-|------|-----|
-| Website | https://www.bentoml.com/ |
-| Documentation | https://docs.bentoml.com/ |
-| GitHub Organization | https://github.com/bentoml |
-| LinkedIn | https://www.linkedin.com/company/bentoml |
-| Blog | https://www.bentoml.com/blog |
-| Pricing | https://www.bentoml.com/pricing |
-| Status Page | https://status.bentoml.com/ |
-| X / Twitter | https://x.com/bentomlai |
-| CLI Reference | https://docs.bentoml.com/en/latest/reference/bentoml/cli.html |
+- [BentoML / BentoCloud API Schemas](https://apis.io/schemas/bentoml/bentoml-schemas/)
 
-## Maintainers
+#### JSON-LD (1)
 
-**Kin Lane** — kin@apievangelist.com
+Linked-data contexts for the provider's vocabulary.
+
+- [Bentoml Context](https://apis.io/jsonld/bentoml/bentoml-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [BentoML Vocabulary](https://apis.io/vocabularies/bentoml/bentoml-vocabulary/)
+
+#### Collections (59)
+
+Postman and Open Collection request collections.
+
+- [yatai api server admin api v1 API](https://apis.io/collections/bentoml/open-bentoml-admin-api-v1-api/)
+- [yatai api server admin api v1 admin deployment resource API](https://apis.io/collections/bentoml/open-bentoml-admin-deployment-resource-api/)
+- [yatai api server admin api v1 api token resource API](https://apis.io/collections/bentoml/open-bentoml-api-token-resource-api/)
+- [yatai api server admin api v1 api tokens API](https://apis.io/collections/bentoml/open-bentoml-api-tokens-api/)
+- [yatai api server admin api v1 API](https://apis.io/collections/bentoml/open-bentoml-api-v1-api/)
+- [yatai api server admin api v1 auth API](https://apis.io/collections/bentoml/open-bentoml-auth-api/)
+- [yatai api server admin api v1 bento repositories API](https://apis.io/collections/bentoml/open-bentoml-bento-repositories-api/)
+- [yatai api server admin api v1 bento repositories statistics API](https://apis.io/collections/bentoml/open-bentoml-bento-repositories-statistics-api/)
+- [yatai api server admin api v1 bento repository resource API](https://apis.io/collections/bentoml/open-bentoml-bento-repository-resource-api/)
+- [yatai api server admin api v1 bento resource API](https://apis.io/collections/bentoml/open-bentoml-bento-resource-api/)
+- [yatai api server admin api v1 bentos API](https://apis.io/collections/bentoml/open-bentoml-bentos-api/)
+- [yatai api server admin api v1 certified bento repositories API](https://apis.io/collections/bentoml/open-bentoml-certified-bento-repositories-api/)
+- [yatai api server admin api v1 cluster deployments API](https://apis.io/collections/bentoml/open-bentoml-cluster-deployments-api/)
+- [yatai api server admin api v1 cluster resource API](https://apis.io/collections/bentoml/open-bentoml-cluster-resource-api/)
+- [yatai api server admin api v1 cluster resource for admin panel API](https://apis.io/collections/bentoml/open-bentoml-cluster-resource-for-admin-panel-api/)
+- [yatai api server admin api v1 clusters API](https://apis.io/collections/bentoml/open-bentoml-clusters-api/)
+- [yatai api server admin api v1 clusters for admin panel API](https://apis.io/collections/bentoml/open-bentoml-clusters-for-admin-panel-api/)
+- [yatai api server admin api v1 current organization resource API](https://apis.io/collections/bentoml/open-bentoml-current-organization-resource-api/)
+- [yatai api server admin api v1 customer resource API](https://apis.io/collections/bentoml/open-bentoml-customer-resource-api/)
+- [yatai api server admin api v1 customers API](https://apis.io/collections/bentoml/open-bentoml-customers-api/)
+- [yatai api server admin api v1 deployment resource API](https://apis.io/collections/bentoml/open-bentoml-deployment-resource-api/)
+- [yatai api server admin api v1 deployment revision resource API](https://apis.io/collections/bentoml/open-bentoml-deployment-revision-resource-api/)
+- [yatai api server admin api v1 deployment revisions API](https://apis.io/collections/bentoml/open-bentoml-deployment-revisions-api/)
+- [yatai api server admin api v1 deployment v2 revision resource API](https://apis.io/collections/bentoml/open-bentoml-deployment-v2-revision-resource-api/)
+- [yatai api server admin api v1 deployment v2 revisions API](https://apis.io/collections/bentoml/open-bentoml-deployment-v2-revisions-api/)
+- …and 34 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [BentoML — jsonschema rules](https://apis.io/rules/bentoml/bentoml-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bentoml Authentication](https://apis.io/security/bentoml/bentoml-authentication/)
+- [Bentoml Domain Security](https://apis.io/security/bentoml/bentoml-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bentoml Plans Pricing](https://apis.io/plans/bentoml/bentoml-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bentoml Rate Limits](https://apis.io/rate-limits/bentoml/bentoml-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bentoml Finops](https://apis.io/finops/bentoml/bentoml-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bentoml.com/)
+- [Documentation](https://docs.bentoml.com/)
+- [Pricing](https://www.bentoml.com/pricing)
+- [Blog](https://www.bentoml.com/blog)
+- [GitHub](https://github.com/bentoml)
+- [Status](https://status.bentoml.com/)
+
+## API Evangelist rating
+
+**Kin Score 32.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 50.1 |
+| Contract governance | 23.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 13.2 |
+
+**Agent readiness 22.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bentoml/](https://apis.io/providers/bentoml/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BentoML: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bentoml/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
